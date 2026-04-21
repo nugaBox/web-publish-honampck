@@ -1,0 +1,187 @@
+<div class="hn-board-wrap">
+
+  <!-- 툴바: 필터 + 검색 -->
+  <div class="b-toolbar">
+    <div class="left">
+      <span>카테고리</span>
+      <select class="select" aria-label="카테고리 선택">
+        <option>전체</option>
+        <option>노회공지</option>
+        <option>긴급공지</option>
+        <option>채용·공모</option>
+        <option>입찰·공고</option>
+      </select>
+      <span style="margin-left:8px;">기간</span>
+      <select class="select" aria-label="기간 선택">
+        <option>전체기간</option>
+        <option>1주일</option>
+        <option>1개월</option>
+        <option>3개월</option>
+      </select>
+    </div>
+    <div class="search-wrap">
+      <select aria-label="검색 조건">
+        <option>제목</option>
+        <option>제목+내용</option>
+        <option>작성자</option>
+      </select>
+      <input type="text" placeholder="검색어를 입력하세요" aria-label="검색어">
+      <button type="button"><i class="fa-regular fa-magnifying-glass"></i> 검색</button>
+    </div>
+  </div>
+
+  <!-- 게시판 테이블 -->
+  <table class="btable">
+    <colgroup>
+      <col style="width:70px">
+      <col style="width:110px">
+      <col>
+      <col style="width:110px">
+      <col style="width:110px">
+      <col style="width:50px">
+      <col style="width:80px">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">번호</th>
+        <th scope="col">분류</th>
+        <th scope="col">제목</th>
+        <th scope="col">작성자</th>
+        <th scope="col">등록일</th>
+        <th scope="col">첨부</th>
+        <th scope="col">조회</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="notice">
+        <td><span class="pin">공지</span></td>
+        <td><span class="cat g">노회공지</span></td>
+        <td class="title"><a href="view.html">제108회 정기노회 소집 공고 및 안건 접수 안내</a></td>
+        <td>사무처</td>
+        <td>2026.04.15</td>
+        <td><i class="fa-regular fa-paperclip file-ico"></i></td>
+        <td>1,842</td>
+      </tr>
+      <tr class="notice">
+        <td><span class="pin">공지</span></td>
+        <td><span class="cat b">긴급공지</span></td>
+        <td class="title"><a href="view.html">사무처 시스템 점검에 따른 일시 서비스 중단 안내(4/25 02:00~06:00)</a></td>
+        <td>정보화팀</td>
+        <td>2026.04.12</td>
+        <td></td>
+        <td>932</td>
+      </tr>
+      <tr class="notice">
+        <td><span class="pin">공지</span></td>
+        <td><span class="cat g">노회공지</span></td>
+        <td class="title"><a href="view.html">2026년도 노회 행정문서 표준서식 개정안 시행</a></td>
+        <td>사무처</td>
+        <td>2026.04.09</td>
+        <td><i class="fa-regular fa-paperclip file-ico"></i></td>
+        <td>1,204</td>
+      </tr>
+      <tr>
+        <td>274</td>
+        <td><span class="cat g">노회공지</span></td>
+        <td class="title"><a href="view.html">2026년도 상반기 목사고시 접수 기간 연장 안내</a></td>
+        <td>고시부</td>
+        <td>2026.04.10</td>
+        <td><i class="fa-regular fa-paperclip file-ico"></i></td>
+        <td>782</td>
+      </tr>
+      <tr>
+        <td>273</td>
+        <td><span class="cat b">교단공지</span></td>
+        <td class="title"><a href="view.html">총회 헌법개정 공청회 참석 대상자 안내(노회별 2인)</a></td>
+        <td>사무처</td>
+        <td>2026.04.08</td>
+        <td><i class="fa-regular fa-paperclip file-ico"></i></td>
+        <td>641</td>
+      </tr>
+      <tr>
+        <td>272</td>
+        <td><span class="cat g">채용공모</span></td>
+        <td class="title"><a href="view.html">노회 사무처 행정간사(계약직) 공개채용 공고</a></td>
+        <td>인사위원회</td>
+        <td>2026.04.05</td>
+        <td><i class="fa-regular fa-paperclip file-ico"></i></td>
+        <td>2,103</td>
+      </tr>
+      <tr>
+        <td>271</td>
+        <td><span class="cat g">노회공지</span></td>
+        <td class="title"><a href="view.html">2026 춘계 직원 연합수련회 개최 안내</a></td>
+        <td>교육부</td>
+        <td>2026.04.01</td>
+        <td></td>
+        <td>438</td>
+      </tr>
+      <tr>
+        <td>270</td>
+        <td><span class="cat b">교단공지</span></td>
+        <td class="title"><a href="view.html">제109회 총회 총대 추천 제출기한 안내</a></td>
+        <td>사무처</td>
+        <td>2026.03.28</td>
+        <td><i class="fa-regular fa-paperclip file-ico"></i></td>
+        <td>512</td>
+      </tr>
+      <tr>
+        <td>269</td>
+        <td><span class="cat g">입찰공고</span></td>
+        <td class="title"><a href="view.html">노회회관 냉난방 설비 교체 공사 입찰 공고</a></td>
+        <td>재정부</td>
+        <td>2026.03.25</td>
+        <td><i class="fa-regular fa-paperclip file-ico"></i></td>
+        <td>389</td>
+      </tr>
+      <tr>
+        <td>268</td>
+        <td><span class="cat g">노회공지</span></td>
+        <td class="title"><a href="view.html">2026년도 상비부서·특별위원회 구성 완료 안내</a></td>
+        <td>사무처</td>
+        <td>2026.03.22</td>
+        <td></td>
+        <td>671</td>
+      </tr>
+      <tr>
+        <td>267</td>
+        <td><span class="cat g">노회공지</span></td>
+        <td class="title"><a href="view.html">제107회 정기노회 결의사항 공고</a></td>
+        <td>서기부</td>
+        <td>2026.03.20</td>
+        <td><i class="fa-regular fa-paperclip file-ico"></i></td>
+        <td>1,455</td>
+      </tr>
+      <tr>
+        <td>266</td>
+        <td><span class="cat b">교단공지</span></td>
+        <td class="title"><a href="view.html">총회 교육부 주관 전국 목회자 세미나 안내</a></td>
+        <td>교육부</td>
+        <td>2026.03.17</td>
+        <td><i class="fa-regular fa-paperclip file-ico"></i></td>
+        <td>298</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 페이지네이션 + 버튼 -->
+  <div class="btable-foot">
+    <button type="button" class="btn-hn ghost"><i class="fa-regular fa-list"></i> 목록</button>
+    <nav class="pagination-hn" aria-label="페이지 이동">
+      <a aria-label="처음 페이지"><i class="fa-regular fa-angles-left"></i></a>
+      <a aria-label="이전 페이지"><i class="fa-regular fa-chevron-left"></i></a>
+      <a class="on" aria-current="page">1</a>
+      <a>2</a>
+      <a>3</a>
+      <a>4</a>
+      <a>5</a>
+      <a>6</a>
+      <a>7</a>
+      <a>8</a>
+      <a aria-label="다음 페이지"><i class="fa-regular fa-chevron-right"></i></a>
+      <a aria-label="마지막 페이지"><i class="fa-regular fa-angles-right"></i></a>
+    </nav>
+    <button type="button" class="btn-hn primary"><i class="fa-regular fa-pen-to-square"></i> 글쓰기</button>
+  </div>
+
+</div>

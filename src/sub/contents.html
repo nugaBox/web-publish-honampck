@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>컨텐츠 컴포넌트 — 대한예수교장로회 호남노회</title>
+
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/pretendard.css">
+  <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/sub.css">
+</head>
+<body>
+
+  <div data-include="../include/header.html"></div>
+
+  <main id="main-content">
+
+    <!-- 페이지 헤더 -->
+    <div class="hn-page-head">
+      <div class="inner">
+        <div class="breadcrumb-hn">
+          <span class="home"><i class="fa-regular fa-house"></i> HOME</span>
+          <i class="fa-regular fa-chevron-right"></i>
+          <span>노회 소개</span>
+          <i class="fa-regular fa-chevron-right"></i>
+          <span class="cur">컨텐츠 컴포넌트</span>
+        </div>
+        <h1>컨텐츠 컴포넌트</h1>
+        <p class="desc">서브페이지에서 사용 가능한 UI 컴포넌트 모음입니다.</p>
+      </div>
+    </div>
+
+    <div class="sub-layout">
+
+      <!-- 사이드바 -->
+      <aside>
+        <div class="sidebar-head">
+          <div class="k">INTRO</div>
+          <h3>노회 소개</h3>
+        </div>
+        <nav class="sidebar-list">
+          <a href="#">
+            <span>노회 소개</span>
+            <i class="fa-regular fa-chevron-right" style="font-size:10px;"></i>
+          </a>
+          <a href="#">
+            <span>임원 구성</span>
+            <i class="fa-regular fa-chevron-right" style="font-size:10px;"></i>
+          </a>
+          <a href="#">
+            <span>노회 규칙</span>
+            <i class="fa-regular fa-chevron-right" style="font-size:10px;"></i>
+          </a>
+          <a href="#">
+            <span>오시는 길</span>
+            <i class="fa-regular fa-chevron-right" style="font-size:10px;"></i>
+          </a>
+          <a href="contents.html" class="on">
+            <span>컨텐츠 컴포넌트</span>
+            <span></span>
+          </a>
+        </nav>
+        <div class="sidebar-help">
+          <h4><i class="fa-regular fa-headset"></i> 담당자 안내</h4>
+          <p>문의사항이 있으시면 사무처로 연락주시기 바랍니다.</p>
+          <div class="phone-num">062-234-5678</div>
+          <div class="hours">평일 09:00 – 18:00</div>
+        </div>
+      </aside>
+
+      <!-- 컨텐츠 컴포넌트 쇼케이스 -->
+      <section class="content">
+        <h2 class="ptitle">
+          <span>컨텐츠 컴포넌트</span>
+          <span class="cnt">UI KIT · 골라서 사용</span>
+        </h2>
+
+        <!-- 목차 -->
+        <nav class="show-toc">
+          <span class="k">INDEX</span>
+          <a href="#sec-buttons">버튼</a>
+          <a href="#sec-badges">뱃지/칩</a>
+          <a href="#sec-alerts">알림 박스</a>
+          <a href="#sec-forms">폼 컨트롤</a>
+          <a href="#sec-dttable">정의 테이블</a>
+          <a href="#sec-steps">단계 프로세스</a>
+          <a href="#sec-timeline">연혁 타임라인</a>
+          <a href="#sec-kpi">KPI 타일</a>
+          <a href="#sec-attach">첨부파일</a>
+          <a href="#sec-pagination">페이지네이션</a>
+          <a href="#sec-palette">컬러 팔레트</a>
+        </nav>
+
+        <!-- Buttons -->
+        <div id="sec-buttons" class="show-block">
+          <div class="show-head">
+            <h3>Buttons <em>.btn-hn</em></h3>
+            <span class="badge-ui">COMPONENT</span>
+          </div>
+          <div class="show-body">
+            <button class="btn-hn primary"><i class="fa-regular fa-check"></i> 확인 (Primary)</button>
+            <button class="btn-hn secondary"><i class="fa-regular fa-share-nodes"></i> 공유 (Secondary)</button>
+            <button class="btn-hn"><i class="fa-regular fa-pen"></i> 수정</button>
+            <button class="btn-hn ghost"><i class="fa-regular fa-list"></i> 목록</button>
+            <button class="btn-hn" disabled style="opacity:.45;cursor:not-allowed;">비활성</button>
+          </div>
+        </div>
+
+        <!-- Badges & Chips -->
+        <div id="sec-badges" class="show-block">
+          <div class="show-head">
+            <h3>Badges &amp; Chips <em>.chip / .cat / .pin</em></h3>
+            <span class="badge-ui">COMPONENT</span>
+          </div>
+          <div class="show-body">
+            <span class="chip">기본</span>
+            <span class="chip g dot">완료</span>
+            <span class="chip b dot">진행중</span>
+            <span class="chip" style="background:#fcecee;color:var(--hn-red);border-color:#ebc6cb;">마감</span>
+            <span class="cat g">노회공지</span>
+            <span class="cat b">긴급공지</span>
+            <span class="pin">공지</span>
+          </div>
+        </div>
+
+        <!-- Alerts -->
+        <div id="sec-alerts" class="show-block">
+          <div class="show-head">
+            <h3>Alerts <em>.alert-hn</em></h3>
+            <span class="badge-ui">COMPONENT</span>
+          </div>
+          <div class="show-body col">
+            <div class="alert-hn info">
+              <i class="fa-regular fa-circle-info"></i>
+              <div><b>안내</b> — 제108회 정기노회가 4월 28일(화) 오전 10시 광주제일교회에서 개최됩니다.</div>
+            </div>
+            <div class="alert-hn success">
+              <i class="fa-regular fa-circle-check"></i>
+              <div><b>완료</b> — 안건 제출이 정상적으로 접수되었습니다. 처리 결과는 이메일로 안내됩니다.</div>
+            </div>
+            <div class="alert-hn warn">
+              <i class="fa-regular fa-triangle-exclamation"></i>
+              <div><b>주의</b> — 4월 25일 02:00 – 06:00 서버 점검으로 일시적 서비스 중단이 있습니다.</div>
+            </div>
+            <div class="alert-hn danger">
+              <i class="fa-regular fa-circle-xmark"></i>
+              <div><b>오류</b> — 첨부파일 용량이 제한(20MB)을 초과했습니다.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Controls -->
+        <div id="sec-forms" class="show-block">
+          <div class="show-head">
+            <h3>Form Controls <em>.in-*</em></h3>
+            <span class="badge-ui">COMPONENT</span>
+          </div>
+          <div class="show-body grid-2">
+            <div class="in-field">
+              <label class="in-label">제목 <span class="req">*</span></label>
+              <input class="in-text" placeholder="제목을 입력하세요">
+            </div>
+            <div class="in-field">
+              <label class="in-label">분류</label>
+              <select class="in-select">
+                <option>노회공지</option>
+                <option>교단공지</option>
+                <option>긴급공지</option>
+              </select>
+            </div>
+            <div class="in-field" style="grid-column:1/-1;">
+              <label class="in-label">본문</label>
+              <textarea class="in-textarea" placeholder="내용을 입력하세요"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Definition Table -->
+        <div id="sec-dttable" class="show-block">
+          <div class="show-head">
+            <h3>Definition Table <em>.dt-table · 기관 정보 표준</em></h3>
+            <span class="badge-ui">COMPONENT</span>
+          </div>
+          <div class="show-body col">
+            <table class="dt-table">
+              <tbody>
+                <tr><th>기관명</th><td>대한예수교장로회 호남노회</td></tr>
+                <tr><th>설립</th><td>1954년 4월</td></tr>
+                <tr><th>소속 교회</th><td>238개 교회 (2026년 1분기 기준)</td></tr>
+                <tr><th>소재지</th><td>(61492) 광주광역시 동구 금남로 23길 12, 노회회관 4층</td></tr>
+                <tr><th>연락처</th><td>062-234-5678 (팩스 062-234-5679)</td></tr>
+                <tr><th>이메일</th><td>office@honampck.org</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Process Steps -->
+        <div id="sec-steps" class="show-block">
+          <div class="show-head">
+            <h3>Process Steps <em>.steps · 절차 안내</em></h3>
+            <span class="badge-ui">COMPONENT</span>
+          </div>
+          <div class="show-body col">
+            <div class="steps">
+              <div class="step">
+                <div class="n">1</div>
+                <div class="t">신청서 제출</div>
+                <div class="d">표준서식 다운로드 후 작성하여 이메일 제출</div>
+              </div>
+              <div class="step">
+                <div class="n">2</div>
+                <div class="t">서류 검토</div>
+                <div class="d">사무처에서 5영업일 이내 검토</div>
+              </div>
+              <div class="step">
+                <div class="n">3</div>
+                <div class="t">위원회 심의</div>
+                <div class="d">해당 상비부서 정기회의에서 심의</div>
+              </div>
+              <div class="step">
+                <div class="n">4</div>
+                <div class="t">결과 통보</div>
+                <div class="d">이메일·공문으로 개별 통보</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div id="sec-timeline" class="show-block">
+          <div class="show-head">
+            <h3>Timeline <em>.timeline · 연혁</em></h3>
+            <span class="badge-ui">COMPONENT</span>
+          </div>
+          <div class="show-body col">
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="year">2024</div>
+                <div class="t">창립 70주년 기념 감사예배</div>
+                <div class="d">광주제일교회에서 소속 교회 대표 600여 명 참석</div>
+              </div>
+              <div class="timeline-item">
+                <div class="year">2010</div>
+                <div class="t">노회회관 신축 준공</div>
+                <div class="d">동구 금남로 현 위치 이전, 연면적 1,200㎡</div>
+              </div>
+              <div class="timeline-item">
+                <div class="year">1985</div>
+                <div class="t">사회봉사부 독립 출범</div>
+                <div class="d">지역 장학·구호 사업을 상시 운영 체계로 전환</div>
+              </div>
+              <div class="timeline-item">
+                <div class="year">1954</div>
+                <div class="t">호남노회 창립</div>
+                <div class="d">광주·전남 지역 32개 교회로 출범</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI Tiles -->
+        <div id="sec-kpi" class="show-block">
+          <div class="show-head">
+            <h3>KPI Tiles <em>.kpi</em></h3>
+            <span class="badge-ui">COMPONENT</span>
+          </div>
+          <div class="show-body">
+            <div class="kpi">
+              <div class="k">Member Churches</div>
+              <div class="v">238<span class="unit">개</span></div>
+            </div>
+            <div class="kpi g">
+              <div class="k">Committees</div>
+              <div class="v">24<span class="unit">개</span></div>
+            </div>
+            <div class="kpi b">
+              <div class="k">Ordained Pastors</div>
+              <div class="v">412<span class="unit">명</span></div>
+            </div>
+            <div class="kpi">
+              <div class="k">Social Aid · Q1</div>
+              <div class="v">4.8<span class="unit">억 원</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Attachments -->
+        <div id="sec-attach" class="show-block">
+          <div class="show-head">
+            <h3>Attachments <em>.attachments</em></h3>
+            <span class="badge-ui">COMPONENT</span>
+          </div>
+          <div class="show-body col">
+            <div class="attachments" style="background:#fff;border:1px solid var(--hn-line);padding:16px 18px;">
+              <span class="label"><i class="fa-regular fa-paperclip"></i> 첨부파일 (3)</span>
+              <a href="#">
+                <span class="ext pdf">PDF</span>
+                <span>2025년도 결산보고서(최종).pdf</span>
+                <span class="size">1.2 MB</span>
+                <span class="dl"><i class="fa-regular fa-arrow-down-to-bracket"></i></span>
+              </a>
+              <a href="#">
+                <span class="ext hwp">HWP</span>
+                <span>신청서 표준서식.hwp</span>
+                <span class="size">96 KB</span>
+                <span class="dl"><i class="fa-regular fa-arrow-down-to-bracket"></i></span>
+              </a>
+              <a href="#">
+                <span class="ext xls">XLS</span>
+                <span>교세 통계 원자료.xlsx</span>
+                <span class="size">312 KB</span>
+                <span class="dl"><i class="fa-regular fa-arrow-down-to-bracket"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div id="sec-pagination" class="show-block">
+          <div class="show-head">
+            <h3>Pagination <em>.pagination-hn</em></h3>
+            <span class="badge-ui">COMPONENT</span>
+          </div>
+          <div class="show-body">
+            <nav class="pagination-hn" aria-label="페이지 이동">
+              <a class="nav"><i class="fa-regular fa-angles-left"></i></a>
+              <a class="nav"><i class="fa-regular fa-chevron-left"></i></a>
+              <a class="on">1</a>
+              <a>2</a>
+              <a>3</a>
+              <a>4</a>
+              <a>5</a>
+              <a class="nav"><i class="fa-regular fa-chevron-right"></i></a>
+              <a class="nav"><i class="fa-regular fa-angles-right"></i></a>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Color Palette -->
+        <div id="sec-palette" class="show-block">
+          <div class="show-head">
+            <h3>Color Palette <em>CSS vars</em></h3>
+            <span class="badge-ui">TOKENS</span>
+          </div>
+          <div class="show-body col">
+            <div class="swatch-grid">
+              <div class="swatch">
+                <div class="box" style="background:var(--hn-green);"></div>
+                <div class="n">Green · Primary</div>
+                <div class="c">#0F6B3E</div>
+              </div>
+              <div class="swatch">
+                <div class="box" style="background:var(--hn-blue);"></div>
+                <div class="n">Blue · Accent</div>
+                <div class="c">#14417A</div>
+              </div>
+              <div class="swatch">
+                <div class="box" style="background:var(--hn-text);"></div>
+                <div class="n">Text · Primary</div>
+                <div class="c">#15181D</div>
+              </div>
+              <div class="swatch">
+                <div class="box" style="background:var(--hn-text-3);"></div>
+                <div class="n">Text · Muted</div>
+                <div class="c">#6B7380</div>
+              </div>
+              <div class="swatch">
+                <div class="box" style="background:var(--hn-bg-alt);border:1px solid var(--hn-line);"></div>
+                <div class="n">Background</div>
+                <div class="c">#F5F6F8</div>
+              </div>
+              <div class="swatch">
+                <div class="box" style="background:var(--hn-red);"></div>
+                <div class="n">Red · Notice</div>
+                <div class="c">#B4303A</div>
+              </div>
+              <div class="swatch">
+                <div class="box" style="background:var(--hn-bg-dark);"></div>
+                <div class="n">Dark · Footer</div>
+                <div class="c">#1F242B</div>
+              </div>
+              <div class="swatch">
+                <div class="box" style="background:var(--hn-line);"></div>
+                <div class="n">Line · Border</div>
+                <div class="c">#DFE2E8</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <div data-include="../include/footer.html"></div>
+
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/sub.js"></script>
+</body>
+</html>
