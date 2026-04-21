@@ -18,7 +18,7 @@
 }
 .hn-kv .inner {
   max-width: 1280px; margin: 0 auto;
-  padding: 90px 40px 96px;
+  padding: 56px 40px 64px;
   display: grid;
   grid-template-columns: 1.3fr 1fr;
   gap: 60px;
@@ -57,24 +57,6 @@
   margin: 0 0 35px;
   max-width: 650px;
   font-weight: 400;
-}
-.hn-kv .meta {
-  display: flex; gap: 40px;
-  padding-top: 25px;
-  border-top: 1px solid rgba(255,255,255,.14);
-  margin-top: 35px;
-}
-.hn-kv .meta .k {
-  font-size: 13px; letter-spacing: 0.14em;
-  color: #8fa6c4;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-.hn-kv .meta .v {
-  font-size: 28px; font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.02em;
 }
 
 .hn-kv-side {
@@ -310,8 +292,6 @@
   }
   .hn-kv h1 { font-size: 30px; }
   .hn-kv-side { display: none; }
-  .hn-kv .meta { gap: 20px; }
-  .hn-kv .meta .v { font-size: 22px; }
   .hn-quick .grid { grid-template-columns: repeat(3, 1fr); padding: 0; }
   .hn-quick-card { padding: 18px 16px; min-height: auto; }
   .hn-quick-card .d, .hn-quick-card .arrow { display: none; }

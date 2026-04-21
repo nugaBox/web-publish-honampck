@@ -50,22 +50,9 @@ ul, ol { padding-left: 1.2em; margin: 0; }
 p { margin: 0 0 1em; }
 
 /* ── 로고 ─────────────────────────────────────────────────── */
-.hn-logo { display: flex; align-items: center; gap: 15px; }
-.hn-logo .mark { width: 45px; height: 58px; display: block; flex-shrink: 0; }
-.hn-logo .name {
-  font-weight: 800;
-  font-size: 21px;
-  letter-spacing: -0.03em;
-  color: var(--hn-text);
-  line-height: 1.15;
-}
-.hn-logo .sub {
-  font-size: 13px;
-  color: var(--hn-text-3);
-  letter-spacing: 0.14em;
-  margin-top: 4px;
-  font-weight: 500;
-}
+.hn-logo { display: flex; align-items: center; }
+.hn-logo img { height: 60px; width: auto; display: block; }
+.hn-logo .logo-mobile { display: none; }
 
 /* ── 탑바 ─────────────────────────────────────────────────── */
 .hn-topbar {
@@ -107,27 +94,8 @@ p { margin: 0 0 1em; }
   height: 100px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
-.hn-search {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid var(--hn-line);
-  border-radius: 999px;
-  padding: 9px 20px;
-  font-size: 16px;
-  color: var(--hn-text-3);
-  width: 340px;
-}
-.hn-search input {
-  border: 0; outline: 0; flex: 1;
-  background: transparent;
-  font-family: inherit;
-  font-size: 16px;
-  color: var(--hn-text);
-}
-.hn-search input::placeholder { color: var(--hn-text-4); }
 
 /* ── GNB ──────────────────────────────────────────────────── */
 #site-header {
@@ -210,13 +178,10 @@ p { margin: 0 0 1em; }
   gap: 60px;
 }
 .hn-footer-main .logo {
-  display: flex; align-items: center; gap: 15px;
+  display: flex; align-items: center;
   margin-bottom: 18px;
 }
-.hn-footer-main .logo .name {
-  color: #fff; font-weight: 800;
-  font-size: 21px; letter-spacing: -0.02em;
-}
+.hn-footer-main .logo img { height: 48px; width: auto; display: block; }
 .hn-footer-main .copy {
   margin-top: 28px; font-size: 15px; color: #7f8894;
   line-height: 1.7;
@@ -366,8 +331,9 @@ p { margin: 0 0 1em; }
 @media (max-width: 768px) {
   .hn-topbar { display: none; }
   .hn-header .inner { height: 64px; padding: 0 16px; }
-  .hn-search { display: none; }
   .hn-gnb { display: none; }
+  .hn-logo .logo-desktop { display: none; }
+  .hn-logo .logo-mobile { display: block; }
   .hn-footer-main {
     grid-template-columns: 1fr;
     gap: 28px; padding: 28px 16px 36px;
