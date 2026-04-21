@@ -4,7 +4,12 @@
 
 /* ── 히어로 / 키 비주얼 ───────────────────────────────────── */
 .hn-kv {
-  background: linear-gradient(180deg, #1b3557 0%, #102239 100%);
+  background-image:
+    linear-gradient(180deg, rgba(27, 53, 87, 0.92) 0%, rgba(16, 34, 57, 0.92) 100%),
+    url('../images/photo-1.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -103,7 +108,7 @@
 
 .hn-kv-side li {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   gap: 18px;
   padding: 12px 0;
   font-size: 16px;
@@ -117,33 +122,35 @@
 .hn-kv-side .dpill {
   text-align: center;
   border: 1px solid rgba(255, 255, 255, .18);
-  padding: 5px 10px;
-  min-width: 62px;
+  width: 60px;
+  height: 52px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .hn-kv-side .dpill .d {
   font-weight: 800;
   color: #fff;
-  font-size: 19px;
+  font-size: 17px;
   line-height: 1;
-}
-
-.hn-kv-side .dpill .m {
-  color: #8fa6c4;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  margin-top: 3px;
 }
 
 .hn-kv-side li .t {
   color: #dfe7f2;
-  align-self: center;
 }
 
-.hn-kv-side li .tag {
-  align-self: center;
-  color: #8fa6c4;
+.hn-kv-side .kv-item-text {
+  display: grid;
+  gap: 4px;
+  align-content: center;
+}
+
+.hn-kv-side .kv-item-text .place {
   font-size: 13px;
+  color: #8fa6c4;
 }
 
 /* ── 퀵링크 ───────────────────────────────────────────────── */
