@@ -245,7 +245,7 @@
 
 /* ── 게시판 카드 영역 ─────────────────────────────────────── */
 :root {
-  --board-panel-height: 355px;
+  --board-panel-height: 365px;
 }
 
 .board-row {

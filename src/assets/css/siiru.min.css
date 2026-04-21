@@ -1,0 +1,6717 @@
+@charset "UTF-8";
+
+html,
+body {
+    font-family: AppleSDGothicNeo-Regular, 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', dotum, '돋움', sans-serif;
+    font-size: 1em
+}
+
+.siiru-clr {
+    clear: both !important
+}
+
+.siiru-inline {
+    display: inline-block !important
+}
+
+.siiru-fl {
+    float: left !important
+}
+
+.siiru-fr {
+    float: right !important
+}
+
+.siiru-tc {
+    text-align: center !important
+}
+
+.siiru-tl {
+    text-align: left !important
+}
+
+.siiru-tr {
+    text-align: right !important
+}
+
+.siiru-m-none {
+    margin: 0 !important
+}
+
+.siiru-p-none {
+    padding: 0 !important
+}
+
+.siiru-mt0 {
+    margin-top: 0 !important
+}
+
+.siiru-mt5 {
+    margin-top: 5px !important
+}
+
+.siiru-mt10 {
+    margin-top: 10px !important
+}
+
+.siiru-mt20 {
+    margin-top: 20px !important
+}
+
+.siiru-ml0 {
+    margin-left: 0 !important
+}
+
+.siiru-ml5 {
+    margin-left: 5px !important
+}
+
+.siiru-ml10 {
+    margin-left: 10px !important
+}
+
+.siiru-ml20 {
+    margin-left: 20px !important
+}
+
+.siiru-mr0 {
+    margin-right: 0 !important
+}
+
+.siiru-mr5 {
+    margin-right: 5px !important
+}
+
+.siiru-mr10 {
+    margin-right: 10px !important
+}
+
+.siiru-mr20 {
+    margin-right: 20px !important
+}
+
+.siiru-mb0 {
+    margin-bottom: 0 !important
+}
+
+.siiru-mb5 {
+    margin-bottom: 5px !important
+}
+
+.siiru-mb10 {
+    margin-bottom: 10px !important
+}
+
+.siiru-mb20 {
+    margin-bottom: 20px !important
+}
+
+.siiru-pt0 {
+    padding-top: 0 !important
+}
+
+.siiru-pt5 {
+    padding-top: 5px !important
+}
+
+.siiru-pt10 {
+    padding-top: 10px !important
+}
+
+.siiru-pt20 {
+    padding-top: 20px !important
+}
+
+.siiru-pl0 {
+    padding-left: 0 !important
+}
+
+.siiru-pl5 {
+    padding-left: 5px !important
+}
+
+.siiru-pl10 {
+    padding-left: 10px !important
+}
+
+.siiru-pl20 {
+    padding-left: 20px !important
+}
+
+.siiru-pr0 {
+    padding-right: 0 !important
+}
+
+.siiru-pr5 {
+    padding-right: 5px !important
+}
+
+.siiru-pr10 {
+    padding-right: 10px !important
+}
+
+.siiru-pr20 {
+    padding-right: 20px !important
+}
+
+.siiru-pb0 {
+    padding-bottom: 0 !important
+}
+
+.siiru-pb5 {
+    padding-bottom: 5px !important
+}
+
+.siiru-pb10 {
+    padding-bottom: 10px !important
+}
+
+.siiru-pb20 {
+    padding-bottom: 20px !important
+}
+
+.siiru-border-t-none {
+    border-top: none !important
+}
+
+.siiru-border-b-none {
+    border-bottom: none !important
+}
+
+.siiru-pointer {
+    cursor: pointer
+}
+
+.siiru-hidden {
+    display: none !important
+}
+
+td.alt {
+    color: #a94443
+}
+
+.ui-datepicker {
+    background-color: #fff;
+    border: 1px solid #66afe9;
+    border-radius: 4px;
+    display: none;
+    margin-top: 4px;
+    padding: 10px;
+    width: 240px;
+    font-size: .9em
+}
+
+.ui-datepicker .ui-datepicker-current,
+.ui-datepicker .ui-datepicker-close {
+    font-size: .9em
+}
+
+.siiru-btnSet {
+    margin: 10px 0 20px
+}
+
+.siiru-btn {
+    display: inline-block;
+    padding: 8px 15px 6px !important;
+    margin-bottom: 0 !important;
+    font-size: 1em;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #444;
+    background-image: none;
+    border: 0 !important;
+    color: #fff !important;
+    border-radius: 3px
+}
+
+.siiru-btn:focus,
+.siiru-btn:active:focus,
+.siiru-btn.active:focus,
+.siiru-btn.focus,
+.siiru-btn:active.focus,
+.siiru-btn.active.focus {
+    outline: thin dotted;
+    outline: 5px auto;
+    outline-offset: -2px
+}
+
+.siiru-btn:hover,
+.siiru-btn.active {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal !important
+}
+
+.siiru-btn:active,
+.siiru-btn.active {
+    background-image: none;
+    outline: 0;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125)
+}
+
+.siiru-btn.disabled,
+.siiru-btn[disabled],
+fieldset[disabled] .siiru-btn {
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: .65
+}
+
+.siiru-btn-default {
+    color: #333 !important;
+    border: 1px solid #ccc !important;
+    background-color: #fff !important
+}
+
+.siiru-btn-default:hover,
+.siiru-btn-default.active {
+    color: #333 !important;
+    background: #e6e6e6 !important;
+    border: 1px solid #ccc !important
+}
+
+.siiru-btn-primary {
+    background-color: #337ab7 !important
+}
+
+.siiru-btn-primary:hover,
+.siiru-btn-primary.active {
+    background: #286090 !important
+}
+
+.siiru-btn-success {
+    background-color: #5cb85c !important
+}
+
+.siiru-btn-success:hover,
+.siiru-btn-success.active {
+    background: #4cae4c !important
+}
+
+.siiru-btn-warning {
+    background-color: #f0ad4e !important
+}
+
+.siiru-btn-warning:hover,
+.siiru-btn-warning.active {
+    background: #ec971f !important
+}
+
+.siiru-btn-danger {
+    background-color: #d9534f !important
+}
+
+.siiru-btn-danger:hover,
+.siiru-btn-danger.active {
+    background: #c9302c !important
+}
+
+@media screen and (min-width:640px) {
+    .siiru-btn {
+        padding: 8px 20px 6px !important
+    }
+}
+
+a.siiru-btn {
+    padding-top: 9px !important
+}
+
+.siiru-btn-small {
+    font-size: .8em;
+    padding: 5px 10px !important
+}
+
+.siiru-btn-small2 {
+    font-size: .6em;
+    padding: 3px 5px !important;
+    margin-left: 5px !important
+}
+
+.pagination {
+    clear: both;
+    text-align: center;
+    padding: 20px 0
+}
+
+.pagination ul {
+    list-style: none
+}
+
+.pagination li {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 1px
+}
+
+.pagination li a {
+    display: block;
+    width: 30px;
+    height: 32px;
+    border: #e2e2e2 solid 1px;
+    line-height: 34px;
+    font-size: 1em;
+    color: #666
+}
+
+.pagination li a.active {
+    background-color: #444;
+    border: #006 solid 1px;
+    color: #fff
+}
+
+.pagination li a.first {
+    background: url(../images/arrow_first.jpg) center no-repeat
+}
+
+.pagination li a.prev {
+    background: url(../images/arrow_prev.jpg) center no-repeat
+}
+
+.pagination li a.next {
+    background: url(../images/arrow_next.jpg) center no-repeat
+}
+
+.pagination li a.last {
+    background: url(../images/arrow_last.jpg) center no-repeat
+}
+
+@media print {
+    .privacyHidden {
+        visibility: hidden;
+        line-height: 0
+    }
+
+    .privacyHidden:before {
+        visibility: visible;
+        content: '***';
+        line-height: 1.2em
+    }
+}
+
+.siiru-notfound {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 100px 0;
+    text-align: center;
+    color: #676a6c
+}
+
+.siiru-notfound h3 {
+    font-size: 2.2em;
+    margin: 10px
+}
+
+.siiru-notfound p {
+    padding: 20px;
+    font-size: 1em;
+    line-height: 25px
+}
+
+.siiru-pagewrap {
+    clear: both;
+    margin: 10px 0;
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #d0d0cf
+}
+
+.siiru-pagewrap * {
+    margin: 0;
+    padding: 0
+}
+
+.siiru-pagewrap h3 {
+    margin: 20px 0 10px 20px;
+    font-size: 1.5em;
+    font-weight: bold
+}
+
+.siiru-pagewrap .page-navi {
+    list-style: none;
+    margin: 10px 10px 10px 20px;
+    padding: 10px
+}
+
+.siiru-pagewrap .page-navi li {
+    display: inline-block;
+    font-size: 1em;
+    padding-right: 5px;
+    color: #666
+}
+
+.siiru-pagewrap .page-navi li:after {
+    padding-left: 5px;
+    content: " > "
+}
+
+.siiru-pagewrap .page-navi li:last-child {
+    font-weight: bold
+}
+
+.siiru-pagewrap .page-navi li:last-child:after {
+    padding-left: 0;
+    content: ""
+}
+
+.siiru-pagewrap .page-addon {
+    position: absolute;
+    top: 30px;
+    right: 20px
+}
+
+.siiru-pagewrap .page-addon li {
+    display: inline-block
+}
+
+.siiru-pagewrap .page-addon li a {
+    display: block;
+    width: 41px;
+    height: 41px;
+    text-indent: -9999px;
+    border: 1px solid #ccc;
+    border-radius: 5px
+}
+
+.siiru-pagewrap .page-addon li.addon-share a {
+    background: url(../images/icon-share.png) center no-repeat;
+    background-size: 60% auto
+}
+
+.siiru-pagewrap .page-addon li.addon-share ul {
+    display: none;
+    position: absolute;
+    top: 44px;
+    left: 2px;
+    z-index: 1000
+}
+
+.siiru-pagewrap .page-addon li.addon-share ul li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-indent: -9999px
+}
+
+.siiru-pagewrap .page-addon li.addon-share ul li a {
+    margin: 0;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 0
+}
+
+.siiru-pagewrap .page-addon li.addon-share ul li a[data-sns="facebook"] {
+    background: url(../images/share_facebook.png) center no-repeat
+}
+
+.siiru-pagewrap .page-addon li.addon-share ul li a[data-sns="twitter"] {
+    background: url(../images/share_twitter.png) center no-repeat
+}
+
+.siiru-pagewrap .page-addon li.addon-share ul li a[data-sns="kakao"] {
+    background: url(../images/share_kakao.png) center no-repeat
+}
+
+.siiru-pagewrap .page-addon li.addon-share ul li a[data-sns="band"] {
+    background: url(../images/share_band.png) center no-repeat
+}
+
+.siiru-pagewrap .page-addon li.addon-share ul li a[data-sns="naver"] {
+    background: url(../images/share_naver.png) center no-repeat
+}
+
+.siiru-pagewrap .page-addon li.addon-copy a {
+    background: url(../images/icon-copy.png) center no-repeat;
+    background-size: 60% auto
+}
+
+.siiru-pagewrap .page-addon li.addon-print a {
+    background: url(../images/icon-print.png) center no-repeat;
+    background-size: 60% auto
+}
+
+.siiru-pagewrap .page-addon li.addon-plus a {
+    background: url(../images/icon-plus.png) center no-repeat;
+    background-size: 60% auto
+}
+
+.siiru-pagewrap .page-addon li.addon-base a {
+    background: url(../images/icon-base.png) center no-repeat;
+    background-size: 60% auto
+}
+
+.siiru-pagewrap .page-addon li.addon-minus a {
+    background: url(../images/icon-minus.png) center no-repeat;
+    background-size: 60% auto
+}
+
+.siiru-popupzone {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    background: #3c3e4a;
+    z-index: 1
+}
+
+.siiru-popupzone .popupzone-wrap {
+    position: relative;
+    max-width: 90%;
+    margin: 0 auto
+}
+
+.siiru-popupzone .popupzone-wrap:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.siiru-popupzone .popupzone-wrap a.popupzone-prevbtn {
+    overflow: hidden;
+    width: 22px;
+    height: 40px;
+    display: block;
+    background: url(../images/popupZone_prevBtn.gif) no-repeat;
+    position: absolute;
+    left: 1%;
+    top: 55px;
+    z-index: 80;
+    text-indent: -100px
+}
+
+.siiru-popupzone .popupzone-wrap a.popupzone-nextbtn {
+    overflow: hidden;
+    width: 22px;
+    height: 40px;
+    display: block;
+    background: url(../images/popupZone_nextBtn.gif) no-repeat;
+    position: absolute;
+    right: 1%;
+    top: 55px;
+    z-index: 80;
+    text-indent: -100px
+}
+
+.siiru-popupzone .popupzone-wrap .popupzone-box {
+    max-width: 100%;
+    height: 96px;
+    margin: 0 auto;
+    padding: 10px 0 20px 0;
+    overflow: hidden;
+    position: relative
+}
+
+.siiru-popupzone .popupzone-wrap .popupzone-box ul {
+    list-style: none;
+    width: 100%;
+    height: 96px;
+    position: absolute
+}
+
+.siiru-popupzone .popupzone-wrap .popupzone-box ul li {
+    float: left;
+    width: 380px;
+    height: 96px;
+    margin-bottom: 10px;
+    margin-right: 0
+}
+
+.siiru-popupzone .popupzone-wrap .popupzone-box ul li a {
+    display: block
+}
+
+.siiru-popupzone .popupzone-wrap .popupzone-box ul li a img {
+    display: block;
+    margin: 0 auto
+}
+
+.siiru-popupzone .popupzone-btn {
+    position: relative;
+    max-width: 90%;
+    margin: 0 auto;
+    height: 25px
+}
+
+.siiru-popupzone .popupzone-btn a {
+    display: inline-block;
+    vertical-align: top;
+    font-size: .929em;
+    font-weight: bold;
+    padding: 0 0 0 20px;
+    line-height: 25px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    text-decoration: none
+}
+
+.siiru-popupzone .popupzone-btn .popupzone-closebtn {
+    background: url(../images/popupZone_closeBul.gif) no-repeat left 5px
+}
+
+.siiru-popupzone .popupzone-btn .popupzone-openbtn {
+    background: url(../images/popupZone_openBul.gif) no-repeat left 6px;
+    display: none
+}
+
+.siiru-deptwrap {
+    width: 100%
+}
+
+.siiru-deptwrap * {
+    margin: 0;
+    padding: 0
+}
+
+.siiru-deptwrap .dept-list {
+    clear: both;
+    margin: 20px 0;
+    vertical-align: top
+}
+
+.siiru-deptwrap .dept-list:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiru-deptwrap .loading {
+    margin-top: 20px;
+    width: 100%;
+    height: 350px;
+    background: url(../images/spinner.gif) center no-repeat
+}
+
+.siiru-deptwrap .dept-list dl {
+    float: left;
+    width: 200px;
+    margin: 20px 20px 0;
+    border: 1px solid #e7eaec;
+    font-size: 1em;
+    border-radius: 5px
+}
+
+.siiru-deptwrap .dept-list dl dt {
+    padding: 15px 10px 5px;
+    border-bottom: 2px solid #e7eaec;
+    background-color: #f5f5f5;
+    text-align: center
+}
+
+.siiru-deptwrap .dept-list dl dt span {
+    display: block;
+    padding-bottom: 5px
+}
+
+.siiru-deptwrap .dept-list dl dt span.title {
+    font-weight: bold
+}
+
+.siiru-deptwrap .dept-list dl dt a {
+    color: #000;
+    text-decoration: none
+}
+
+.siiru-deptwrap .dept-list dl dd {
+    padding: 10px;
+    font-size: .9em
+}
+
+.siiru-deptwrap .dept-list dl dd ul {
+    list-style: none
+}
+
+.siiru-deptwrap .dept-list dl dd ul li {
+    padding: 5px 0 0 10px;
+    vertical-align: middle
+}
+
+.siiru-deptwrap .dept-list dl dd ul li a {
+    color: #888;
+    font-weight: normal;
+    text-decoration: none
+}
+
+.siiru-deptwrap .dept-list dl dd ul li a:before {
+    content: "- ";
+    padding-left: 0
+}
+
+.siiru-deptwrap .dept-desc {
+    margin-top: 20px
+}
+
+.siiru-deptwrap .dept-desc p {
+    font-weight: bold
+}
+
+.siiru-deptwrap .dept-desc dl {
+    clear: both;
+    margin-top: 10px;
+    border-bottom: 1px solid #e7eaec
+}
+
+.siiru-deptwrap .dept-desc .dept-well {
+    display: block;
+    min-height: 20px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: 1px solid #e7eaec;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: .9em
+}
+
+.siiru-deptwrap .dept-desc .empList {
+    margin-top: 20px
+}
+
+.siiru-deptwrap .dept-desc .empList table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: 2px solid #757c86
+}
+
+.siiru-deptwrap .dept-desc .empList table:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: ""
+}
+
+.siiru-deptwrap .dept-desc .empList table caption {
+    display: none
+}
+
+.siiru-deptwrap .dept-desc .empList table thead th {
+    padding: 10px;
+    border-bottom: 1px solid #757c86;
+    font-size: .9em;
+    text-align: center;
+    font-weight: bold
+}
+
+.siiru-deptwrap .dept-desc .empList table tbody th {
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.siiru-deptwrap .dept-desc .empList table tbody td {
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px
+}
+
+.siiru-deptwrap .dept-desc .empList table tbody td.nodata {
+    padding: 20px;
+    text-align: center;
+    color: #666
+}
+
+.siiru-empwrap {
+    width: 100%
+}
+
+.siiru-empwrap * {
+    margin: 0;
+    padding: 0
+}
+
+.siiru-empwrap .empSearch {
+    float: none;
+    text-align: right;
+    padding: 10px 0;
+    overflow: hidden
+}
+
+.siiru-empwrap .empSearch select {
+    display: inline-block;
+    border: 1px solid #ccc;
+    min-width: 150px;
+    height: 30px;
+    vertical-align: bottom;
+    padding-left: 5px;
+    font-size: .8em
+}
+
+.siiru-empwrap .empSearch input[type="text"] {
+    display: inline-block;
+    min-width: 200px;
+    height: 28px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+    vertical-align: bottom;
+    font-size: .8em
+}
+
+.siiru-empwrap .empSearch button {
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #444;
+    background-image: none;
+    border: 0 !important;
+    color: #fff;
+    border-radius: 3px;
+    vertical-align: bottom;
+    font-size: .8em
+}
+
+.siiru-empwrap .empSearch button:focus {
+    outline: thin dotted;
+    outline: 5px auto;
+    outline-offset: -2px
+}
+
+.siiru-empwrap .empSearch button:hover {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal
+}
+
+.siiru-empwrap .loading {
+    margin-top: 20px;
+    width: 100%;
+    height: 350px;
+    background: url(../images/spinner.gif) center no-repeat
+}
+
+.siiru-empwrap section {
+    padding: 0 10px 20px;
+    font-size: 1em
+}
+
+.siiru-empwrap section a {
+    text-decoration: none
+}
+
+.siiru-empwrap .empList table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: 2px solid #757c86
+}
+
+.siiru-empwrap .empList table:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: ""
+}
+
+.siiru-empwrap .empList table caption {
+    display: none
+}
+
+.siiru-empwrap .empList table thead th {
+    padding: 10px;
+    border-bottom: 1px solid #757c86;
+    font-size: .9em;
+    text-align: center;
+    font-weight: bold
+}
+
+.siiru-empwrap .empList table tbody th {
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.siiru-empwrap .empList table tbody td {
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px
+}
+
+.siiru-empwrap .empList table tbody td.nodata {
+    padding: 20px;
+    text-align: center;
+    color: #666
+}
+
+.siiru-stsfdgwrap {
+    width: 100%
+}
+
+.siiru-stsfdgwrap * {
+    margin: 0;
+    padding: 0
+}
+
+.siiru-stsfdgwrap .stsfdg-info {
+    clear: both;
+    margin: 30px 0 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc
+}
+
+.siiru-stsfdgwrap .stsfdg-info:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.siiru-stsfdgwrap .stsfdg-info ul {
+    list-style: none
+}
+
+.siiru-stsfdgwrap .stsfdg-info ul li {
+    display: inline-block;
+    font-size: .9em
+}
+
+.siiru-stsfdgwrap .stsfdg-info ul li:last-child {
+    float: right
+}
+
+.siiru-stsfdgwrap .stsfdg-form {
+    clear: both;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc
+}
+
+.siiru-stsfdgwrap .stsfdg-form ul {
+    list-style: none
+}
+
+.siiru-stsfdgwrap .stsfdg-form ul li {
+    display: inline-block;
+    padding-left: 10px;
+    font-size: .9em;
+    vertical-align: middle
+}
+
+.siiru-stsfdgwrap .stsfdg-form ul li label {
+    padding-left: 5px;
+    vertical-align: middle
+}
+
+.siiru-stsfdgwrap .stsfdg-form div {
+    margin: 10px
+}
+
+.siiru-stsfdgwrap .stsfdg-form div textarea {
+    display: inline-block;
+    width: 88%;
+    height: 33px;
+    border: 1px solid #ccc;
+    padding: 4px 0 4px 8px;
+    color: #666;
+    font-size: .9em;
+    vertical-align: top
+}
+
+.siiru-stsfdgwrap .stsfdg-form div textarea::placeholder {
+    color: #bbb
+}
+
+.siiru-stsfdgwrap .stsfdg-form div button {
+    display: inline-block;
+    background-color: #aaa;
+    border-radius: 3px;
+    border: 0;
+    color: #fff;
+    padding: 13px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: .9em;
+    vertical-align: top;
+    cursor: pointer
+}
+
+.siiru-qustnrwrap {
+    width: 100%
+}
+
+.siiru-qustnrwrap * {
+    margin: 0;
+    padding: 0
+}
+
+.siiru-qustnrwrap .qustnrSearch {
+    float: none;
+    text-align: right;
+    padding: 10px 0;
+    overflow: hidden
+}
+
+.siiru-qustnrwrap .qustnrSearch select {
+    display: inline-block;
+    border: 1px solid #ccc;
+    min-width: 150px;
+    height: 30px;
+    vertical-align: bottom;
+    padding-left: 5px;
+    font-size: .8em
+}
+
+.siiru-qustnrwrap .qustnrSearch input[type="text"] {
+    display: inline-block;
+    min-width: 200px;
+    height: 28px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+    vertical-align: bottom;
+    font-size: .8em
+}
+
+.siiru-qustnrwrap .qustnrSearch button {
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #444;
+    background-image: none;
+    border: 0 !important;
+    color: #fff;
+    border-radius: 3px;
+    vertical-align: bottom;
+    font-size: .8em
+}
+
+.siiru-qustnrwrap .qustnrSearch button:focus {
+    outline: thin dotted;
+    outline: 5px auto;
+    outline-offset: -2px
+}
+
+.siiru-qustnrwrap .qustnrSearch button:hover {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal
+}
+
+.siiru-qustnrwrap .loading {
+    margin-top: 20px;
+    width: 100%;
+    height: 350px;
+    background: url(../images/spinner.gif) center no-repeat
+}
+
+.siiru-qustnrwrap section {
+    padding: 0 10px 20px;
+    font-size: 1em
+}
+
+.siiru-qustnrwrap section a {
+    text-decoration: none
+}
+
+.siiru-qustnrwrap .qustnrList table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: 2px solid #757c86
+}
+
+.siiru-qustnrwrap .qustnrList table:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: ""
+}
+
+.siiru-qustnrwrap .qustnrList table caption {
+    display: none
+}
+
+.siiru-qustnrwrap .qustnrList table thead th {
+    padding: 10px;
+    border-bottom: 1px solid #757c86;
+    font-size: .9em;
+    text-align: center;
+    font-weight: bold
+}
+
+.siiru-qustnrwrap .qustnrList table tbody th {
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.siiru-qustnrwrap .qustnrList table tbody td {
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px
+}
+
+.siiru-qustnrwrap .qustnrList table tbody a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none
+}
+
+.siiru-qustnrwrap .qustnrList table tbody td.nodata {
+    padding: 20px;
+    text-align: center;
+    color: #666
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrDc {
+    display: block;
+    min-height: 20px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: 1px solid #e7eaec;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 1em
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrDc ul {
+    list-style: none;
+    margin: 0;
+    padding: 5px 0 0 0
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrDc ul li {
+    font-size: .9em;
+    line-height: 18px
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrDc ul li a {
+    font-weight: normal;
+    background: url(../images/file.png) left 1px no-repeat;
+    padding-left: 18px;
+    margin-left: 0
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrPrvc {
+    display: none;
+    margin: 10px
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrPrvc span.required {
+    color: red
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrPrvc label {
+    line-height: 30px;
+    margin-right: 10px
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrPrvc input[type="text"] {
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer {
+    display: block;
+    margin-bottom: 10px;
+    padding: 20px 10px;
+    border: 1px solid #ddd;
+    font-size: 1em
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl {
+    padding: 0 10px 10px;
+    border-bottom: 1px solid #e7eaec
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dt {
+    margin-top: 20px;
+    font-size: 1em;
+    font-weight: bold
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dt p {
+    margin: 0 0 10px
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dt .num {
+    margin-right: 5px;
+    padding: .4em .7em .3em;
+    font-size: .8em;
+    line-height: 1;
+    color: #fff;
+    background-color: #5bc0de;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dt .qustnr-well {
+    display: block;
+    font-weight: normal;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: 1px solid #e7eaec;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: .9em
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dt .qustnr-well a.file {
+    display: block;
+    font-weight: normal;
+    background: url(../images/file.png) left 1px no-repeat;
+    padding-left: 18px;
+    margin: 5px 0 0 0;
+    width: max-content
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd {
+    padding-left: 20px
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd .qustnr-well {
+    display: block;
+    font-weight: normal;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: 1px solid #e7eaec;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    padding: 8px;
+    font-size: .9em
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd ul li {
+    padding-bottom: 8px
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd ul li span {
+    font-size: 90%
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd ul li label {
+    padding-left: 5px;
+    padding-right: 10px;
+    vertical-align: middle
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd ul li p {
+    display: inline-block
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd ul li img {
+    margin: .25rem 0;
+    border-radius: .25rem;
+    vertical-align: middle;
+    border-style: none
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd ul li img.block {
+    display: block
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd ul li input[type="text"] {
+    width: 60%;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 2px;
+    font-size: .9em;
+    color: #666
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd ul li input.single {
+    width: 98%
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd ul li textarea {
+    width: 98%;
+    border: 1px solid #ccc;
+    font-size: .9em;
+    color: #666;
+    padding: 5px
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd ul li .stats .progress {
+    display: inline-block;
+    width: 50%;
+    height: 20px;
+    background-color: #cdcdcd
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd ul li .stats .progress-bar {
+    background: #2d70d7;
+    height: 100%
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer dl dd ul li .stats span {
+    display: inline-block;
+    padding-left: 10px;
+    padding-top: 3px;
+    width: 45%;
+    font-size: .9em;
+    vertical-align: top
+}
+
+.siiru-qustnrwrap .qustnrView .qustnrLayer .nodata {
+    color: #d6d6d6;
+    font-size: 1.5em
+}
+
+.siiru-infoOpenwrap {
+    width: 100%
+}
+
+.siiru-infoOpenwrap * {
+    margin: 0;
+    padding: 0
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryList {
+    display: table;
+    list-style: none;
+    margin: 10px auto;
+    padding: 0
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryList li {
+    display: inline-block;
+    padding: 8px 10px;
+    margin: 2px 3px;
+    text-align: center;
+    border: 1px solid #0d6efd;
+    border-radius: 3px
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryList li:hover,
+.siiru-infoOpenwrap .infoOpenCtgryList li.active {
+    background-color: #0d6efd
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryList li:hover a,
+.siiru-infoOpenwrap .infoOpenCtgryList li.active a {
+    color: #fff
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryList li a {
+    color: #0d6efd;
+    font-size: 1em;
+    text-decoration: none
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryAll {
+    display: none;
+    padding: 10px 20px
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryAll h5 {
+    margin-top: 30px;
+    font-size: 1.1em
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryAll h6 {
+    margin: 10px 0;
+    padding-left: 10px;
+    font-size: 1em
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryAll table tbody tr:hover,
+.siiru-infoOpenwrap .infoOpenCtgryAll table tbody tr.active {
+    background-color: #fff3cd
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryView div {
+    display: none;
+    padding: 10px 30px
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryView div h5 {
+    font-size: 1em
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryView div ul {
+    list-style: none;
+    margin: 10px auto;
+    padding: 0
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryView div ul li {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 2px 3px;
+    text-align: center;
+    border: 1px solid #6c757d;
+    border-radius: 3px;
+    cursor: pointer
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryView div ul li:hover,
+.siiru-infoOpenwrap .infoOpenCtgryView div ul li.active {
+    background-color: #6c757d
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryView div ul li:hover a,
+.siiru-infoOpenwrap .infoOpenCtgryView div ul li.active a {
+    color: #fff
+}
+
+.siiru-infoOpenwrap .infoOpenCtgryView div ul li a {
+    color: #6c757d;
+    font-size: .9em;
+    text-decoration: none
+}
+
+.siiru-infoOpenwrap .infoOpenList {
+    padding: 0 10px
+}
+
+.siiru-infoOpenwrap .infoOpenList h6 {
+    font-size: 1em
+}
+
+.siiru-infoOpenwrap .infoOpenList table tbody tr:hover,
+.siiru-infoOpenwrap .infoOpenList table tbody tr.active {
+    background-color: #fff3cd
+}
+
+.siiru-infoOpenwrap .infoOpenSearch {
+    float: none;
+    text-align: right;
+    padding: 10px 0;
+    overflow: hidden
+}
+
+.siiru-infoOpenwrap .infoOpenSearch select {
+    display: inline-block;
+    border: 1px solid #ccc;
+    min-width: 150px;
+    height: 30px;
+    vertical-align: bottom;
+    padding-left: 5px;
+    font-size: .8em
+}
+
+.siiru-infoOpenwrap .infoOpenSearch input[type="text"] {
+    display: inline-block;
+    min-width: 200px;
+    height: 28px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+    vertical-align: bottom;
+    font-size: .8em
+}
+
+.siiru-infoOpenwrap .infoOpenSearch button {
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #444;
+    background-image: none;
+    border: 0 !important;
+    color: #fff;
+    border-radius: 3px;
+    vertical-align: bottom;
+    font-size: .8em
+}
+
+.siiru-infoOpenwrap .infoOpenSearch button:focus {
+    outline: thin dotted;
+    outline: 5px auto;
+    outline-offset: -2px
+}
+
+.siiru-infoOpenwrap .infoOpenSearch button:hover {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal
+}
+
+.siiru-infoOpenwrap .loading {
+    margin-top: 20px;
+    width: 100%;
+    height: 350px;
+    background: url(../images/spinner.gif) center no-repeat
+}
+
+.siiru-infoOpenwrap section {
+    padding: 0 10px 20px;
+    font-size: 1em
+}
+
+.siiru-infoOpenwrap section a {
+    text-decoration: none
+}
+
+.siiru-infoOpenwrap table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: 2px solid #757c86
+}
+
+.siiru-infoOpenwrap table:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: ""
+}
+
+.siiru-infoOpenwrap table caption {
+    display: none
+}
+
+.siiru-infoOpenwrap table thead th {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    font-weight: bold
+}
+
+.siiru-infoOpenwrap table tbody th {
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+.siiru-infoOpenwrap table tbody td {
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px
+}
+
+.siiru-infoOpenwrap table tbody a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none
+}
+
+.siiru-infoOpenwrap table tbody td.nodata {
+    padding: 20px;
+    text-align: center;
+    color: #666
+}
+
+.siiru-infoOpenwrap table.infoOpenTable {
+    border-top: 1px solid #dde2e8
+}
+
+.siiru-infoOpenwrap table.infoOpenTable tbody th {
+    background-color: #f9f9f9;
+    font-weight: bold
+}
+
+.siiru-infoOpenwrap table.infoOpenTable tbody td ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.siiru-infoOpenwrap table.infoOpenTable tbody td ul li {
+    font-size: .9em;
+    line-height: 18px
+}
+
+.siiru-infoOpenwrap table.infoOpenTable tbody td ul li a {
+    font-weight: normal;
+    background: url(../images/file.png) left 0 no-repeat;
+    padding-left: 20px;
+    margin-left: 10px
+}
+
+.siiru-infoOpenwrap .infoOpenView .infoOpenDc p {
+    font-size: 1.2em;
+    padding: 13px 10px 10px;
+    border-top: 2px solid #757c86
+}
+
+.siiru-infoOpenwrap .infoOpenView .infoOpenDetail p {
+    font-size: 1.1em;
+    padding-bottom: 5px
+}
+
+.siiru-schdulwrap {
+    width: 100%
+}
+
+.siiru-schdulwrap * {
+    margin: 0;
+    padding: 0
+}
+
+.siiru-schdulwrap .schdul-select {
+    text-align: center
+}
+
+.siiru-schdulwrap .schdul-select .schdul-year {
+    display: inline-block;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 13px 20px
+}
+
+.siiru-schdulwrap .schdul-select a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-indent: -9999px;
+    margin: 10px;
+    vertical-align: top
+}
+
+.siiru-schdulwrap .schdul-select a.schdul-prev {
+    background: url(../images/cal_prev.jpg) no-repeat
+}
+
+.siiru-schdulwrap .schdul-select a.schdul-next {
+    background: url(../images/cal_next.jpg) no-repeat
+}
+
+.siiru-schdulwrap .schdul-calendar table {
+    width: 100%;
+    border-collapse: collapse
+}
+
+.siiru-schdulwrap .schdul-calendar table .sat {
+    color: #1c84c6
+}
+
+.siiru-schdulwrap .schdul-calendar table .sun,
+.siiru-schdulwrap .schdul-calendar table .holiday {
+    color: #ee5565
+}
+
+.siiru-schdulwrap .schdul-calendar table caption {
+    display: none
+}
+
+.siiru-schdulwrap .schdul-calendar table thead {
+    width: 100%;
+    border-top: 5px solid #044289
+}
+
+.siiru-schdulwrap .schdul-calendar table.small thead {
+    border-top: 2px solid #044289
+}
+
+.siiru-schdulwrap .schdul-calendar table thead th {
+    font-size: 1em;
+    width: 14.2587%;
+    text-align: center;
+    padding: 15px 0
+}
+
+.siiru-schdulwrap .schdul-calendar table.small thead th {
+    border: 1px solid #d1d1d1;
+    background: #f9f9f9;
+    padding: 10px 0
+}
+
+.siiru-schdulwrap .schdul-calendar table tbody {
+    width: 100%;
+    border-top: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1
+}
+
+.siiru-schdulwrap .schdul-calendar table tbody tr {
+    display: table-row;
+    height: 55px
+}
+
+.siiru-schdulwrap .schdul-calendar table tbody td {
+    position: relative;
+    width: 14.2587%;
+    padding: 28px 10px 8px 10px;
+    border-left: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+    vertical-align: top
+}
+
+.siiru-schdulwrap .schdul-calendar table tbody td.schdulData {
+    background-color: rgba(13, 110, 253, .1)
+}
+
+.siiru-schdulwrap .schdul-calendar table tbody td.today {
+    background-color: rgba(255, 220, 40, .15)
+}
+
+.siiru-schdulwrap .schdul-calendar table tbody td span {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 1em
+}
+
+.siiru-schdulwrap .schdul-calendar table.small tbody td span {
+    right: 5px;
+    top: 5px;
+    font-size: .9em
+}
+
+.siiru-schdulwrap .schdul-calendar table tbody td span small {
+    padding-right: 10px;
+    font-size: .6em
+}
+
+.siiru-schdulwrap .schdul-calendar table.small tbody td span small {
+    position: absolute;
+    left: -20px;
+    top: 15px;
+    padding: 0;
+    font-size: .6em
+}
+
+.siiru-schdulwrap .schdul-calendar table tbody td .m_btn {
+    display: block;
+    width: 17px;
+    height: 17px;
+    margin: 0 auto;
+    background: url(../images/cal_more.jpg) no-repeat;
+    background-size: contain;
+    text-indent: -9999px
+}
+
+.siiru-schdulwrap .schdul-calendar table tbody td .schedule {
+    display: none
+}
+
+.siiru-schdulwrap .schdul-result,
+.siiru-schdulwrap .schdul-resultView {
+    clear: both;
+    margin: 30px 0
+}
+
+.siiru-schdulwrap .schdul-result p.detailDate,
+.siiru-schdulwrap .schdul-resultView p.detailDate {
+    margin-bottom: 10px;
+    background-color: #16294d;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold
+}
+
+.siiru-schdulwrap .schdul-result div.detail-block,
+.siiru-schdulwrap .schdul-resultView div.detail-block {
+    padding: 15px;
+    border: #d0d0cf solid 1px;
+    margin-bottom: 10px
+}
+
+.siiru-schdulwrap .schdul-result div.detail-block span,
+.siiru-schdulwrap .schdul-resultView div.detail-block span {
+    font-size: 1.1em;
+    font-weight: bold
+}
+
+.siiru-schdulwrap .schdul-result div.detail-block dl,
+.siiru-schdulwrap .schdul-resultView div.detail-block dl {
+    overflow: hidden;
+    margin-top: 10px
+}
+
+.siiru-schdulwrap .schdul-result div.detail-block dl dt,
+.siiru-schdulwrap .schdul-resultView div.detail-block dl dt {
+    float: left;
+    width: 65px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 3px;
+    color: #4a4a4a
+}
+
+.siiru-schdulwrap .schdul-result div.detail-block dl dd,
+.siiru-schdulwrap .schdul-resultView div.detail-block dl dd {
+    line-height: 1.3;
+    margin-bottom: 3px;
+    color: #4a4a4a
+}
+
+.siiru-schdulwrap .schdul-result div.detail-block ul,
+.siiru-schdulwrap .schdul-resultView div.detail-block ul {
+    margin: 0;
+    padding: 0;
+    display: block;
+    list-style: none
+}
+
+.siiru-schdulwrap .schdul-result div.detail-block ul li,
+.siiru-schdulwrap .schdul-resultView div.detail-block ul li {
+    margin: 0;
+    padding: 0 0 5px 0;
+    border-bottom: 0;
+    clear: both
+}
+
+.siiru-schdulwrap .schdul-result div.detail-block ul li a,
+.siiru-schdulwrap .schdul-resultView div.detail-block ul li a {
+    color: #333;
+    padding-left: 17px;
+    background: url(../images/bg-file.jpg) no-repeat left 50%;
+    text-decoration: none;
+    font-size: .9em
+}
+
+.siiru-schdulwrap .schdul-result div.detail-block p.result-well,
+.siiru-schdulwrap .schdul-resultView div.detail-block p.result-well {
+    display: block;
+    min-height: 20px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: 1px solid #e7eaec;
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding: 10px;
+    font-size: .8em
+}
+
+@media screen and (min-width:768px) {
+    .siiru-schdulwrap .schdul-calendar table thead {
+        padding: 20px 0
+    }
+
+    .siiru-schdulwrap .schdul-calendar table thead th {
+        font-weight: 700;
+        padding: 20px 0
+    }
+
+    .siiru-schdulwrap .schdul-calendar table tbody tr {
+        height: 100px
+    }
+
+    .siiru-schdulwrap .schdul-calendar table.small tbody tr {
+        height: auto
+    }
+
+    .siiru-schdulwrap .schdul-calendar table tbody td {
+        padding-top: 35px
+    }
+
+    .siiru-schdulwrap .schdul-calendar table tbody td .m_btn {
+        display: none
+    }
+
+    .siiru-schdulwrap .schdul-calendar table tbody td .schedule {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        background-color: #3788d8;
+        font-size: .7em;
+        padding: 5px;
+        margin-bottom: 3px;
+        line-height: 1.2
+    }
+}
+
+@media screen and (min-width:1024px) {
+
+    .siiru-schdulwrap .schdul-result div.detail-block dl dt,
+    .siiru-schdulwrap .schdul-resultView div.detail-block dl dt {
+        width: auto;
+        margin-right: 10px
+    }
+
+    .siiru-schdulwrap .schdul-result div.detail-block dl dd,
+    .siiru-schdulwrap .schdul-resultView div.detail-block dl dd {
+        float: left;
+        margin-right: 20px
+    }
+}
+
+.siiru-myBoard {
+    width: 100%
+}
+
+.siiru-myBoard * {
+    margin: 0;
+    padding: 0
+}
+
+.siiru-myBoard .myBoardSearch {
+    float: none;
+    text-align: right;
+    padding: 10px 0;
+    overflow: hidden
+}
+
+.siiru-myBoard .myBoardSearch input[type="text"] {
+    display: inline-block;
+    min-width: 200px;
+    height: 28px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+    vertical-align: bottom;
+    font-size: .8em
+}
+
+.siiru-myBoard .myBoardSearch button {
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #444;
+    background-image: none;
+    border: 0 !important;
+    color: #fff;
+    border-radius: 3px;
+    vertical-align: bottom;
+    font-size: .8em
+}
+
+.siiru-myBoard .myBoardSearch button:focus {
+    outline: thin dotted;
+    outline: 5px auto;
+    outline-offset: -2px
+}
+
+.siiru-myBoard .myBoardSearch button:hover {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal
+}
+
+.siiru-myBoard .loading {
+    margin-top: 20px;
+    width: 100%;
+    height: 350px;
+    background: url(../images/spinner.gif) center no-repeat
+}
+
+.siiru-myBoard table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: 2px solid #757c86
+}
+
+.siiru-myBoard table:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: ""
+}
+
+.siiru-myBoard table caption {
+    display: none
+}
+
+.siiru-myBoard table thead th {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    font-weight: bold
+}
+
+.siiru-myBoard table tbody th {
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+.siiru-myBoard table tbody td {
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px
+}
+
+.siiru-myBoard table tbody a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none
+}
+
+.siiru-myBoard table tbody td.nodata {
+    padding: 20px;
+    text-align: center;
+    color: #666
+}
+
+.siiru-myBoard section {
+    padding: 0 10px 20px;
+    font-size: 1em
+}
+
+.siiru-myBoard section a {
+    text-decoration: none
+}
+
+.siiru-loginWrap {
+    clear: both;
+    margin: 10px 0;
+    position: relative;
+    width: 100%
+}
+
+.siiru-loginWrap * {
+    margin: 0;
+    padding: 0
+}
+
+.loginWrap {
+    clear: both;
+    margin: 20px auto;
+    padding: 20px;
+    width: 900px;
+    border: 1px solid #ccc;
+    border-radius: 5px
+}
+
+.loginWrap:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.loginWrap h4 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ccc
+}
+
+.loginUser-tab {
+    margin-top: 10px
+}
+
+.loginUser-tab ul li {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 10px 25px;
+    font-weight: bold;
+    text-align: center;
+    color: #bbb;
+    border: 1px solid transparent
+}
+
+.loginUser-tab ul li a {
+    color: #888;
+    font-weight: normal;
+    text-decoration: none
+}
+
+.loginUser-tab ul li.active {
+    border: 1px solid #ddd;
+    border-top: 2px solid #e53e37;
+    border-bottom: 1px solid #fff
+}
+
+.loginUser-tab ul li.active a {
+    color: #000;
+    text-decoration: none
+}
+
+.loginWrap section {
+    display: none;
+    padding: 20px 10px;
+    border-top: 1px solid #ddd;
+    font-size: 1em
+}
+
+.loginWrap section .loginLayer {
+    clear: both;
+    margin: 10px 0;
+    width: 100%
+}
+
+.loginWrap section h5 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 1.2em
+}
+
+.loginWrap section .inputWrap {
+    width: 45%;
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 20px
+}
+
+.loginWrap section .inputSingle {
+    display: block;
+    margin: 0 auto
+}
+
+.loginWrap section .inputWrap dl {
+    overflow: hidden;
+    padding: 5px;
+    width: 90%;
+    margin: 0 auto
+}
+
+.loginWrap section .inputWrap dl dt {
+    clear: both;
+    float: left;
+    width: 15%;
+    padding: 5px;
+    font-size: .9em;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: right
+}
+
+.loginWrap section .inputWrap dl dt label {
+    line-height: 30px
+}
+
+.loginWrap section .inputWrap dl dd {
+    float: left;
+    width: 70%;
+    padding: 5px;
+    vertical-align: middle
+}
+
+.loginWrap section .inputWrap dl dd input[type="text"],
+.loginWrap dl dd input[type="password"] {
+    margin-top: -3px;
+    width: 100%;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.loginWrap section .inputWrap dl dd label {
+    display: inline-block;
+    padding: 8px 0 0 5px;
+    font-size: .8em;
+    cursor: pointer
+}
+
+.loginWrap section .inputWrap ul {
+    display: table;
+    margin: 10px auto
+}
+
+.loginWrap section .inputWrap ul li {
+    display: inline-block;
+    padding: 0 5px;
+    text-align: center
+}
+
+.loginWrap section .certWrap {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top
+}
+
+.loginWrap section .certSingle {
+    width: 100%;
+    display: block;
+    margin: 0 auto
+}
+
+.loginWrap section .certWrap p.info {
+    font-size: .8em;
+    text-align: center
+}
+
+.loginWrap section .kindBoxWrap {
+    width: 95%;
+    margin: 20px 0 10px;
+    text-align: center
+}
+
+.loginWrap section .kindBoxWrap dl {
+    overflow: hidden;
+    padding: 5px;
+    width: 100%;
+    margin: 0
+}
+
+.loginWrap section .kindBoxWrap dl dt {
+    clear: both;
+    float: left;
+    width: 10%;
+    padding: 5px;
+    font-size: .9em;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: right
+}
+
+.loginWrap section .kindBoxWrap dl dt label {
+    line-height: 30px
+}
+
+.loginWrap section .kindBoxWrap dl dd {
+    float: left;
+    width: 80%;
+    padding: 5px;
+    vertical-align: middle
+}
+
+.loginWrap section .kindBoxWrap dl dd input[type="text"] {
+    margin-top: -3px;
+    width: 100%;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.loginWrap section .kindBox {
+    display: inline-block;
+    width: 47%;
+    margin-right: 20px
+}
+
+.loginWrap section .stepCate {
+    width: 100%;
+    height: 85px;
+    border: 1px solid #ccc;
+    border-radius: 10px
+}
+
+.loginWrap section .stepCate p {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.loginWrap section .snsLoginWrap {
+    clear: both;
+    margin-top: 20px;
+    padding-top: 20px
+}
+
+.loginWrap section .snsLoginWrap:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.loginWrap section .snsLoginWrap ul {
+    display: table;
+    margin: 0 auto
+}
+
+.loginWrap section .snsLoginWrap ul li {
+    display: inline-block;
+    padding: 0 10px;
+    text-align: center
+}
+
+.loginWrap section .snsLoginWrap ul li img {
+    width: 50px
+}
+
+.siiru-findUserWrap {
+    clear: both;
+    margin: 10px 0;
+    position: relative;
+    width: 100%
+}
+
+.siiru-findUserWrap * {
+    margin: 0;
+    padding: 0
+}
+
+.findUserWrap {
+    clear: both;
+    margin: 20px auto;
+    padding: 20px;
+    width: 900px;
+    border: 1px solid #ccc;
+    border-radius: 5px
+}
+
+.findUserWrap h4 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ccc
+}
+
+.findUser-tab {
+    margin-top: 10px
+}
+
+.findUser-tab ul li {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 10px 25px;
+    font-weight: bold;
+    text-align: center;
+    color: #bbb;
+    border: 1px solid transparent
+}
+
+.findUser-tab ul li a {
+    color: #888;
+    font-weight: normal;
+    text-decoration: none
+}
+
+.findUser-tab ul li.active {
+    border: 1px solid #ddd;
+    border-top: 2px solid #e53e37;
+    border-bottom: 1px solid #fff
+}
+
+.findUser-tab ul li.active a {
+    color: #000;
+    text-decoration: none
+}
+
+.findUserWrap section {
+    display: none;
+    padding: 20px 10px;
+    border-top: 1px solid #ddd;
+    font-size: 1em
+}
+
+.findUserWrap section ul {
+    margin: 0;
+    padding: 0 0 20px 0;
+    list-style: none
+}
+
+.findUserWrap section ul li {
+    padding: 5px 0;
+    font-size: .9em;
+    color: #838383
+}
+
+.findUserWrap section .findLayer {
+    clear: both;
+    margin: 10px 0;
+    width: 100%
+}
+
+.findUserWrap section h5 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 1.2em
+}
+
+.findUserWrap section .certWrap {
+    width: 65%;
+    display: inline-block;
+    vertical-align: top
+}
+
+.findUserWrap section .certWrap p.info {
+    font-size: .8em;
+    text-align: center
+}
+
+.findUserWrap section .kindBoxWrap {
+    width: 95%;
+    margin: 20px 0 10px;
+    text-align: center
+}
+
+.findUserWrap section .kindBoxWrap dl {
+    overflow: hidden;
+    padding: 5px;
+    width: 100%;
+    margin: 0
+}
+
+.findUserWrap section .kindBoxWrap dl dt {
+    clear: both;
+    float: left;
+    width: 10%;
+    padding: 5px;
+    font-size: .9em;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: right
+}
+
+.findUserWrap section .kindBoxWrap dl dt label {
+    line-height: 30px
+}
+
+.findUserWrap section .kindBoxWrap dl dd {
+    float: left;
+    width: 80%;
+    padding: 5px;
+    vertical-align: middle
+}
+
+.findUserWrap section .kindBoxWrap dl dd input[type="text"] {
+    margin-top: -3px;
+    width: 100%;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.findUserWrap section .kindBox {
+    display: inline-block;
+    width: 47%;
+    margin-right: 20px
+}
+
+.findUserWrap section .stepCate {
+    width: 100%;
+    height: 85px;
+    border: 1px solid #ccc;
+    border-radius: 10px
+}
+
+.findUserWrap section .stepCate p {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.findUserWrap section .inputWrap {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 20px;
+    border-left: 1px solid #ccc
+}
+
+.findUserWrap section dl {
+    clear: both;
+    margin: 0 0 10px;
+    padding: 0;
+    width: 100%
+}
+
+.findUserWrap section dl dt {
+    margin: 0;
+    padding: 0 0 5px 0;
+    font-size: 1em;
+    font-weight: bold;
+    vertical-align: middle
+}
+
+.findUserWrap section dl dt label {
+    cursor: pointer
+}
+
+.findUserWrap section dl dd {
+    vertical-align: middle
+}
+
+.findUserWrap section dl dd input[type="text"] {
+    margin-top: -3px;
+    width: 100%;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.findUserWrap section dl dd input[type="checkbox"],
+.findUserWrap section dl dd input[type="radio"] {
+    margin-top: -3px
+}
+
+.findUserWrap section dl dd input.small {
+    width: 150px
+}
+
+.findUserWrap section dl dd label {
+    padding: 0 5px;
+    font-size: 1em;
+    cursor: pointer
+}
+
+.findUserWrap section .retIdMsg,
+.findUserWrap section .retPassMsg,
+.findUserWrap section .retInitMsg {
+    display: none;
+    min-height: 20px;
+    line-height: 150%;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: 1px solid #e7eaec;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 12px 10px 7px;
+    font-size: 1.2em;
+    text-align: center
+}
+
+.findUserWrap section .retIdMsg span,
+.findUserWrap section .retPassMsg span,
+.findUserWrap section .retInitMsg span {
+    font-weight: bold;
+    color: #31708f
+}
+
+.findUserWrap section .retIdMsg span.text-danger,
+.findUserWrap section .retPassMsg span.text-danger,
+.findUserWrap section .retInitMsg span.text-danger {
+    color: #a94442
+}
+
+.siiru-passwdWrap {
+    clear: both;
+    margin: 10px 0;
+    position: relative;
+    width: 100%
+}
+
+.siiru-passwdWrap * {
+    margin: 0;
+    padding: 0
+}
+
+.passwdWrap {
+    clear: both;
+    margin: 20px auto;
+    padding: 20px;
+    width: 700px;
+    border: 1px solid #ccc;
+    border-radius: 5px
+}
+
+.passwdWrap h4 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ccc
+}
+
+.passwdWrap dl {
+    overflow: hidden;
+    padding: 20px 5px 5px 5px;
+    width: 70%;
+    margin: 0 auto
+}
+
+.passwdWrap dl dt {
+    clear: both;
+    float: left;
+    width: 25%;
+    padding: 5px;
+    font-size: .9em;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: right
+}
+
+.passwdWrap dl dt label {
+    line-height: 30px
+}
+
+.passwdWrap dl dd {
+    float: left;
+    width: 70%;
+    padding: 5px;
+    vertical-align: middle
+}
+
+.passwdWrap dl dd input[type="text"],
+.passwdWrap dl dd input[type="password"] {
+    margin-top: -3px;
+    width: 100%;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.passwdWrap ul {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.passwdWrap ul li {
+    padding: 5px 0;
+    font-size: .9em;
+    color: #838383
+}
+
+.siiru-joinWrap {
+    clear: both;
+    margin: 10px 0;
+    position: relative;
+    width: 100%
+}
+
+.siiru-joinWrap * {
+    margin: 0;
+    padding: 0
+}
+
+.siiru-joinWrap .stepTab {
+    margin-top: 10px
+}
+
+.siiru-joinWrap .stepTab ul li {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 10px 25px;
+    text-align: center;
+    color: #bbb;
+    border: 1px solid transparent
+}
+
+.siiru-joinWrap .stepTab ul li a,
+.siiru-joinWrap .stepTab li a:hover,
+.siiru-joinWrap .stepTab li a:focus {
+    color: #888;
+    font-weight: normal;
+    text-decoration: none
+}
+
+.siiru-joinWrap .stepTab ul li.active {
+    border: 1px solid #ddd;
+    border-top: 2px solid #e53e37;
+    border-bottom: 1px solid #fff
+}
+
+.siiru-joinWrap .stepTab ul li.active a {
+    color: #000;
+    text-decoration: none
+}
+
+.siiru-joinWrap section {
+    padding: 20px 10px;
+    border-top: 1px solid #ddd;
+    font-size: 1em
+}
+
+.siiru-joinWrap section a {
+    text-decoration: none
+}
+
+.siiru-joinWrap section .well {
+    display: block;
+    min-height: 20px;
+    line-height: 150%;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: 1px solid #e7eaec;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 12px 10px 7px;
+    font-size: .9em
+}
+
+.siiru-joinWrap section .complete {
+    clear: both;
+    margin: 20px auto;
+    padding: 20px;
+    width: 700px;
+    border: 1px solid #ccc;
+    border-radius: 5px
+}
+
+.siiru-joinWrap section .complete p {
+    text-align: center;
+    font-size: 1.3em;
+    margin: 20px 0
+}
+
+.siiru-joinWrap section .stepTitle {
+    font-size: 1.2em;
+    color: #222;
+    margin-top: 20px
+}
+
+.siiru-joinWrap section .stepTitle small {
+    font-size: .7em;
+    padding-left: 10px;
+    font-weight: normal
+}
+
+.siiru-joinWrap section .stepSubTitle {
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0 0 5px 0;
+    margin: 20px 0 10px 0;
+    clear: both
+}
+
+.siiru-joinWrap section .kindBoxWrap {
+    margin: 20px auto 10px;
+    text-align: center
+}
+
+.siiru-joinWrap section .kindBox {
+    display: inline-block;
+    width: 23%;
+    height: 220px;
+    margin-right: 14px
+}
+
+.siiru-joinWrap section .stepCate {
+    width: 90%;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 10px
+}
+
+.siiru-joinWrap section .stepCate p {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 40px
+}
+
+.siiru-joinWrap section .stepCate small {
+    display: block;
+    padding: 10px
+}
+
+.siiru-joinWrap section .stepCate button {
+    margin-top: 30px
+}
+
+.siiru-joinWrap section .agreeBoxWrap {
+    margin: 20px auto 10px;
+    padding: 0 10px
+}
+
+.siiru-joinWrap section .agreeBoxWrap .agreeBox {
+    height: 250px;
+    padding: 20px;
+    margin: 10px 0;
+    overflow-y: scroll;
+    border: 1px solid #ddd
+}
+
+.siiru-joinWrap section .agreeBoxWrap .agreeCheck {
+    font-size: .9em
+}
+
+.siiru-joinWrap section .agreeBoxWrap .agreeCheck input[type="checkbox"] {
+    margin-top: -5px
+}
+
+.joinForm-write {
+    width: 100%;
+    border-top: 1px solid #757c86;
+    margin-top: 20px
+}
+
+.joinForm-write * {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle
+}
+
+.joinForm-write:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.joinForm-write dl {
+    border-bottom: 1px solid #dde2e8;
+    overflow: hidden;
+    padding: 5px
+}
+
+.joinForm-write dl dt {
+    clear: both;
+    float: left;
+    width: 15%;
+    padding: 8px 15px 5px 0;
+    font-size: .9em;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: right
+}
+
+.joinForm-write dl dt span.required {
+    color: red
+}
+
+.joinForm-write dl dt label,
+.joinForm-write dl dt span.label {
+    line-height: 30px
+}
+
+.joinForm-write dl dd {
+    float: left;
+    width: 80%;
+    padding: 5px;
+    vertical-align: middle
+}
+
+.joinForm-write dl dd input[type="text"] {
+    width: 100%;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.joinForm-write dl dd input[type="checkbox"],
+.joinForm-write dl dd input[type="radio"] {
+    margin-top: -3px
+}
+
+.joinForm-write dl dd input[type="password"] {
+    width: 200px;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.joinForm-write dl dd input.small {
+    width: 100px
+}
+
+.joinForm-write dl dd input.small2 {
+    width: 200px
+}
+
+.joinForm-write dl dd input.small20 {
+    width: 20%
+}
+
+.joinForm-write dl dd input.small30 {
+    width: 30%
+}
+
+.joinForm-write dl dd input.small40 {
+    width: 40%
+}
+
+.joinForm-write dl dd input.small50 {
+    width: 50%
+}
+
+.joinForm-write dl dd input.small70 {
+    width: 70%
+}
+
+.joinForm-write dl dd input[type="text"][disabled],
+.joinForm-write dl dd input[type="text"][readonly] {
+    cursor: not-allowed;
+    background-color: #eee;
+    opacity: 1
+}
+
+.joinForm-write dl dd select {
+    display: inline-block;
+    border: 1px solid #ccc;
+    min-width: 150px;
+    height: 30px;
+    vertical-align: bottom;
+    padding-left: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.joinForm-write dl dd label {
+    line-height: 30px;
+    padding-right: 10px;
+    font-size: .9em;
+    cursor: pointer
+}
+
+.joinForm-write dl dd span {
+    padding: 0 5px
+}
+
+.joinForm-write dl dd small {
+    display: block;
+    margin-top: 5px
+}
+
+.siiru-userWrap {
+    clear: both;
+    margin: 10px 0;
+    position: relative;
+    width: 100%
+}
+
+.siiru-userWrap * {
+    margin: 0;
+    padding: 0
+}
+
+.user-tab {
+    margin-top: 10px
+}
+
+.user-tab ul li {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 10px 25px;
+    font-weight: bold;
+    text-align: center;
+    color: #bbb;
+    border: 1px solid transparent
+}
+
+.user-tab ul li a {
+    color: #888;
+    font-weight: normal;
+    text-decoration: none
+}
+
+.user-tab ul li.active {
+    border: 1px solid #ddd;
+    border-top: 2px solid #e53e37;
+    border-bottom: 1px solid #fff
+}
+
+.user-tab ul li.active a {
+    color: #000;
+    text-decoration: none
+}
+
+.siiru-userWrap section {
+    clear: both;
+    padding: 20px 10px;
+    border-top: 1px solid #ddd;
+    font-size: 1em
+}
+
+.siiru-userWrap section h4 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ccc
+}
+
+.siiru-userWrap section ul {
+    margin: 0;
+    padding: 0 0 20px 0;
+    list-style: none
+}
+
+.siiru-userWrap section ul li {
+    padding: 5px 0;
+    font-size: .9em;
+    color: #838383
+}
+
+.siiru-userWrap section .findLayer {
+    clear: both;
+    margin: 10px 0;
+    width: 100%
+}
+
+.siiru-userWrap section h5 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 1.2em
+}
+
+.siiru-userWrap section .certWrap {
+    width: 55%;
+    display: inline-block;
+    vertical-align: top
+}
+
+.siiru-userWrap section .certWrap p.info {
+    font-size: .8em;
+    text-align: center
+}
+
+.siiru-userWrap section .kindBoxWrap {
+    width: 95%;
+    margin: 20px 0 10px;
+    text-align: center
+}
+
+.siiru-userWrap section .kindBox {
+    display: inline-block;
+    width: 47%;
+    margin-right: 20px
+}
+
+.siiru-userWrap section .stepCate {
+    width: 100%;
+    height: 85px;
+    border: 1px solid #ccc;
+    border-radius: 10px
+}
+
+.siiru-userWrap section .stepCate p {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.siiru-userWrap section .stepCate small {
+    display: block;
+    padding: 10px
+}
+
+.siiru-userWrap section .inputWrap {
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 20px;
+    border-left: 1px solid #ccc
+}
+
+.siiru-userWrap section .inputWrap .pwCert {
+    margin: 50px 0 70px
+}
+
+.siiru-userWrap section .inputWrap .pwCert input {
+    margin-top: -3px;
+    width: 100%;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.siiru-userWrap section .userCertMsg {
+    min-height: 20px;
+    line-height: 150%;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: 1px solid #e7eaec;
+    margin: 10px 0;
+    padding: 12px 10px 7px;
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: bold;
+    color: #a94442
+}
+
+.userWrap {
+    clear: both;
+    margin: 20px auto;
+    padding: 20px;
+    width: 900px;
+    border: 1px solid #ccc;
+    border-radius: 5px
+}
+
+.userWrap h4 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ccc
+}
+
+.userWrap dl {
+    overflow: hidden;
+    padding: 5px;
+    width: 90%;
+    margin: 0 auto
+}
+
+.userWrap dl dt {
+    display: inline-block;
+    width: 20%;
+    padding: 5px 10px;
+    font-size: .9em;
+    font-weight: bold;
+    vertical-align: top;
+    text-align: right;
+    border-right: 1px solid #ccc
+}
+
+.userWrap dl dt span.required {
+    color: red
+}
+
+.userWrap dl dt label,
+.userWrap dl dt span.label {
+    line-height: 30px
+}
+
+.userWrap dl dd {
+    display: inline-block;
+    width: 70%;
+    padding: 5px 10px;
+    font-size: .9em;
+    vertical-align: top
+}
+
+.userWrap dl dd input[type="text"],
+.userWrap dl dd input[type="password"] {
+    margin-top: -3px;
+    width: 100%;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.userWrap dl dd input[type="text"][disabled],
+.userWrap dl dd input[type="text"][readonly] {
+    cursor: not-allowed;
+    background-color: #eee;
+    opacity: 1
+}
+
+.userWrap dl dd input[type="checkbox"],
+.userWrap dl dd input[type="radio"] {
+    margin-top: -3px
+}
+
+.userWrap dl dd select {
+    display: inline-block;
+    border: 1px solid #ccc;
+    min-width: 150px;
+    height: 30px;
+    vertical-align: bottom;
+    padding-left: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.userWrap dl dd select.small {
+    min-width: 100px
+}
+
+.userWrap dl dd label {
+    padding-left: 5px;
+    padding-right: 10px;
+    font-size: 1em;
+    cursor: pointer
+}
+
+.userWrap dl dd input.small {
+    width: 150px
+}
+
+.userWrap dl dd input.small2 {
+    width: 200px
+}
+
+.userWrap dl dd input.small20 {
+    width: 20%
+}
+
+.userWrap dl dd input.small30 {
+    width: 30%
+}
+
+.userWrap dl dd input.small40 {
+    width: 40%
+}
+
+.userWrap dl dd input.small50 {
+    width: 50%
+}
+
+.userWrap dl dd input.small70 {
+    width: 70%
+}
+
+.userWrap dl dd small {
+    display: block;
+    padding-top: 5px
+}
+
+.userWrap dl dd .fileInfo {
+    padding-top: 5px
+}
+
+.userWrap dl dd .fileInfo input[type="checkbox"] {
+    margin-left: 10px
+}
+
+.leaveForm {
+    clear: both;
+    margin: 20px auto;
+    padding: 20px !important;
+    width: 800px;
+    border: 1px solid #ccc;
+    border-radius: 5px
+}
+
+.leaveWrap {
+    clear: both;
+    margin: 20px auto;
+    padding: 20px;
+    width: 800px;
+    border: 1px solid #ccc;
+    border-radius: 5px
+}
+
+.leaveWrap p {
+    text-align: center;
+    font-size: 1.3em;
+    margin: 20px 0
+}
+
+.siiru-topSearch {
+    clear: both;
+    position: relative;
+    margin: 0 auto;
+    width: 452px;
+    height: 42px
+}
+
+.siiru-topSearch .topSearch-box {
+    float: none;
+    padding: 0;
+    overflow: hidden
+}
+
+.siiru-topSearch .topSearch-box select {
+    display: inline-block;
+    border: 1px solid #ccc;
+    min-width: 150px;
+    height: 30px;
+    vertical-align: bottom;
+    padding-left: 5px;
+    font-size: .8em
+}
+
+.siiru-topSearch .topSearch-box input[type="text"] {
+    display: inline-block;
+    min-width: 200px;
+    height: 26px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+    vertical-align: bottom;
+    font-size: .8em
+}
+
+.siiru-topSearch .topSearch-box input::placeholder {
+    color: #bbb
+}
+
+.siiru-topSearch .topSearch-box button {
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #444;
+    background-image: none;
+    border: 0 !important;
+    color: #fff;
+    border-radius: 3px;
+    vertical-align: bottom;
+    font-size: .8em
+}
+
+.siiru-topSearch .topSearch-box button:focus {
+    outline: thin dotted;
+    outline: 5px auto;
+    outline-offset: -2px
+}
+
+.siiru-topSearch .topSearch-box button:hover {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal
+}
+
+.siiru-allSearch {
+    clear: both;
+    width: 100%
+}
+
+.siiru-allSearch * {
+    margin: 0;
+    padding: 0
+}
+
+.siiru-allSearch .allSearch-wrap {
+    position: relative;
+    margin: 0 auto;
+    width: 452px;
+    height: 42px
+}
+
+.siiru-allSearch .allSearch-wrap {
+    padding: 7px 6px 7px 5px
+}
+
+.siiru-allSearch .allSearch-wrap input[type="text"] {
+    display: inline-block;
+    min-width: 200px;
+    height: 28px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+    vertical-align: bottom;
+    font-size: .8em
+}
+
+.siiru-allSearch .allSearch-wrap input::placeholder {
+    color: #bbb
+}
+
+.siiru-allSearch .allSearch-wrap button {
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #444;
+    background-image: none;
+    border: 0 !important;
+    color: #fff;
+    border-radius: 3px;
+    vertical-align: bottom;
+    font-size: .8em
+}
+
+.siiru-allSearch .allSearch-wrap button:focus {
+    outline: thin dotted;
+    outline: 5px auto;
+    outline-offset: -2px
+}
+
+.siiru-allSearch .allSearch-wrap button:hover {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal
+}
+
+.siiru-allSearch .allSearch-tab {
+    margin-top: 10px
+}
+
+.siiru-allSearch .allSearch-tab ul li {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 10px 25px;
+    font-weight: bold;
+    text-align: center;
+    color: #bbb;
+    border: 1px solid transparent
+}
+
+.siiru-allSearch .allSearch-tab ul li a,
+.siiru-allSearch .allSearch-tab li a:hover,
+.siiru-allSearch .allSearch-tab li a:focus {
+    color: #888;
+    font-weight: normal;
+    text-decoration: none
+}
+
+.siiru-allSearch .allSearch-tab ul li.active {
+    border: 1px solid #ddd;
+    border-top: 2px solid #e53e37;
+    border-bottom: 1px solid #fff
+}
+
+.siiru-allSearch .allSearch-tab ul li.active a {
+    color: #000;
+    text-decoration: none
+}
+
+.siiru-allSearch section {
+    display: none;
+    padding: 20px 10px;
+    border-top: 1px solid #ddd;
+    font-size: 1em
+}
+
+.siiru-allSearch section a {
+    text-decoration: none
+}
+
+.siiru-allSearch section .allSearch-result {
+    margin-bottom: 10px
+}
+
+.siiru-allSearch section .allSearch-result dl {
+    margin-bottom: 15px
+}
+
+.siiru-allSearch section .allSearch-result dl dt {
+    font-size: 1.4em;
+    font-weight: bold
+}
+
+.siiru-allSearch section .allSearch-result dl dd {
+    margin: 10px
+}
+
+.siiru-allSearch section .allSearch-result dl dd.result-group {
+    font-size: .9em
+}
+
+.siiru-allSearch section .allSearch-result dl dd.result-more {
+    text-align: right;
+    padding-right: 10px
+}
+
+.siiru-allSearch section .allSearch-result dl dd.result-more a {
+    color: #666
+}
+
+.siiru-allSearch section .allSearch-result ul {
+    list-style: none
+}
+
+.siiru-allSearch section .allSearch-result li {
+    border-bottom: #d9d9d9 solid 1px;
+    padding: 15px 0
+}
+
+.siiru-allSearch section .allSearch-result li span {
+    display: block;
+    padding-bottom: 5px
+}
+
+.siiru-allSearch section .allSearch-result .result-head {
+    font-size: 1.4em;
+    font-weight: bold
+}
+
+.siiru-allSearch section .allSearch-result .result-head small {
+    padding-left: 5px;
+    font-size: .7em;
+    font-weight: normal
+}
+
+.siiru-allSearch section .allSearch-result .result-title {
+    font-size: 1.2em;
+    line-height: 21px
+}
+
+.siiru-allSearch section .allSearch-result .result-title a {
+    color: #000
+}
+
+.siiru-allSearch section .allSearch-result .result-title small {
+    color: #666
+}
+
+.siiru-allSearch section .allSearch-result .result-title .result-file {
+    background: url(../images/file.png) 0 3px no-repeat;
+    padding-left: 20px
+}
+
+.siiru-allSearch section .allSearch-result .result-date {
+    font-size: .8em;
+    color: #a8a8a8
+}
+
+.siiru-allSearch section .allSearch-result .result-url {
+    font-size: .9em
+}
+
+.siiru-allSearch section .allSearch-result .result-url a {
+    color: #666
+}
+
+.siiru-allSearch section .allSearch-result .result-path {
+    font-size: .8em;
+    color: #a8a8a8;
+    padding-bottom: 0
+}
+
+.siiru-allSearch section .allSearch-result .result-info {
+    margin: 5px 0;
+    line-height: 1.5;
+    color: #666
+}
+
+.siiru-allSearch section .allSearch-result table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-top-color: #4f4f4f
+}
+
+.siiru-allSearch section .allSearch-result table thead tr th {
+    padding: 10px;
+    border-bottom: #ccc solid 1px;
+    border-right: #ccc solid 1px;
+    background-color: #f9f9f9;
+    vertical-align: middle
+}
+
+.siiru-allSearch section .allSearch-result table tbody tr th,
+.siiru-allSearch section .allSearch-result table tbody tr td {
+    padding: 10px;
+    border-bottom: #ccc solid 1px;
+    border-right: #ccc solid 1px;
+    border-left: #ccc solid 1px;
+    color: #666
+}
+
+.siiru-allSearch section .allSearch-result table tr th:last-child,
+.siiru-allSearch section .allSearch-result table tr td:last-child {
+    border-right: 0 !important
+}
+
+.siiru-allSearch section .allSearch-result table tr th:first-child,
+.siiru-allSearch section .allSearch-result table tr td:first-child {
+    border-left: 0 !important
+}
+
+.siiru-allSearch section .allSearch-result table th,
+.siiru-allSearch section .allSearch-result table td {
+    text-align: center;
+    vertical-align: middle
+}
+
+.siiru-allSearch section .allSearch-result table tr td:last-child {
+    text-align: left
+}
+
+.siiru-allSearch section .nodata {
+    color: #666;
+    line-height: 1.5
+}
+
+.siiru-allSearch section .nodata .query-text {
+    color: #e53e37;
+    font-size: 1.2em;
+    font-weight: bold
+}
+
+.siiru-allSearch section .loading {
+    margin-top: 20px;
+    width: 100%;
+    height: 350px;
+    background: url(../images/spinner.gif) center no-repeat
+}
+
+.siiru-myMenu {
+    padding: 5px 0 0;
+    margin-bottom: 10px
+}
+
+.siiru-myMenu li {
+    display: inline-block;
+    margin-bottom: 15px
+}
+
+.siiru-myMenu li a {
+    display: block;
+    font-size: 8px;
+    color: #000;
+    text-align: center;
+    word-break: keep-all;
+    text-decoration: none
+}
+
+.siiru-myMenu li span {
+    display: block;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.siiru-myMenu li a i {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 5px;
+    background-image: url(../images/sprite_icon_m.png);
+    background-repeat: no-repeat;
+    background-size: 400px
+}
+
+.siiruMyMenu-setting {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30px 10px 10px;
+    background-image: linear-gradient(45deg, #ededed 10%, #fff 10%, #fff 50%, #ededed 50%, #ededed 60%, #fff 60%, #fff 100%);
+    background-size: 7.07px 7.07px;
+    border-radius: 10px;
+    border: #e2e2e2 solid 1px
+}
+
+.siiruMyMenu-setting p {
+    margin-top: 0;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center
+}
+
+.siiruMyMenu-setting .item {
+    position: relative;
+    width: 50px;
+    margin: 0 15px 20px
+}
+
+.siiruMyMenu-setting .item button {
+    position: absolute;
+    right: -8px;
+    top: -5px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: #e53d41;
+    border: 0;
+    text-align: center;
+    margin: 0;
+    padding: 1px 0
+}
+
+.siiruMyMenu-setting .item button:before {
+    content: "\2716";
+    color: #fff;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    cursor: pointer
+}
+
+.siiruMyMenu-setting span {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 8px;
+    text-align: center
+}
+
+.siiruMyMenu-setting i {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    margin-bottom: 3px;
+    border: #f0f0f0 solid 1px;
+    border-radius: 5px;
+    background-image: url(../images/sprite_icon_m.png);
+    background-repeat: no-repeat;
+    background-size: 400px
+}
+
+.siiruMyMenu-setting i.no_item {
+    background-color: #f5f5f5;
+    background-image: none;
+    text-align: center;
+    line-height: 50px;
+    border: #ddd solid 1px;
+    margin-bottom: 20px
+}
+
+.siiruMyMenu-setting i.no_item:after {
+    display: inline-block;
+    content: "+";
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: silver;
+    font-size: 25px
+}
+
+.siiru-myMenu li a i.icon01,
+.siiruMyMenu-setting i.icon01 {
+    background-position: 0 -550px
+}
+
+.siiru-myMenu li a i.icon02,
+.siiruMyMenu-setting i.icon02 {
+    background-position: -50px -550px
+}
+
+.siiru-myMenu li a i.icon03,
+.siiruMyMenu-setting i.icon03 {
+    background-position: -100px -550px
+}
+
+.siiru-myMenu li a i.icon04,
+.siiruMyMenu-setting i.icon04 {
+    background-position: -150px -550px
+}
+
+.siiru-myMenu li a i.icon05,
+.siiruMyMenu-setting i.icon05 {
+    background-position: -200px -550px
+}
+
+.siiru-myMenu li a i.icon06,
+.siiruMyMenu-setting i.icon06 {
+    background-position: -250px -550px
+}
+
+.siiru-myMenu li a i.icon07,
+.siiruMyMenu-setting i.icon07 {
+    background-position: -300px -550px
+}
+
+.siiru-myMenu li a i.icon08,
+.siiruMyMenu-setting i.icon08 {
+    background-position: -350px -550px
+}
+
+.siiru-myMenu li a i.icon09,
+.siiruMyMenu-setting i.icon09 {
+    background-position: 0 -600px
+}
+
+.siiru-myMenu li a i.icon010,
+.siiruMyMenu-setting i.icon10 {
+    background-position: -50px -600px
+}
+
+.siiru-myMenu li a i.icon011,
+.siiruMyMenu-setting i.icon11 {
+    background-position: -100px -600px
+}
+
+.siiru-myMenu li a i.icon012,
+.siiruMyMenu-setting i.icon12 {
+    background-position: -150px -600px
+}
+
+.siiru-myMenu li a i.icon013,
+.siiruMyMenu-setting i.icon13 {
+    background-position: -200px -600px
+}
+
+.siiru-myMenu li a i.icon014,
+.siiruMyMenu-setting i.icon14 {
+    background-position: -250px -600px
+}
+
+.siiru-myMenu li a i.icon015,
+.siiruMyMenu-setting i.icon15 {
+    background-position: -300px -600px
+}
+
+.siiru-myMenu li a i.icon016,
+.siiruMyMenu-setting i.icon16 {
+    background-position: -350px -600px
+}
+
+.siiru-myMenu li a i.icon017,
+.siiruMyMenu-setting i.icon17 {
+    background-position: -0 -650px
+}
+
+.siiru-myMenu li a i.icon018,
+.siiruMyMenu-setting i.icon18 {
+    background-position: -50px -650px
+}
+
+.siiru-myMenu li a i.icon019,
+.siiruMyMenu-setting i.icon19 {
+    background-position: -100px -650px
+}
+
+.siiru-myMenu li a i.icon020,
+.siiruMyMenu-setting i.icon20 {
+    background-position: -150px -650px
+}
+
+.siiru-myMenu li a i.traffic01,
+.siiruMyMenu-setting i.traffic01 {
+    background-position: 0 0
+}
+
+.siiru-myMenu li a i.traffic02,
+.siiruMyMenu-setting i.traffic02 {
+    background-position: -50px 0
+}
+
+.siiru-myMenu li a i.traffic03,
+.siiruMyMenu-setting i.traffic03 {
+    background-position: -100px 0
+}
+
+.siiru-myMenu li a i.traffic04,
+.siiruMyMenu-setting i.traffic04 {
+    background-position: -150px 0
+}
+
+.siiru-myMenu li a i.traffic05,
+.siiruMyMenu-setting i.traffic05 {
+    background-position: -200px 0
+}
+
+.siiru-myMenu li a i.traffic06,
+.siiruMyMenu-setting i.traffic06 {
+    background-position: -250px 0
+}
+
+.siiru-myMenu li a i.traffic07,
+.siiruMyMenu-setting i.traffic07 {
+    background-position: -300px 0
+}
+
+.siiru-myMenu li a i.traffic08,
+.siiruMyMenu-setting i.traffic08 {
+    background-position: -350px 0
+}
+
+.siiru-myMenu li a i.traffic09,
+.siiruMyMenu-setting i.traffic09 {
+    background-position: -400px 0
+}
+
+.siiru-myMenu li a i.traffic10,
+.siiruMyMenu-setting i.traffic10 {
+    background-position: -450px 0
+}
+
+.siiru-myMenu li a i.build01,
+.siiruMyMenu-setting i.build01 {
+    background-position: 0 -50px
+}
+
+.siiru-myMenu li a i.build02,
+.siiruMyMenu-setting i.build02 {
+    background-position: -50px -50px
+}
+
+.siiru-myMenu li a i.build03,
+.siiruMyMenu-setting i.build03 {
+    background-position: -100px -50px
+}
+
+.siiru-myMenu li a i.build04,
+.siiruMyMenu-setting i.build04 {
+    background-position: -150px -50px
+}
+
+.siiru-myMenu li a i.build05,
+.siiruMyMenu-setting i.build05 {
+    background-position: -200px -50px
+}
+
+.siiru-myMenu li a i.build06,
+.siiruMyMenu-setting i.build06 {
+    background-position: -250px -50px
+}
+
+.siiru-myMenu li a i.build07,
+.siiruMyMenu-setting i.build07 {
+    background-position: -300px -50px
+}
+
+.siiru-myMenu li a i.build08,
+.siiruMyMenu-setting i.build08 {
+    background-position: -350px -50px
+}
+
+.siiru-myMenu li a i.build09,
+.siiruMyMenu-setting i.build09 {
+    background-position: -400px -50px
+}
+
+.siiru-myMenu li a i.build10,
+.siiruMyMenu-setting i.build10 {
+    background-position: -450px -50px
+}
+
+.siiru-myMenu li a i.economy01,
+.siiruMyMenu-setting i.economy01 {
+    background-position: 0 -100px
+}
+
+.siiru-myMenu li a i.economy02,
+.siiruMyMenu-setting i.economy02 {
+    background-position: -50px -100px
+}
+
+.siiru-myMenu li a i.economy03,
+.siiruMyMenu-setting i.economy03 {
+    background-position: -100px -100px
+}
+
+.siiru-myMenu li a i.economy04,
+.siiruMyMenu-setting i.economy04 {
+    background-position: -150px -100px
+}
+
+.siiru-myMenu li a i.economy05,
+.siiruMyMenu-setting i.economy05 {
+    background-position: -200px -100px
+}
+
+.siiru-myMenu li a i.economy06,
+.siiruMyMenu-setting i.economy06 {
+    background-position: -250px -100px
+}
+
+.siiru-myMenu li a i.economy07,
+.siiruMyMenu-setting i.economy07 {
+    background-position: -300px -100px
+}
+
+.siiru-myMenu li a i.economy08,
+.siiruMyMenu-setting i.economy08 {
+    background-position: -350px -100px
+}
+
+.siiru-myMenu li a i.economy09,
+.siiruMyMenu-setting i.economy09 {
+    background-position: -400px -100px
+}
+
+.siiru-myMenu li a i.economy10,
+.siiruMyMenu-setting i.economy10 {
+    background-position: -450px -100px
+}
+
+.siiru-myMenu li a i.welfare01,
+.siiruMyMenu-setting i.welfare01 {
+    background-position: 0 -150px
+}
+
+.siiru-myMenu li a i.welfare02,
+.siiruMyMenu-setting i.welfare02 {
+    background-position: -50px -150px
+}
+
+.siiru-myMenu li a i.welfare03,
+.siiruMyMenu-setting i.welfare03 {
+    background-position: -100px -150px
+}
+
+.siiru-myMenu li a i.welfare04,
+.siiruMyMenu-setting i.welfare04 {
+    background-position: -150px -150px
+}
+
+.siiru-myMenu li a i.welfare05,
+.siiruMyMenu-setting i.welfare05 {
+    background-position: -200px -150px
+}
+
+.siiru-myMenu li a i.welfare06,
+.siiruMyMenu-setting i.welfare06 {
+    background-position: -250px -150px
+}
+
+.siiru-myMenu li a i.welfare07,
+.siiruMyMenu-setting i.welfare07 {
+    background-position: -300px -150px
+}
+
+.siiru-myMenu li a i.welfare08,
+.siiruMyMenu-setting i.welfare08 {
+    background-position: -350px -150px
+}
+
+.siiru-myMenu li a i.welfare09,
+.siiruMyMenu-setting i.welfare09 {
+    background-position: -400px -150px
+}
+
+.siiru-myMenu li a i.welfare10,
+.siiruMyMenu-setting i.welfare10 {
+    background-position: -450px -150px
+}
+
+.siiru-myMenu li a i.safe01,
+.siiruMyMenu-setting i.safe01 {
+    background-position: 0 -200px
+}
+
+.siiru-myMenu li a i.safe02,
+.siiruMyMenu-setting i.safe02 {
+    background-position: -50px -200px
+}
+
+.siiru-myMenu li a i.safe03,
+.siiruMyMenu-setting i.safe03 {
+    background-position: -100px -200px
+}
+
+.siiru-myMenu li a i.safe04,
+.siiruMyMenu-setting i.safe04 {
+    background-position: -150px -200px
+}
+
+.siiru-myMenu li a i.safe05,
+.siiruMyMenu-setting i.safe05 {
+    background-position: -200px -200px
+}
+
+.siiru-myMenu li a i.safe06,
+.siiruMyMenu-setting i.safe06 {
+    background-position: -250px -200px
+}
+
+.siiru-myMenu li a i.safe07,
+.siiruMyMenu-setting i.safe07 {
+    background-position: -300px -200px
+}
+
+.siiru-myMenu li a i.safe08,
+.siiruMyMenu-setting i.safe08 {
+    background-position: -350px -200px
+}
+
+.siiru-myMenu li a i.safe09,
+.siiruMyMenu-setting i.safe09 {
+    background-position: -400px -200px
+}
+
+.siiru-myMenu li a i.safe10,
+.siiruMyMenu-setting i.safe10 {
+    background-position: -450px -200px
+}
+
+.siiru-myMenu li a i.finance01,
+.siiruMyMenu-setting i.finance01 {
+    background-position: 0 -250px
+}
+
+.siiru-myMenu li a i.finance02,
+.siiruMyMenu-setting i.finance02 {
+    background-position: -50px -250px
+}
+
+.siiru-myMenu li a i.finance03,
+.siiruMyMenu-setting i.finance03 {
+    background-position: -100px -250px
+}
+
+.siiru-myMenu li a i.finance04,
+.siiruMyMenu-setting i.finance04 {
+    background-position: -150px -250px
+}
+
+.siiru-myMenu li a i.finance05,
+.siiruMyMenu-setting i.finance05 {
+    background-position: -200px -250px
+}
+
+.siiru-myMenu li a i.finance06,
+.siiruMyMenu-setting i.finance06 {
+    background-position: -250px -250px
+}
+
+.siiru-myMenu li a i.finance07,
+.siiruMyMenu-setting i.finance07 {
+    background-position: -300px -250px
+}
+
+.siiru-myMenu li a i.finance08,
+.siiruMyMenu-setting i.finance08 {
+    background-position: -350px -250px
+}
+
+.siiru-myMenu li a i.finance09,
+.siiruMyMenu-setting i.finance09 {
+    background-position: -400px -250px
+}
+
+.siiru-myMenu li a i.finance10,
+.siiruMyMenu-setting i.finance10 {
+    background-position: -450px -250px
+}
+
+.siiru-myMenu li a i.public01,
+.siiruMyMenu-setting i.public01 {
+    background-position: 0 -300px
+}
+
+.siiru-myMenu li a i.public02,
+.siiruMyMenu-setting i.public02 {
+    background-position: -50px -300px
+}
+
+.siiru-myMenu li a i.public03,
+.siiruMyMenu-setting i.public03 {
+    background-position: -100px -300px
+}
+
+.siiru-myMenu li a i.public04,
+.siiruMyMenu-setting i.public04 {
+    background-position: -150px -300px
+}
+
+.siiru-myMenu li a i.public05,
+.siiruMyMenu-setting i.public05 {
+    background-position: -200px -300px
+}
+
+.siiru-myMenu li a i.public06,
+.siiruMyMenu-setting i.public06 {
+    background-position: -250px -300px
+}
+
+.siiru-myMenu li a i.public07,
+.siiruMyMenu-setting i.public07 {
+    background-position: -300px -300px
+}
+
+.siiru-myMenu li a i.public08,
+.siiruMyMenu-setting i.public08 {
+    background-position: -350px -300px
+}
+
+.siiru-myMenu li a i.public09,
+.siiruMyMenu-setting i.public09 {
+    background-position: -400px -300px
+}
+
+.siiru-myMenu li a i.public10,
+.siiruMyMenu-setting i.public10 {
+    background-position: -450px -300px
+}
+
+.siiru-myMenu li a i.envi01,
+.siiruMyMenu-setting i.envi01 {
+    background-position: 0 -350px
+}
+
+.siiru-myMenu li a i.envi02,
+.siiruMyMenu-setting i.envi02 {
+    background-position: -50px -350px
+}
+
+.siiru-myMenu li a i.envi03,
+.siiruMyMenu-setting i.envi03 {
+    background-position: -100px -350px
+}
+
+.siiru-myMenu li a i.envi04,
+.siiruMyMenu-setting i.envi04 {
+    background-position: -150px -350px
+}
+
+.siiru-myMenu li a i.envi05,
+.siiruMyMenu-setting i.envi05 {
+    background-position: -200px -350px
+}
+
+.siiru-myMenu li a i.envi06,
+.siiruMyMenu-setting i.envi06 {
+    background-position: -250px -350px
+}
+
+.siiru-myMenu li a i.envi07,
+.siiruMyMenu-setting i.envi07 {
+    background-position: -300px -350px
+}
+
+.siiru-myMenu li a i.envi08,
+.siiruMyMenu-setting i.envi08 {
+    background-position: -350px -350px
+}
+
+.siiru-myMenu li a i.envi09,
+.siiruMyMenu-setting i.envi09 {
+    background-position: -400px -350px
+}
+
+.siiru-myMenu li a i.envi10,
+.siiruMyMenu-setting i.envi10 {
+    background-position: -450px -350px
+}
+
+.siiru-myMenu li a i.agri01,
+.siiruMyMenu-setting i.agri01 {
+    background-position: 0 -400px
+}
+
+.siiru-myMenu li a i.agri02,
+.siiruMyMenu-setting i.agri02 {
+    background-position: -50px -400px
+}
+
+.siiru-myMenu li a i.agri03,
+.siiruMyMenu-setting i.agri03 {
+    background-position: -100px -400px
+}
+
+.siiru-myMenu li a i.agri04,
+.siiruMyMenu-setting i.agri04 {
+    background-position: -150px -400px
+}
+
+.siiru-myMenu li a i.agri05,
+.siiruMyMenu-setting i.agri05 {
+    background-position: -200px -400px
+}
+
+.siiru-myMenu li a i.agri06,
+.siiruMyMenu-setting i.agri06 {
+    background-position: -250px -400px
+}
+
+.siiru-myMenu li a i.agri07,
+.siiruMyMenu-setting i.agri07 {
+    background-position: -300px -400px
+}
+
+.siiru-myMenu li a i.agri08,
+.siiruMyMenu-setting i.agri08 {
+    background-position: -350px -400px
+}
+
+.siiru-myMenu li a i.agri09,
+.siiruMyMenu-setting i.agri09 {
+    background-position: -400px -400px
+}
+
+.siiru-myMenu li a i.agri10,
+.siiruMyMenu-setting i.agri10 {
+    background-position: -450px -400px
+}
+
+.siiru-myMenu li a i.maycenter01,
+.siiruMyMenu-setting i.maycenter01 {
+    background-position: 0 -450px
+}
+
+.siiru-myMenu li a i.maycenter02,
+.siiruMyMenu-setting i.maycenter02 {
+    background-position: -50px -450px
+}
+
+.siiru-myMenu li a i.maycenter03,
+.siiruMyMenu-setting i.maycenter03 {
+    background-position: -100px -450px
+}
+
+.siiru-myMenu li a i.maycenter04,
+.siiruMyMenu-setting i.maycenter04 {
+    background-position: -150px -450px
+}
+
+.siiru-myMenu li a i.maycenter05,
+.siiruMyMenu-setting i.maycenter05 {
+    background-position: -200px -450px
+}
+
+.siiru-myMenu li a i.maycenter06,
+.siiruMyMenu-setting i.maycenter06 {
+    background-position: -250px -450px
+}
+
+.siiru-myMenu li a i.maycenter07,
+.siiruMyMenu-setting i.maycenter07 {
+    background-position: -300px -450px
+}
+
+.siiru-myMenu li a i.maycenter08,
+.siiruMyMenu-setting i.maycenter08 {
+    background-position: -350px -450px
+}
+
+.siiru-myMenu li a i.maycenter09,
+.siiruMyMenu-setting i.maycenter09 {
+    background-position: -400px -450px
+}
+
+.siiru-myMenu li a i.maycenter10,
+.siiruMyMenu-setting i.maycenter10 {
+    background-position: -450px -450px
+}
+
+.siiru-myMenu li a i.culture01,
+.siiruMyMenu-setting i.culture01 {
+    background-position: 0 -500px
+}
+
+.siiru-myMenu li a i.culture02,
+.siiruMyMenu-setting i.culture02 {
+    background-position: -50px -500px
+}
+
+.siiru-myMenu li a i.culture03,
+.siiruMyMenu-setting i.culture03 {
+    background-position: -100px -500px
+}
+
+.siiru-myMenu li a i.culture04,
+.siiruMyMenu-setting i.culture04 {
+    background-position: -150px -500px
+}
+
+.siiru-myMenu li a i.culture05,
+.siiruMyMenu-setting i.culture05 {
+    background-position: -200px -500px
+}
+
+.siiru-myMenu li a i.culture06,
+.siiruMyMenu-setting i.culture06 {
+    background-position: -250px -500px
+}
+
+.siiru-myMenu li a i.culture07,
+.siiruMyMenu-setting i.culture07 {
+    background-position: -300px -500px
+}
+
+.siiru-myMenu li a i.culture08,
+.siiruMyMenu-setting i.culture08 {
+    background-position: -350px -500px
+}
+
+.siiru-myMenu li a i.culture09,
+.siiruMyMenu-setting i.culture09 {
+    background-position: -400px -500px
+}
+
+.siiru-myMenu li a i.culture10,
+.siiruMyMenu-setting i.culture10 {
+    background-position: -450px -500px
+}
+
+.siiruMyMenu-select {
+    padding: 10px 0 0;
+    text-align: center
+}
+
+.siiruMyMenu-select .siteSelect {
+    border: #e53d41 solid 1px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #e53d41
+}
+
+.siiruMyMenu-select .checkItem {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 20px 0 10px 0
+}
+
+.siiruMyMenu-select .checkItem li {
+    width: 50%;
+    text-align: left;
+    margin: 0 0 10px
+}
+
+.siiruMyMenu-select .checkItem li input[type="checkbox"] {
+    margin-top: -1px !important;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    cursor: pointer;
+    line-height: normal
+}
+
+.siiruMyMenu-select .checkItem li input[type="checkbox"]+label {
+    display: inline-block;
+    margin: 0 5px 0 0;
+    font-size: 1em;
+    height: 17px;
+    line-height: 1;
+    padding-left: 25px;
+    cursor: pointer;
+    text-align: left
+}
+
+.siiru-boardError {
+    background: url(../images/bg-error.png) no-repeat 50% 40px;
+    background-color: #fff !important;
+    border-radius: 3px;
+    color: #595959;
+    line-height: 200%;
+    font-size: 1em;
+    padding: 150px 0 50px 0;
+    margin: 20px 0 5px 0;
+    border: 1px solid #e4e5e7;
+    text-align: center
+}
+
+.siiru-boardError>strong {
+    color: #2b2b2b;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: block
+}
+
+.siiru-boardLogin {
+    background: url(../images/bg-login.png) no-repeat 50% 40px;
+    background-color: #fff !important;
+    border-radius: 3px;
+    color: #595959;
+    line-height: 200%;
+    font-size: 1em;
+    padding: 135px 0 40px 0;
+    margin: 20px 0 5px 0;
+    border: 1px solid #e4e5e7;
+    text-align: center
+}
+
+.siiru-boardLogin span {
+    display: block;
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0
+}
+
+.siiru-boardLogin small {
+    display: block;
+    margin-bottom: 20px
+}
+
+.siiru-boardLogin label {
+    padding-right: 10px;
+    font-size: .9em;
+    font-weight: bold
+}
+
+.siiru-boardLogin input[type="password"] {
+    width: 200px;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.siiru-boardWrap {
+    width: 100%
+}
+
+.siiru-boardWrap * {
+    margin: 0;
+    padding: 0
+}
+
+.siiru-boardWrap a {
+    text-decoration: none;
+    color: #333;
+    cursor: pointer
+}
+
+.siiru-boardWrap a:hover {
+    font-weight: bold
+}
+
+.siiruBoard-search {
+    float: none;
+    text-align: right;
+    padding: 10px 0;
+    overflow: hidden
+}
+
+.siiruBoard-search select {
+    display: inline-block;
+    border: 1px solid #ccc;
+    min-width: 150px;
+    height: 30px;
+    vertical-align: bottom;
+    padding-left: 5px;
+    font-size: .8em
+}
+
+.siiruBoard-search input[type="text"] {
+    display: inline-block;
+    min-width: 200px;
+    height: 28px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+    vertical-align: bottom;
+    font-size: .8em
+}
+
+.siiruBoard-search .dateSearch {
+    padding-bottom: 5px;
+    padding-right: 55px
+}
+
+.siiruBoard-search .dateSearch input[type="text"] {
+    min-width: 80px
+}
+
+.siiruBoard-search .dateSearch label {
+    font-size: .9em;
+    padding-right: 5px;
+    cursor: pointer
+}
+
+.siiruBoard-search input[type="checkbox"] {
+    margin-top: 9px;
+    vertical-align: top
+}
+
+.siiruBoard-search .checkboxLabel {
+    display: inline-block;
+    margin-top: 8px;
+    padding-left: 5px;
+    padding-right: 10px;
+    font-size: .8em;
+    cursor: pointer;
+    vertical-align: top
+}
+
+.siiruBoard-search input[type="button"],
+.siiruBoard-search input[type="submit"],
+.siiruBoard-search button {
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #444;
+    background-image: none;
+    border: 0 !important;
+    color: #fff;
+    border-radius: 3px;
+    vertical-align: bottom;
+    font-size: .8em
+}
+
+.siiruBoard-search input[type="button"]:focus,
+.siiruBoard-search input[type="submit"]:focus,
+.siiruBoard-search button:focus {
+    outline: thin dotted;
+    outline: 5px auto;
+    outline-offset: -2px
+}
+
+.siiruBoard-search input[type="button"]:hover,
+.siiruBoard-search input[type="submit"]:hover,
+.siiruBoard-search button:hover {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal
+}
+
+@media screen and (min-width:768px) {
+    .siiruBoard-search {
+        float: right;
+        text-align: right;
+        border: 0;
+        margin-bottom: 0
+    }
+}
+
+.siiruBoard-listInfo {
+    display: block;
+    clear: both;
+    overflow: hidden;
+    padding: 5px 0 5px 0
+}
+
+.siiruBoard-listInfo p {
+    float: left;
+    margin-bottom: 5px;
+    font-size: .9em
+}
+
+.siiruBoard-listInfo .siiruRss {
+    float: right;
+    padding-left: 20px;
+    padding-bottom: 3px
+}
+
+.siiruBoard-listInfo .siiruRss a {
+    padding-top: 2px;
+    padding-left: 20px;
+    background: url(../images/icon-rss.png) no-repeat 0 50%;
+    background-size: 15px 15px;
+    font-size: 1em
+}
+
+.siiruBoard-view {
+    width: 100%;
+    border-top: 1px solid #757c86;
+    margin-bottom: 20px
+}
+
+.siiruBoard-view * {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle
+}
+
+.siiruBoard-view:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoard-view h4 {
+    padding: 10px;
+    font-size: 1.3em;
+    line-height: 130%;
+    color: #222;
+    font-weight: normal;
+    background-color: #efefef
+}
+
+.siiruBoard-view h4 * {
+    vertical-align: middle !important
+}
+
+.siiruBoard-view h4.text-danger {
+    color: #a94442
+}
+
+.siiruBoard-view h4 .notice {
+    background-color: #5bc0de;
+    color: #fff;
+    text-align: center;
+    padding: 4px 6px;
+    font-size: .6em;
+    font-weight: normal;
+    border-radius: 3px
+}
+
+.siiruBoardInfo {
+    width: 100%
+}
+
+.siiruBoardInfo:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardInfo .boardInfo-view {
+    margin: 15px 20px
+}
+
+.siiruBoardInfo .boardInfo-view:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardInfo .boardInfo-view span {
+    display: inline-block;
+    margin-right: 10px;
+    color: #333;
+    font-size: .9em;
+    line-height: 110%;
+    margin-bottom: 5px
+}
+
+.siiruBoardInfo .boardInfo-view span:nth-child(2) {
+    border-left: #bebebe solid 1px;
+    border-right: #bebebe solid 1px;
+    padding: 0 15px
+}
+
+.siiruBoardInfo .boardInfo-view .text-info {
+    color: #31708f
+}
+
+.siiruBoardInfo .boardInfo-view .text-danger {
+    color: #a94442
+}
+
+.siiruBoardInfo .boardInfo-view .text-success {
+    color: #3c763d
+}
+
+.siiruBoardInfo .boardInfo-view .text-primary {
+    color: #337ab7
+}
+
+.siiruBoardInfo .boardInfo-view .userProfile {
+    font-style: normal;
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 22px
+}
+
+.siiruBoardInfo .boardInfo-view .userProfileL {
+    background-image: url(../images/icon_user.png)
+}
+
+.siiruBoardInfo .boardInfo-view .userProfileN {
+    background-image: url(../images/icon_naver.png)
+}
+
+.siiruBoardInfo .boardInfo-view .userProfileK {
+    background-image: url(../images/icon_kakao.png)
+}
+
+.siiruBoardInfo .boardInfo-view .userProfileF {
+    background-image: url(../images/icon_facebook.png)
+}
+
+.siiruBoardInfo .boardInfo-view .userProfileT {
+    background-image: url(../images/icon_twitter.png)
+}
+
+.siiruBoardInfo .boardInfo-view .userProfileG {
+    background-image: url(../images/icon_google.png)
+}
+
+.siiruBoardInfo #imageContent {
+    text-align: center
+}
+
+.siiruBoardInfo dl {
+    border-top: 1px solid #dde2e8;
+    overflow: hidden;
+    margin: 0 15px;
+    padding: 5px
+}
+
+.siiruBoardInfo dl.top-none {
+    border-top: 0
+}
+
+.siiruBoardInfo dl dt {
+    clear: both;
+    float: left;
+    width: 10%;
+    padding: 5px;
+    font-size: .9em;
+    color: #333;
+    font-weight: bold;
+    vertical-align: middle
+}
+
+.siiruBoardInfo dl dd {
+    float: left;
+    width: 80%;
+    padding: 5px;
+    font-size: .9em;
+    color: #333;
+    vertical-align: middle
+}
+
+.siiruBoardInfo dl dd ul {
+    margin: 0;
+    padding: 0;
+    display: block;
+    list-style: none
+}
+
+.siiruBoardInfo dl dd li {
+    margin: 0;
+    padding: 0 0 5px 0;
+    border-bottom: 0;
+    clear: both
+}
+
+.siiruBoardInfo dl dd li a {
+    color: #333;
+    padding-left: 17px;
+    background: url(../images/bg-file.jpg) no-repeat left 50%;
+    text-decoration: none
+}
+
+.siiruBoardInfo dl dd li a.filePreview {
+    background: 0;
+    background-color: #444;
+    padding: 5px 10px 3px !important
+}
+
+.siiruBoardInfo dl dd li small {
+    color: #838383;
+    font-size: .9em;
+    overflow: hidden;
+    font-weight: 100
+}
+
+.siiruBoardInfo dl dd table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+.siiruBoardInfo dl dd table:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: ""
+}
+
+.siiruBoardInfo dl dd table caption {
+    display: none
+}
+
+.siiruBoardInfo dl dd table tbody th {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #bebebe;
+    font-size: .9em;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold
+}
+
+.siiruBoardInfo dl dd table tbody td {
+    padding: 10px;
+    border: 1px solid #bebebe;
+    font-size: .9em;
+    text-align: left;
+    vertical-align: middle
+}
+
+.siiruBoardInfo .imageLayer {
+    margin: 10px 0
+}
+
+.siiruBoardBody {
+    margin: 10px 20px;
+    color: #333;
+    border-top: 1px solid #dde2e8
+}
+
+.insrtPreView {
+    width: 98%;
+    margin: 10px auto 0;
+    text-align: center;
+    overflow: hidden
+}
+
+.insrtPreView div {
+    margin-bottom: 0;
+    padding: 8px;
+    border: 1px solid #dde2e8;
+    background-color: #f5f5f5;
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0
+}
+
+.insrtPreView iframe {
+    width: 100%;
+    min-height: 500px;
+    border: 1px solid #dde2e8;
+    border-top: 0;
+    border-radius: 0 0 calc(.25rem - 1px) calc(.25rem - 1px)
+}
+
+.imageView,
+.videoView,
+.audioView,
+.flashView {
+    width: 100%;
+    margin: 10px auto 0;
+    text-align: center;
+    overflow: hidden
+}
+
+.imageView small,
+.videoView small,
+.audioView small,
+.flashView small {
+    display: block;
+    border: 1px solid #e7eaec;
+    background-color: #f5f5f5;
+    box-shadow: none;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    font-size: .9em;
+    border-radius: 4px
+}
+
+.imageView img {
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-width: 100%
+}
+
+.siiruBoardBody .boardContents {
+    font-size: 1em;
+    color: #393939;
+    line-height: 150%;
+    padding: 25px 15px
+}
+
+.siiruBoardBody .sttusBox {
+    margin: 10px 0
+}
+
+.siiruBoardBody .sttusBox:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardBody .sttusBox dl {
+    margin-bottom: 10px
+}
+
+.siiruBoardBody .sttusBox dl:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardBody .sttusBox dl dt:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardBody .sttusBox dl dt {
+    border: 1px solid #e7eaec;
+    background-color: #f5f5f5;
+    padding: 10px 10px 6px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 3px 3px 0 0
+}
+
+.siiruBoardBody .sttusBox dl dt.sttusInfo {
+    padding-top: 6px
+}
+
+.siiruBoardBody .sttusBox dl.sttusDanger dt {
+    background-color: #f2dede;
+    border-color: #ebccd1
+}
+
+.siiruBoardBody .sttusBox dl.sttusDanger dd {
+    border-color: #ebccd1
+}
+
+.siiruBoardBody .sttusBox dl dt span {
+    display: block;
+    float: left;
+    padding-top: 6px;
+    font-size: .9em;
+    font-weight: bold
+}
+
+.siiruBoardBody .sttusBox dl dt div {
+    float: right;
+    text-align: right
+}
+
+.siiruBoardBody .sttusBox dl dd {
+    padding: 15px 20px 10px;
+    font-size: .9em;
+    border: 1px solid #e7eaec;
+    border-top: 0;
+    border-radius: 0 0 3px 3px
+}
+
+.siiruBoardBody .sttusBox dl dd:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardBody .sttusBox dl dd .videoLayer {
+    margin-bottom: 10px
+}
+
+.siiruBoardBody .sttusBox dl dd .videoLayer div,
+.siiruBoardBody .sttusBox dl dd .videoLayer p {
+    display: inline-block;
+    vertical-align: top
+}
+
+.siiruBoardBody .sttusBox dl dd .videoLayer .vSubtitle {
+    margin-left: 10px;
+    padding: 0 10px;
+    width: 350px;
+    height: 315px;
+    overflow-x: hidden;
+    overflow-y: auto
+}
+
+.siiruBoardBody .sttusBox dl dd ul {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.siiruBoardBody .sttusBox dl dd ul li {
+    display: inline-block;
+    padding: 0 40px;
+    font-size: .9em;
+    color: #838383
+}
+
+.siiruBoardBody .sttusBox dl dd ul li.active {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333
+}
+
+.siiruBoardBody .sttusBox dl dd small.sttusManage {
+    display: block;
+    text-align: right;
+    color: #838383;
+    padding-top: 5px
+}
+
+.siiruBoardBody .sttusBox p.nodata {
+    margin: 0;
+    padding: 5px 0 15px;
+    font-size: 1.3em;
+    color: #ccc
+}
+
+.siiruBoardBody .sttusBox dl dd ul.fileList {
+    margin-top: 10px
+}
+
+.siiruBoardBody .sttusBox dl dd ul.fileList li {
+    display: block;
+    padding-left: 10px
+}
+
+.siiruBoardBody .sttusBox dl dd ul.fileList li a {
+    color: #333;
+    padding-left: 17px;
+    background: url(../images/bg-file.jpg) no-repeat left 50%;
+    text-decoration: none
+}
+
+.siiruBoardBody .sttusBox dl dd a.filePreview {
+    margin-left: 10px
+}
+
+.siiruBoardBody .sttusBox .text-info {
+    color: #31708f
+}
+
+.siiruBoardBody .sttusBox .text-danger {
+    color: #a94442
+}
+
+.siiruBoardBody .sttusBox .text-success {
+    color: #3c763d
+}
+
+.siiruBoardBody .sttusBox .text-primary {
+    color: #337ab7
+}
+
+.siiruBoardBody .sttusBox .text-warning {
+    color: #8a6d3b
+}
+
+.siiruBoardBody .koglSeView {
+    text-align: right
+}
+
+.siiruBoardBody .koglSeView small {
+    display: block;
+    color: #838383;
+    padding-top: 5px
+}
+
+.siiruBoardBody .koglSeView small a {
+    color: #838383
+}
+
+.siiruBoardBody .koglSeView .blue {
+    color: #1c84c6
+}
+
+.siiruBoardBody .manageInfo {
+    text-align: right;
+    margin: 15px 0;
+    padding-top: 5px
+}
+
+.siiruBoardBody .manageInfo small {
+    display: block;
+    color: #838383;
+    padding-top: 5px
+}
+
+.siiruBoardBody .manageInfo .siiru-btn small {
+    display: inline-block;
+    color: #fff;
+    padding-top: 0;
+    margin-top: -3px
+}
+
+.siiruBoardBtnInfo {
+    margin: 20px 20px 0;
+    padding: 15px 0;
+    border-top: 1px solid #dde2e8
+}
+
+.siiruBoardBtnInfo:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardSttus {
+    margin: 10px 20px
+}
+
+.siiruBoardSttus:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardSttus dl {
+    margin-bottom: 10px
+}
+
+.siiruBoardSttus dl:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardSttus dl dt:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardSttus dl dt {
+    border: 1px solid #e7eaec;
+    background-color: #f5f5f5;
+    padding: 5px 10px;
+    font-size: 1em;
+    border-radius: 3px 3px 0 0
+}
+
+.siiruBoardSttus dl dt span {
+    display: block;
+    float: left;
+    padding-top: 5px;
+    font-weight: bold
+}
+
+.siiruBoardSttus dl dt button {
+    float: right
+}
+
+.siiruBoardSttus dl dd {
+    padding: 20px 20px 10px;
+    border: 1px solid #e7eaec;
+    border-top: 0;
+    border-radius: 0 0 3px 3px
+}
+
+.siiruBoardSttus dl dd span {
+    display: inline-block;
+    font-size: 1em;
+    text-align: right;
+    font-weight: bold;
+    width: 100px;
+    padding: 0 10px 0 0
+}
+
+.siiruBoardSttus dl dd input[type="checkbox"],
+.siiruBoardSttus dl dd input[type="radio"] {
+    margin-top: -5px
+}
+
+.siiruBoardSttus dl dd label {
+    padding-left: 5px;
+    padding-right: 10px;
+    font-size: 1em;
+    cursor: pointer
+}
+
+.siiruBoardSttus dl dd .sttusLayer {
+    width: 100%;
+    padding-bottom: 10px
+}
+
+.siiruBoardSttus dl dd .sttusLayer ul.chrgAppnLayer {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.siiruBoardSttus dl dd .sttusLayer ul.chrgAppnLayer li {
+    display: inline-block;
+    font-size: .9em;
+    margin: 0;
+    padding: 0 10px 0 0;
+    vertical-align: baseline
+}
+
+.siiruBoardSttus dl dd .sttusLayer ul.chrgAppnLayer li .siiru-btn {
+    margin-top: -3px;
+    padding: 3px 8px !important;
+    font-size: .7em !important
+}
+
+.siiruBoardSttus dl dd .sttusLayer .chrgAppnMsg {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    color: #a94442;
+    font-size: 1.1em;
+    width: 300px
+}
+
+.siiruBoardSttus dl dd .comtSLayer {
+    width: 100%;
+    padding-bottom: 10px
+}
+
+.siiruBoardSttus dl dd .comtSLayer input[type="text"] {
+    width: 50%;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 1em;
+    color: #666
+}
+
+.siiruBoardSttus dl dd .comtSLayer input[type="text"][readonly] {
+    cursor: not-allowed;
+    background-color: #eee;
+    opacity: 1
+}
+
+.siiruBoardSttus dl dd .comtSLayer input.small {
+    width: 100px
+}
+
+.siiruBoardSttus dl dd .comtSLayer input.small20 {
+    width: 20%;
+    margin-right: 10px
+}
+
+.siiruBoardSttus dl dd .comtSLayer input.small50 {
+    width: 50%
+}
+
+.siiruBoardSttus dl dd .comtSLayer input.small72 {
+    width: 72%
+}
+
+.siiruBoardSttus dl dd .comtSLayer select {
+    width: auto;
+    height: 30px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.siiruBoardSttus dl dd .comtSLayer label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    font-weight: bold;
+    padding: 0 10px 0 0
+}
+
+.siiruBoardSttus dl dd .comtSLayer textarea {
+    width: 98%;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    color: #666;
+    padding: 5px
+}
+
+.siiruBoardSttus dl dd .comtSLayer .labelTextarea {
+    width: 72%;
+    margin-left: 110px;
+    margin-top: 5px
+}
+
+.siiruBoardSttus dl dd .comtSLayer .fileLabel {
+    display: inline-block;
+    vertical-align: top
+}
+
+.siiruBoardSttus dl dd .comtSLayer .fileLayer {
+    display: inline-block;
+    padding-left: 5px
+}
+
+.siiruBoardSttus dl dd .comtSLayer .fileLayer .fileView,
+.siiruBoardSttus dl dd .comtSLayer .fileLayer .deleteFile {
+    display: inline-block;
+    padding-left: 5px;
+    font-size: .8em;
+    font-weight: normal;
+    width: auto
+}
+
+.siiruBoardSttus dl dd .comtSLayer .fileLayer input[type="checkbox"] {
+    margin: 0
+}
+
+.siiruBoardSttus dl dd .comtSLayer .fileInfo {
+    display: none
+}
+
+.siiruBoardComt {
+    margin: 10px 20px
+}
+
+.siiruBoardComt:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardComt dl {
+    margin-bottom: 15px
+}
+
+.siiruBoardComt dl:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardComt dl dt:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardComt dl dt {
+    border: 1px solid #e7eaec;
+    background-color: #f5f5f5;
+    padding: 5px 10px;
+    font-size: 1em;
+    border-radius: 3px 3px 0 0
+}
+
+.siiruBoardComt dl dt span {
+    display: block;
+    float: left;
+    padding-top: 5px;
+    font-weight: bold
+}
+
+.siiruBoardComt dl dt button {
+    float: right
+}
+
+.siiruBoardComt dl dt .list-inline {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.siiruBoardComt dl dt .list-inline li {
+    display: inline-block;
+    margin: 0;
+    padding: 5px 0 0
+}
+
+.siiruBoardComt dl dt .list-inline li a {
+    display: block;
+    border-right: #ccc solid 1px;
+    padding: 0 15px
+}
+
+.siiruBoardComt dl dt .list-inline li:last-child a {
+    border: 0
+}
+
+.siiruBoardComt dl dt .list-inline li.active a {
+    color: #2764c1
+}
+
+.siiruBoardComt dl dd {
+    padding: 15px 10px 5px;
+    border: 1px solid #e7eaec;
+    border-top: 0;
+    border-radius: 0 0 3px 3px
+}
+
+.siiruBoardComt dl dd:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardComt dl dd .comtMLayer {
+    width: 100%;
+    padding-bottom: 10px
+}
+
+.siiruBoardComt dl dd .comtMLayer span {
+    display: inline-block;
+    font-size: 1em;
+    text-align: right;
+    font-weight: bold;
+    width: 100px;
+    padding: 0 10px 0 0
+}
+
+.siiruBoardComt dl dd .comtMLayer input[type="radio"] {
+    margin-top: -5px
+}
+
+.siiruBoardComt dl dd .comtMLayer textarea {
+    width: 98%;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    color: #666;
+    padding: 5px
+}
+
+.siiruBoardComt dl dd label {
+    padding-left: 5px;
+    padding-right: 10px;
+    font-size: 1em;
+    cursor: pointer
+}
+
+.siiruBoardComt dl dd ul {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.siiruBoardComt dl dd ul li {
+    margin: 5px 5px 10px;
+    padding: 5px 0 10px;
+    font-size: .9em;
+    border-bottom: 1px solid #e7eaec
+}
+
+.siiruBoardComt dl dd ul li:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 5px
+}
+
+.siiruBoardComt dl dd ul li p.nodata {
+    margin: 0;
+    padding: 5px 0 15px;
+    font-size: 1.3em;
+    color: #ccc
+}
+
+.siiruBoardComt dl dd ul li span {
+    font-size: .9em
+}
+
+.siiruBoardComt dl dd ul li span img {
+    vertical-align: middle;
+    margin-top: -4px;
+    margin-right: 3px
+}
+
+.siiruBoardComt dl dd ul li div.well {
+    display: block;
+    border: 1px solid #e7eaec;
+    background-color: #f5f5f5;
+    box-shadow: none;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: .9em;
+    border-radius: 4px
+}
+
+.siiruBoardComt dl dd ul li small.comtManage {
+    display: block;
+    text-align: right;
+    color: #838383;
+    padding: 5px 0 0
+}
+
+.siiruBoardComt dl dd ul li.comtDanger,
+.siiruBoardComt dl dd ul li.comtDanger small.comtManage {
+    color: #a94442
+}
+
+.siiruBoardComt dl dd ul li .sttemntView,
+.siiruBoardComt dl dd ul li .empthView {
+    margin-left: 20px;
+    margin-bottom: 5px;
+    padding: 0 20px
+}
+
+.siiruBoardComt dl dd ul li .sttemntView ul,
+.siiruBoardComt dl dd ul li .empthView ul {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.siiruBoardComt dl dd ul li .sttemntView ul li,
+.siiruBoardComt dl dd ul li .empthView ul li {
+    font-size: .8em
+}
+
+.siiruBoardComt dl dd ul li .sttemntView ul li p {
+    margin: 0;
+    padding-top: 10px;
+    padding-left: 15px
+}
+
+.siiruBoardComt dl dd ul li .text-info {
+    color: #31708f
+}
+
+.siiruBoardComt dl dd ul li .text-danger {
+    color: #a94442
+}
+
+.siiruBoardComt dl dd ul li .text-success {
+    color: #3c763d
+}
+
+.siiruBoardComt dl dd ul li .text-primary {
+    color: #337ab7
+}
+
+.siiruBoardComt dl dd ul li .text-warning {
+    color: #8a6d3b
+}
+
+.siiruBoardComt dl dd ul li .userProfile {
+    padding: 8px 0 5px 20px;
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: left center
+}
+
+.siiruBoardComt dl dd ul li .userProfileL {
+    background-image: url(../images/icon_user.png)
+}
+
+.siiruBoardComt dl dd ul li .userProfileN {
+    background-image: url(../images/icon_naver.png)
+}
+
+.siiruBoardComt dl dd ul li .userProfileK {
+    background-image: url(../images/icon_kakao.png)
+}
+
+.siiruBoardComt dl dd ul li .userProfileF {
+    background-image: url(../images/icon_facebook.png)
+}
+
+.siiruBoardComt dl dd ul li .userProfileT {
+    background-image: url(../images/icon_twitter.png)
+}
+
+.siiruBoardComt dl dd ul li .userProfileG {
+    background-image: url(../images/icon_google.png)
+}
+
+.siiruBoardComt dl dd ul li .alert {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px
+}
+
+.siiruBoardComt dl dd ul li .alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc
+}
+
+.siiruBoardComt dl dd ul li .alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1
+}
+
+.siiruBoardComt dl dd .pagination li {
+    border-bottom: 0
+}
+
+.siiruBoardList {
+    margin: 10px 20px
+}
+
+.siiruBoardList:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoardList ul {
+    list-style: none
+}
+
+.siiruBoardList li {
+    font-size: .9em;
+    border-top: 1px solid #bebebe;
+    padding: 15px 10px 10px
+}
+
+.siiruBoardList li:last-child {
+    border-bottom: 1px solid #bebebe
+}
+
+.siiruBoardList li span {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 15px;
+    border-right: #bebebe solid 1px;
+    margin-right: 15px;
+    font-weight: bold
+}
+
+.siiruBoardList li small {
+    float: right;
+    display: block
+}
+
+.siiruBoardViewlist {
+    margin: 30px 20px 0
+}
+
+.siiruBoardViewlist:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+@media all and (max-width:720px) {
+    .siiruBoardInfo .boardInfo-view {
+        margin: 15px 10px
+    }
+
+    .siiruBoardInfo dl dt {
+        width: 90%
+    }
+
+    .siiruBoardInfo dl dd {
+        width: 90%;
+        padding: 0 0 0 10px;
+        margin-bottom: 10px
+    }
+
+    .imageView,
+    .videoView,
+    .audioView,
+    .flashView {
+        width: 100%
+    }
+
+    .siiruBoardBody .sttusBox dl dd ul li {
+        padding: 0 20px
+    }
+
+    .siiruBoardSttus dl dd span {
+        padding-left: 0;
+        padding-right: 10px
+    }
+
+    .siiruBoardSttus dl dd label {
+        padding-left: 5px;
+        padding-right: 5px
+    }
+
+    .siiruBoardSttus dl dd .comtSLayer label {
+        display: block;
+        text-align: left
+    }
+}
+
+.siiruBoard-list {
+    margin-bottom: 10px
+}
+
+.siiruBoard-list table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: 2px solid #757c86
+}
+
+.siiruBoard-list table:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: ""
+}
+
+.siiruBoard-list table caption {
+    display: none
+}
+
+.siiruBoard-list table thead th {
+    padding: 10px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    font-weight: bold
+}
+
+.siiruBoard-list table .num,
+.siiruBoard-list table .notice {
+    width: 6%
+}
+
+.siiruBoard-list table .category {
+    width: 8%
+}
+
+.siiruBoard-list table .open {
+    width: 6%
+}
+
+.siiruBoard-list table .subject {
+    padding: 0 15px;
+    vertical-align: middle
+}
+
+.siiruBoard-list table .writer {
+    width: 20%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.siiruBoard-list table .date {
+    width: 10%
+}
+
+.siiruBoard-list table .hit {
+    width: 6%
+}
+
+.siiruBoard-list table .file {
+    width: 6%
+}
+
+.siiruBoard-list table .prcs {
+    width: 10%
+}
+
+.siiruBoard-list table .chrgAppn {
+    width: 10%
+}
+
+.siiruBoard-list table .prcsDept {
+    width: 10%
+}
+
+.siiruBoard-list table tbody th {
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.siiruBoard-list table tbody td {
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px
+}
+
+.siiruBoard-list table tbody a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none
+}
+
+.siiruBoard-list table tbody td.nodata {
+    min-height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border-bottom: #dde2e8 solid 1px;
+    font-size: 1.1em
+}
+
+.siiruBoard-list table tbody .notice {
+    background-color: #5bc0de;
+    color: #fff;
+    text-align: center;
+    padding: 4px;
+    font-size: .75em;
+    font-weight: normal;
+    border-radius: 3px
+}
+
+.siiruBoard-list table tbody .subject {
+    text-align: left
+}
+
+.siiruBoard-list table tbody .subject a {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.siiruBoard-list table tbody .subject img {
+    vertical-align: middle
+}
+
+.siiruBoard-list table tbody .reBlcok {
+    padding-left: 15px
+}
+
+.siiruBoard-list table tbody .reply {
+    margin-right: 7px
+}
+
+.siiruBoard-list table tbody .secret {
+    margin-right: 7px;
+    vertical-align: -1px
+}
+
+.siiruBoard-list table tbody .new {
+    background: url(../images/icon-new.png) no-repeat right center;
+    padding-right: 25px
+}
+
+.siiruBoard-list table tbody .throughline,
+.siiruBoard-list table tbody .throughline a {
+    text-decoration: line-through;
+    color: red !important
+}
+
+.siiruBoard-list table tbody .highlight {
+    background: #e6e6e6
+}
+
+.siiruBoard-list table tbody .text-danger,
+.siiruBoard-galleryBox .text-danger {
+    color: #a94442
+}
+
+.siiruBoard-list table .num,
+.siiruBoard-list table .category,
+.siiruBoard-list table .hit,
+.siiruBoard-list table .date,
+.siiruBoard-list table .file {
+    display: none !important
+}
+
+@media all and (min-width:768px) {
+    .siiruBoard-list table .writer {
+        width: 10%
+    }
+
+    .siiruBoard-list table .num,
+    .siiruBoard-list table .category,
+    .siiruBoard-list table .hit,
+    .siiruBoard-list table .date,
+    .siiruBoard-list table .file {
+        display: table-cell !important
+    }
+}
+
+.siiruBoard-gallery {
+    width: 100%;
+    height: auto;
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+    padding-top: 20px;
+    margin-bottom: 10px;
+    overflow: hidden
+}
+
+.siiruBoard-gallery .nodata {
+    text-align: center;
+    padding: 30px 0 50px;
+    font-size: 1em;
+    border-bottom: 1px solid #ccc
+}
+
+.siiruBoard-gallery .throughline dt a {
+    text-decoration: line-through;
+    color: red
+}
+
+.siiruBoard-gallery .highlight {
+    background: #e6e6e6
+}
+
+.siiruBoard-galleryBox {
+    float: left;
+    width: 250px;
+    border: 1px solid #e7eaec;
+    background-color: #fff;
+    margin: 0 10px 20px 10px
+}
+
+.siiruBoard-galleryBox .photoBox {
+    height: 200px;
+    overflow: hidden
+}
+
+.siiruBoard-galleryBox .photoBox img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border: 0
+}
+
+.siiruBoard-galleryBox .photoBox img:hover {
+    opacity: .85
+}
+
+.siiruBoard-galleryBox dl {
+    margin: 0;
+    border-top: 1px solid #e7eaec
+}
+
+.siiruBoard-galleryBox dl.highlight {
+    background: #e6e6e6
+}
+
+.siiruBoard-galleryBox dl dt {
+    margin: 10px 10px 0;
+    min-height: 60px
+}
+
+.siiruBoard-galleryBox dl dt a,
+.siiruBoard-galleryBox dl dt span.title {
+    font-size: .9em
+}
+
+.siiruBoard-galleryBox dl dt.new>a,
+.siiruBoard-galleryBox dl dt.new>span.title {
+    background: url(../images/icon-new.png) no-repeat right center;
+    padding-right: 25px
+}
+
+.siiruBoard-galleryBox dl dd {
+    padding: 0 10px 10px;
+    color: #adadad;
+    font-size: .9em
+}
+
+.siiruBoard-galleryBox dl dd span {
+    margin-left: 5px
+}
+
+@media all and (max-width:720px) {
+    .siiruBoard-galleryBox {
+        width: 99%;
+        margin-left: 0;
+        margin-right: 0
+    }
+}
+
+.siiruBoard-write {
+    width: 100%;
+    border-top: 1px solid #757c86;
+    margin-bottom: 20px
+}
+
+.siiruBoard-write * {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle
+}
+
+.siiruBoard-write:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both
+}
+
+.siiruBoard-write dl {
+    border-bottom: 1px solid #dde2e8;
+    overflow: hidden;
+    padding: 5px
+}
+
+.siiruBoard-write dl dt {
+    clear: both;
+    float: left;
+    width: 10%;
+    padding: 5px;
+    font-size: .9em;
+    font-weight: bold;
+    vertical-align: middle
+}
+
+.siiruBoard-write dl dt span {
+    color: red
+}
+
+.siiruBoard-write dl dt label {
+    line-height: 30px
+}
+
+.siiruBoard-write dl dt span.btnLayer {
+    display: block;
+    padding-top: 5px
+}
+
+.siiruBoard-write dl dd {
+    float: left;
+    width: 80%;
+    padding: 5px;
+    vertical-align: middle
+}
+
+.siiruBoard-write dl dd input[type="text"] {
+    width: 100%;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 1em;
+    color: #666
+}
+
+.siiruBoard-write dl dd input[type="checkbox"],
+.siiruBoard-write dl dd input[type="radio"] {
+    margin-top: -3px
+}
+
+.siiruBoard-write dl dd input[type="password"] {
+    width: 200px;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 1em;
+    color: #666
+}
+
+.siiruBoard-write dl dd select {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 1em;
+    color: #666
+}
+
+.siiruBoard-write dl dd select.small {
+    width: 100px
+}
+
+.siiruBoard-write dl dd select.small2 {
+    width: 150px
+}
+
+.siiruBoard-write dl dd textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    color: #666;
+    padding: 5px
+}
+
+.siiruBoard-write dl dd input.small {
+    width: 100px
+}
+
+.siiruBoard-write dl dd input.small2 {
+    width: 200px
+}
+
+.siiruBoard-write dl dd input.small20 {
+    width: 20%
+}
+
+.siiruBoard-write dl dd input.small30 {
+    width: 30%
+}
+
+.siiruBoard-write dl dd input.small40 {
+    width: 40%
+}
+
+.siiruBoard-write dl dd input.small50 {
+    width: 50%
+}
+
+.siiruBoard-write dl dd input.small75 {
+    width: 75%
+}
+
+.siiruBoard-write dl dd input[type="text"][disabled],
+.siiruBoard-write dl dd input[type="text"][readonly] {
+    cursor: not-allowed;
+    background-color: #eee;
+    opacity: 1
+}
+
+.siiruBoard-write dl dd label {
+    line-height: 30px;
+    padding-right: 10px;
+    font-size: 1em;
+    cursor: pointer
+}
+
+.siiruBoard-write dl dd span.separator {
+    padding: 0 5px
+}
+
+.siiruBoard-write dl dd small {
+    display: block;
+    margin-top: 5px
+}
+
+.siiruBoard-write dl dd div.radioBlock {
+    margin: 10px 0 0 0;
+    padding: 0
+}
+
+.siiruBoard-write dl dd div.radioBlock img {
+    margin: 0 10px
+}
+
+.siiruBoard-write dl dd a.blue {
+    color: #1c84c6
+}
+
+.siiruBoard-write dl dd .fileInfo {
+    display: none
+}
+
+.siiruBoard-write dl dd.fullCont {
+    width: 100%;
+    padding: 10px 0
+}
+
+.siiruBoard-write dl dd .cropperBtn div {
+    line-height: 140%
+}
+
+.siiruBoard-write dl dd .image-crop {
+    width: 100%
+}
+
+.siiruBoard-write dl dd .image-crop>img {
+    max-width: 100%
+}
+
+.siiruBoard-write dl dd .preViewLayer {
+    margin-left: 10px;
+    vertical-align: top
+}
+
+.siiruBoard-write dl dd .preViewLayer label {
+    display: inline-block;
+    width: 30px;
+    text-align: right;
+    padding-right: 5px;
+    font-size: .9em;
+    cursor: pointer
+}
+
+.siiruBoard-write dl dd .img-container,
+.img-preview {
+    overflow: hidden;
+    text-align: center;
+    width: 100%
+}
+
+.siiruBoard-write dl dd .img-preview-sm {
+    width: 235px;
+    height: 176px;
+    padding: 2px;
+    border: 1px solid #ddd;
+    border-radius: 4px
+}
+
+.siiruBoard-write dl dd .captchaImg {
+    padding: 2px;
+    border: 1px solid #ddd;
+    border-radius: 4px
+}
+
+.siiruBoard-write .agreeBoxWrap {
+    margin: 10px auto 10px;
+    padding: 0 10px
+}
+
+.siiruBoard-write .agreeBoxWrap .agreeTitle {
+    margin: 0;
+    padding: 0;
+    font-size: .9em;
+    font-weight: bold
+}
+
+.siiruBoard-write .agreeBoxWrap .agreeBox {
+    font-size: .8em;
+    height: 200px;
+    padding: 10px;
+    margin: 5px 0;
+    overflow-y: scroll;
+    border: 1px solid #ddd
+}
+
+.siiruBoard-write .agreeBoxWrap .agreeCheck {
+    font-size: .9em;
+    text-align: right
+}
+
+.siiruBoard-write .agreeBoxWrap .agreeCheck input[type="checkbox"] {
+    margin-top: -5px
+}
+
+@media all and (max-width:720px) {
+    .siiruBoard-write dl dt {
+        width: 90%
+    }
+
+    .siiruBoard-write dl dd {
+        width: 90%;
+        padding: 0 0 0 10px;
+        margin-bottom: 10px
+    }
+
+    .siiruBoard-write dl dd .preViewLayer {
+        margin-left: 0;
+        margin-top: 10px
+    }
+
+    .siiruBoard-write dl dd .preViewLayer label {
+        width: 10px
+    }
+}
+
+.siiruModal {
+    padding: 10px !important
+}
+
+.siiruModalHeader {
+    margin: 0 0 10px;
+    padding: 10px;
+    border-bottom: 1px solid #e7eaec
+}
+
+.siiruModalHeader p {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    font-weight: bold
+}
+
+.siiruModalBody {
+    padding: 10px
+}
+
+.siiruModalBody input[type="text"] {
+    width: 97%;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.siiruModalBody input[type="checkbox"] {
+    margin-top: -5px
+}
+
+.siiruModalBody input[type="password"] {
+    width: 200px;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.siiruModalBody textarea {
+    width: 97%;
+    border: 1px solid #ccc;
+    font-size: .9em;
+    color: #666;
+    padding: 5px
+}
+
+.siiruModalBody input[type="text"][disabled],
+.siiruModalBody dl dd input[type="text"][readonly] {
+    cursor: not-allowed;
+    background-color: #eee;
+    opacity: 1
+}
+
+.siiruModalBody label {
+    line-height: 30px;
+    padding-right: 10px;
+    font-size: .9em;
+    cursor: pointer
+}
+
+.siiruModalBody input.small {
+    width: 150px
+}
+
+.siiruModalBody input.small2 {
+    width: 200px
+}
+
+.siiruModalBody div {
+    margin-top: 5px
+}
+
+.siiruModalBody .chrgFindView,
+.siiruModalBody .boardFindView {
+    height: 400px
+}
+
+.siiruModalBody table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: 2px solid #757c86
+}
+
+.siiruModalBody table:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: ""
+}
+
+.siiruModalBody table caption {
+    display: none
+}
+
+.siiruModalBody table tbody td {
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #dde2e8;
+    font-size: .9em;
+    vertical-align: middle;
+    line-height: 20px
+}
+
+.siiruModalBody table tbody td.nodata {
+    margin: 0;
+    padding: 20px 0 15px;
+    font-size: 1.5em;
+    color: #ccc
+}
+
+.siiruModalBody dl {
+    border-bottom: 1px solid #dde2e8;
+    overflow: hidden;
+    padding: 5px;
+    margin: 0
+}
+
+.siiruModalBody dl.noborder {
+    border-bottom: 0
+}
+
+.siiruModalBody dl dt {
+    clear: both;
+    float: left;
+    width: 20%;
+    padding: 5px;
+    margin: 0;
+    font-size: .9em;
+    font-weight: bold;
+    vertical-align: middle
+}
+
+.siiruModalBody dl dt span {
+    color: red
+}
+
+.siiruModalBody dl dd {
+    float: left;
+    width: 70%;
+    padding: 5px;
+    margin: 0;
+    vertical-align: middle
+}
+
+.siiruModalBody dl dd .captchaImg {
+    padding: 2px;
+    border: 1px solid #ddd;
+    border-radius: 4px
+}
+
+.siiruModalBody dl dd .btnLayer {
+    display: inline-block;
+    padding: 20px 0 0 10px;
+    vertical-align: top
+}
+
+.siiruModalBody dl dd .secretForm {
+    display: inline-block
+}
+
+.siiruModalBody dl.fullCont {
+    border-bottom: 0
+}
+
+.siiruModalBody dl.fullCont dd {
+    width: 100%;
+    padding: 10px 0
+}
+
+.siiruModalBody #imageView {
+    text-align: center
+}
+
+.siiruModalBody .imgLayer #imageFile a {
+    text-decoration: none;
+    color: #333;
+    font-size: .9em
+}
+
+.siiruModalBody .imgLayer textarea {
+    margin-top: 5px
+}
+
+.siiruModalBody .imgLayer input[type="checkbox"] {
+    margin-left: 10px
+}
+
+.siiruModalBody .imgLayer small {
+    font-size: .8em;
+    color: #333
+}
+
+.siiruModalBody .prtcpntSearch select {
+    margin-right: 10px;
+    width: 130px;
+    height: 30px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.siiruModalBody .prtcpntSearch input[type="text"] {
+    width: 300px;
+    height: 18px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: .9em;
+    color: #666
+}
+
+.siiruModalBody div.well {
+    display: block;
+    border: 1px solid #e7eaec;
+    background-color: #f5f5f5;
+    box-shadow: none;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: .9em;
+    border-radius: 4px
+}
+
+.siiruModalBody div.well p {
+    margin: 0
+}
+
+.siiruModalBody .sttemntView,
+.siiruModalBody .empthView {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    padding: 0 20px
+}
+
+.siiruModalBody .sttemntView ul,
+.siiruModalBody .empthView ul {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.siiruModalBody .sttemntView ul li,
+.empthView ul li {
+    font-size: .8em
+}
+
+.siiruModalBody .sttemntView ul li p {
+    margin: 0;
+    padding-left: 15px
+}
+
+.siiruModalBody .prtcpntDel {
+    padding: 3px 5px !important
+}
+
+.siiruModalBody .text-info {
+    color: #31708f
+}
+
+.siiruModalBody .text-danger {
+    color: #a94442
+}
+
+.siiruModalBody .text-success {
+    color: #3c763d
+}
+
+.siiruModalBody .text-primary {
+    color: #337ab7
+}
+
+.siiruModalBody .text-warning {
+    color: #8a6d3b
+}
+
+.siiruModalBody .userProfile {
+    padding: 8px 0 5px 20px;
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: left center
+}
+
+.siiruModalBody .userProfileL {
+    background-image: url(../images/icon_user.png)
+}
+
+.siiruModalBody .userProfileN {
+    background-image: url(../images/icon_naver.png)
+}
+
+.siiruModalBody .userProfileK {
+    background-image: url(../images/icon_kakao.png)
+}
+
+.siiruModalBody .userProfileF {
+    background-image: url(../images/icon_facebook.png)
+}
+
+.siiruModalBody .userProfileT {
+    background-image: url(../images/icon_twitter.png)
+}
+
+.siiruModalBody .userProfileG {
+    background-image: url(../images/icon_google.png)
+}
+
+.siiruModalBody .alert {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px
+}
+
+.siiruModalBody .alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc
+}
+
+.siiruModalBody .alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1
+}
+
+.siiruModalBody div.half {
+    display: inline-block;
+    width: 49%
+}
+
+.siiruModalBody div.half p {
+    margin: 0 0 5px 0;
+    padding: 0;
+    font-size: .9em
+}
+
+.siiruModalBody p.privacy {
+    margin: 10px 0;
+    padding: 0;
+    font-size: 1em;
+    line-height: 150%
+}
+
+.siiruModalBody .selDisabled td {
+    color: #aaa;
+    cursor: not-allowed
+}
+
+.siiruModalFooter {
+    margin: 10px 0 0;
+    padding: 10px;
+    border-top: 1px solid #e7eaec
+}
+
+.siiruModalFooter .moveBoard {
+    padding-right: 10px;
+    font-size: .9em;
+    font-weight: bold;
+    color: #d9534f
+}
+
+.siiruModalFooter .siiru-btn {
+    padding-top: 6px !important
+}

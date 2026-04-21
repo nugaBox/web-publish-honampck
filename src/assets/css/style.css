@@ -338,6 +338,7 @@ p {
   gap: 1px;
   padding: 18px 10px 18px 16px;
   border-right: 1px solid rgba(0, 0, 0, 0.06);
+  text-align: center;
 }
 
 .drop-col:last-child {
@@ -358,7 +359,7 @@ p {
 .drop-col a:hover {
   background: rgba(8, 61, 34, 0.08);
   color: #083d22;
-  padding-left: 14px;
+  /* padding-left: 14px; */
   font-weight: 500;
 }
 
