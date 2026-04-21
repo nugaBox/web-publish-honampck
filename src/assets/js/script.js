@@ -24,10 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
     ).then(() => {
       initGnb();
       markActiveNav();
+      initMobileMenu();
     });
   } else {
     initGnb();
     markActiveNav();
+    initMobileMenu();
   }
 
   /* ── GNB 현재 경로 활성화 ─────────────────────────────── */
@@ -40,15 +42,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ── GNB 드롭다운 키보드/마우스 ──────────────────────── */
+  /* ── GNB 드롭다운 (hover open/close) ─────────────────── */
   function initGnb() {
-    const gnb = document.querySelector('.hn-gnb');
-    if (!gnb) return;
+    const headerGnb = document.querySelector('.hn-header-gnb');
+    const gnb = headerGnb?.querySelector('.hn-gnb');
+    const drop = headerGnb?.querySelector('.hn-drop');
+    if (!gnb || !drop) return;
 
-    gnb.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        gnb.querySelector('.drop').style.display = 'none';
-      }
+    let closeTimer;
+    const openDrop  = () => { clearTimeout(closeTimer); headerGnb.setAttribute('data-drop', ''); };
+    const closeDrop = () => { closeTimer = setTimeout(() => headerGnb.removeAttribute('data-drop'), 120); };
+
+    gnb.addEventListener('mouseenter', openDrop);
+    gnb.addEventListener('mouseleave', closeDrop);
+    drop.addEventListener('mouseenter', openDrop);
+    drop.addEventListener('mouseleave', closeDrop);
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') headerGnb.removeAttribute('data-drop');
+    });
+  }
+
+  /* ── 스크롤 시 frosted glass ──────────────────────────── */
+  function initScrollHeader() {
+    const header = document.getElementById('site-header');
+    if (!header) return;
+    const update = () => header.classList.toggle('scrolled', window.scrollY > 10);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  }
+  initScrollHeader();
+
+  /* ── 모바일 드로어 메뉴 ───────────────────────────────── */
+  function initMobileMenu() {
+    const btn = document.getElementById('mobMenuBtn');
+    const drawer = document.getElementById('hnDrawer');
+    const overlay = document.getElementById('hnOverlay');
+    const closeBtn = document.getElementById('hnDrawerClose');
+    if (!btn || !drawer) return;
+
+    const openMenu = () => {
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeMenu = () => {
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    btn.addEventListener('click', openMenu);
+    closeBtn?.addEventListener('click', closeMenu);
+    overlay?.addEventListener('click', closeMenu);
+
+    /* 드로어 아코디언 (한 번에 하나만 열림) */
+    drawer.querySelectorAll('.hn-drawer-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const group = toggle.closest('.hn-drawer-group');
+        const isOpen = group.classList.contains('open');
+        drawer.querySelectorAll('.hn-drawer-group.open').forEach(g => g.classList.remove('open'));
+        if (!isOpen) group.classList.add('open');
+      });
     });
   }
 

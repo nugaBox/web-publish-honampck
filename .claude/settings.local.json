@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs -I {} basename {})",
+      "Bash(npm run *)",
+      "Bash(node -e \"const fs = require\\('fs'\\); const css = fs.readFileSync\\('src/assets/css/style.css','utf8'\\); const lines = css.split\\('\\\\n'\\); console.log\\('총 라인 수:', lines.length\\); const issues = []; if \\(!css.includes\\('backdrop-filter'\\)\\) issues.push\\('backdrop-filter 없음'\\); if \\(!css.includes\\('hn-drop-in'\\)\\) issues.push\\('드롭다운 애니메이션 없음'\\); if \\(!css.includes\\('scaleX'\\)\\) issues.push\\('슬라이딩 언더라인 없음'\\); if \\(!css.includes\\('scrolled'\\)\\) issues.push\\('scrolled 클래스 없음'\\); if \\(issues.length\\) console.log\\('문제:', issues\\); else console.log\\('모든 스타일 확인 완료'\\);\")",
+      "Bash(node -e ' *)",
+      "Bash(sips -g pixelWidth -g pixelHeight src/assets/images/honam-banner-long.png)"
+    ]
+  }
+}
