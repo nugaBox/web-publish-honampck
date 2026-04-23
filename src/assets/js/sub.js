@@ -22,6 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ── 역대 노회임원 아코디언 ──────────────────────────── */
+  document.querySelectorAll('.hist-acc-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.hist-acc-item');
+      item.classList.toggle('open');
+    });
+  });
+
   /* ── 그룹 탭 전환 (시찰별·회기별 등) ────────────────── */
   document.querySelectorAll('.group-tabs').forEach(tabGroup => {
     const buttons = tabGroup.querySelectorAll('button');

@@ -12,7 +12,7 @@
 .hn-page-head {
   background-image:
     linear-gradient(180deg, rgba(22, 46, 76, 0.93) 0%, rgba(12, 28, 50, 0.95) 100%),
-    url('../images/photo-1.jpg');
+    url('../images/main/photo-1.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -876,7 +876,7 @@
   padding-bottom: 0;
 }
 
-.timeline-item::before {
+/*.timeline-item::before {
   content: '';
   position: absolute;
   left: 25px;
@@ -887,7 +887,7 @@
   border-radius: 50%;
   border: 2px solid #fff;
   box-shadow: 0 0 0 2px var(--hn-blue);
-}
+} */
 
 .timeline-item .year {
   position: absolute;
@@ -2286,6 +2286,373 @@
   margin: 0;
 }
 
+/* ── 역대 노회장 — 섹션 구분 배너 ───────────────────────── */
+.presec-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  background: linear-gradient(90deg, var(--hn-bg-alt) 0%, #fff 100%);
+  border-left: 4px solid var(--hn-blue);
+  margin-bottom: 16px;
+}
+
+.presec-banner .pb-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--hn-blue);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.presec-banner .pb-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--hn-text);
+  letter-spacing: -0.02em;
+}
+
+.presec-note {
+  font-size: 13px;
+  color: var(--hn-text-3);
+  margin: 0 0 18px;
+  line-height: 1.65;
+}
+
+/* 전신 노회 4열 그리드 */
+.presy-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 52px;
+}
+
+.presy-block-head {
+  background: var(--hn-blue);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 10px 0;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.presy-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--hn-line);
+  border-top: 0;
+}
+
+.presy-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.presy-table td {
+  padding: 9px 11px;
+  border-bottom: 1px solid var(--hn-line-soft);
+  vertical-align: top;
+}
+
+.presy-table .pt-term {
+  font-size: 12px;
+  color: var(--hn-text-3);
+  white-space: nowrap;
+  font-weight: 600;
+  width: 42px;
+}
+
+.presy-table .pt-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--hn-text);
+}
+
+.presy-table .pt-sub-label {
+  font-size: 11px;
+  color: var(--hn-blue);
+  font-weight: 700;
+  margin-top: 3px;
+  letter-spacing: 0.02em;
+}
+
+.presy-table .pt-period {
+  font-size: 11px;
+  color: var(--hn-text-4);
+  font-family: ui-monospace, Menlo, monospace;
+  margin-top: 2px;
+}
+
+/* 호남노회 역대 노회장 테이블 */
+.hn-pres-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  border-top: 2px solid var(--hn-text);
+}
+
+.hn-pres-table thead th {
+  background: var(--hn-blue);
+  color: #fff;
+  padding: 13px 12px;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, .15);
+  white-space: nowrap;
+}
+
+.hn-pres-table thead th:last-child {
+  border-right: 0;
+}
+
+.hn-pres-table tbody tr:hover td {
+  background: var(--hn-bg-alt);
+}
+
+.hn-pres-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--hn-line-soft);
+  border-right: 1px solid var(--hn-line-soft);
+  vertical-align: middle;
+  color: var(--hn-text-2);
+}
+
+.hn-pres-table tbody td:last-child {
+  border-right: 0;
+}
+
+.hn-pres-table .hpt-term {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.hpt-gen {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--hn-blue);
+}
+
+.hpt-sess {
+  font-size: 11px;
+  color: var(--hn-text-3);
+  margin-top: 3px;
+  font-family: ui-monospace, Menlo, monospace;
+}
+
+.hn-pres-table .hpt-period {
+  text-align: center;
+  font-size: 12px;
+  color: var(--hn-text-3);
+  font-family: ui-monospace, Menlo, monospace;
+  white-space: nowrap;
+}
+
+.hpt-person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hpt-photo {
+  width: 38px;
+  aspect-ratio: 3/4;
+  background: var(--hn-bg-alt2);
+  border: 1px solid var(--hn-line);
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hpt-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hpt-photo .hpt-ico {
+  font-size: 14px;
+  color: var(--hn-text-4);
+}
+
+.hpt-info .hpt-name {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--hn-text);
+  letter-spacing: -0.01em;
+}
+
+.hpt-info .hpt-church {
+  font-size: 12px;
+  color: var(--hn-text-3);
+  margin-top: 2px;
+}
+
+.hpt-officer {
+  text-align: center;
+}
+
+.hpt-officer .hpt-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--hn-text);
+}
+
+.hpt-officer .hpt-church {
+  font-size: 12px;
+  color: var(--hn-text-3);
+  margin-top: 2px;
+}
+
+/* ── 노회 연혁 시대 구분 헤더 ────────────────────────────── */
+.hist-era-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--hn-blue);
+  color: #fff;
+  padding: 12px 20px;
+  margin-bottom: 24px;
+  margin-top: 44px;
+}
+
+.hist-era-head:first-child {
+  margin-top: 0;
+}
+
+.hist-era-head .heh-year {
+  font-size: 11px;
+  font-family: ui-monospace, Menlo, monospace;
+  opacity: .7;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.hist-era-head .heh-title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+/* ── 역대 노회임원 아코디언 ───────────────────────────────── */
+.hist-accordion {
+  border-top: 2px solid var(--hn-text);
+}
+
+.hist-acc-item {
+  border: 1px solid var(--hn-line);
+  border-top: 0;
+}
+
+.hist-acc-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  background: var(--hn-bg-alt);
+  transition: background .15s;
+}
+
+.hist-acc-btn:hover,
+.hist-acc-item.open .hist-acc-btn {
+  background: var(--hn-blue-soft);
+}
+
+.hist-acc-sess {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+  padding: 14px 18px;
+  background: var(--hn-blue);
+  min-width: 120px;
+  text-align: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hist-acc-item.open .hist-acc-sess {
+  background: #0d3566;
+}
+
+.hist-acc-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 18px;
+  flex: 1;
+}
+
+.hist-acc-period {
+  font-size: 12px;
+  color: var(--hn-text-4);
+  font-family: ui-monospace, Menlo, monospace;
+  white-space: nowrap;
+}
+
+.hist-acc-president {
+  font-size: 14px;
+  color: var(--hn-text-3);
+  font-weight: 500;
+}
+
+.hist-acc-president b {
+  color: var(--hn-text-2);
+  font-weight: 700;
+}
+
+.hist-acc-icon {
+  font-size: 11px;
+  color: var(--hn-text-4);
+  transition: transform .2s;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding-right: 18px;
+}
+
+.hist-acc-item.open .hist-acc-icon {
+  transform: rotate(90deg);
+  color: var(--hn-blue);
+}
+
+.hist-acc-body {
+  display: none;
+  padding: 20px 24px 24px;
+  background: #fff;
+  border-top: 1px solid var(--hn-line-soft);
+}
+
+.hist-acc-item.open .hist-acc-body {
+  display: block;
+}
+
+.hist-acc-body .btable {
+  border-top: 1px solid var(--hn-line);
+}
+
+.hist-acc-body .btable thead th {
+  padding: 12px 14px;
+  font-size: 14px;
+}
+
+.hist-acc-body .btable tbody td {
+  padding: 13px 14px;
+  font-size: 15px;
+}
+
 /* ── 반응형 ───────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .sub-layout {
@@ -2306,6 +2673,10 @@
   }
 
   .president-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .presy-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -2405,6 +2776,19 @@
   .president-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
+  }
+
+  .presy-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .hn-pres-table .hpt-period {
+    display: none;
+  }
+
+  .hn-pres-table colgroup col:nth-child(2) {
+    display: none;
   }
 
   .president-card {
