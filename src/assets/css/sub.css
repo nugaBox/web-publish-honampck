@@ -794,22 +794,32 @@
 .myinfo-actions { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; }
 
 /* 사이트맵 */
-.sitemap-wrap {
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
-  border-top: 2px solid var(--hn-text); border-left: 1px solid var(--hn-line);
+.sitemap-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
 }
-.sitemap-col { border-right: 1px solid var(--hn-line); }
-.sitemap-col-head {
-  padding: 16px 18px; background: var(--hn-blue); color: #fff;
+.sitemap-box {
+  border: 1px solid var(--hn-line); overflow: hidden;
+}
+.sitemap-box-head {
+  display: flex; align-items: center; gap: 10px;
+  padding: 15px 20px; background: var(--hn-blue); color: #fff;
   font-size: 15px; font-weight: 800; letter-spacing: -0.02em;
 }
-.sitemap-col-list { list-style: none; padding: 0; margin: 0; }
-.sitemap-col-list li { border-bottom: 1px solid var(--hn-line-soft); }
-.sitemap-col-list a {
-  display: block; padding: 11px 18px; font-size: 14px; color: var(--hn-text-2);
-  transition: color .12s, padding-left .12s;
+.sitemap-box-head i { font-size: 14px; opacity: .85; }
+.sitemap-box-list { list-style: none; padding: 8px 0; margin: 0; background: #fff; }
+.sitemap-box-list li { border-bottom: 1px solid var(--hn-line-soft); }
+.sitemap-box-list li:last-child { border-bottom: 0; }
+.sitemap-box-list a {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 20px; font-size: 15px; color: var(--hn-text-2);
+  transition: color .12s, background .12s;
 }
-.sitemap-col-list a:hover { color: var(--hn-blue); padding-left: 22px; }
+.sitemap-box-list a::before {
+  content: ''; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--hn-line-strong); flex-shrink: 0; transition: background .12s;
+}
+.sitemap-box-list a:hover { color: var(--hn-blue); background: var(--hn-bg-alt); }
+.sitemap-box-list a:hover::before { background: var(--hn-blue); }
 
 /* 회원탈퇴 경고 */
 .leave-warn {
@@ -858,7 +868,7 @@
   .group-tabs button { padding: 10px 16px; font-size: 15px; }
   .join-steps { flex-direction: column; border-right: 1px solid var(--hn-line); border-bottom: 0; }
   .join-step { border-right: 0; border-bottom: 1px solid var(--hn-line); }
-  .sitemap-wrap { grid-template-columns: repeat(2, 1fr); }
+  .sitemap-grid { grid-template-columns: repeat(2, 1fr); }
   .myinfo-top { flex-wrap: wrap; }
   .myinfo-actions { margin-left: 0; width: 100%; }
 }
