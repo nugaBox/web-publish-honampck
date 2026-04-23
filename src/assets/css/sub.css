@@ -113,7 +113,7 @@
 
 /* ── 컨텐츠 영역 제목 ─────────────────────────────────────── */
 .content .ptitle {
-  font-size: 30px; font-weight: 800; margin: 0;
+  font-size: 30px; font-weight: 800; margin: 0 0 30px;
   padding-bottom: 22px;
   border-bottom: 2px solid var(--hn-text);
   display: flex; align-items: baseline; justify-content: space-between;
