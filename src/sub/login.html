@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인 — 대한예수교장로회 호남노회</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/pretendard.css">
+  <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/sub.css">
+</head>
+<body>
+
+  <div data-include="../include/header.html"></div>
+
+  <main id="main-content">
+
+    <div class="hn-page-head">
+      <div class="inner">
+        <div class="breadcrumb-hn">
+          <span class="home"><i class="fa-regular fa-house"></i> HOME</span>
+          <i class="fa-regular fa-chevron-right"></i>
+          <span>부가서비스</span>
+          <i class="fa-regular fa-chevron-right"></i>
+          <span class="cur">로그인</span>
+        </div>
+        <h1>로그인</h1>
+        <p class="desc">호남노회 홈페이지 회원 로그인 페이지입니다.</p>
+      </div>
+    </div>
+
+    <div class="sub-layout">
+
+      <aside>
+        <div class="sidebar-head">
+          <div class="k">EXTRA</div>
+          <h3>부가서비스</h3>
+        </div>
+        <nav class="sidebar-list">
+          <a href="privacy.html"><span>개인정보처리방침</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="terms.html"><span>이용약관</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="sitemap.html"><span>사이트맵</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="login.html" class="on"><span>로그인</span><span></span></a>
+          <a href="join.html"><span>회원가입</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="finduser.html"><span>아이디/비밀번호찾기</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="myinfo.html"><span>마이페이지</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="passchange.html"><span>비밀번호변경</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="leave.html"><span>회원탈퇴</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+        </nav>
+      </aside>
+
+      <section class="content">
+        <h2 class="ptitle"><span>로그인</span></h2>
+
+        <form action="#" method="post" class="form-box">
+
+          <div class="in-field">
+            <label class="in-label" for="userId">아이디</label>
+            <input type="text" id="userId" name="userId" class="in-text" placeholder="아이디를 입력하세요" autocomplete="username">
+          </div>
+
+          <div class="in-field" style="margin-top:14px;">
+            <label class="in-label" for="passwd">비밀번호</label>
+            <input type="password" id="passwd" name="passwd" class="in-text" placeholder="비밀번호를 입력하세요" autocomplete="current-password">
+          </div>
+
+          <div style="display:flex; align-items:center; gap:8px; margin-top:14px;">
+            <input type="checkbox" id="idSave" name="idSave" style="width:16px;height:16px;accent-color:var(--hn-blue);">
+            <label for="idSave" style="font-size:15px; color:var(--hn-text-3); cursor:pointer;">아이디 저장</label>
+          </div>
+
+          <div class="form-btns">
+            <button type="submit" class="btn-hn primary" style="flex:1; justify-content:center; padding:13px;">
+              <i class="fa-regular fa-arrow-right-to-bracket"></i> 로그인
+            </button>
+          </div>
+
+          <div class="form-links">
+            <a href="join.html"><i class="fa-regular fa-user-plus"></i> 회원가입</a>
+            <a href="finduser.html">아이디 찾기</a>
+            <a href="finduser.html">비밀번호 찾기</a>
+          </div>
+
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <div data-include="../include/footer.html"></div>
+
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/sub.js"></script>
+</body>
+</html>

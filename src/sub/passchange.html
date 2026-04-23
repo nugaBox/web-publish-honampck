@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>비밀번호변경 — 대한예수교장로회 호남노회</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/pretendard.css">
+  <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/sub.css">
+</head>
+<body>
+
+  <div data-include="../include/header.html"></div>
+
+  <main id="main-content">
+
+    <div class="hn-page-head">
+      <div class="inner">
+        <div class="breadcrumb-hn">
+          <span class="home"><i class="fa-regular fa-house"></i> HOME</span>
+          <i class="fa-regular fa-chevron-right"></i>
+          <span>부가서비스</span>
+          <i class="fa-regular fa-chevron-right"></i>
+          <span class="cur">비밀번호변경</span>
+        </div>
+        <h1>비밀번호변경</h1>
+        <p class="desc">현재 비밀번호를 확인한 후 새 비밀번호로 변경할 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="sub-layout">
+
+      <aside>
+        <div class="sidebar-head">
+          <div class="k">EXTRA</div>
+          <h3>부가서비스</h3>
+        </div>
+        <nav class="sidebar-list">
+          <a href="privacy.html"><span>개인정보처리방침</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="terms.html"><span>이용약관</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="sitemap.html"><span>사이트맵</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="login.html"><span>로그인</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="join.html"><span>회원가입</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="finduser.html"><span>아이디/비밀번호찾기</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="myinfo.html"><span>마이페이지</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="passchange.html" class="on"><span>비밀번호변경</span><span></span></a>
+          <a href="leave.html"><span>회원탈퇴</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+        </nav>
+      </aside>
+
+      <section class="content">
+        <h2 class="ptitle"><span>비밀번호변경</span></h2>
+
+        <form action="#" method="post" class="form-box">
+
+          <div class="alert-hn info" style="margin-bottom:24px;">
+            <i class="fa-regular fa-circle-info"></i>
+            <div>비밀번호는 <b>영문·숫자·특수문자</b>를 혼합하여 8~20자로 설정해 주세요.</div>
+          </div>
+
+          <div class="in-field">
+            <label class="in-label" for="curPasswd">현재 비밀번호 <span style="color:var(--hn-red);">*</span></label>
+            <input type="password" id="curPasswd" name="curPasswd" class="in-text" placeholder="현재 비밀번호" autocomplete="current-password">
+          </div>
+
+          <div class="in-field" style="margin-top:14px;">
+            <label class="in-label" for="newPasswd">새 비밀번호 <span style="color:var(--hn-red);">*</span></label>
+            <input type="password" id="newPasswd" name="newPasswd" class="in-text" placeholder="새 비밀번호 (8~20자)" autocomplete="new-password">
+          </div>
+
+          <div class="in-field" style="margin-top:14px;">
+            <label class="in-label" for="newPasswdConfirm">새 비밀번호 확인 <span style="color:var(--hn-red);">*</span></label>
+            <input type="password" id="newPasswdConfirm" name="newPasswdConfirm" class="in-text" placeholder="새 비밀번호를 다시 입력하세요" autocomplete="new-password">
+          </div>
+
+          <div class="form-btns">
+            <button type="submit" class="btn-hn primary" style="flex:1; justify-content:center; padding:13px;">
+              <i class="fa-regular fa-lock"></i> 비밀번호 변경
+            </button>
+            <a href="myinfo.html" class="btn-hn ghost">취소</a>
+          </div>
+
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <div data-include="../include/footer.html"></div>
+
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/sub.js"></script>
+</body>
+</html>

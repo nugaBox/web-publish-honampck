@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원탈퇴 — 대한예수교장로회 호남노회</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/pretendard.css">
+  <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/sub.css">
+</head>
+<body>
+
+  <div data-include="../include/header.html"></div>
+
+  <main id="main-content">
+
+    <div class="hn-page-head">
+      <div class="inner">
+        <div class="breadcrumb-hn">
+          <span class="home"><i class="fa-regular fa-house"></i> HOME</span>
+          <i class="fa-regular fa-chevron-right"></i>
+          <span>부가서비스</span>
+          <i class="fa-regular fa-chevron-right"></i>
+          <span class="cur">회원탈퇴</span>
+        </div>
+        <h1>회원탈퇴</h1>
+        <p class="desc">탈퇴 전 아래 안내사항을 반드시 확인하시기 바랍니다.</p>
+      </div>
+    </div>
+
+    <div class="sub-layout">
+
+      <aside>
+        <div class="sidebar-head">
+          <div class="k">EXTRA</div>
+          <h3>부가서비스</h3>
+        </div>
+        <nav class="sidebar-list">
+          <a href="privacy.html"><span>개인정보처리방침</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="terms.html"><span>이용약관</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="sitemap.html"><span>사이트맵</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="login.html"><span>로그인</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="join.html"><span>회원가입</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="finduser.html"><span>아이디/비밀번호찾기</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="myinfo.html"><span>마이페이지</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="passchange.html"><span>비밀번호변경</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="leave.html" class="on"><span>회원탈퇴</span><span></span></a>
+        </nav>
+      </aside>
+
+      <section class="content">
+        <h2 class="ptitle"><span>회원탈퇴</span></h2>
+
+        <div class="form-box">
+
+          <div class="leave-warn">
+            <h4><i class="fa-regular fa-triangle-exclamation"></i> 탈퇴 전 꼭 확인하세요</h4>
+            <ul>
+              <li>탈퇴 시 회원 정보 및 서비스 이용 내역이 삭제됩니다.</li>
+              <li>삭제된 정보는 복구가 불가능합니다.</li>
+              <li>탈퇴 후 동일 아이디로 재가입이 제한될 수 있습니다.</li>
+              <li>게시판에 작성된 게시글은 삭제되지 않습니다.</li>
+            </ul>
+          </div>
+
+          <form action="#" method="post">
+
+            <div class="in-field">
+              <label class="in-label" for="leavePasswd">현재 비밀번호 확인 <span style="color:var(--hn-red);">*</span></label>
+              <input type="password" id="leavePasswd" name="passwd" class="in-text" placeholder="현재 비밀번호를 입력하세요" autocomplete="current-password">
+            </div>
+
+            <label class="agree-check" style="margin-top:20px;">
+              <input type="checkbox" name="leaveAgree" value="Y">
+              위 안내사항을 모두 확인하였으며 탈퇴에 동의합니다.
+            </label>
+
+            <div class="form-btns" style="margin-top:24px;">
+              <button type="submit" class="btn-hn" style="flex:1; justify-content:center; padding:13px; background:var(--hn-red); border-color:var(--hn-red); color:#fff;">
+                <i class="fa-regular fa-user-xmark"></i> 탈퇴하기
+              </button>
+              <a href="myinfo.html" class="btn-hn primary" style="justify-content:center; padding:13px 28px;">취소</a>
+            </div>
+
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div data-include="../include/footer.html"></div>
+
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/sub.js"></script>
+</body>
+</html>

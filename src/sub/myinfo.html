@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마이페이지 — 대한예수교장로회 호남노회</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/pretendard.css">
+  <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/sub.css">
+</head>
+<body>
+
+  <div data-include="../include/header.html"></div>
+
+  <main id="main-content">
+
+    <div class="hn-page-head">
+      <div class="inner">
+        <div class="breadcrumb-hn">
+          <span class="home"><i class="fa-regular fa-house"></i> HOME</span>
+          <i class="fa-regular fa-chevron-right"></i>
+          <span>부가서비스</span>
+          <i class="fa-regular fa-chevron-right"></i>
+          <span class="cur">마이페이지</span>
+        </div>
+        <h1>마이페이지</h1>
+        <p class="desc">회원 정보를 확인하고 수정할 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="sub-layout">
+
+      <aside>
+        <div class="sidebar-head">
+          <div class="k">EXTRA</div>
+          <h3>부가서비스</h3>
+        </div>
+        <nav class="sidebar-list">
+          <a href="privacy.html"><span>개인정보처리방침</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="terms.html"><span>이용약관</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="sitemap.html"><span>사이트맵</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="login.html"><span>로그인</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="join.html"><span>회원가입</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="finduser.html"><span>아이디/비밀번호찾기</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="myinfo.html" class="on"><span>마이페이지</span><span></span></a>
+          <a href="passchange.html"><span>비밀번호변경</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="leave.html"><span>회원탈퇴</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+        </nav>
+      </aside>
+
+      <section class="content">
+        <h2 class="ptitle"><span>마이페이지</span></h2>
+
+        <!-- 프로필 카드 -->
+        <div class="myinfo-top">
+          <div class="myinfo-avatar">
+            <i class="fa-regular fa-user"></i>
+          </div>
+          <div>
+            <div class="myinfo-name">홍길동</div>
+            <div class="myinfo-id">ID: honggildong · 광주중앙교회 · 장로</div>
+          </div>
+          <div class="myinfo-actions">
+            <a href="passchange.html" class="btn-hn ghost" style="font-size:15px; padding:9px 16px;">비밀번호변경</a>
+            <a href="leave.html" class="btn-hn ghost" style="font-size:15px; padding:9px 16px; color:var(--hn-red); border-color:var(--hn-red);">회원탈퇴</a>
+          </div>
+        </div>
+
+        <!-- 정보 수정 폼 -->
+        <form action="#" method="post" class="form-box">
+
+          <div class="in-field">
+            <label class="in-label" for="miUserId">아이디</label>
+            <input type="text" id="miUserId" name="userId" class="in-text" value="honggildong" readonly style="background:var(--hn-bg-alt); color:var(--hn-text-3);">
+          </div>
+
+          <div class="in-field" style="margin-top:14px;">
+            <label class="in-label" for="miUserNm">이름 <span style="color:var(--hn-red);">*</span></label>
+            <input type="text" id="miUserNm" name="userNm" class="in-text" value="홍길동">
+          </div>
+
+          <div class="in-field" style="margin-top:14px;">
+            <label class="in-label" for="miEmail">이메일 <span style="color:var(--hn-red);">*</span></label>
+            <input type="email" id="miEmail" name="email" class="in-text" value="hong@example.com">
+          </div>
+
+          <div class="in-field" style="margin-top:14px;">
+            <label class="in-label" for="miMbtlnum">연락처</label>
+            <input type="tel" id="miMbtlnum" name="mbtlnum" class="in-text" value="010-1234-5678">
+          </div>
+
+          <div class="in-field" style="margin-top:14px;">
+            <label class="in-label" for="miChurch">소속 교회</label>
+            <input type="text" id="miChurch" name="church" class="in-text" value="광주중앙교회">
+          </div>
+
+          <div class="in-field" style="margin-top:14px;">
+            <label class="in-label" for="miPosition">직분</label>
+            <select id="miPosition" name="position" class="in-select">
+              <option>목사</option>
+              <option selected>장로</option>
+              <option>집사</option>
+              <option>권사</option>
+              <option>성도</option>
+            </select>
+          </div>
+
+          <div class="form-btns">
+            <button type="submit" class="btn-hn primary" style="flex:1; justify-content:center; padding:13px;">
+              <i class="fa-regular fa-floppy-disk"></i> 저장하기
+            </button>
+            <a href="/index.html" class="btn-hn ghost">취소</a>
+          </div>
+
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <div data-include="../include/footer.html"></div>
+
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/sub.js"></script>
+</body>
+</html>

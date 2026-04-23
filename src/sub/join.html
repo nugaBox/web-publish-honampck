@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입 — 대한예수교장로회 호남노회</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/pretendard.css">
+  <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/sub.css">
+</head>
+<body>
+
+  <div data-include="../include/header.html"></div>
+
+  <main id="main-content">
+
+    <div class="hn-page-head">
+      <div class="inner">
+        <div class="breadcrumb-hn">
+          <span class="home"><i class="fa-regular fa-house"></i> HOME</span>
+          <i class="fa-regular fa-chevron-right"></i>
+          <span>부가서비스</span>
+          <i class="fa-regular fa-chevron-right"></i>
+          <span class="cur">회원가입</span>
+        </div>
+        <h1>회원가입</h1>
+        <p class="desc">호남노회 홈페이지 회원으로 가입하시면 다양한 서비스를 이용하실 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="sub-layout">
+
+      <aside>
+        <div class="sidebar-head">
+          <div class="k">EXTRA</div>
+          <h3>부가서비스</h3>
+        </div>
+        <nav class="sidebar-list">
+          <a href="privacy.html"><span>개인정보처리방침</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="terms.html"><span>이용약관</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="sitemap.html"><span>사이트맵</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="login.html"><span>로그인</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="join.html" class="on"><span>회원가입</span><span></span></a>
+          <a href="finduser.html"><span>아이디/비밀번호찾기</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="myinfo.html"><span>마이페이지</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="passchange.html"><span>비밀번호변경</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="leave.html"><span>회원탈퇴</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+        </nav>
+      </aside>
+
+      <section class="content">
+        <h2 class="ptitle"><span>회원가입</span></h2>
+
+        <!-- 단계 표시 -->
+        <div class="join-steps">
+          <div class="join-step"><span class="sn">1</span><span class="st">약관 동의</span></div>
+          <div class="join-step"><span class="sn">2</span><span class="st">본인 인증</span></div>
+          <div class="join-step on"><span class="sn">3</span><span class="st">정보 입력</span></div>
+          <div class="join-step"><span class="sn">4</span><span class="st">가입 완료</span></div>
+        </div>
+
+        <form action="#" method="post" class="form-box">
+
+          <p class="form-notice">
+            <span class="req">*</span> 표시는 필수 입력 항목입니다.
+          </p>
+
+          <!-- 아이디 -->
+          <div class="in-field" style="margin-top:20px;">
+            <label class="in-label" for="userId"><span class="req" style="color:var(--hn-red);">*</span> 아이디</label>
+            <div class="form-row">
+              <input type="text" id="userId" name="userId" class="in-text" placeholder="영문·숫자 4~16자">
+              <button type="button" class="btn-hn ghost" style="white-space:nowrap; flex-shrink:0;">중복확인</button>
+            </div>
+          </div>
+
+          <!-- 비밀번호 -->
+          <div class="in-field" style="margin-top:14px;">
+            <label class="in-label" for="passwd"><span class="req" style="color:var(--hn-red);">*</span> 비밀번호</label>
+            <input type="password" id="passwd" name="passwd" class="in-text" placeholder="영문·숫자·특수문자 8~20자">
+          </div>
+          <div class="in-field" style="margin-top:10px;">
+            <label class="in-label" for="passwdConfirm"><span class="req" style="color:var(--hn-red);">*</span> 비밀번호 확인</label>
+            <input type="password" id="passwdConfirm" name="passwdConfirm" class="in-text" placeholder="비밀번호를 다시 입력하세요">
+          </div>
+
+          <!-- 이름 / 성별 -->
+          <div class="in-field" style="margin-top:14px;">
+            <label class="in-label" for="userNm"><span class="req" style="color:var(--hn-red);">*</span> 이름</label>
+            <input type="text" id="userNm" name="userNm" class="in-text" placeholder="실명을 입력하세요">
+          </div>
+
+          <!-- 이메일 -->
+          <div class="in-field" style="margin-top:14px;">
+            <label class="in-label" for="email"><span class="req" style="color:var(--hn-red);">*</span> 이메일</label>
+            <input type="email" id="email" name="email" class="in-text" placeholder="example@email.com">
+          </div>
+
+          <!-- 연락처 -->
+          <div class="in-field" style="margin-top:14px;">
+            <label class="in-label" for="mbtlnum"><span class="req" style="color:var(--hn-red);">*</span> 연락처</label>
+            <input type="tel" id="mbtlnum" name="mbtlnum" class="in-text" placeholder="010-0000-0000">
+          </div>
+
+          <!-- 소속 교회 -->
+          <div class="in-field" style="margin-top:14px;">
+            <label class="in-label" for="church">소속 교회</label>
+            <input type="text" id="church" name="church" class="in-text" placeholder="소속 교회명">
+          </div>
+
+          <!-- 직분 -->
+          <div class="in-field" style="margin-top:14px;">
+            <label class="in-label" for="position">직분</label>
+            <select id="position" name="position" class="in-select">
+              <option value="">선택</option>
+              <option>목사</option>
+              <option>장로</option>
+              <option>집사</option>
+              <option>권사</option>
+              <option>성도</option>
+            </select>
+          </div>
+
+          <!-- 약관 동의 -->
+          <div style="margin-top:28px; border-top:1px solid var(--hn-line); padding-top:24px;">
+            <div class="in-label" style="margin-bottom:10px;">이용약관 동의</div>
+            <div class="agree-box">
+              본 약관은 대한예수교장로회(합동) 호남노회 홈페이지 이용에 관한 사항을 규정합니다. 서비스를 이용하시면 본 약관에 동의하는 것으로 간주됩니다. 상세 내용은 이용약관 페이지를 참조하시기 바랍니다.
+            </div>
+            <label class="agree-check">
+              <input type="checkbox" name="agree1" value="Y">
+              이용약관에 동의합니다. (필수)
+            </label>
+          </div>
+
+          <div style="margin-top:18px;">
+            <div class="in-label" style="margin-bottom:10px;">개인정보처리방침 동의</div>
+            <div class="agree-box">
+              노회는 회원가입 시 수집한 개인정보를 서비스 제공 목적으로만 이용하며, 관계 법령에 따라 보호합니다. 상세 내용은 개인정보처리방침 페이지를 참조하시기 바랍니다.
+            </div>
+            <label class="agree-check">
+              <input type="checkbox" name="agree2" value="Y">
+              개인정보처리방침에 동의합니다. (필수)
+            </label>
+          </div>
+
+          <div class="form-btns">
+            <button type="submit" class="btn-hn primary" style="flex:1; justify-content:center; padding:13px;">
+              <i class="fa-regular fa-user-check"></i> 가입하기
+            </button>
+            <a href="login.html" class="btn-hn ghost">취소</a>
+          </div>
+
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <div data-include="../include/footer.html"></div>
+
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/sub.js"></script>
+</body>
+</html>

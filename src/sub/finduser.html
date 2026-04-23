@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아이디/비밀번호찾기 — 대한예수교장로회 호남노회</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../assets/css/pretendard.css">
+  <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/sub.css">
+</head>
+<body>
+
+  <div data-include="../include/header.html"></div>
+
+  <main id="main-content">
+
+    <div class="hn-page-head">
+      <div class="inner">
+        <div class="breadcrumb-hn">
+          <span class="home"><i class="fa-regular fa-house"></i> HOME</span>
+          <i class="fa-regular fa-chevron-right"></i>
+          <span>부가서비스</span>
+          <i class="fa-regular fa-chevron-right"></i>
+          <span class="cur">아이디/비밀번호찾기</span>
+        </div>
+        <h1>아이디/비밀번호찾기</h1>
+        <p class="desc">가입 시 등록한 정보로 아이디 또는 비밀번호를 찾을 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="sub-layout">
+
+      <aside>
+        <div class="sidebar-head">
+          <div class="k">EXTRA</div>
+          <h3>부가서비스</h3>
+        </div>
+        <nav class="sidebar-list">
+          <a href="privacy.html"><span>개인정보처리방침</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="terms.html"><span>이용약관</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="sitemap.html"><span>사이트맵</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="login.html"><span>로그인</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="join.html"><span>회원가입</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="finduser.html" class="on"><span>아이디/비밀번호찾기</span><span></span></a>
+          <a href="myinfo.html"><span>마이페이지</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="passchange.html"><span>비밀번호변경</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+          <a href="leave.html"><span>회원탈퇴</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
+        </nav>
+      </aside>
+
+      <section class="content">
+        <h2 class="ptitle"><span>아이디/비밀번호찾기</span></h2>
+
+        <div class="form-box">
+          <div class="tab-wrap">
+            <div class="group-tabs">
+              <button class="on" data-tab="findid">아이디 찾기</button>
+              <button data-tab="findpw">비밀번호 찾기</button>
+            </div>
+
+            <!-- 아이디 찾기 -->
+            <div class="tab-panel on" data-panel="findid">
+              <form action="#" method="post" style="margin-top:28px;">
+                <div class="alert-hn info" style="margin-bottom:24px;">
+                  <i class="fa-regular fa-circle-info"></i>
+                  <div>가입 시 등록한 <b>이름</b>과 <b>이메일</b>로 아이디를 확인할 수 있습니다.</div>
+                </div>
+                <div class="in-field">
+                  <label class="in-label" for="findNm">이름</label>
+                  <input type="text" id="findNm" name="userNm" class="in-text" placeholder="가입 시 등록한 이름">
+                </div>
+                <div class="in-field" style="margin-top:14px;">
+                  <label class="in-label" for="findEmail">이메일</label>
+                  <input type="email" id="findEmail" name="email" class="in-text" placeholder="가입 시 등록한 이메일">
+                </div>
+                <div class="form-btns">
+                  <button type="submit" class="btn-hn primary" style="flex:1; justify-content:center; padding:13px;">
+                    <i class="fa-regular fa-magnifying-glass"></i> 아이디 찾기
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- 비밀번호 찾기 -->
+            <div class="tab-panel" data-panel="findpw">
+              <form action="#" method="post" style="margin-top:28px;">
+                <div class="alert-hn info" style="margin-bottom:24px;">
+                  <i class="fa-regular fa-circle-info"></i>
+                  <div>가입 시 등록한 <b>아이디</b>와 <b>이메일</b>로 임시 비밀번호를 발송합니다.</div>
+                </div>
+                <div class="in-field">
+                  <label class="in-label" for="pwUserId">아이디</label>
+                  <input type="text" id="pwUserId" name="userId" class="in-text" placeholder="가입 시 등록한 아이디">
+                </div>
+                <div class="in-field" style="margin-top:14px;">
+                  <label class="in-label" for="pwEmail">이메일</label>
+                  <input type="email" id="pwEmail" name="email" class="in-text" placeholder="가입 시 등록한 이메일">
+                </div>
+                <div class="form-btns">
+                  <button type="submit" class="btn-hn primary" style="flex:1; justify-content:center; padding:13px;">
+                    <i class="fa-regular fa-paper-plane"></i> 임시 비밀번호 발송
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div><!-- /.tab-wrap -->
+
+          <div class="form-links">
+            <a href="login.html"><i class="fa-regular fa-arrow-right-to-bracket"></i> 로그인</a>
+            <a href="join.html">회원가입</a>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <div data-include="../include/footer.html"></div>
+
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/sub.js"></script>
+</body>
+</html>
