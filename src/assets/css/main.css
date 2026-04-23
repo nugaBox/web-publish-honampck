@@ -454,7 +454,7 @@
 }
 
 .photo-meta {
-  margin-top: 12px;
+  margin: 12px 0;
   padding: 0 24px;
   display: grid;
   grid-template-columns: 28px 1fr 28px;
@@ -589,7 +589,7 @@
 }
 
 .hn-info {
-  display: none;
+  display: block;
 }
 
 .hn-info .inner {
@@ -610,11 +610,10 @@
 }
 
 .hn-info .cell .k {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--hn-text-3);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 10px;
   font-weight: 600;
 }
 

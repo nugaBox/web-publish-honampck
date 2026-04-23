@@ -3,13 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>오시는 길 — 대한예수교장로회 호남노회</title>
+  <title>대한예수교장로회(합동) 호남노회</title>
+    <link rel="icon" type="image/png" href="../assets/images/common/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/common/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="../assets/images/common/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/common/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="../assets/images/common/favicon/site.webmanifest" />
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="../assets/css/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../assets/css/pretendard.css">
   <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/sub.css">
+  <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=y4usjod3si&submodules=geocoder"></script>
 </head>
 <body>
 
@@ -27,7 +33,7 @@
           <span class="cur">오시는 길</span>
         </div>
         <h1>오시는 길</h1>
-        <p class="desc">노회사무실 오시는 길을 안내합니다.</p>
+        <p class="desc">오시는 길을 안내합니다.</p>
       </div>
     </div>
 
@@ -59,57 +65,37 @@
 
       <section class="content">
 
-        <h2 class="ptitle">노회사무실 오시는 길</h2>
-
+        <h2 class="ptitle">오시는 길</h2>
+        
         <!-- 주소 배너 -->
         <div class="directions-addr">
           <i class="fa-regular fa-location-dot"></i>
           <div>
-            <div class="addr-text">(61492) 광주광역시 동구 금남로 23길 12, 노회회관 4층</div>
-            <div class="addr-sub">대한예수교장로회(합동) 호남노회 사무처</div>
+            <div class="addr-text">[58259] 전남 나주시 예향로 4172</div>
+            <div class="addr-sub">노회 사무실 (에벤에셀교회)</div>
           </div>
         </div>
 
-        <!-- 지도 플레이스홀더 (추후 지도 API 삽입) -->
+        <!-- 네이버 지도 -->
         <div class="map-wrap">
-          <div class="map-placeholder">
-            <i class="fa-regular fa-map-location-dot"></i>
-            <p>지도 API 연동 예정</p>
-            <p style="font-size:13px;">광주광역시 동구 금남로 23길 12</p>
-          </div>
+          <div id="naver-map" style="width:100%;height:100%;min-height:300px;"></div>
         </div>
 
         <!-- 교통 안내 -->
         <div class="directions-info">
           <div class="di-card">
-            <h4><i class="fa-regular fa-bus"></i> 버스 이용 시</h4>
+            <h4><i class="fa-regular fa-car-side"></i> 교통편</h4>
             <ul>
-              <li><b>금남로4가 정류장</b> 하차 후 도보 3분</li>
-              <li>간선 02, 06, 07, 09, 15, 27번</li>
-              <li>지선 301, 419, 518번</li>
+              <li>내비게이션에서 "에벤에셀교회" 검색</li>
+              <li>도로명 주소 : 전남 나주시 예향로 4172</li>
+              <li>지번 주소 : 전남 나주시 송월동 676</li>
             </ul>
           </div>
           <div class="di-card">
-            <h4><i class="fa-regular fa-train-subway"></i> 지하철 이용 시</h4>
+            <h4><i class="fa-regular fa-clock"></i> 노회 사무실</h4>
             <ul>
-              <li>광주 도시철도 1호선 <b>금남로4가역</b> 하차</li>
-              <li>3번 출구 방면 도보 5분</li>
-            </ul>
-          </div>
-          <div class="di-card">
-            <h4><i class="fa-regular fa-car-side"></i> 자가용 이용 시</h4>
-            <ul>
-              <li>네비게이션: "호남노회회관" 또는 "광주 동구 금남로 23길 12" 검색</li>
-              <li>인근 공영주차장 이용 (충장로 공영주차장 도보 5분)</li>
-            </ul>
-          </div>
-          <div class="di-card">
-            <h4><i class="fa-regular fa-clock"></i> 사무처 운영시간</h4>
-            <ul>
-              <li>평일 09:00 – 18:00 (점심 12:00 – 13:00)</li>
-              <li>토·일·공휴일 휴무</li>
-              <li>대표전화: 062-234-5678</li>
-              <li>팩스: 062-234-5679</li>
+              <li>노회 회의 및 운영을 위해 <br>에벤에셀교회에서 제공하는 장소입니다.</li>
+              <li>각종 사무 업무는 노회 서기에게 문의하시기 바랍니다.</li>
             </ul>
           </div>
         </div>
@@ -124,5 +110,34 @@
   <script src="../assets/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/script.js"></script>
   <script src="../assets/js/sub.js"></script>
+  <script>
+    (function () {
+      var TARGET_ADDRESS = '전남 나주시 예향로 4172';
+      var MARKER_TITLE   = '에벤에셀교회';
+      var FALLBACK_LAT   = 35.0160;
+      var FALLBACK_LNG   = 126.7107;
+
+      function initMap(position) {
+        var map = new naver.maps.Map('naver-map', {
+          center: position,
+          zoom: 17
+        });
+        new naver.maps.Marker({
+          position: position,
+          map: map,
+          title: MARKER_TITLE
+        });
+      }
+
+      naver.maps.Service.geocode({ query: TARGET_ADDRESS }, function (status, response) {
+        if (status !== naver.maps.Service.Status.OK || !response.v2.addresses.length) {
+          initMap(new naver.maps.LatLng(FALLBACK_LAT, FALLBACK_LNG));
+          return;
+        }
+        var addr = response.v2.addresses[0];
+        initMap(new naver.maps.LatLng(parseFloat(addr.y), parseFloat(addr.x)));
+      });
+    })();
+  </script>
 </body>
 </html>
