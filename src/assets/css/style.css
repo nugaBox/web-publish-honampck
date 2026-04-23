@@ -853,20 +853,22 @@ p {
   color: var(--hn-text-3);
 }
 
-/* ── 푸터 정책 링크 ─────────────────────────────────────────── */
-.hn-footer-policy { border-bottom: 1px solid #2a3340; }
-.hn-footer-policy .inner {
-  max-width: 1280px; margin: 0 auto;
-  padding: 14px 40px; display: flex; gap: 0; align-items: center;
-}
-.hn-footer-policy a {
+/* ── 푸터 빠른링크 ──────────────────────────────────────────── */
+.footer-policy-links { margin-bottom: 20px; }
+.footer-policy-title {
   font-size: 14px; color: #7f8894;
-  padding: 0 18px; border-right: 1px solid #3a424c; line-height: 1;
+  letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
+  margin-bottom: 8px;
 }
-.hn-footer-policy a:first-child { padding-left: 0; }
-.hn-footer-policy a:last-child { border-right: 0; }
-.hn-footer-policy a.emph { color: #c8ccd4; font-weight: 700; }
-.hn-footer-policy a:hover { color: #fff; }
+.footer-policy-row { display: flex; align-items: center; flex-wrap: wrap; }
+.footer-policy-row a {
+  font-size: 14px; color: #7f8894;
+  padding: 0 14px; border-right: 1px solid #3a424c; line-height: 1;
+}
+.footer-policy-row a:first-child { padding-left: 0; }
+.footer-policy-row a:last-child { border-right: none; }
+.footer-policy-row a.emph { color: #c8ccd4; font-weight: 700; }
+.footer-policy-row a:hover { color: #fff; }
 
 /* ── 반응형 ───────────────────────────────────────────────── */
 @media (max-width: 1024px) {
@@ -925,6 +927,5 @@ p {
     gap: 28px;
     padding: 28px 16px 36px;
   }
-  .hn-footer-policy .inner { padding: 12px 16px; }
-  .hn-footer-policy a { font-size: 13px; padding: 0 12px; }
+  .footer-policy-row a { font-size: 13px; padding: 0 10px; }
 }
