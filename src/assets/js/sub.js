@@ -30,6 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ── 역대 노회장·임원 행 아코디언 (officers-past) ──── */
+  document.querySelectorAll('.pres-acc-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const panel = row.nextElementSibling;
+      row.classList.toggle('open');
+      if (panel && panel.classList.contains('pres-acc-panel')) {
+        panel.classList.toggle('open');
+      }
+    });
+  });
+
   /* ── 그룹 탭 전환 (시찰별·회기별 등) ────────────────── */
   document.querySelectorAll('.group-tabs').forEach(tabGroup => {
     const buttons = tabGroup.querySelectorAll('button');

@@ -2884,3 +2884,86 @@
     gap: 12px;
   }
 }
+
+/* ── 역대 노회장·임원 아코디언 (officers-past) ──────────────── */
+.pres-acc-row {
+  cursor: pointer;
+  transition: background .15s;
+}
+.pres-acc-row:hover td,
+.pres-acc-row.open td {
+  background: var(--hn-blue-soft);
+}
+.pres-acc-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--hn-bg-alt2);
+  color: var(--hn-text-3);
+  font-size: 10px;
+  transition: transform .2s, background .15s, color .15s;
+  margin-top: 8px;
+}
+.pres-acc-row.open .pres-acc-ico {
+  transform: rotate(180deg);
+  background: var(--hn-blue);
+  color: #fff;
+}
+.pres-acc-panel {
+  display: none;
+}
+.pres-acc-panel.open {
+  display: table-row;
+}
+.pres-acc-panel > td {
+  padding: 20px 28px 28px;
+  background: var(--hn-blue-soft);
+  border-bottom: 2px solid var(--hn-blue);
+}
+.pres-acc-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--hn-blue);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(20, 65, 122, .2);
+}
+.pres-acc-panel .btable {
+  font-size: 13px;
+  border-top: 0;
+}
+.pres-acc-panel .btable thead th {
+  background: var(--hn-blue);
+  color: #fff;
+  font-size: 12px;
+  padding: 9px 10px;
+}
+.pres-acc-panel .btable tbody td {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--hn-line);
+  background: #fff;
+}
+.pres-group-photo {
+  margin-top: 20px;
+  background: var(--hn-bg-alt2);
+  border: 2px dashed var(--hn-line-strong);
+  border-radius: 6px;
+  aspect-ratio: 16 / 7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--hn-text-4);
+}
+.pres-group-photo i { font-size: 36px; }
+.pres-group-photo .pgp-title { font-size: 14px; font-weight: 700; color: var(--hn-text-3); }
+.pres-group-photo .pgp-sub { font-size: 12px; }
