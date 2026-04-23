@@ -134,7 +134,7 @@ p {
 }
 
 .hn-topbar a.accent {
-  color: var(--hn-green);
+  color: var(--hn-blue);
   font-weight: 600;
 }
 
@@ -217,7 +217,7 @@ p {
   left: 12px;
   right: 12px;
   height: 3px;
-  background: var(--hn-green);
+  background: var(--hn-blue);
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.24s cubic-bezier(0.34, 1.2, 0.64, 1);
@@ -225,8 +225,8 @@ p {
 
 .hn-gnb .item:hover,
 .hn-gnb .item.on {
-  color: var(--hn-green);
-  background: var(--hn-green-soft);
+  color: var(--hn-blue);
+  background: var(--hn-blue-soft);
 }
 
 .hn-gnb .item:hover::after,
@@ -469,7 +469,7 @@ p {
 }
 
 .hn-drawer-group.open .hn-drawer-toggle {
-  color: var(--hn-green);
+  color: var(--hn-blue);
 }
 
 .hn-drawer-group.open .hn-drawer-toggle i {
@@ -494,7 +494,7 @@ p {
 }
 
 .hn-drawer-sub a:hover {
-  color: var(--hn-green);
+  color: var(--hn-blue);
 }
 
 /* ── 오버레이 ─────────────────────────────────────────────── */
@@ -621,8 +621,8 @@ p {
 }
 
 .btn-hn.primary {
-  background: var(--hn-green);
-  border-color: var(--hn-green);
+  background: var(--hn-blue);
+  border-color: var(--hn-blue);
   color: #fff;
 }
 
@@ -774,8 +774,8 @@ p {
 }
 
 .pagination-hn a:hover:not(.on) {
-  color: var(--hn-green);
-  border-color: var(--hn-green);
+  color: var(--hn-blue);
+  border-color: var(--hn-blue);
 }
 
 /* ── 첨부파일 ─────────────────────────────────────────────── */
@@ -812,7 +812,7 @@ p {
 }
 
 .attachments a:hover {
-  border-color: var(--hn-green);
+  border-color: var(--hn-blue);
   color: var(--hn-text);
 }
 

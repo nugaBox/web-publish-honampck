@@ -45,7 +45,7 @@
   align-items: center;
 }
 .breadcrumb-hn i { font-size: 11px; color: rgba(255,255,255,.3); }
-.breadcrumb-hn .home { color: #8fd89b; }
+.breadcrumb-hn .home { color: #8ec4f0; }
 .breadcrumb-hn .cur { color: #fff; font-weight: 700; }
 .hn-page-head h1 {
   font-size: 36px; font-weight: 800; margin: 0; color: #fff;
@@ -86,7 +86,7 @@
   background: transparent;
 }
 .sidebar-list a.on {
-  color: var(--hn-green);
+  color: var(--hn-blue);
   font-weight: 700;
   padding-left: 20px;
   background: transparent;
@@ -94,7 +94,7 @@
 .sidebar-list a.on::before {
   content: '';
   position: absolute; left: 0; top: 0; bottom: 0;
-  width: 3px; background: var(--hn-green);
+  width: 3px; background: var(--hn-blue);
 }
 .sidebar-list a.on::after { display: none; }
 .sidebar-list i { color: var(--hn-text-4); font-size: 10px; }
@@ -103,7 +103,7 @@
 .sidebar-help {
   margin-top: 20px;
   background: var(--hn-bg-alt);
-  border-top: 2px solid var(--hn-green);
+  border-top: 2px solid var(--hn-blue);
   padding: 20px 18px;
 }
 .sidebar-help h4 { font-size: 15px; font-weight: 800; margin: 0 0 8px; letter-spacing: -0.02em; color: var(--hn-text-2); }
@@ -120,7 +120,7 @@
   letter-spacing: -0.035em;
 }
 .ptitle .cnt { font-size: 16px; font-weight: 500; color: var(--hn-text-3); }
-.ptitle .cnt b { color: var(--hn-green); font-weight: 800; }
+.ptitle .cnt b { color: var(--hn-blue); font-weight: 800; }
 
 /* ── 게시판 툴바 ──────────────────────────────────────────── */
 .b-toolbar {
@@ -195,7 +195,7 @@
   font-weight: 500;
 }
 .btable tbody td.title a { cursor: pointer; }
-.btable tbody td.title a:hover { color: var(--hn-green); }
+.btable tbody td.title a:hover { color: var(--hn-blue); }
 .btable tr.notice td { background: #fbfcfd; }
 .btable tr.notice td.title { font-weight: 700; }
 .btable .pin {
@@ -216,7 +216,7 @@
 }
 .btable .cat.g { color: var(--hn-green); border-color: var(--hn-green); }
 .btable .cat.b { color: var(--hn-blue); border-color: var(--hn-blue); }
-.btable .file-ico { color: var(--hn-green); font-size: 16px; }
+.btable .file-ico { color: var(--hn-blue); font-size: 16px; }
 
 /* ── 게시판 하단 (페이지/버튼) ───────────────────────────── */
 .btable-foot {
@@ -270,7 +270,7 @@
 .bdetail-body h4 {
   font-size: 20px; font-weight: 800; color: var(--hn-text);
   margin: 30px 0 12px; padding-left: 12px;
-  border-left: 3px solid var(--hn-green);
+  border-left: 3px solid var(--hn-blue);
   letter-spacing: -0.02em;
 }
 
@@ -367,7 +367,7 @@
   background: #fff;
   cursor: pointer;
 }
-.show-toc a:hover { color: var(--hn-green); border-color: var(--hn-green); }
+.show-toc a:hover { color: var(--hn-blue); border-color: var(--hn-blue); }
 
 .show-block {
   border: 1px solid var(--hn-line);
@@ -432,7 +432,7 @@
 .step:last-child::after { display: none; }
 .step .n {
   width: 35px; height: 35px;
-  background: var(--hn-green); color: #fff;
+  background: var(--hn-blue); color: #fff;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-size: 16px; font-weight: 800;
@@ -454,9 +454,9 @@
   content: '';
   position: absolute; left: 25px; top: 6px;
   width: 12px; height: 12px;
-  background: var(--hn-green); border-radius: 50%;
+  background: var(--hn-blue); border-radius: 50%;
   border: 2px solid #fff;
-  box-shadow: 0 0 0 2px var(--hn-green);
+  box-shadow: 0 0 0 2px var(--hn-blue);
 }
 .timeline-item .year {
   position: absolute; left: -100px; top: 0;
@@ -581,7 +581,7 @@
   letter-spacing: -0.02em;
   transition: color .15s;
 }
-.group-tabs button.on { color: var(--hn-text); font-weight: 800; border-bottom-color: var(--hn-green); }
+.group-tabs button.on { color: var(--hn-text); font-weight: 800; border-bottom-color: var(--hn-blue); }
 .group-tabs button:hover { color: var(--hn-text); }
 .tab-panel { display: none; }
 .tab-panel.on { display: block; }
@@ -605,7 +605,7 @@
 .church-table tbody a { color: var(--hn-blue); }
 .church-table tbody a:hover { text-decoration: underline; }
 .church-count { font-size: 15px; color: var(--hn-text-3); font-weight: 500; margin-bottom: 16px; }
-.church-count b { color: var(--hn-green); font-weight: 800; }
+.church-count b { color: var(--hn-blue); font-weight: 800; }
 
 /* ── 시찰 소개 ─────────────────────────────────────────────── */
 .district-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
@@ -632,7 +632,7 @@
   margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--hn-line);
   font-size: 15px; color: var(--hn-text-3); display: flex; align-items: center; gap: 6px;
 }
-.district-card .d-count b { color: var(--hn-green); font-size: 22px; font-weight: 800; }
+.district-card .d-count b { color: var(--hn-blue); font-size: 22px; font-weight: 800; }
 
 /* ── 오시는 길 ─────────────────────────────────────────────── */
 .map-wrap { border: 1px solid var(--hn-line); overflow: hidden; margin-bottom: 30px; }
@@ -647,7 +647,7 @@
 .directions-info { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .directions-info .di-card { border: 1px solid var(--hn-line); padding: 22px 24px; background: #fff; }
 .directions-info .di-card h4 { font-size: 17px; font-weight: 800; margin: 0 0 14px; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
-.directions-info .di-card h4 i { color: var(--hn-green); }
+.directions-info .di-card h4 i { color: var(--hn-blue); }
 .directions-info .di-card p, .directions-info .di-card li { font-size: 15px; color: var(--hn-text-2); line-height: 1.8; margin: 0 0 6px; }
 .directions-info .di-card ul { padding-left: 18px; margin: 0; }
 .directions-addr { background: var(--hn-blue); color: #fff; padding: 22px 28px; margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
@@ -676,8 +676,8 @@
 .intro-lead {
   font-size: 19px; color: var(--hn-text-2); line-height: 1.9;
   padding: 28px 30px;
-  border-left: 4px solid var(--hn-green);
-  background: var(--hn-green-soft);
+  border-left: 4px solid var(--hn-blue);
+  background: var(--hn-blue-soft);
   margin-bottom: 36px;
 }
 .intro-lead p { margin: 0 0 12px; }
