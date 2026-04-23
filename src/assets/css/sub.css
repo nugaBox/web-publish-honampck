@@ -704,26 +704,29 @@
 
 /* ── 노회 규칙 ────────────────────────────────────────────── */
 .rules-doc .chapter-head {
-  font-size: 20px; font-weight: 800; color: var(--hn-blue);
-  margin: 36px 0 14px; padding: 12px 18px;
-  background: var(--hn-blue-soft); letter-spacing: -0.02em;
-  border-left: 4px solid var(--hn-blue);
+  font-size: 16px; font-weight: 800; color: #fff;
+  margin: 40px 0 0; padding: 14px 22px;
+  background: var(--hn-blue); letter-spacing: -0.01em;
 }
 .rules-doc .chapter-head:first-child { margin-top: 0; }
-.rules-list { list-style: none; padding: 0; margin: 0 0 6px; }
+.rules-list {
+  list-style: none; padding: 0; margin: 0 0 0;
+  border: 1px solid var(--hn-line); border-top: 0;
+}
 .rules-list > li {
   display: flex; gap: 14px;
-  padding: 13px 0; border-bottom: 1px solid var(--hn-line-soft);
-  font-size: 17px; color: var(--hn-text-2); line-height: 1.75;
+  padding: 14px 22px; border-bottom: 1px solid var(--hn-line-soft);
+  font-size: 16px; color: var(--hn-text-2); line-height: 1.8;
 }
 .rules-list > li:last-child { border-bottom: 0; }
-.rules-list .art { font-weight: 800; color: var(--hn-text); min-width: 52px; flex-shrink: 0; }
-.rules-sub { margin: 6px 0 0 0; }
-.rules-sub li { font-size: 15px; color: var(--hn-text-3); padding: 3px 0; line-height: 1.65; list-style: none; display: flex; gap: 10px; }
+.rules-list .art { font-weight: 800; color: var(--hn-blue); min-width: 48px; flex-shrink: 0; }
+.rules-sub { margin: 8px 0 0; }
+.rules-sub li { font-size: 15px; color: var(--hn-text-3); padding: 4px 0; line-height: 1.7; list-style: none; display: flex; gap: 10px; }
 .rules-sub .art { min-width: 30px; color: var(--hn-text-4); font-weight: 600; font-size: 14px; }
 
 /* ── 폼 박스 ──────────────────────────────────────────────── */
-.form-box { max-width: 560px; }
+.form-box { max-width: 600px; margin: 0 auto; }
+.form-box.full { max-width: none; }
 .form-row { display: flex; gap: 10px; }
 .form-row .in-field { flex: 1; }
 .form-btns { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; align-items: center; }
@@ -756,7 +759,7 @@
 
 /* 회원가입 단계 */
 .join-steps {
-  display: flex; margin-bottom: 36px;
+  display: flex; max-width: 600px; margin: 0 auto 36px;
   border: 1px solid var(--hn-line); border-right: 0; overflow: hidden;
 }
 .join-step {
