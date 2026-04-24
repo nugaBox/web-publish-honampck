@@ -1,131 +1,21 @@
-<header id="site-header">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대한예수교장로회(합동) 호남노회</title>
+  <link rel="icon" type="image/png" href="/assets/images/common/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/common/favicon/favicon.svg">
+  <link rel="shortcut icon" href="/assets/images/common/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/common/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/images/common/favicon/site.webmanifest">
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/assets/css/pretendard.css">
+  <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/sub.css">
+</head>
+<body>
 
-  <!-- 탑바 -->
-  <div class="hn-topbar">
-    <div class="inner">
-      <a href="/sub/sitemap.html"><i class="fa-regular fa-sitemap"></i> 사이트맵</a>
-      <a href="/sub/login.html" class="accent"><i class="fa-regular fa-arrow-right-to-bracket"></i> 로그인</a>
-    </div>
-  </div>
-
-  <!-- 헤더 + GNB -->
-  <div class="hn-header-gnb">
-    <div class="inner">
-      <a href="/index.html" class="hn-logo">
-        <img src="/assets/images/common/honam-banner-long.png" alt="대한예수교장로회 호남노회">
-      </a>
-      <nav class="hn-gnb" aria-label="주 메뉴">
-        <div class="item" data-path="intro">노회 소개</div>
-        <div class="item" data-path="hist">노회 역사</div>
-        <div class="item" data-path="org">노회 조직</div>
-        <div class="item" data-path="admin">행정 자료</div>
-        <div class="item" data-path="news">노회 소식</div>
-      </nav>
-      <button class="hn-mob-btn" id="mobMenuBtn" aria-label="메뉴 열기">
-        <i class="bi bi-list"></i>
-      </button>
-    </div>
-
-    <!-- 메가 드롭다운 -->
-    <div class="hn-drop" id="hnDrop">
-      <div class="drop-content">
-
-        <!-- 왼쪽: 환영 패널 (GNB ::before 로 전체 너비 초록 연장) -->
-        <div class="drop-welcome">
-          <p class="drop-welcome-ko">대한예수교장로회(합동)<br>호남노회입니다.</p>
-          <p class="drop-welcome-en">Honam Presbytery<br>Presbyterian Church in Korea<br>EST 2005</p>
-        </div>
-
-        <!-- 오른쪽: 5개 서브메뉴 컬럼 (GNB 아이템과 너비 정렬) -->
-        <div class="drop-cols">
-          <div class="drop-col">
-            <a href="/sub/intro.html">노회 소개</a>
-            <a href="/sub/officers.html">임원 구성</a>
-            <a href="/sub/rules.html">노회 규칙</a>
-            <a href="/sub/directions.html">오시는 길</a>
-          </div>
-          <div class="drop-col">
-            <a href="/sub/history.html">노회 연혁</a>
-            <a href="/sub/past-presidents.html">역대 노회장</a>
-            <a href="/sub/past-officers.html">역대 노회임원</a>
-          </div>
-          <div class="drop-col">
-            <a href="/sub/churches.html">소속 교회</a>
-            <a href="/sub/district.html">시찰 소개</a>
-            <a href="/sub/departments.html">부서 소개</a>
-            <a href="/boardpage/representatives/list.html">총대 명부</a>
-          </div>
-          <div class="drop-col">
-            <a href="/boardpage/official-docs/list.html">노회 공문</a>
-            <a href="/boardpage/forms/list.html">행정 서식</a>
-            <a href="/boardpage/other-resources/list.html">기타 자료실</a>
-          </div>
-          <div class="drop-col">
-            <a href="/boardpage/notice/list.html">공지사항</a>
-            <a href="/boardpage/album/list.html">노회 앨범</a>
-            <a href="/boardpage/press/list.html">교회 소식</a>
-            <a href="/boardpage/media/list.html">언론 보도</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div><!-- /.hn-header-gnb -->
-
-  <!-- 모바일 드로어 -->
-  <div class="hn-drawer" id="hnDrawer">
-    <div class="hn-drawer-head">
-      <img src="/assets/images/common/honam-banner-long.png" alt="대한예수교장로회 호남노회">
-      <button class="hn-drawer-close" id="hnDrawerClose" aria-label="메뉴 닫기">
-        <i class="bi bi-x-lg"></i>
-      </button>
-    </div>
-    <nav class="hn-drawer-nav">
-      <div class="hn-drawer-group">
-        <button class="hn-drawer-toggle">노회 소개 <i class="bi bi-chevron-down"></i></button>
-        <div class="hn-drawer-sub">
-          <a href="/sub/intro.html">노회 소개</a>
-          <a href="/sub/officers.html">임원 구성</a>
-          <a href="/sub/rules.html">노회 규칙</a>
-          <a href="/sub/directions.html">오시는 길</a>
-        </div>
-      </div>
-      <div class="hn-drawer-group">
-        <button class="hn-drawer-toggle">노회 역사 <i class="bi bi-chevron-down"></i></button>
-        <div class="hn-drawer-sub">
-          <a href="/sub/history.html">노회 연혁</a>
-          <a href="/sub/past-presidents.html">역대 노회장</a>
-          <a href="/sub/past-officers.html">역대 노회임원</a>
-        </div>
-      </div>
-      <div class="hn-drawer-group">
-        <button class="hn-drawer-toggle">노회 조직 <i class="bi bi-chevron-down"></i></button>
-        <div class="hn-drawer-sub">
-          <a href="/sub/churches.html">소속 교회</a>
-          <a href="/sub/district.html">시찰 소개</a>
-          <a href="/sub/departments.html">부서 소개</a>
-          <a href="/boardpage/representatives/list.html">총대 명부</a>
-        </div>
-      </div>
-      <div class="hn-drawer-group">
-        <button class="hn-drawer-toggle">행정 자료 <i class="bi bi-chevron-down"></i></button>
-        <div class="hn-drawer-sub">
-          <a href="/boardpage/official-docs/list.html">노회 공문</a>
-          <a href="/boardpage/forms/list.html">행정 서식</a>
-          <a href="/boardpage/other-resources/list.html">기타 자료실</a>
-        </div>
-      </div>
-      <div class="hn-drawer-group">
-        <button class="hn-drawer-toggle">노회 소식 <i class="bi bi-chevron-down"></i></button>
-        <div class="hn-drawer-sub">
-          <a href="/boardpage/notice/list.html">공지사항</a>
-          <a href="/boardpage/album/list.html">노회 앨범</a>
-          <a href="/boardpage/press/list.html">교회 소식</a>
-          <a href="/boardpage/media/list.html">언론 보도</a>
-        </div>
-      </div>
-    </nav>
-  </div>
-  <div class="hn-overlay" id="hnOverlay"></div>
-
-</header>
+<div data-include="/include/headerSub.html"></div>

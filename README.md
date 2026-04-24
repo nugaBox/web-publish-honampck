@@ -13,17 +13,19 @@ NUGABOX의 웹 퍼블리싱을 위한 보일러플레이트 코드입니다.
 # 최초 설치 (새 프로젝트 시작 시)
 npm install && npm run setup
 
-# 개발 서버 시작 (http://localhost:3000)
-npm run dev
+# 개발 서버 (Full Build 후 browser-sync + src/ 감시 자동 재빌드)
+npm run dev                  # → http://localhost:3000 (dist/ 기반)
 
-# dist 빌드 (배포용)
-npm run build
+# 배포용 빌드 (시놀로지 서버 직접 배포, CMS 변수 치환 없음)
+npm run build                # → dist/
+
+# CMS 내보내기 (레이아웃 제거 + CMS 변수 치환 적용)
+npm run build:siiru          # → dist-siiru/
+
+# 기존 빌드 결과 미리보기만
+npm run preview
 
 # setup 재적용 (Bootstrap/Pretendard/Swiper 파일 재복사)
-npm run setup
-
-# 패키지 버전 업그레이드 예시
-npm install bootstrap@latest bootstrap-icons@latest pretendard@latest swiper@latest
 npm run setup
 ```
 
@@ -56,8 +58,11 @@ web-publish-{site}/
 │   │       ├── pretendard/               ← Pretendard woff/woff2 (setup.js 자동 복사)
 │   │       └── fontawesome/              ← Font Awesome Pro webfonts (수동 배치)
 │   ├── include/
-│   │   ├── header.html                   ← 공통 헤더 (data-include로 로드)
-│   │   └── footer.html                   ← 공통 푸터 (data-include로 로드)
+│   │   ├── header.html              ← [sub 셸] DOCTYPE + head(CSS) + headerSub include
+│   │   ├── footer.html              ← [sub 닫힘] footerSub include + JS + /body/html
+│   │   ├── headerSub.html           ← GNB 컴포넌트 (탑바·메가드롭다운·모바일드로어)
+│   │   ├── footerSub.html           ← 푸터 컴포넌트
+│   │   ├── sidebar_XXX.html         ← 사이드바 (섹션별 분리, 루트 절대경로 사용)
 │   ├── index.html                        ← main 페이지
 │   └── sub.html                          ← sub 페이지 (예시)
 ├── dist/                             ← 빌드 결과물 (npm run build 생성, Git 제외)
@@ -95,20 +100,16 @@ npm run dev
 ### 3. 배포용 빌드
 
 ```bash
-npm run build
+npm run build          # Full Build → dist/
+npm run build:siiru    # SiiRU CMS Export → dist-siiru/
 ```
 
-`src/` → `dist/` 로 빌드합니다. 아래 작업이 자동으로 수행됩니다.
+| 모드 | 명령어 | include 처리 | CMS 변수 치환 | 용도 |
+|---|---|---|---|---|
+| Full Build | `npm run build` | 모두 인라인화 | 없음 | 시놀로지 서버 직접 배포 |
+| SiiRU Export | `npm run build:siiru` | 레이아웃 제외, 본문만 | 있음 | SiiRU CMS 업로드 |
 
-| 처리 항목 | 내용 |
-|---|---|
-| `data-include` 인라인 | header/footer HTML이 각 페이지에 직접 삽입됨 |
-| 하위 폴더 HTML 처리 | `src/` 아래 모든 HTML을 재귀적으로 빌드 |
-| 상대경로 include 지원 | `./`, `../`, `/include/...` 형태의 `data-include` 처리 |
-| 웹폰트 경로 치환 | CSS의 `../fonts/...` → `${fontDirectory}...` |
-| 이미지 경로 치환 | CSS는 `assets/images/` → `${imgDirectory}`, HTML은 `assets/images/` → `${path.images}` |
-
-CMS 변수명은 `scripts/build.js` 상단의 `CMS` 객체에서 수정할 수 있습니다.
+CMS 변수명은 `scripts/build.js` 상단의 `CMS` 객체에서 수정합니다.
 
 ```js
 const CMS = {
@@ -118,6 +119,9 @@ const CMS = {
   font:    "${fontDirectory}",
 };
 ```
+
+SiiRU Export 시 `header.html` / `footer.html` include 태그는 빈 문자열로 대체되어
+레이아웃 없이 `<main>` 본문만 출력됩니다. `dist-siiru/`는 `.gitignore`에 등록됩니다.
 
 ### 4. 새 프로젝트 생성
 

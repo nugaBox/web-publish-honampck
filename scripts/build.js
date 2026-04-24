@@ -1,32 +1,68 @@
 /**
- * build.js
- * src/ → dist/ 빌드 스크립트
+ * build.js — 빌드 스크립트 (호남노회)
  *
- * 수행 작업:
- *  1. dist/ 초기화 후 src/ 전체 복사
- *  2. HTML 파일의 data-include를 실제 header/footer로 인라인 처리
- *  3. CSS 파일의 로컬 웹폰트 경로를 CMS 변수로 치환
- *  4. HTML/CSS 파일의 이미지 경로를 CMS 변수로 치환
+ * 모드는 환경변수 BUILD_MODE로 지정합니다.
  *
- * 실행: npm run build
+ * ┌─────────────────────────────────────────────────────────────┐
+ * │ 모드        │ 명령어             │ 출력폴더   │ 특징         │
+ * ├─────────────────────────────────────────────────────────────┤
+ * │ full        │ npm run build      │ dist/      │ 모든 include │
+ * │             │                    │            │ 인라인화.    │
+ * │             │                    │            │ CMS 변수     │
+ * │             │                    │            │ 치환 없음.   │
+ * │             │                    │            │ 시놀로지 서버│
+ * │             │                    │            │ 직접 배포용. │
+ * ├─────────────────────────────────────────────────────────────┤
+ * │ siiru       │ npm run build:siiru│ dist-siiru/│ 레이아웃     │
+ * │             │                    │            │ (header/     │
+ * │             │                    │            │  footer)     │
+ * │             │                    │            │ 제외, 본문만.│
+ * │             │                    │            │ CMS 변수     │
+ * │             │                    │            │ 치환 적용.   │
+ * └─────────────────────────────────────────────────────────────┘
  */
 
-const fs = require("fs");
-const path = require("path");
+const fs   = require('fs');
+const path = require('path');
 
-const ROOT = path.resolve(__dirname, "..");
-const SRC  = path.join(ROOT, "src");
-const DIST = path.join(ROOT, "dist");
+const ROOT = path.resolve(__dirname, '..');
+const SRC  = path.join(ROOT, 'src');
 
-// ── CMS 경로 변수 설정 ────────────────────────────────────────
-// CMS가 런타임에 치환하는 변수명입니다. 필요에 따라 수정하세요.
-const CMS = {
-  root:     "${rootDirectory}",
-  img:      "${imgDirectory}",
-  imgHtml:  "${path.images}",
-  font:     "${fontDirectory}",
+// ── 모드 설정 ─────────────────────────────────────────────────
+const MODE = (process.env.BUILD_MODE || 'full').toLowerCase();
+
+const MODES = {
+  full: {
+    label:       'Full Build',
+    outDir:      path.join(ROOT, 'dist'),
+    skipLayout:  false,
+    applyCms:    false,
+  },
+  siiru: {
+    label:       'SiiRU CMS Export',
+    outDir:      path.join(ROOT, 'dist-siiru'),
+    skipLayout:  true,
+    applyCms:    true,
+  },
 };
-// ─────────────────────────────────────────────────────────────
+
+if (!MODES[MODE]) {
+  console.error(`❌  알 수 없는 BUILD_MODE: "${MODE}" (full | siiru)`);
+  process.exit(1);
+}
+
+const { label, outDir: DIST, skipLayout, applyCms } = MODES[MODE];
+
+// ── CMS 경로 변수 (siiru 모드에서만 사용) ────────────────────
+const CMS = {
+  root:    '${rootDirectory}',
+  img:     '${imgDirectory}',
+  imgHtml: '${path.images}',
+  font:    '${fontDirectory}',
+};
+
+// ── 레이아웃 include 파일명 (skipLayout 대상) ─────────────────
+const LAYOUT_FILES = new Set(['header.html', 'footer.html']);
 
 // ── 유틸 ─────────────────────────────────────────────────────
 
@@ -41,97 +77,100 @@ function copyRecursive(src, dest) {
 
 function walkFiles(dir, predicate, results = []) {
   if (!fs.existsSync(dir)) return results;
-
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      walkFiles(fullPath, predicate, results);
-      continue;
-    }
-    if (predicate(fullPath)) results.push(fullPath);
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) { walkFiles(full, predicate, results); continue; }
+    if (predicate(full)) results.push(full);
   }
-
   return results;
 }
 
 /** url() 안의 로컬 웹폰트 경로를 CMS 변수로 치환 */
 function replaceWebfontPaths(css) {
-  // ../fonts/ → ${fontDirectory} (나머지 경로는 유지)
   return css.replace(/url\((['"]?)\.\.\/fonts\//g, `url($1${CMS.font}`);
 }
 
 /** CSS 내 이미지 경로를 CMS 변수로 치환 */
-function replaceImgPaths(content) {
-  return content.replace(/assets\/images\//g, CMS.img);
+function replaceImgPathsCss(css) {
+  return css
+    .replace(/assets\/images\//g, CMS.img)
+    .replace(/url\((['"]?)\.\.\/images\//g, `url($1${CMS.img}`);
 }
 
 /** HTML 내 이미지 경로를 CMS 변수로 치환 */
-function replaceImgPathsHtml(content) {
-  return content.replace(/assets\/images\//g, CMS.imgHtml);
+function replaceImgPathsHtml(html) {
+  return html.replace(/(?:(?:\.\.\/)+|\/)?assets\/images\//g, CMS.imgHtml);
 }
 
-/** HTML 파일의 data-include 태그를 실제 파일 내용으로 인라인 */
-function inlineIncludes(html, baseDir = DIST) {
+/**
+ * HTML 파일의 data-include 태그를 실제 파일 내용으로 인라인.
+ * skipLayout=true 일 때 header.html / footer.html 은 빈 문자열로 대체
+ * (레이아웃 제거 → 본문만 추출).
+ */
+function inlineIncludes(html, baseDir) {
   return html.replace(
     /<div[^>]*data-include=["']([^"']+)["'][^>]*><\/div>/g,
     (match, includePath) => {
-      const full = includePath.startsWith("/")
+      const full = includePath.startsWith('/')
         ? path.join(DIST, includePath.slice(1))
         : path.resolve(baseDir, includePath);
+
+      // 레이아웃 파일 건너뜀 (siiru 모드)
+      if (skipLayout && LAYOUT_FILES.has(path.basename(full))) return '';
+
       if (!fs.existsSync(full)) {
-        console.warn(`  ⚠️  include 파일 없음: ${includePath} (기준: ${path.relative(DIST, baseDir) || "."})`);
+        console.warn(`  ⚠️  include 없음: ${includePath}`);
         return match;
       }
 
-      const content = fs.readFileSync(full, "utf-8").trim();
+      const content = fs.readFileSync(full, 'utf-8').trim();
       return inlineIncludes(content, path.dirname(full));
     }
   );
 }
 
-// ── 빌드 ─────────────────────────────────────────────────────
+// ── 빌드 실행 ─────────────────────────────────────────────────
 
-console.log("\n🏗️  빌드 시작...\n");
+console.log(`\n🏗️  [${label}] 빌드 시작...\n`);
 
-// 1. dist/ 초기화
-if (fs.existsSync(DIST)) {
-  fs.rmSync(DIST, { recursive: true });
-}
+// 1. 출력 디렉터리 초기화 + 소스 복사
+if (fs.existsSync(DIST)) fs.rmSync(DIST, { recursive: true });
 copyRecursive(SRC, DIST);
-console.log("✅  src/ → dist/ 복사 완료");
+console.log(`✅  src/ → ${path.relative(ROOT, DIST)}/ 복사 완료`);
 
-// 2. HTML 처리: include 인라인 + 이미지 경로 치환
+// 2. HTML 처리
 const htmlFiles = walkFiles(
   DIST,
-  (filePath) => filePath.endsWith(".html") && !filePath.includes(`${path.sep}include${path.sep}`)
+  p => p.endsWith('.html') && !p.includes(`${path.sep}include${path.sep}`)
 );
 
 for (const filePath of htmlFiles) {
   const label = path.relative(DIST, filePath);
-  let html = fs.readFileSync(filePath, "utf-8");
+  let html = fs.readFileSync(filePath, 'utf-8');
 
   html = inlineIncludes(html, path.dirname(filePath));
-  html = replaceImgPathsHtml(html);
+  if (applyCms) html = replaceImgPathsHtml(html);
 
-  fs.writeFileSync(filePath, html, "utf-8");
-  console.log(`✅  ${label} — include 인라인, 이미지 경로 치환`);
+  fs.writeFileSync(filePath, html, 'utf-8');
+  console.log(`✅  ${label}`);
 }
 
-// 3. CSS 처리: 웹폰트 경로 + 이미지 경로 치환
-const cssDir = path.join(DIST, "assets", "css");
-const cssFiles = walkFiles(cssDir, (filePath) => filePath.endsWith(".css"));
-
-for (const filePath of cssFiles) {
-  let css = fs.readFileSync(filePath, "utf-8");
-
-  const before = css;
-  css = replaceWebfontPaths(css);
-  css = replaceImgPaths(css);
-
-  if (css !== before) {
-    fs.writeFileSync(filePath, css, "utf-8");
-    console.log(`✅  ${path.relative(DIST, filePath)} — 경로 치환`);
+// 3. CSS 처리 (siiru 모드에서만 경로 치환)
+if (applyCms) {
+  const cssFiles = walkFiles(
+    path.join(DIST, 'assets', 'css'),
+    p => p.endsWith('.css')
+  );
+  for (const filePath of cssFiles) {
+    let css = fs.readFileSync(filePath, 'utf-8');
+    const before = css;
+    css = replaceWebfontPaths(css);
+    css = replaceImgPathsCss(css);
+    if (css !== before) {
+      fs.writeFileSync(filePath, css, 'utf-8');
+      console.log(`✅  ${path.relative(DIST, filePath)} — CSS 경로 치환`);
+    }
   }
 }
 
-console.log("\n✨ 빌드 완료: dist/\n");
+console.log(`\n✨  빌드 완료 → ${path.relative(ROOT, DIST)}/\n`);

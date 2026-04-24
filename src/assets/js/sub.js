@@ -30,6 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ── 전신/호남노회 섹션 배너 아코디언 (officers-past) ─── */
+  document.querySelectorAll('.presec-acc-toggle').forEach(banner => {
+    const body = document.getElementById(banner.dataset.target);
+    if (!body) return;
+    banner.addEventListener('click', () => {
+      const isOpen = banner.classList.toggle('open');
+      body.style.display = isOpen ? '' : 'none';
+    });
+  });
+
   /* ── 역대 노회장·임원 행 아코디언 (officers-past) ──── */
   document.querySelectorAll('.pres-acc-row').forEach(row => {
     row.addEventListener('click', () => {

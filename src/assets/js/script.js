@@ -24,21 +24,48 @@ document.addEventListener('DOMContentLoaded', () => {
     ).then(() => {
       initGnb();
       markActiveNav();
+      markActiveSidebar();
       initMobileMenu();
+      initFooterSites();
     });
   } else {
     initGnb();
     markActiveNav();
+    markActiveSidebar();
     initMobileMenu();
+    initFooterSites();
   }
 
-  /* ── GNB 현재 경로 활성화 ─────────────────────────────── */
+  /* ── GNB 현재 섹션 활성화 ────────────────────────────── */
   function markActiveNav() {
-    const path = location.pathname;
+    const k = document.querySelector('.sidebar-head .k');
+    const section = k ? k.textContent.trim().toLowerCase() : '';
     document.querySelectorAll('.hn-gnb .item[data-path]').forEach(item => {
-      if (path.includes(item.dataset.path)) {
+      if (section && item.dataset.path === section) {
         item.classList.add('on');
       }
+    });
+  }
+
+  /* ── 사이드바 현재 메뉴 활성화 ───────────────────────── */
+  function markActiveSidebar() {
+    const curPath = window.location.pathname;
+    const curDir  = curPath.substring(0, curPath.lastIndexOf('/') + 1);
+
+    document.querySelectorAll('.sidebar-list a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || href === '#') return;
+      try {
+        const linkPath = new URL(href, window.location.href).pathname;
+        const linkDir  = linkPath.substring(0, linkPath.lastIndexOf('/') + 1);
+        const isActive = linkPath === curPath ||
+          (curDir === linkDir && linkPath.endsWith('/list.html'));
+        if (!isActive) return;
+
+        link.classList.add('on');
+        const icon = link.querySelector('.fa-chevron-right');
+        if (icon) icon.replaceWith(document.createElement('span'));
+      } catch (_) {}
     });
   }
 
@@ -104,6 +131,29 @@ document.addEventListener('DOMContentLoaded', () => {
         drawer.querySelectorAll('.hn-drawer-group.open').forEach(g => g.classList.remove('open'));
         if (!isOpen) group.classList.add('open');
       });
+    });
+  }
+
+  /* ── 푸터 관련사이트 토글 ─────────────────────────────── */
+  function initFooterSites() {
+    const wrap = document.getElementById('footerSites');
+    const btn = wrap?.querySelector('.site-link-btn');
+    if (!wrap || !btn) return;
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      wrap.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!wrap.contains(e.target)) {
+        wrap.classList.remove('open');
+      }
+    });
+
+    // ESC 키로 닫기
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') wrap.classList.remove('open');
     });
   }
 

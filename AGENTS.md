@@ -3,10 +3,16 @@
 ## 프로젝트 개요
 
 대한예수교장로회(합동) 호남노회 공식 웹사이트 퍼블리싱 작업물.
-CMS 연동을 전제로 한 정적 HTML 퍼블리싱 구조이며, 빌드 시 `data-include` 인라인 처리 후 `dist/`로 출력된다.
+CMS 연동을 전제로 한 정적 HTML 퍼블리싱 구조이며, 빌드 시 `data-include` 인라인 처리 후 출력된다.
 
-- **개발 서버**: `npm run dev` → `localhost:3000` (browser-sync)
-- **빌드**: `npm run build` → `src/ → dist/` (data-include 인라인화, 경로 변환)
+### 빌드 명령어
+
+| 명령어 | 모드 | 출력 | 설명 |
+|---|---|---|---|
+| `npm run dev` | 개발 | `dist/` | Full Build 후 browser-sync 서빙 + src/ 변경 감지 자동 재빌드 |
+| `npm run build` | Full Build | `dist/` | 모든 include 인라인화. CMS 변수 치환 없음. 시놀로지 서버 직접 배포용. |
+| `npm run build:siiru` | SiiRU CMS Export | `dist-siiru/` | 레이아웃(header/footer) 제외하고 본문만 추출. CMS 변수 치환 적용. |
+| `npm run preview` | 미리보기 | `dist/` | `npm run build` 결과를 browser-sync로 확인 |
 
 ---
 
@@ -25,8 +31,16 @@ src/
 │   │   └── sub.js         # 서브·게시판 전용
 │   └── images/
 ├── include/
-│   ├── header.html        # 공통 헤더 (탑바·GNB·메가드롭다운·모바일드로어)
-│   └── footer.html        # 공통 푸터
+│   ├── header.html              # [sub 셸] DOCTYPE + head(CSS) + body 여는 태그 + headerSub include
+│   ├── footer.html              # [sub 닫힘] footerSub include + JS 스크립트 + body/html 닫는 태그
+│   ├── headerSub.html           # GNB 컴포넌트 (탑바·GNB·메가드롭다운·모바일드로어)
+│   ├── footerSub.html           # 푸터 컴포넌트
+│   ├── sidebar_introduce.html   # 사이드바 — 노회 소개
+│   ├── sidebar_history.html     # 사이드바 — 노회 역사
+│   ├── sidebar_organization.html# 사이드바 — 노회 조직
+│   ├── sidebar_admin.html       # 사이드바 — 행정 자료
+│   ├── sidebar_news.html        # 사이드바 — 노회 소식
+│   └── sidebar_extra.html       # 사이드바 — 부가서비스
 ├── board/
 │   ├── basic/list.html    # 일반 게시판 스킨 (테이블형)
 │   └── multimedia/list.html  # 썸네일 게시판 스킨 (앨범 그리드형)
@@ -45,8 +59,7 @@ src/
 │   ├── rules.html         # 노회 규칙 (조항 텍스트)
 │   ├── directions.html    # 오시는 길 (지도 플레이스홀더)
 │   ├── history.html       # 노회 연혁 (타임라인)
-│   ├── past-presidents.html  # 역대 노회장 (카드 그리드)
-│   ├── past-officers.html    # 역대 노회임원 (회기별 탭·표)
+│   ├── officers-past.html # 역대 노회 임원 (역대 노회장+임원 통합)
 │   ├── churches.html      # 소속 교회 (시찰별 탭·테이블)
 │   ├── district.html      # 시찰 소개 (3개 시찰 카드)
 │   └── departments.html   # 부서 소개 (상비부 표)
@@ -57,7 +70,7 @@ src/
 
 ## GNB 메뉴 구조
 
-헤더(`include/header.html`)의 메뉴는 5개 섹션으로 구성된다.
+헤더(`include/headerSub.html`)의 메뉴는 5개 섹션으로 구성된다.
 
 | GNB | 서브메뉴 | 링크 |
 |---|---|---|
@@ -66,8 +79,7 @@ src/
 | | 노회 규칙 | `/sub/rules.html` |
 | | 오시는 길 | `/sub/directions.html` |
 | 노회 역사 | 노회 연혁 | `/sub/history.html` |
-| | 역대 노회장 | `/sub/past-presidents.html` |
-| | 역대 노회임원 | `/sub/past-officers.html` |
+| | 역대 노회 임원 | `/sub/officers-past.html` |
 | 노회 조직 | 소속 교회 | `/sub/churches.html` |
 | | 시찰 소개 | `/sub/district.html` |
 | | 부서 소개 | `/sub/departments.html` |
@@ -128,56 +140,74 @@ src/
 
 ## 서브 페이지 공통 레이아웃
 
-`sub.css` 기준. 모든 서브 페이지는 아래 구조를 따른다.
+`sub.css` 기준. 모든 서브 페이지는 **fragment** 방식으로 작성한다.
+`header.html`/`footer.html` include가 DOCTYPE·CSS·스크립트를 자동 제공하므로
+페이지 파일에는 그 선언들을 쓰지 않는다.
+
+### 페이지 파일 기본 구조
 
 ```html
-<!-- 페이지 헤더 -->
-<div class="hn-page-head">
-  <div class="inner">
-    <div class="breadcrumb-hn">
-      <span class="home"><i class="fa-regular fa-house"></i> HOME</span>
-      <i class="fa-regular fa-chevron-right"></i>
-      <span>섹션명</span>
-      <i class="fa-regular fa-chevron-right"></i>
-      <span class="cur">현재 페이지</span>
+<div data-include="../include/header.html"></div>
+
+<main id="main-content">
+
+  <!-- 페이지 헤더 -->
+  <div class="hn-page-head">
+    <div class="inner">
+      <div class="breadcrumb-hn">
+        <span class="home"><i class="fa-regular fa-house"></i> HOME</span>
+        <i class="fa-regular fa-chevron-right"></i>
+        <span>섹션명</span>
+        <i class="fa-regular fa-chevron-right"></i>
+        <span class="cur">현재 페이지</span>
+      </div>
+      <h1>페이지 제목</h1>
+      <p class="desc">페이지 설명</p>
     </div>
-    <h1>페이지 제목</h1>
-    <p class="desc">페이지 설명</p>
   </div>
-</div>
 
-<!-- 2열 레이아웃: sidebar(300px) + content(1fr) -->
-<div class="sub-layout">
-  <aside>
-    <div class="sidebar-head">
-      <div class="k">SECTION KEY</div>
-      <h3>섹션명</h3>
-    </div>
-    <nav class="sidebar-list">
-      <a href="..." class="on"><span>현재 메뉴</span><span></span></a>
-      <a href="..."><span>다른 메뉴</span><i class="fa-regular fa-chevron-right" style="font-size:10px;"></i></a>
-    </nav>
-    <div class="sidebar-help">
-      <h4><i class="fa-regular fa-headset"></i> 담당자 안내</h4>
-      <p>안내 문구</p>
-      <div class="phone-num">062-234-5678</div>
-      <div class="hours">평일 09:00 – 18:00</div>
-    </div>
-  </aside>
+  <!-- 2열 레이아웃: sidebar(300px) + content(1fr) -->
+  <div class="sub-layout">
+    <div data-include="../include/sidebar_XXX.html"></div>
 
-  <section class="content">
-    <h2 class="ptitle">
-      <span>페이지 제목</span>
-      <span class="cnt">부가 정보 <b>강조</b></span>
-    </h2>
-    <!-- 컨텐츠 -->
-  </section>
-</div>
+    <section class="content">
+      <h2 class="ptitle">
+        <span>페이지 제목</span>
+        <span class="cnt">부가 정보 <b>강조</b></span>
+      </h2>
+      <!-- 컨텐츠 -->
+    </section>
+  </div>
+
+</main>
+
+<div data-include="../include/footer.html"></div>
 ```
 
+### 사이드바 include 매핑
+
+| 섹션 | 파일 |
+|---|---|
+| 노회 소개 | `sidebar_introduce.html` |
+| 노회 역사 | `sidebar_history.html` |
+| 노회 조직 | `sidebar_organization.html` |
+| 행정 자료 | `sidebar_admin.html` |
+| 노회 소식 | `sidebar_news.html` |
+| 부가서비스 | `sidebar_extra.html` |
+
+활성 메뉴(`.on` 클래스 + 빈 `<span>` 교체)는 `script.js`의
+`markActiveSidebar()` 함수가 URL 비교로 자동 처리한다.
+sidebar include 파일 내부의 링크는 반드시 루트 절대경로(`/sub/...`)로 작성할 것.
+
 **경로 규칙**
-- `src/sub/*.html` → `../assets/css/`, `../include/header.html`
-- `src/boardpage/{name}/list.html` → `../../assets/css/`, `../../include/header.html`, `../../board/basic/list.html`
+- `src/sub/*.html` → `../include/header.html`, `../include/sidebar_XXX.html`, `../include/footer.html`
+- `src/boardpage/{name}/*.html` → `../../include/header.html`, `../../include/sidebar_XXX.html`, `../../include/footer.html`, `../../board/basic/list.html`
+
+### index.html (메인 페이지)
+
+메인 페이지는 fragment 방식을 사용하지 않는다.
+자체 `<head>` + `main.css` + `main.js`를 가지며,
+`headerSub.html` / `footerSub.html`을 직접 include 한다.
 
 ---
 
@@ -469,11 +499,14 @@ src/
 
 ### 게시판 섹션별 사이드바
 
-| 섹션 | 사이드바 헤더 | 포함 메뉴 |
+사이드바는 `include/sidebar_XXX.html`을 data-include로 삽입한다.
+활성 항목은 `script.js`의 `markActiveSidebar()`가 자동 처리.
+
+| 섹션 | include 파일 | 포함 메뉴 |
 |---|---|---|
-| 노회 소식 | `NEWS` / 노회 소식 | 공지사항·노회 앨범·교회 소식·언론 보도 |
-| 노회 조직 | `ORG` / 노회 조직 | 소속 교회·시찰 소개·부서 소개·총대 명부 |
-| 행정 자료 | `ADMIN` / 행정 자료 | 노회 공문·행정 서식·기타 자료실 |
+| 노회 소식 | `sidebar_news.html` | 공지사항·노회 앨범·교회 소식·언론 보도 |
+| 노회 조직 | `sidebar_organization.html` | 소속 교회·시찰 소개·부서 소개·총대 명부 |
+| 행정 자료 | `sidebar_admin.html` | 노회 공문·행정 서식·기타 자료실 |
 
 ---
 
@@ -481,11 +514,22 @@ src/
 
 새 서브 페이지 또는 게시판 페이지를 작성할 때 반드시 확인:
 
-- [ ] CSS 링크 경로: sub의 경우 `../assets/css/`, boardpage는 `../../assets/css/`
-- [ ] `data-include` 경로도 동일하게 상대경로 적용
-- [ ] 사이드바 현재 메뉴에 `class="on"` + `<span></span>` (chevron 없음)
-- [ ] 다른 메뉴에는 `<i class="fa-regular fa-chevron-right" style="font-size:10px;"></i>`
-- [ ] 새 메뉴가 생기면 `include/header.html` (드롭다운 + 모바일 드로어) 양쪽 업데이트
-- [ ] 탭 전환이 필요하면 `.tab-wrap > .group-tabs[data-tab] + .tab-panel[data-panel]` 패턴 사용
-- [ ] 사진·단체사진 자리에는 `<div class="placeholder">PHOTO<br>PLACEHOLDER</div>` 삽입
+**구조**
+- [ ] 페이지 파일은 fragment (DOCTYPE/head/body 선언 없음)
+- [ ] 첫 줄: `<div data-include="../include/header.html"></div>` (boardpage: `../../include/`)
+- [ ] 끝 줄: `<div data-include="../include/footer.html"></div>` (boardpage: `../../include/`)
+- [ ] 사이드바: `<div data-include="../include/sidebar_XXX.html"></div>` 로 삽입
+
+**사이드바**
+- [ ] sidebar include 파일 내 링크는 루트 절대경로(`/sub/...`)만 사용
+- [ ] 현재 페이지 활성화는 `markActiveSidebar()`가 자동 처리 → 파일에 `class="on"` 직접 쓰지 않음
+- [ ] 새 메뉴가 생기면 `include/headerSub.html` (드롭다운 + 모바일 드로어) + 해당 `sidebar_XXX.html` 양쪽 업데이트
+
+**CSS / 에셋**
+- [ ] CSS·JS·이미지 경로는 전부 루트 절대경로(`/assets/...`) 또는 header.html이 자동 제공 — 별도 `<link>` 불필요
 - [ ] 디자인 토큰(CSS 변수) 사용, 임의 색상 하드코딩 금지
+- [ ] 사진·단체사진 자리에는 `<div class="placeholder">PHOTO<br>PLACEHOLDER</div>` 삽입
+
+**기타**
+- [ ] 탭 전환: `.tab-wrap > .group-tabs[data-tab] + .tab-panel[data-panel]` 패턴
+- [ ] 빌드 확인: `npm run build` → `dist/`에서 최종 HTML 검증
