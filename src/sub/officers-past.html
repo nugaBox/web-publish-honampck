@@ -1,25 +1,3 @@
-<!DOCTYPE html>
-<html lang="ko">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>대한예수교장로회(합동) 호남노회</title>
-  <link rel="icon" type="image/png" href="../assets/images/common/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="../assets/images/common/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="../assets/images/common/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/common/favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="../assets/images/common/favicon/site.webmanifest" />
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../assets/css/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="../assets/css/pretendard.css">
-  <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/sub.css">
-</head>
-
-<body>
-
   <div data-include="../include/header.html"></div>
 
   <main id="main-content">
@@ -31,51 +9,28 @@
           <i class="fa-regular fa-chevron-right"></i>
           <span>노회 역사</span>
           <i class="fa-regular fa-chevron-right"></i>
-          <span class="cur">역대 노회장·임원</span>
+          <span class="cur">역대 노회 임원</span>
         </div>
-        <h1>역대 노회장·임원</h1>
+        <h1>역대 노회 임원</h1>
         <p class="desc">전신 노회 및 호남노회 창립 이후 역대 노회장과 임원을 소개합니다.</p>
       </div>
     </div>
 
     <div class="sub-layout">
 
-      <aside>
-        <div class="sidebar-head">
-          <div class="k">HISTORY</div>
-          <h3>노회 역사</h3>
-        </div>
-        <nav class="sidebar-list">
-          <a href="history.html">
-            <span>노회 연혁</span>
-            <i class="fa-regular fa-chevron-right" style="font-size:10px;"></i>
-          </a>
-          <a href="past-presidents.html">
-            <span>역대 노회장</span>
-            <i class="fa-regular fa-chevron-right" style="font-size:10px;"></i>
-          </a>
-          <a href="past-officers.html">
-            <span>역대 노회임원</span>
-            <i class="fa-regular fa-chevron-right" style="font-size:10px;"></i>
-          </a>
-          <a href="officers-past.html" class="on">
-            <span>역대 노회장·임원</span>
-            <span></span>
-          </a>
-        </nav>
-      </aside>
-
+      <div data-include="../include/sidebar_history.html"></div>
       <section class="content">
 
-        <h2 class="ptitle">역대 노회장·임원</h2>
-
+        
         <!-- ① 전신 노회 -->
-        <div class="presec-banner">
+        <div class="presec-banner presec-acc-toggle" data-target="presec-jeonsin">
           <div>
-            <div class="pb-title">전신 노회</div>
+            <div class="pb-title">전신 노회 (~ 2005)</div>
           </div>
+          <i class="fa-regular fa-chevron-down presec-chevron"></i>
         </div>
 
+        <div id="presec-jeonsin" style="display:none">
         <div class="presy-grid">
 
           <!-- 남광주노회 -->
@@ -240,25 +195,30 @@
           </div>
 
         </div>
+        </div><!-- /#presec-jeonsin -->
 
         <!-- ② 호남노회 -->
-        <div class="presec-banner">
+        <div class="presec-banner presec-acc-toggle open" data-target="presec-honam">
           <div>
-            <div class="pb-title">호남노회</div>
+            <div class="pb-title">호남노회 (2005 ~)</div>
           </div>
+          <i class="fa-regular fa-chevron-down presec-chevron"></i>
         </div>
 
+        <p class="presec-note"><i class="fa-regular fa-hand-pointer" style="margin-right:6px;"></i>각 회기를 클릭하면 노회 임원 명단이 나옵니다.</p>
+
+        <div id="presec-honam">
         <table class="hn-pres-table">
           <colgroup>
-            <col style="width:110px">
-            <col style="width:168px">
+            <col style="width:150px">
+            <col style="width:120px">
             <col>
-            <col style="width:180px">
-            <col style="width:175px">
+            <col style="width:170px">
+            <col style="width:165px">
           </colgroup>
           <thead>
             <tr>
-              <th>대수·회기</th>
+              <th>회기</th>
               <th>기간</th>
               <th>노회장</th>
               <th colspan="2">부노회장</th>
@@ -307,21 +267,16 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>김은수 목사</td><td>봉황제일교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
-                <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제1대 1회기 노회 단체사진</span>
-                </div>
               </td>
             </tr>
 
@@ -366,21 +321,16 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>최사채 목사</td><td>염산제일교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
-                <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제2대 2회기 노회 단체사진</span>
-                </div>
               </td>
             </tr>
 
@@ -425,21 +375,16 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>이경일 목사</td><td>반남중앙교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
-                <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제3대 3회기 노회 단체사진</span>
-                </div>
               </td>
             </tr>
 
@@ -484,21 +429,16 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>장 실 목사</td><td>광주새백성교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
-                <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제4대 4–5회기 노회 단체사진</span>
-                </div>
               </td>
             </tr>
 
@@ -543,21 +483,16 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>장 실 목사</td><td>광주새백성교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
-                <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제5대 6–7회기 노회 단체사진</span>
-                </div>
               </td>
             </tr>
 
@@ -602,21 +537,16 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>신길우 목사</td><td>둔정교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
-                <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제6대 8–9회기 노회 단체사진</span>
-                </div>
               </td>
             </tr>
 
@@ -661,21 +591,16 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>이춘기 목사</td><td>광주샛별교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
-                <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제7대 10–11회기 노회 단체사진</span>
-                </div>
               </td>
             </tr>
 
@@ -720,20 +645,19 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>김민수 목사</td><td>남평동부교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
                 <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제8대 12–13회기 노회 단체사진</span>
+                  <img src="../assets/images/sub/officer/제8대%20노회%20임원.png" alt="제8대 12–13회기 노회 단체사진">
+                  <p class="pgp-caption">제8대 임원 단체사진</p>
                 </div>
               </td>
             </tr>
@@ -779,20 +703,19 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>박성수 목사</td><td>광주창조교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
                 <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제9대 14–15회기 노회 단체사진</span>
+                  <img src="../assets/images/sub/officer/제9대%20노회%20임원.jpg" alt="제9대 14–15회기 노회 단체사진">
+                  <p class="pgp-caption">제9대 임원 단체사진</p>
                 </div>
               </td>
             </tr>
@@ -838,20 +761,19 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>김진만 목사</td><td>나주한사랑교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
                 <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제10대 16–17회기 노회 단체사진</span>
+                  <img src="../assets/images/sub/officer/제10대%20노회%20임원.jpg" alt="제10대 16–17회기 노회 단체사진">
+                  <p class="pgp-caption">제10대 임원 단체사진</p>
                 </div>
               </td>
             </tr>
@@ -897,20 +819,19 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>김범택 목사</td><td>광주은평교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
                 <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제11대 18–19회기 노회 단체사진</span>
+                  <img src="../assets/images/sub/officer/제11대%20노회%20임원.png" alt="제11대 18–19회기 노회 단체사진">
+                  <p class="pgp-caption">제11대 임원 단체사진</p>
                 </div>
               </td>
             </tr>
@@ -956,20 +877,19 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>강대영 목사</td><td>월송교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
                 <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제12대 20–21회기 노회 단체사진</span>
+                  <img src="../assets/images/sub/officer/제12대%20노회%20임원.png" alt="제12대 20–21회기 노회 단체사진">
+                  <p class="pgp-caption">제12대 임원 단체사진</p>
                 </div>
               </td>
             </tr>
@@ -1015,20 +935,19 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>박용민 목사</td><td>광주에람교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
                 <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제13대 22–23회기 노회 단체사진</span>
+                  <img src="../assets/images/sub/officer/제13대%20노회%20임원.png" alt="제13대 22–23회기 노회 단체사진">
+                  <p class="pgp-caption">제13대 임원 단체사진</p>
                 </div>
               </td>
             </tr>
@@ -1074,20 +993,19 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>최재정 목사</td><td>문평교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
                 <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제14대 24–25회기 노회 단체사진</span>
+                  <img src="../assets/images/sub/officer/제14대%20노회%20임원.jpg" alt="제14대 24–25회기 노회 단체사진">
+                  <p class="pgp-caption">제14대 임원 단체사진</p>
                 </div>
               </td>
             </tr>
@@ -1133,20 +1051,19 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>윤현하 목사</td><td>광주월산교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
                 <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제15대 26–27회기 노회 단체사진</span>
+                  <img src="../assets/images/sub/officer/제15대%20노회%20임원.png" alt="제15대 26–27회기 노회 단체사진">
+                  <p class="pgp-caption">제15대 임원 단체사진</p>
                 </div>
               </td>
             </tr>
@@ -1154,8 +1071,7 @@
             <!-- 제16대 -->
             <tr class="pres-acc-row">
               <td class="hpt-term">
-                <div class="hpt-gen">제16대</div>
-                <div class="hpt-sess">28회기</div>
+                <div class="hpt-sess hl">제28회기</div>
                 <div class="pres-acc-ico"><i class="fa-regular fa-chevron-down"></i></div>
               </td>
               <td class="hpt-period">2020.04.21<br>– 2021.04.13</td>
@@ -1179,7 +1095,7 @@
             </tr>
             <tr class="pres-acc-panel">
               <td colspan="5">
-                <div class="pres-acc-label"><i class="fa-regular fa-list-ul"></i> 제16대 28회기 임원 명단</div>
+                <div class="pres-acc-label"><i class="fa-regular fa-list-ul"></i> 제28회기 임원 명단</div>
                 <table class="btable">
                   <colgroup>
                     <col style="width:140px">
@@ -1192,20 +1108,19 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>노준태 목사</td><td>에벤에셀교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
                 <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제16대 28회기 노회 단체사진</span>
+                  <img src="../assets/images/sub/officer/제28회기%20노회%20임원.jpg" alt="제28회기 노회 단체사진">
+                  <p class="pgp-caption">제28회기 임원 단체사진</p>
                 </div>
               </td>
             </tr>
@@ -1213,8 +1128,7 @@
             <!-- 제17대 -->
             <tr class="pres-acc-row">
               <td class="hpt-term">
-                <div class="hpt-gen">제17대</div>
-                <div class="hpt-sess">29회기</div>
+                <div class="hpt-sess hl">제29회기</div>
                 <div class="pres-acc-ico"><i class="fa-regular fa-chevron-down"></i></div>
               </td>
               <td class="hpt-period">2021.04.13<br>– 2022.04.05</td>
@@ -1238,7 +1152,7 @@
             </tr>
             <tr class="pres-acc-panel">
               <td colspan="5">
-                <div class="pres-acc-label"><i class="fa-regular fa-list-ul"></i> 제17대 29회기 임원 명단</div>
+                <div class="pres-acc-label"><i class="fa-regular fa-list-ul"></i> 제29회기 임원 명단</div>
                 <table class="btable">
                   <colgroup>
                     <col style="width:140px">
@@ -1251,20 +1165,19 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>이강학 목사</td><td>왕곡등대교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
                 <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제17대 29회기 노회 단체사진</span>
+                  <img src="../assets/images/sub/officer/제29회기%20노회%20임원.jpg" alt="제29회기 노회 단체사진">
+                  <p class="pgp-caption">제29회기 임원 단체사진</p>
                 </div>
               </td>
             </tr>
@@ -1272,8 +1185,7 @@
             <!-- 제18대 -->
             <tr class="pres-acc-row">
               <td class="hpt-term">
-                <div class="hpt-gen">제18대</div>
-                <div class="hpt-sess">30회기</div>
+                <div class="hpt-sess hl">제30회기</div>
                 <div class="pres-acc-ico"><i class="fa-regular fa-chevron-down"></i></div>
               </td>
               <td class="hpt-period">2022.04.05<br>– 2023.04.11</td>
@@ -1297,7 +1209,7 @@
             </tr>
             <tr class="pres-acc-panel">
               <td colspan="5">
-                <div class="pres-acc-label"><i class="fa-regular fa-list-ul"></i> 제18대 30회기 임원 명단</div>
+                <div class="pres-acc-label"><i class="fa-regular fa-list-ul"></i> 제30회기 임원 명단</div>
                 <table class="btable">
                   <colgroup>
                     <col style="width:140px">
@@ -1310,20 +1222,19 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>김기태 목사</td><td>주사랑교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
                 <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제18대 30회기 노회 단체사진</span>
+                  <img src="../assets/images/sub/officer/제30회기%20노회%20임원.jpg" alt="제30회기 노회 단체사진">
+                  <p class="pgp-caption">제30회기 임원 단체사진</p>
                 </div>
               </td>
             </tr>
@@ -1331,8 +1242,7 @@
             <!-- 제19대 -->
             <tr class="pres-acc-row">
               <td class="hpt-term">
-                <div class="hpt-gen">제19대</div>
-                <div class="hpt-sess">31회기</div>
+                <div class="hpt-sess hl">제31회기</div>
                 <div class="pres-acc-ico"><i class="fa-regular fa-chevron-down"></i></div>
               </td>
               <td class="hpt-period">2023.04.11<br>– 2024.04.16</td>
@@ -1356,7 +1266,7 @@
             </tr>
             <tr class="pres-acc-panel">
               <td colspan="5">
-                <div class="pres-acc-label"><i class="fa-regular fa-list-ul"></i> 제19대 31회기 임원 명단</div>
+                <div class="pres-acc-label"><i class="fa-regular fa-list-ul"></i> 제31회기 임원 명단</div>
                 <table class="btable">
                   <colgroup>
                     <col style="width:140px">
@@ -1369,20 +1279,19 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>장준식 목사</td><td>무지개교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
                 <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제19대 31회기 노회 단체사진</span>
+                  <img src="../assets/images/sub/officer/제31회기%20노회%20임원.jpg" alt="제31회기 노회 단체사진">
+                  <p class="pgp-caption">제31회기 임원 단체사진</p>
                 </div>
               </td>
             </tr>
@@ -1390,8 +1299,7 @@
             <!-- 제20대 -->
             <tr class="pres-acc-row">
               <td class="hpt-term">
-                <div class="hpt-gen">제20대</div>
-                <div class="hpt-sess">32회기</div>
+                <div class="hpt-sess hl">제32회기</div>
                 <div class="pres-acc-ico"><i class="fa-regular fa-chevron-down"></i></div>
               </td>
               <td class="hpt-period">2024.04.16<br>– 2025.04.08</td>
@@ -1415,7 +1323,7 @@
             </tr>
             <tr class="pres-acc-panel">
               <td colspan="5">
-                <div class="pres-acc-label"><i class="fa-regular fa-list-ul"></i> 제20대 32회기 임원 명단</div>
+                <div class="pres-acc-label"><i class="fa-regular fa-list-ul"></i> 제32회기 임원 명단</div>
                 <table class="btable">
                   <colgroup>
                     <col style="width:140px">
@@ -1428,20 +1336,19 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>박천탁 목사</td><td>노안교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
                 <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제20대 32회기 노회 단체사진</span>
+                  <img src="../assets/images/sub/officer/제32회기%20노회%20임원.png" alt="제32회기 노회 단체사진">
+                  <p class="pgp-caption">제32회기 임원 단체사진</p>
                 </div>
               </td>
             </tr>
@@ -1449,8 +1356,7 @@
             <!-- 제21대 -->
             <tr class="pres-acc-row">
               <td class="hpt-term">
-                <div class="hpt-gen">제21대</div>
-                <div class="hpt-sess">33회기</div>
+                <div class="hpt-sess hl">제33회기</div>
                 <div class="pres-acc-ico"><i class="fa-regular fa-chevron-down"></i></div>
               </td>
               <td class="hpt-period">2025.04.08<br>– 2026.04.14</td>
@@ -1474,7 +1380,7 @@
             </tr>
             <tr class="pres-acc-panel">
               <td colspan="5">
-                <div class="pres-acc-label"><i class="fa-regular fa-list-ul"></i> 제21대 33회기 임원 명단</div>
+                <div class="pres-acc-label"><i class="fa-regular fa-list-ul"></i> 제33회기 임원 명단</div>
                 <table class="btable">
                   <colgroup>
                     <col style="width:140px">
@@ -1487,26 +1393,26 @@
                   </thead>
                   <tbody>
                     <tr><td>노회장</td><td>배효순 목사</td><td>빛날교회</td><td>—</td></tr>
-                    <tr><td>부노회장(목사)</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부노회장(장로)</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부노회장</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부서기</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>회계</td><td>—</td><td>—</td><td>—</td></tr>
                     <tr><td>부회계</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>서기장로</td><td>—</td><td>—</td><td>—</td></tr>
-                    <tr><td>부서기장로</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>회록서기</td><td>—</td><td>—</td><td>—</td></tr>
+                    <tr><td>부회록서기</td><td>—</td><td>—</td><td>—</td></tr>
                   </tbody>
                 </table>
                 <div class="pres-group-photo">
-                  <i class="fa-regular fa-camera"></i>
-                  <p class="pgp-title">단체 사진 PLACEHOLDER</p>
-                  <span class="pgp-sub">제21대 33회기 노회 단체사진</span>
+                  <img src="../assets/images/sub/officer/제33회기%20노회%20임원.jpg" alt="제33회기 노회 단체사진">
+                  <p class="pgp-caption">제33회기 임원 단체사진</p>
                 </div>
               </td>
             </tr>
 
           </tbody>
         </table>
+        </div><!-- /#presec-honam -->
 
       </section>
 
@@ -1514,10 +1420,3 @@
   </main>
 
   <div data-include="../include/footer.html"></div>
-
-  <script src="../assets/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/js/script.js"></script>
-  <script src="../assets/js/sub.js"></script>
-</body>
-
-</html>

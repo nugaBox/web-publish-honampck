@@ -1035,57 +1035,79 @@
   border-color: var(--hn-blue);
 }
 
-/* ── 임원 구성 카드 ───────────────────────────────────────── */
-
-/* 부제목 + 역대 링크 버튼 행 */
-.officer-sub-head {
+/* ── 섹션 헤더 (공통: 제목 + 설명 + 우측 버튼) ────────────────── */
+.sec-head {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--hn-text);
+  margin-bottom: 28px;
 }
 
-.officer-term {
-  font-size: 22px;
+.sh-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sh-title {
+  font-size: 26px;
   font-weight: 800;
   color: var(--hn-text);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
 }
 
-.officer-term span {
-  font-size: 16px;
+.sh-desc {
+  font-size: 15px;
   font-weight: 500;
   color: var(--hn-text-3);
-  margin-left: 6px;
   letter-spacing: 0;
 }
 
-.officer-hist-links {
+.sh-actions {
+  flex-shrink: 0;
   display: flex;
   gap: 8px;
-  flex-shrink: 0;
+  align-items: center;
 }
 
-.officer-hist-btn {
+.sh-btn {
   display: inline-flex;
   align-items: center;
-  padding: 8px 16px;
-  border: 1px solid var(--hn-line-strong);
-  color: var(--hn-text-3);
-  font-size: 13px;
-  font-weight: 600;
+  padding: 11px 22px;
+  font-size: 15px;
+  font-weight: 700;
   letter-spacing: -0.01em;
-  background: #fff;
+  text-decoration: none;
   transition: background .15s, color .15s, border-color .15s;
+  white-space: nowrap;
 }
 
-.officer-hist-btn:hover {
+.sh-btn.primary {
   background: var(--hn-blue);
   color: #fff;
-  border-color: var(--hn-blue);
+  border: 1px solid var(--hn-blue);
 }
 
+.sh-btn.primary:hover {
+  background: #0d3463;
+  border-color: #0d3463;
+}
+
+.sh-btn.ghost {
+  background: #fff;
+  color: var(--hn-text-2);
+  border: 1px solid var(--hn-line-strong);
+}
+
+.sh-btn.ghost:hover {
+  background: var(--hn-bg-alt);
+}
+
+/* ── 임원 구성 카드 ───────────────────────────────────────── */
 .officer-grid {
   display: grid;
   grid-template-columns: 4fr 6fr;
@@ -2297,6 +2319,28 @@
   margin-bottom: 16px;
 }
 
+.presec-acc-toggle {
+  cursor: pointer;
+  user-select: none;
+  justify-content: space-between;
+  transition: background .15s;
+}
+
+.presec-acc-toggle:hover {
+  background: linear-gradient(90deg, var(--hn-blue-soft) 0%, #fff 80%);
+}
+
+.presec-chevron {
+  font-size: 12px;
+  color: var(--hn-text-4);
+  transition: transform .25s;
+  flex-shrink: 0;
+}
+
+.presec-acc-toggle.open .presec-chevron {
+  transform: rotate(180deg);
+}
+
 .presec-banner .pb-eyebrow {
   font-size: 10px;
   font-weight: 700;
@@ -2388,16 +2432,16 @@
 .hn-pres-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 15px;
   border-top: 2px solid var(--hn-text);
 }
 
 .hn-pres-table thead th {
   background: var(--hn-blue);
   color: #fff;
-  padding: 13px 12px;
+  padding: 12px 10px;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px;
   text-align: center;
   border-right: 1px solid rgba(255, 255, 255, .15);
   white-space: nowrap;
@@ -2424,21 +2468,44 @@
 }
 
 .hn-pres-table .hpt-term {
-  text-align: center;
   white-space: nowrap;
+  padding: 10px 10px 10px 42px;
+  text-align: left;
+  vertical-align: middle;
+  position: relative;
+}
+
+.hn-pres-table .hpt-term .pres-acc-ico {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
 }
 
 .hpt-gen {
-  font-size: 15px;
-  font-weight: 800;
+  display: inline;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--hn-blue);
 }
 
 .hpt-sess {
-  font-size: 11px;
+  display: inline;
+  font-size: 14px;
   color: var(--hn-text-3);
-  margin-top: 3px;
-  font-family: ui-monospace, Menlo, monospace;
+  font-weight: 500;
+}
+
+.hpt-gen + .hpt-sess::before {
+  content: '·';
+  color: var(--hn-text-4);
+  margin: 0 4px;
+  font-weight: 400;
+}
+
+.hpt-sess.hl {
+  color: var(--hn-blue);
+  font-weight: 700;
 }
 
 .hn-pres-table .hpt-period {
@@ -2447,12 +2514,14 @@
   color: var(--hn-text-3);
   font-family: ui-monospace, Menlo, monospace;
   white-space: nowrap;
+  padding: 8px 8px;
 }
 
 .hpt-person {
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: center;
 }
 
 .hpt-photo {
@@ -2476,6 +2545,12 @@
 .hpt-photo .hpt-ico {
   font-size: 14px;
   color: var(--hn-text-4);
+}
+
+.hpt-info {
+  width: 110px;
+  flex-shrink: 0;
+  text-align: center;
 }
 
 .hpt-info .hpt-name {
@@ -2783,13 +2858,49 @@
     gap: 10px;
   }
 
-  .hn-pres-table .hpt-period {
-    display: none;
+  /* ── 역대 노회 임원 표 ────────────────────────────── */
+  /* 기간·부노회장·서기/회계 열 숨기기 → 회기 + 노회장 2열만 */
+  .hn-pres-table thead th:nth-child(2),
+  .hn-pres-table thead th:nth-child(4),
+  .hn-pres-table thead th:nth-child(5),
+  .hn-pres-table .hpt-period,
+  .hn-pres-table tr.pres-acc-row td:nth-child(4),
+  .hn-pres-table tr.pres-acc-row td:nth-child(5) { display: none; }
+
+  .hn-pres-table { font-size: 13px; }
+
+  /* 회기 셀: 줄바꿈 허용 + 좌측 여백 축소 */
+  .hn-pres-table .hpt-term {
+    white-space: normal;
+    padding: 10px 8px 10px 36px;
   }
 
-  .hn-pres-table colgroup col:nth-child(2) {
-    display: none;
-  }
+  .hn-pres-table .hpt-term .pres-acc-ico { left: 8px; }
+
+  /* 대수·회기 세로 스택 */
+  .hpt-gen, .hpt-sess { display: block; }
+  .hpt-gen + .hpt-sess::before { display: none; }
+
+  /* 노회장 셀: 사진 숨기고 텍스트만 */
+  .hpt-photo { display: none; }
+  .hpt-info { width: auto; }
+
+  /* 아코디언 패널 여백 축소 */
+  .pres-acc-panel > td { padding: 14px 12px 28px; }
+
+  /* 시찰 열 숨기기 (값이 전부 —) */
+  .pres-acc-panel .btable thead th:nth-child(4),
+  .pres-acc-panel .btable tbody td:nth-child(4) { display: none; }
+
+  .pres-acc-panel .btable thead th,
+  .pres-acc-panel .btable tbody td { padding: 7px 8px; font-size: 12px; }
+
+  /* 단체사진 여백 축소 */
+  .pres-group-photo:has(img) { padding: 8px 10px 6px; }
+
+  /* 섹션 배너 축소 */
+  .presec-banner { padding: 10px 14px; margin-bottom: 12px; }
+  .presec-banner .pb-title { font-size: 15px; }
 
   .president-card {
     grid-template-columns: 1fr;
@@ -2890,8 +3001,11 @@
   cursor: pointer;
   transition: background .15s;
 }
-.pres-acc-row:hover td,
-.pres-acc-row.open td {
+.pres-acc-row:hover td {
+  background: var(--hn-bg-alt);
+}
+.pres-acc-row.open td,
+.pres-acc-row.open:hover td {
   background: var(--hn-blue-soft);
 }
 .pres-acc-ico {
@@ -2905,10 +3019,9 @@
   color: var(--hn-text-3);
   font-size: 10px;
   transition: transform .2s, background .15s, color .15s;
-  margin-top: 8px;
 }
 .pres-acc-row.open .pres-acc-ico {
-  transform: rotate(180deg);
+  transform: translateY(-50%) rotate(180deg);
   background: var(--hn-blue);
   color: #fff;
 }
@@ -2919,7 +3032,7 @@
   display: table-row;
 }
 .pres-acc-panel > td {
-  padding: 20px 28px 28px;
+  padding: 20px 28px 44px;
   background: var(--hn-blue-soft);
   border-bottom: 2px solid var(--hn-blue);
 }
@@ -2967,3 +3080,23 @@
 .pres-group-photo i { font-size: 36px; }
 .pres-group-photo .pgp-title { font-size: 14px; font-weight: 700; color: var(--hn-text-3); }
 .pres-group-photo .pgp-sub { font-size: 12px; }
+.pres-group-photo:has(img) {
+  background: var(--hn-bg-alt);
+  border: 1px solid var(--hn-line);
+  padding: 14px 16px 12px;
+  border-radius: 6px;
+  display: block;
+}
+.pres-group-photo img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+}
+.pgp-caption {
+  font-size: 12px;
+  color: var(--hn-text-3);
+  text-align: center;
+  margin: 8px 0 0;
+}
