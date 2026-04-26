@@ -51,6 +51,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ── 역대 노회임원 좌우 분할 패널 (officers-past) ──── */
+  const sessItems = document.querySelectorAll('.officer-sess-item');
+  if (sessItems.length) {
+    sessItems.forEach(item => {
+      item.addEventListener('click', () => {
+        sessItems.forEach(i => i.classList.remove('active'));
+        document.querySelectorAll('.officer-detail-panel').forEach(p => p.classList.remove('active'));
+        item.classList.add('active');
+        const panel = document.getElementById(item.dataset.target);
+        if (panel) panel.classList.add('active');
+        if (window.innerWidth < 769) {
+          const detail = item.closest('.officer-split')?.querySelector('.officer-detail');
+          if (detail) detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+    sessItems[0].click();
+  }
+
   /* ── 그룹 탭 전환 (시찰별·회기별 등) ────────────────── */
   document.querySelectorAll('.group-tabs').forEach(tabGroup => {
     const buttons = tabGroup.querySelectorAll('button');

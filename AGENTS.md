@@ -59,7 +59,8 @@ src/
 │   ├── rules.html         # 노회 규칙 (조항 텍스트)
 │   ├── directions.html    # 오시는 길 (지도 플레이스홀더)
 │   ├── history.html       # 노회 연혁 (타임라인)
-│   ├── officers-past.html # 역대 노회 임원 (역대 노회장+임원 통합)
+│   ├── officers-presidents.html # 역대 노회장 (전신노회+호남노회 노회장 목록)
+│   ├── officers-past.html # 역대 노회 임원 (좌우 분할 패널·임원 명단+단체사진)
 │   ├── churches.html      # 소속 교회 (시찰별 탭·테이블)
 │   ├── district.html      # 시찰 소개 (3개 시찰 카드)
 │   └── departments.html   # 부서 소개 (상비부 표)
@@ -79,6 +80,7 @@ src/
 | | 노회 규칙 | `/sub/rules.html` |
 | | 오시는 길 | `/sub/directions.html` |
 | 노회 역사 | 노회 연혁 | `/sub/history.html` |
+| | 역대 노회장 | `/sub/officers-presidents.html` |
 | | 역대 노회 임원 | `/sub/officers-past.html` |
 | 노회 조직 | 소속 교회 | `/sub/churches.html` |
 | | 시찰 소개 | `/sub/district.html` |

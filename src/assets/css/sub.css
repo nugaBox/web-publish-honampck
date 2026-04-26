@@ -3100,3 +3100,158 @@
   text-align: center;
   margin: 8px 0 0;
 }
+
+/* ── 역대 노회장 단순 표 (officers-presidents) ─────────── */
+.hn-pres-simple {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.hn-pres-simple thead th {
+  background: var(--hn-blue);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 12px 14px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,.12);
+}
+.hn-pres-simple thead th:last-child { border-right: 0; }
+.hn-pres-simple tbody tr:hover td { background: var(--hn-bg-alt); }
+.hn-pres-simple tbody td {
+  padding: 12px 14px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--hn-line-soft);
+  border-right: 1px solid var(--hn-line-soft);
+}
+.hn-pres-simple tbody td:last-child { border-right: 0; }
+.hn-pres-simple .hps-term {
+  text-align: center;
+  white-space: nowrap;
+}
+.hps-gen {
+  font-size: 11px;
+  color: var(--hn-text-4);
+  font-weight: 500;
+}
+.hps-gen.hl { color: var(--hn-blue); }
+.hps-sess {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--hn-text);
+  margin-top: 2px;
+}
+
+/* ── 역대 노회임원 좌우 분할 레이아웃 (officers-past) ───── */
+.officer-split {
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  border: 1px solid var(--hn-line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.officer-sess-list {
+  background: var(--hn-bg-alt);
+  border-right: 1px solid var(--hn-line);
+  overflow-y: auto;
+  max-height: 760px;
+}
+.officer-sess-item {
+  padding: 13px 14px 11px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--hn-line-soft);
+  border-left: 3px solid transparent;
+  transition: background .15s, border-color .15s;
+}
+.officer-sess-item:last-child { border-bottom: 0; }
+.officer-sess-item:hover { background: #fff; }
+.officer-sess-item.active {
+  background: var(--hn-blue-soft);
+  border-left-color: var(--hn-blue);
+}
+.osi-term { line-height: 1.3; }
+.osi-gen {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--hn-blue);
+  letter-spacing: 0.02em;
+}
+.osi-sess {
+  display: block;
+  font-size: 12px;
+  color: var(--hn-text-3);
+  font-weight: 500;
+  margin-top: 1px;
+}
+.osi-sess-hl {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--hn-blue);
+}
+.osi-period {
+  font-size: 11px;
+  color: var(--hn-text-4);
+  font-family: ui-monospace, Menlo, monospace;
+  margin-top: 3px;
+}
+.officer-sess-item.active .osi-gen { color: var(--hn-blue); }
+.officer-sess-item.active .osi-sess { color: rgba(20,65,122,0.65); }
+.officer-sess-item.active .osi-sess-hl { color: var(--hn-blue); }
+.officer-detail {
+  padding: 24px 28px;
+  min-height: 300px;
+  background: #fff;
+}
+.officer-detail-panel { display: none; }
+.officer-detail-panel.active { display: block; }
+.officer-detail-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--hn-blue);
+  letter-spacing: .06em;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(20, 65, 122, .2);
+}
+.officer-detail .btable {
+  font-size: 13px;
+  border-top: 0;
+}
+.officer-detail .btable thead th {
+  background: var(--hn-blue);
+  color: #fff;
+  font-size: 12px;
+  padding: 9px 10px;
+}
+.officer-detail .btable tbody td {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--hn-line);
+  background: #fff;
+}
+
+@media (max-width: 1024px) {
+  .officer-split { grid-template-columns: 1fr 2fr; }
+}
+
+@media (max-width: 768px) {
+  .officer-split { grid-template-columns: 1fr; }
+  .officer-sess-list {
+    max-height: 220px;
+    border-right: 0;
+    border-bottom: 1px solid var(--hn-line);
+  }
+  .officer-detail { padding: 16px; }
+  .hn-pres-simple thead th:nth-child(3),
+  .hn-pres-simple thead th:nth-child(4),
+  .hn-pres-simple tbody td:nth-child(3),
+  .hn-pres-simple tbody td:nth-child(4) { display: none; }
+  .hn-pres-simple .hpt-photo { display: none; }
+  .hn-pres-simple .hpt-info { width: auto; }
+  .officer-detail .btable thead th:nth-child(4),
+  .officer-detail .btable tbody td:nth-child(4) { display: none; }
+}
