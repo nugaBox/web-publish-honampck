@@ -1,6 +1,7 @@
 {
   "name": "web-publish",
   "version": "1.0.0",
+  "templateVersion": "1.1.0",
   "description": "HTML Publishing Boilerplate with Bootstrap (Local)",
   "scripts": {
     "setup": "node scripts/setup.js",

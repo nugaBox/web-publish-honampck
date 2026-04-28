@@ -1,5 +1,25 @@
 # 호남노회 웹사이트 — 에이전트 가이드
 
+## 템플릿 버전 및 변경 내역
+
+- **기반 템플릿**: `nugabox/web-publish` **v1.1.0**
+- **이 프로젝트에서 추가·변경한 내용** (템플릿 대비):
+
+| 항목 | 내용 |
+|---|---|
+| include 구조 | `header`/`footer` 쉘 + `headerSub`/`footerSub` 분리. `sidebar_XXX` 6개 추가 |
+| 레이아웃 | 서브 페이지에 사이드바(300px) + 콘텐츠(1fr) 2열 레이아웃 적용 |
+| 디자인 시스템 | `--hn-green`, `--hn-blue`, `--hn-red` 등 프로젝트 전용 CSS 변수 체계 |
+| 반응형 | Bootstrap 기본 브레이크포인트 대신 태블릿 1024px / 모바일 768px 커스텀 사용 |
+| JS 기능 | `script.js`에 `markActiveSidebar()` 추가 (URL 비교로 사이드바 활성 항목 자동 처리) |
+| 컴포넌트 | `person-grid`, `tab-wrap`, `church-table`, `district-card`, `timeline`, `rules-doc` 등 커스텀 |
+| 페이지 구조 | `board/` 스킨 + `boardpage/` 인스턴스 분리 구조 (8개 게시판) |
+| 메인 페이지 | fragment 방식 미사용. 자체 `<head>` + `headerSub`/`footerSub` 직접 include |
+
+> 템플릿 버전 업그레이드 시 위 항목들을 기준으로 충돌 여부를 확인하세요.
+
+---
+
 ## 프로젝트 개요
 
 대한예수교장로회(합동) 호남노회 공식 웹사이트 퍼블리싱 작업물.
