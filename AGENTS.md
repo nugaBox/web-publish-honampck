@@ -103,8 +103,8 @@ src/
 | | 역대 노회장 | `/sub/officers-presidents.html` |
 | | 역대 노회 임원 | `/sub/officers-past.html` |
 | 노회 조직 | 소속 교회 | `/sub/churches.html` |
-| | 시찰 소개 | `/sub/district.html` |
-| | 부서 소개 | `/sub/departments.html` |
+| | 시찰 조직 | `/sub/district.html` |
+| | 상비부 조직 | `/sub/departments.html` |
 | | 총대 명부 | `/boardpage/representatives/list.html` |
 | 행정 자료 | 노회 공문 | `/boardpage/official-docs/list.html` |
 | | 행정 서식 | `/boardpage/forms/list.html` |

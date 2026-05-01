@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── 메인 게시판 탭 전환 ──────────────────────────────── */
   const tabs = document.querySelectorAll('.btabs button[data-tab]');
   const panels = document.querySelectorAll('.blist-panel');
+  const moreLink = document.querySelector('.btabs .more');
+
+  const updateMoreLink = (btn) => {
+    if (moreLink && btn.dataset.href) moreLink.href = btn.dataset.href;
+  };
 
   tabs.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -16,8 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('on');
       const panel = document.getElementById('tab-' + target);
       if (panel) panel.hidden = false;
+      updateMoreLink(btn);
     });
   });
+
+  const firstTab = document.querySelector('.btabs button[data-tab].on');
+  if (firstTab) updateMoreLink(firstTab);
 
   /* ── 최근 사진 Swiper ─────────────────────────────────── */
   const photoSwiperEl = document.querySelector('.photo-thumb-swiper');
@@ -33,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     photoSwiperEl.classList.remove('swiper-fallback');
 
     const syncPhotoMeta = (swiper) => {
-      const active = swiper.slides[swiper.activeIndex];
+      const active = swiper.slides[swiper.realIndex];
       if (!active) return;
       const title = active.dataset.title || '';
       const date = active.dataset.date || '';
@@ -46,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const photoSwiper = new Swiper(photoSwiperEl, {
-      loop: false,
+      loop: true,
       slidesPerView: 1,
       spaceBetween: 0,
       speed: 450,
