@@ -85,49 +85,49 @@
     <!-- ── 퀵링크 ──────────────────────────────────────── -->
     <section class="hn-quick" aria-label="바로가기">
       <div class="grid">
-        <a href="#" class="hn-quick-card">
+        <a href="/sub/history.html" class="hn-quick-card">
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <span class="num">01</span>
-            <i class="fa-regular fa-bullhorn ic"></i>
-          </div>
-          <div class="t">노회 소식</div>
-          <div class="d">공지사항 및 소식</div>
-          <div class="arrow"><i class="fa-regular fa-arrow-right"></i></div>
-        </a>
-        <a href="#" class="hn-quick-card">
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="num">02</span>
-            <i class="fa-regular fa-file-lines ic"></i>
-          </div>
-          <div class="t">행정 자료</div>
-          <div class="d">노회공문 · 행정서식</div>
-          <div class="arrow"><i class="fa-regular fa-arrow-right"></i></div>
-        </a>
-        <a href="#" class="hn-quick-card">
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="num">03</span>
             <i class="fa-solid fa-rectangle-history-circle-user ic"></i>
           </div>
           <div class="t">노회 역사</div>
           <div class="d">연혁 · 역대 임원</div>
           <div class="arrow"><i class="fa-regular fa-arrow-right"></i></div>
         </a>
-        <a href="#" class="hn-quick-card">
+        <a href="/sub/churches.html" class="hn-quick-card">
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="num">04</span>
+            <span class="num">02</span>
             <i class="fa-regular fa-sitemap ic"></i>
           </div>
           <div class="t">노회 조직</div>
           <div class="d">교회 · 시찰 · 상비부</div>
           <div class="arrow"><i class="fa-regular fa-arrow-right"></i></div>
         </a>
-        <a href="#" class="hn-quick-card">
+        <a href="/boardpage/official-docs/list.html" class="hn-quick-card">
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="num">05</span>
+            <span class="num">03</span>
+            <i class="fa-regular fa-file-lines ic"></i>
+          </div>
+          <div class="t">행정 자료</div>
+          <div class="d">노회공문 · 행정서식</div>
+          <div class="arrow"><i class="fa-regular fa-arrow-right"></i></div>
+        </a>
+        <a href="/sub/directions.html" class="hn-quick-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="num">04</span>
             <i class="fa-regular fa-location-dot ic"></i>
           </div>
           <div class="t">오시는 길</div>
           <div class="d">노회사무실 위치</div>
+          <div class="arrow"><i class="fa-regular fa-arrow-right"></i></div>
+        </a>
+        <a href="/boardpage/notice/list.html" class="hn-quick-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="num">05</span>
+            <i class="fa-regular fa-bullhorn ic"></i>
+          </div>
+          <div class="t">노회 소식</div>
+          <div class="d">공지사항 및 소식</div>
           <div class="arrow"><i class="fa-regular fa-arrow-right"></i></div>
         </a>
       </div>
@@ -140,10 +140,9 @@
         <!-- 게시판 카드 -->
         <div class="bcard">
           <div class="btabs">
-            <button class="on" data-tab="notice">공지사항</button>
-            <button data-tab="news">노회소식</button>
-            <button data-tab="docs">문서자료실</button>
-            <a href="#" class="more">전체보기 <i class="fa-regular fa-plus"></i></a>
+            <button class="on" data-tab="notice" data-href="/boardpage/notice/list.html">공지사항</button>
+            <button data-tab="official-docs" data-href="/boardpage/official-docs/list.html">노회 공문</button>
+            <a href="/boardpage/notice/list.html" class="more">전체보기 <i class="fa-regular fa-plus"></i></a>
           </div>
 
           <!-- 공지사항 탭 -->
@@ -151,100 +150,56 @@
             <li>
               <span class="cat g">노회공지</span>
               <span class="t">제108회 정기노회 소집 공고 및 안건 접수 안내<span class="new">N</span></span>
-              <span class="file"><i class="fa-regular fa-paperclip"></i></span>
               <span class="d">2026.04.15</span>
             </li>
             <li>
               <span class="cat b">긴급공지</span>
               <span class="t">사무처 시스템 점검에 따른 일시 서비스 중단 안내(4/25 02:00~06:00)<span class="new">N</span></span>
-              <span class="file"></span>
               <span class="d">2026.04.12</span>
             </li>
             <li>
               <span class="cat g">노회공지</span>
               <span class="t">2026년도 상반기 목사고시 접수 기간 연장 안내</span>
-              <span class="file"><i class="fa-regular fa-paperclip"></i></span>
               <span class="d">2026.04.10</span>
             </li>
             <li>
               <span class="cat b">교단공지</span>
               <span class="t">총회 헌법개정 공청회 참석 대상자 안내(노회별 2인)</span>
-              <span class="file"><i class="fa-regular fa-paperclip"></i></span>
               <span class="d">2026.04.08</span>
             </li>
             <li>
               <span class="cat g">채용공모</span>
               <span class="t">노회 사무처 행정간사(계약직) 공개채용 공고</span>
-              <span class="file"><i class="fa-regular fa-paperclip"></i></span>
               <span class="d">2026.04.05</span>
             </li>
           </ul>
 
-          <!-- 노회소식 탭 -->
-          <ul class="blist blist-panel" id="tab-news" hidden>
+          <!-- 노회 공문 탭 -->
+          <ul class="blist blist-panel" id="tab-official-docs" hidden>
             <li>
-              <span class="cat b">보도자료</span>
-              <span class="t">호남노회, 지역 저소득 청년 장학금 52명에 총 8,400만원 전달<span class="new">N</span></span>
-              <span class="file"></span>
+              <span class="cat b">공문</span>
+              <span class="t">제108회 정기노회 관련 공문 발송 안내<span class="new">N</span></span>
               <span class="d">2026.04.14</span>
             </li>
             <li>
-              <span class="cat g">행사소식</span>
-              <span class="t">제34회 호남노회 청년연합회 정기 수련회 성료<span class="new">N</span></span>
-              <span class="file"></span>
-              <span class="d">2026.04.09</span>
+              <span class="cat g">공문</span>
+              <span class="t">2026년도 노회 헌금 및 분담금 납부 요청<span class="new">N</span></span>
+              <span class="d">2026.04.08</span>
             </li>
             <li>
-              <span class="cat b">포토뉴스</span>
-              <span class="t">사회봉사부, 광주 동구 독거어르신 반찬나눔 봉사 실시</span>
-              <span class="file"></span>
-              <span class="d">2026.04.06</span>
+              <span class="cat b">공문</span>
+              <span class="t">목사 이명·취임 관련 서류 제출 요청</span>
+              <span class="d">2026.04.02</span>
             </li>
             <li>
-              <span class="cat g">교회소식</span>
-              <span class="t">광주제일교회 창립 75주년 기념 예배 및 자료집 발간</span>
-              <span class="file"></span>
-              <span class="d">2026.04.03</span>
+              <span class="cat g">공문</span>
+              <span class="t">상반기 목사고시 시험 일정 및 응시 자격 안내</span>
+              <span class="d">2026.03.25</span>
             </li>
             <li>
-              <span class="cat b">보도자료</span>
-              <span class="t">호남노회·광주기독교연합회 업무협약(MOU) 체결</span>
-              <span class="file"></span>
-              <span class="d">2026.03.31</span>
-            </li>
-          </ul>
-
-          <!-- 문서자료실 탭 -->
-          <ul class="blist blist-panel" id="tab-docs" hidden>
-            <li>
-              <span class="cat b">회의록</span>
-              <span class="t">제107회 정기노회 회의록(최종본).pdf<span class="new">N</span></span>
-              <span class="file"><i class="fa-regular fa-paperclip"></i></span>
-              <span class="d">2026.03.22</span>
-            </li>
-            <li>
-              <span class="cat g">통계</span>
-              <span class="t">2025년도 호남노회 교세 통계연감.xlsx<span class="new">N</span></span>
-              <span class="file"><i class="fa-regular fa-paperclip"></i></span>
-              <span class="d">2026.03.20</span>
-            </li>
-            <li>
-              <span class="cat b">규정</span>
-              <span class="t">호남노회 규칙 제5차 개정본(2026.02 시행).hwp</span>
-              <span class="file"><i class="fa-regular fa-paperclip"></i></span>
+              <span class="cat b">공문</span>
+              <span class="t">2026년도 교회 통계 보고 제출 요청</span>
               <span class="d">2026.03.18</span>
-            </li>
-            <li>
-              <span class="cat g">서식</span>
-              <span class="t">목사 이명서·교회 가입원서 통합서식(2026).zip</span>
-              <span class="file"><i class="fa-regular fa-paperclip"></i></span>
-              <span class="d">2026.03.14</span>
-            </li>
-            <li>
-              <span class="cat b">자료</span>
-              <span class="t">2026년도 노회 예산서 및 결산보고서.pdf</span>
-              <span class="file"><i class="fa-regular fa-paperclip"></i></span>
-              <span class="d">2026.03.10</span>
             </li>
           </ul>
         </div>
@@ -254,25 +209,25 @@
           <div class="recent-photo">
             <h3>
               <span>최근 사진</span>
-              <a href="#" class="photo-more" aria-label="최근 사진 더보기">
+              <a href="/boardpage/album/list.html" class="photo-more" aria-label="최근 사진 더보기">
                 <i class="fa-regular fa-plus"></i>
               </a>
             </h3>
             <div class="photo-thumb-swiper swiper">
               <div class="swiper-wrapper">
-                <div class="swiper-slide" data-title="제34회 정기노회 본회의" data-date="2026. 2. 12.">
-                  <a href="#" class="photo-thumb">
-                    <img src="assets/images/main/photo-1.jpg" alt="제34회 정기노회 본회의">
+                <div class="swiper-slide" data-title="제34회 호남노회 청년연합회 정기 수련회" data-date="2026. 4. 9.">
+                  <a href="/boardpage/album/view.html" class="photo-thumb">
+                    <img src="assets/images/board/album_01.png" alt="제34회 호남노회 청년연합회 정기 수련회">
                   </a>
                 </div>
-                <div class="swiper-slide" data-title="목회자 수련회 개회 예배" data-date="2026. 2. 8.">
-                  <a href="#" class="photo-thumb">
-                    <img src="assets/images/main/photo-2.jpg" alt="목회자 수련회 개회 예배">
+                <div class="swiper-slide" data-title="제107회 정기노회 개회예배" data-date="2026. 3. 18.">
+                  <a href="/boardpage/album/view.html" class="photo-thumb">
+                    <img src="assets/images/board/album_02.png" alt="제107회 정기노회 개회예배">
                   </a>
                 </div>
-                <div class="swiper-slide" data-title="청년연합 찬양집회" data-date="2026. 1. 30.">
-                  <a href="#" class="photo-thumb">
-                    <img src="assets/images/main/photo-3.jpg" alt="청년연합 찬양집회">
+                <div class="swiper-slide" data-title="광주 동구 독거어르신 반찬나눔 봉사" data-date="2026. 3. 14.">
+                  <a href="/boardpage/album/view.html" class="photo-thumb">
+                    <img src="assets/images/board/album_03.png" alt="광주 동구 독거어르신 반찬나눔 봉사">
                   </a>
                 </div>
               </div>
@@ -282,8 +237,8 @@
                 <i class="fa-regular fa-angle-left"></i>
               </button>
               <div class="photo-meta-center">
-                <div class="photo-title">제34회 정기노회 본회의</div>
-                <div class="photo-date">2026. 2. 12.</div>
+                <div class="photo-title">제34회 호남노회 청년연합회 정기 수련회</div>
+                <div class="photo-date">2026. 4. 9.</div>
               </div>
               <button class="swiper-button-next" aria-label="다음 사진">
                 <i class="fa-regular fa-angle-right"></i>
