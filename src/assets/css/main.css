@@ -6,7 +6,7 @@
 .hn-kv {
   background-image:
     linear-gradient(180deg, rgba(27, 53, 87, 0.92) 0%, rgba(16, 34, 57, 0.92) 100%),
-    url('../images/main/photo-1.jpg');
+    url('../images/common/hero-section.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -245,7 +245,7 @@
 
 /* ── 게시판 카드 영역 ─────────────────────────────────────── */
 :root {
-  --board-panel-height: 365px;
+  --board-panel-height: 405px;
 }
 
 .board-row {
@@ -274,7 +274,7 @@
 .btabs button {
   border: 0;
   background: transparent;
-  padding: 22px 20px;
+  padding: 22px 14px;
   font-size: 18px;
   font-weight: 600;
   color: var(--hn-text-3);
@@ -292,8 +292,8 @@
 .btabs button.on::after {
   content: '';
   position: absolute;
-  left: 20px;
-  right: 20px;
+  left: 14px;
+  right: 14px;
   bottom: -1px;
   height: 2px;
   background: var(--hn-text);
@@ -313,10 +313,10 @@
 .blist {
   padding: 8px 30px 18px;
   list-style: none;
-  min-height: calc(var(--board-panel-height) - 74px);
+  min-height: calc(var(--board-panel-height) - 57px);
 }
 
-.blist li:nth-child(n + 5) {
+.blist li:nth-child(n + 6) {
   display: none;
 }
 
@@ -345,13 +345,27 @@
 }
 
 .blist .cat.g {
-  color: var(--hn-green);
+  background: var(--hn-green);
+  color: #fff;
   border-color: var(--hn-green);
 }
 
 .blist .cat.b {
-  color: var(--hn-blue);
+  background: var(--hn-blue);
+  color: #fff;
   border-color: var(--hn-blue);
+}
+
+.blist .cat.r {
+  background: var(--hn-red);
+  color: #fff;
+  border-color: var(--hn-red);
+}
+
+.blist .cat.o {
+  background: #6B4FAB;
+  color: #fff;
+  border-color: #6B4FAB;
 }
 
 .blist .t {
@@ -486,6 +500,33 @@
   text-align: center;
 }
 
+.photo-cat {
+  display: block;
+  font-size: 11px;
+  padding: 3px 8px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  justify-self: center;
+  margin-bottom: 2px;
+}
+
+.photo-cat.g {
+  background: var(--hn-green);
+}
+
+.photo-cat.b {
+  background: var(--hn-blue);
+}
+
+.photo-cat.r {
+  background: var(--hn-red);
+}
+
+.photo-cat.o {
+  background: #6B4FAB;
+}
+
 .photo-meta .swiper-button-prev,
 .photo-meta .swiper-button-next {
   position: static;
@@ -579,6 +620,39 @@
 
 .board-side .banners {
   display: none;
+}
+
+/* ── 4-board 그리드 ──────────────────────────────────────── */
+.bcard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.bcard-grid .bcard {
+  height: auto;
+}
+
+.bcard-grid .blist {
+  min-height: 0;
+  padding: 4px 24px 14px;
+}
+
+.bcard-grid .blist li {
+  grid-template-columns: 1fr auto;
+  font-size: 15px;
+  padding: 11px 0;
+  gap: 12px;
+}
+
+.bcard-grid .btabs {
+  padding: 0 20px;
+}
+
+.bcard-grid .btabs button {
+  font-size: 16px;
+  padding: 16px 12px;
+  pointer-events: none;
 }
 
 /* ── 현황 인포 스트립 ─────────────────────────────────────── */
@@ -689,6 +763,11 @@
     font-size: 30px;
   }
 
+  .hn-kv p.lead {
+    font-size: 15px;
+    letter-spacing: -0.5px;
+  }
+
   .hn-kv-side {
     display: none;
   }
@@ -720,6 +799,89 @@
 
   .blist {
     min-height: 0;
+    padding: 4px 16px 12px;
+    border-bottom: 1px solid var(--hn-line);
+  }
+
+  .blist li {
+    grid-template-columns: auto 1fr auto;
+    gap: 8px;
+    font-size: 15px;
+  }
+
+  .blist .cat {
+    font-size: 10px;
+    padding: 2px 5px;
+    min-width: 0;
+  }
+
+  .blist .d {
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+
+  .bcard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* 모바일 아코디언 */
+  .btabs {
+    display: none;
+  }
+
+  .bacc-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid var(--hn-line);
+    background: transparent;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--hn-text-3);
+    cursor: pointer;
+    letter-spacing: -0.02em;
+    text-align: left;
+  }
+
+  .bacc-btn.open {
+    color: var(--hn-text);
+    font-weight: 800;
+    background: var(--hn-bg-alt);
+    border-bottom-color: transparent;
+  }
+
+  .bacc-btn .bacc-icon {
+    font-size: 13px;
+    color: var(--hn-text-4);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .bacc-btn.open .bacc-icon {
+    transform: rotate(180deg);
+  }
+
+  .blist li.bacc-more-li {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 6px;
+    border-bottom: 0;
+  }
+
+  .bacc-more-li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--hn-text-3);
+    border: 1px solid var(--hn-line);
+    padding: 7px 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
 
   .hn-section {

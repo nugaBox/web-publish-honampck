@@ -66,13 +66,16 @@ src/
 │   └── multimedia/list.html  # 썸네일 게시판 스킨 (앨범 그리드형)
 ├── boardpage/             # 게시판 페이지 (data-include로 스킨 로드)
 │   ├── notice/            # 공지사항 (basic)
+│   ├── schedule/          # 주요 일정 (basic)
+│   ├── events/            # 노회 행사 (basic)
 │   ├── album/             # 노회 앨범 (multimedia)
-│   ├── press/             # 교회 소식 (basic)
+│   ├── members/           # 회원 동정 (basic)
 │   ├── media/             # 언론 보도 (multimedia)
+│   ├── press/             # 교회 소식 (basic, 비노출)
 │   ├── representatives/   # 총대 명부 (basic)
 │   ├── official-docs/     # 노회 공문 (basic)
 │   ├── forms/             # 행정 서식 (basic)
-│   └── other-resources/   # 기타 자료실 (basic)
+│   └── other-resources/   # 자료실 (basic)
 ├── sub/                   # 컨텐츠 서브 페이지
 │   ├── intro.html         # 노회 소개 (소개말·노회장 인사말)
 │   ├── officers.html      # 임원 구성 (인물카드 그리드)
@@ -81,7 +84,7 @@ src/
 │   ├── history.html       # 노회 연혁 (타임라인)
 │   ├── officers-presidents.html # 역대 노회장 (전신노회+호남노회 노회장 목록)
 │   ├── officers-past.html # 역대 노회 임원 (좌우 분할 패널·임원 명단+단체사진)
-│   ├── churches.html      # 소속 교회 (시찰별 탭·테이블)
+│   ├── churches.html      # 소속 교회 (전체·시찰별 탭·테이블, 시찰/주소/연락처 열 포함, 가나다순)
 │   ├── district.html      # 시찰 소개 (3개 시찰 카드)
 │   └── departments.html   # 부서 소개 (상비부 표)
 └── index.html
@@ -102,16 +105,18 @@ src/
 | 노회 역사 | 노회 연혁 | `/sub/history.html` |
 | | 역대 노회장 | `/sub/officers-presidents.html` |
 | | 역대 노회 임원 | `/sub/officers-past.html` |
-| 노회 조직 | 소속 교회 | `/sub/churches.html` |
-| | 시찰 조직 | `/sub/district.html` |
+| 노회 조직 | 시찰 조직 | `/sub/district.html` |
 | | 상비부 조직 | `/sub/departments.html` |
 | | 총대 명부 | `/boardpage/representatives/list.html` |
+| | 소속 교회 | `/sub/churches.html` |
 | 행정 자료 | 노회 공문 | `/boardpage/official-docs/list.html` |
 | | 행정 서식 | `/boardpage/forms/list.html` |
-| | 기타 자료실 | `/boardpage/other-resources/list.html` |
+| | 자료실 | `/boardpage/other-resources/list.html` |
 | 노회 소식 | 공지사항 | `/boardpage/notice/list.html` |
+| | 주요 일정 | `/boardpage/schedule/list.html` |
+| | 노회 행사 | `/boardpage/events/list.html` |
 | | 노회 앨범 | `/boardpage/album/list.html` |
-| | 교회 소식 | `/boardpage/press/list.html` |
+| | 회원 동정 | `/boardpage/members/list.html` |
 | | 언론 보도 | `/boardpage/media/list.html` |
 
 ---

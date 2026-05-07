@@ -12,7 +12,7 @@
 .hn-page-head {
   background-image:
     linear-gradient(180deg, rgba(22, 46, 76, 0.93) 0%, rgba(12, 28, 50, 0.95) 100%),
-    url('../images/main/photo-1.jpg');
+    url('../images/common/hero-section.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1434,6 +1434,8 @@
   border: 1px solid var(--hn-line);
   overflow: hidden;
   background: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
 .district-card .d-thumb {
@@ -1474,6 +1476,9 @@
 
 .district-card .d-body {
   padding: 22px 22px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .district-card .d-title {
@@ -1487,13 +1492,14 @@
   font-size: 15px;
   color: var(--hn-text-3);
   line-height: 1.9;
+  flex: 1;
 }
 
 .district-card .d-info .r {
   display: flex;
   gap: 10px;
   margin-bottom: 4px;
-  align-items: baseline;
+  align-items: flex-start;
 }
 
 .district-card .d-info .k {
@@ -1518,6 +1524,45 @@
   color: var(--hn-blue);
   font-size: 22px;
   font-weight: 800;
+}
+
+.district-card .d-clergy {
+  font-size: 13px;
+  color: var(--hn-text-3);
+  margin-top: 6px;
+  line-height: 1.7;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--hn-line);
+}
+
+.district-card .d-clergy b {
+  color: var(--hn-text-2);
+  font-weight: 700;
+}
+
+.district-card .d-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--hn-line);
+}
+
+.district-card .d-actions a.btn-hn {
+  flex: 1;
+  justify-content: center;
+  font-size: 14px;
+  padding: 9px 8px;
+  text-decoration: none;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-scroll .church-table {
+  min-width: 620px;
 }
 
 /* ── 오시는 길 ─────────────────────────────────────────────── */
@@ -2496,7 +2541,7 @@
   font-weight: 500;
 }
 
-.hpt-gen + .hpt-sess::before {
+.hpt-gen+.hpt-sess::before {
   content: '·';
   color: var(--hn-text-4);
   margin: 0 4px;
@@ -2865,9 +2910,13 @@
   .hn-pres-table thead th:nth-child(5),
   .hn-pres-table .hpt-period,
   .hn-pres-table tr.pres-acc-row td:nth-child(4),
-  .hn-pres-table tr.pres-acc-row td:nth-child(5) { display: none; }
+  .hn-pres-table tr.pres-acc-row td:nth-child(5) {
+    display: none;
+  }
 
-  .hn-pres-table { font-size: 13px; }
+  .hn-pres-table {
+    font-size: 13px;
+  }
 
   /* 회기 셀: 줄바꿈 허용 + 좌측 여백 축소 */
   .hn-pres-table .hpt-term {
@@ -2875,32 +2924,60 @@
     padding: 10px 8px 10px 36px;
   }
 
-  .hn-pres-table .hpt-term .pres-acc-ico { left: 8px; }
+  .hn-pres-table .hpt-term .pres-acc-ico {
+    left: 8px;
+  }
 
   /* 대수·회기 세로 스택 */
-  .hpt-gen, .hpt-sess { display: block; }
-  .hpt-gen + .hpt-sess::before { display: none; }
+  .hpt-gen,
+  .hpt-sess {
+    display: block;
+  }
+
+  .hpt-gen+.hpt-sess::before {
+    display: none;
+  }
 
   /* 노회장 셀: 사진 숨기고 텍스트만 */
-  .hpt-photo { display: none; }
-  .hpt-info { width: auto; }
+  .hpt-photo {
+    display: none;
+  }
+
+  .hpt-info {
+    width: auto;
+  }
 
   /* 아코디언 패널 여백 축소 */
-  .pres-acc-panel > td { padding: 14px 12px 28px; }
+  .pres-acc-panel>td {
+    padding: 14px 12px 28px;
+  }
 
   /* 시찰 열 숨기기 (값이 전부 —) */
   .pres-acc-panel .btable thead th:nth-child(4),
-  .pres-acc-panel .btable tbody td:nth-child(4) { display: none; }
+  .pres-acc-panel .btable tbody td:nth-child(4) {
+    display: none;
+  }
 
   .pres-acc-panel .btable thead th,
-  .pres-acc-panel .btable tbody td { padding: 7px 8px; font-size: 12px; }
+  .pres-acc-panel .btable tbody td {
+    padding: 7px 8px;
+    font-size: 12px;
+  }
 
   /* 단체사진 여백 축소 */
-  .pres-group-photo:has(img) { padding: 8px 10px 6px; }
+  .pres-group-photo:has(img) {
+    padding: 8px 10px 6px;
+  }
 
   /* 섹션 배너 축소 */
-  .presec-banner { padding: 10px 14px; margin-bottom: 12px; }
-  .presec-banner .pb-title { font-size: 15px; }
+  .presec-banner {
+    padding: 10px 14px;
+    margin-bottom: 12px;
+  }
+
+  .presec-banner .pb-title {
+    font-size: 15px;
+  }
 
   .president-card {
     grid-template-columns: 1fr;
@@ -3001,13 +3078,16 @@
   cursor: pointer;
   transition: background .15s;
 }
+
 .pres-acc-row:hover td {
   background: var(--hn-bg-alt);
 }
+
 .pres-acc-row.open td,
 .pres-acc-row.open:hover td {
   background: var(--hn-blue-soft);
 }
+
 .pres-acc-ico {
   display: inline-flex;
   align-items: center;
@@ -3020,22 +3100,27 @@
   font-size: 10px;
   transition: transform .2s, background .15s, color .15s;
 }
+
 .pres-acc-row.open .pres-acc-ico {
   transform: translateY(-50%) rotate(180deg);
   background: var(--hn-blue);
   color: #fff;
 }
+
 .pres-acc-panel {
   display: none;
 }
+
 .pres-acc-panel.open {
   display: table-row;
 }
-.pres-acc-panel > td {
+
+.pres-acc-panel>td {
   padding: 20px 28px 44px;
   background: var(--hn-blue-soft);
   border-bottom: 2px solid var(--hn-blue);
 }
+
 .pres-acc-label {
   display: flex;
   align-items: center;
@@ -3049,21 +3134,25 @@
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(20, 65, 122, .2);
 }
+
 .pres-acc-panel .btable {
   font-size: 13px;
   border-top: 0;
 }
+
 .pres-acc-panel .btable thead th {
   background: var(--hn-blue);
   color: #fff;
   font-size: 12px;
   padding: 9px 10px;
 }
+
 .pres-acc-panel .btable tbody td {
   padding: 9px 10px;
   border-bottom: 1px solid var(--hn-line);
   background: #fff;
 }
+
 .pres-group-photo {
   margin-top: 20px;
   background: var(--hn-bg-alt2);
@@ -3077,9 +3166,21 @@
   gap: 10px;
   color: var(--hn-text-4);
 }
-.pres-group-photo i { font-size: 36px; }
-.pres-group-photo .pgp-title { font-size: 14px; font-weight: 700; color: var(--hn-text-3); }
-.pres-group-photo .pgp-sub { font-size: 12px; }
+
+.pres-group-photo i {
+  font-size: 36px;
+}
+
+.pres-group-photo .pgp-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--hn-text-3);
+}
+
+.pres-group-photo .pgp-sub {
+  font-size: 12px;
+}
+
 .pres-group-photo:has(img) {
   background: var(--hn-bg-alt);
   border: 1px solid var(--hn-line);
@@ -3087,6 +3188,7 @@
   border-radius: 6px;
   display: block;
 }
+
 .pres-group-photo img {
   width: 100%;
   display: block;
@@ -3094,6 +3196,7 @@
   aspect-ratio: 16 / 7;
   object-fit: cover;
 }
+
 .pgp-caption {
   font-size: 12px;
   color: var(--hn-text-3);
@@ -3107,6 +3210,7 @@
   border-collapse: collapse;
   font-size: 14px;
 }
+
 .hn-pres-simple thead th {
   background: var(--hn-blue);
   color: #fff;
@@ -3114,27 +3218,43 @@
   font-size: 13px;
   padding: 12px 14px;
   text-align: center;
-  border-right: 1px solid rgba(255,255,255,.12);
+  border-right: 1px solid rgba(255, 255, 255, .12);
 }
-.hn-pres-simple thead th:last-child { border-right: 0; }
-.hn-pres-simple tbody tr:hover td { background: var(--hn-bg-alt); }
+
+.hn-pres-simple thead th:last-child {
+  border-right: 0;
+}
+
+.hn-pres-simple tbody tr:hover td {
+  background: var(--hn-bg-alt);
+}
+
 .hn-pres-simple tbody td {
   padding: 12px 14px;
   vertical-align: middle;
   border-bottom: 1px solid var(--hn-line-soft);
   border-right: 1px solid var(--hn-line-soft);
 }
-.hn-pres-simple tbody td:last-child { border-right: 0; }
+
+.hn-pres-simple tbody td:last-child {
+  border-right: 0;
+}
+
 .hn-pres-simple .hps-term {
   text-align: center;
   white-space: nowrap;
 }
+
 .hps-gen {
   font-size: 11px;
   color: var(--hn-text-4);
   font-weight: 500;
 }
-.hps-gen.hl { color: var(--hn-blue); }
+
+.hps-gen.hl {
+  color: var(--hn-blue);
+}
+
 .hps-sess {
   font-size: 14px;
   font-weight: 800;
@@ -3150,12 +3270,14 @@
   border-radius: 6px;
   overflow: hidden;
 }
+
 .officer-sess-list {
   background: var(--hn-bg-alt);
   border-right: 1px solid var(--hn-line);
   overflow-y: auto;
   max-height: 760px;
 }
+
 .officer-sess-item {
   padding: 13px 14px 11px;
   cursor: pointer;
@@ -3163,13 +3285,24 @@
   border-left: 3px solid transparent;
   transition: background .15s, border-color .15s;
 }
-.officer-sess-item:last-child { border-bottom: 0; }
-.officer-sess-item:hover { background: #fff; }
+
+.officer-sess-item:last-child {
+  border-bottom: 0;
+}
+
+.officer-sess-item:hover {
+  background: #fff;
+}
+
 .officer-sess-item.active {
   background: var(--hn-blue-soft);
   border-left-color: var(--hn-blue);
 }
-.osi-term { line-height: 1.3; }
+
+.osi-term {
+  line-height: 1.3;
+}
+
 .osi-gen {
   display: block;
   font-size: 12px;
@@ -3177,6 +3310,7 @@
   color: var(--hn-blue);
   letter-spacing: 0.02em;
 }
+
 .osi-sess {
   display: block;
   font-size: 12px;
@@ -3184,28 +3318,47 @@
   font-weight: 500;
   margin-top: 1px;
 }
+
 .osi-sess-hl {
   display: block;
   font-size: 14px;
   font-weight: 800;
   color: var(--hn-blue);
 }
+
 .osi-period {
   font-size: 11px;
   color: var(--hn-text-4);
   font-family: ui-monospace, Menlo, monospace;
   margin-top: 3px;
 }
-.officer-sess-item.active .osi-gen { color: var(--hn-blue); }
-.officer-sess-item.active .osi-sess { color: rgba(20,65,122,0.65); }
-.officer-sess-item.active .osi-sess-hl { color: var(--hn-blue); }
+
+.officer-sess-item.active .osi-gen {
+  color: var(--hn-blue);
+}
+
+.officer-sess-item.active .osi-sess {
+  color: rgba(20, 65, 122, 0.65);
+}
+
+.officer-sess-item.active .osi-sess-hl {
+  color: var(--hn-blue);
+}
+
 .officer-detail {
   padding: 24px 28px;
   min-height: 300px;
   background: #fff;
 }
-.officer-detail-panel { display: none; }
-.officer-detail-panel.active { display: block; }
+
+.officer-detail-panel {
+  display: none;
+}
+
+.officer-detail-panel.active {
+  display: block;
+}
+
 .officer-detail-label {
   display: flex;
   align-items: center;
@@ -3218,16 +3371,19 @@
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(20, 65, 122, .2);
 }
+
 .officer-detail .btable {
   font-size: 13px;
   border-top: 0;
 }
+
 .officer-detail .btable thead th {
   background: var(--hn-blue);
   color: #fff;
   font-size: 12px;
   padding: 9px 10px;
 }
+
 .officer-detail .btable tbody td {
   padding: 9px 10px;
   border-bottom: 1px solid var(--hn-line);
@@ -3235,23 +3391,43 @@
 }
 
 @media (max-width: 1024px) {
-  .officer-split { grid-template-columns: 1fr 2fr; }
+  .officer-split {
+    grid-template-columns: 1fr 2fr;
+  }
 }
 
 @media (max-width: 768px) {
-  .officer-split { grid-template-columns: 1fr; }
+  .officer-split {
+    grid-template-columns: 1fr;
+  }
+
   .officer-sess-list {
     max-height: 220px;
     border-right: 0;
     border-bottom: 1px solid var(--hn-line);
   }
-  .officer-detail { padding: 16px; }
+
+  .officer-detail {
+    padding: 16px;
+  }
+
   .hn-pres-simple thead th:nth-child(3),
   .hn-pres-simple thead th:nth-child(4),
   .hn-pres-simple tbody td:nth-child(3),
-  .hn-pres-simple tbody td:nth-child(4) { display: none; }
-  .hn-pres-simple .hpt-photo { display: none; }
-  .hn-pres-simple .hpt-info { width: auto; }
+  .hn-pres-simple tbody td:nth-child(4) {
+    display: none;
+  }
+
+  .hn-pres-simple .hpt-photo {
+    display: none;
+  }
+
+  .hn-pres-simple .hpt-info {
+    width: auto;
+  }
+
   .officer-detail .btable thead th:nth-child(4),
-  .officer-detail .btable tbody td:nth-child(4) { display: none; }
+  .officer-detail .btable tbody td:nth-child(4) {
+    display: none;
+  }
 }

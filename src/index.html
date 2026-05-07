@@ -52,29 +52,29 @@
 	          <ul>
 	            <li>
 	              <div class="dpill">
-	                <div class="d">4/28</div>
+	                <div class="d">5/21</div>
 	              </div>
 	              <div class="kv-item-text">
-	                <div class="t">제108회 정기노회</div>
-	                <div class="place">광주제일교회 본당</div>
+	                <div class="t">제34회기 1차 임시회</div>
+	                <div class="place">내정교회</div>
 	              </div>
 	            </li>
 	            <li>
 	              <div class="dpill">
-	                <div class="d">5/2</div>
+	                <div class="d">5/26</div>
 	              </div>
 	              <div class="kv-item-text">
-	                <div class="t">상반기 목사고시 면접</div>
-	                <div class="place">노회사무처 회의실</div>
+	                <div class="t">광주전남교회협의회 총회</div>
+	                <div class="place">광신대학교</div>
 	              </div>
 	            </li>
 	            <li>
 	              <div class="dpill">
-	                <div class="d">12/29</div>
+	                <div class="d">6/1</div>
 	              </div>
 	              <div class="kv-item-text">
-	                <div class="t">직원 연합수련회</div>
-	                <div class="place">지리산 수양관</div>
+	                <div class="t">광주시찰 교역자회</div>
+	                <div class="place">염산제일교회</div>
 	              </div>
 	            </li>
 	          </ul>
@@ -140,37 +140,68 @@
         <!-- 게시판 카드 -->
         <div class="bcard">
           <div class="btabs">
-            <button class="on" data-tab="notice" data-href="/boardpage/notice/list.html">공지사항</button>
+            <button class="on" data-tab="events" data-href="/boardpage/events/list.html">노회/시찰 소식</button>
+            <button data-tab="members" data-href="/boardpage/members/list.html">노회원 동정</button>
             <button data-tab="official-docs" data-href="/boardpage/official-docs/list.html">노회 공문</button>
-            <a href="/boardpage/notice/list.html" class="more">전체보기 <i class="fa-regular fa-plus"></i></a>
+            <button data-tab="notice" data-href="/boardpage/notice/list.html">공지사항</button>
+            <a href="/boardpage/events/list.html" class="more">전체보기 <i class="fa-regular fa-plus"></i></a>
           </div>
 
-          <!-- 공지사항 탭 -->
-          <ul class="blist blist-panel" id="tab-notice">
+          <!-- 노회/시찰 소식 탭 -->
+          <ul class="blist blist-panel" id="tab-events">
             <li>
-              <span class="cat g">노회공지</span>
-              <span class="t">제108회 정기노회 소집 공고 및 안건 접수 안내<span class="new">N</span></span>
+              <span class="cat b">광주시찰</span>
+              <span class="t">광주시찰 연합기도회 개최 안내<span class="new">N</span></span>
+              <span class="d">2026.04.20</span>
+            </li>
+            <li>
+              <span class="cat r">나주시찰</span>
+              <span class="t">나주시찰 4월 목사회 모임 결과</span>
               <span class="d">2026.04.15</span>
             </li>
             <li>
-              <span class="cat b">긴급공지</span>
-              <span class="t">사무처 시스템 점검에 따른 일시 서비스 중단 안내(4/25 02:00~06:00)<span class="new">N</span></span>
-              <span class="d">2026.04.12</span>
-            </li>
-            <li>
-              <span class="cat g">노회공지</span>
-              <span class="t">2026년도 상반기 목사고시 접수 기간 연장 안내</span>
+              <span class="cat o">무등시찰</span>
+              <span class="t">무등시찰 교역자 세미나 일정 안내</span>
               <span class="d">2026.04.10</span>
             </li>
             <li>
-              <span class="cat b">교단공지</span>
-              <span class="t">총회 헌법개정 공청회 참석 대상자 안내(노회별 2인)</span>
-              <span class="d">2026.04.08</span>
+              <span class="cat g">호남노회</span>
+              <span class="t">제108회 정기노회 개회예배 소식</span>
+              <span class="d">2026.04.05</span>
             </li>
             <li>
-              <span class="cat g">채용공모</span>
-              <span class="t">노회 사무처 행정간사(계약직) 공개채용 공고</span>
+              <span class="cat b">광주시찰</span>
+              <span class="t">광주시찰 부활절 연합예배 현장 소식</span>
+              <span class="d">2026.03.30</span>
+            </li>
+          </ul>
+
+          <!-- 노회원 동정 탭 -->
+          <ul class="blist blist-panel" id="tab-members" hidden>
+            <li>
+              <span class="cat g">부임</span>
+              <span class="t">홍길동 목사 광주중앙교회 부임<span class="new">N</span></span>
+              <span class="d">2026.04.22</span>
+            </li>
+            <li>
+              <span class="cat g">취임</span>
+              <span class="t">김범석 목사 나주제일교회 위임목사 취임</span>
+              <span class="d">2026.04.10</span>
+            </li>
+            <li>
+              <span class="cat r">은퇴</span>
+              <span class="t">이경수 목사 무등산교회 은퇴 감사예배</span>
               <span class="d">2026.04.05</span>
+            </li>
+            <li>
+              <span class="cat b">이명</span>
+              <span class="t">장실 목사 소망교회 이명</span>
+              <span class="d">2026.03.28</span>
+            </li>
+            <li>
+              <span class="cat g">부임</span>
+              <span class="t">박상수 목사 동부교회 부임</span>
+              <span class="d">2026.03.15</span>
             </li>
           </ul>
 
@@ -182,7 +213,7 @@
               <span class="d">2026.04.14</span>
             </li>
             <li>
-              <span class="cat g">공문</span>
+              <span class="cat b">공문</span>
               <span class="t">2026년도 노회 헌금 및 분담금 납부 요청<span class="new">N</span></span>
               <span class="d">2026.04.08</span>
             </li>
@@ -192,7 +223,7 @@
               <span class="d">2026.04.02</span>
             </li>
             <li>
-              <span class="cat g">공문</span>
+              <span class="cat b">공문</span>
               <span class="t">상반기 목사고시 시험 일정 및 응시 자격 안내</span>
               <span class="d">2026.03.25</span>
             </li>
@@ -202,30 +233,59 @@
               <span class="d">2026.03.18</span>
             </li>
           </ul>
+
+          <!-- 공지사항 탭 -->
+          <ul class="blist blist-panel" id="tab-notice" hidden>
+            <li>
+              <span class="cat b">공지</span>
+              <span class="t">제108회 정기노회 헌의안 접수 안내<span class="new">N</span></span>
+              <span class="d">2026.04.18</span>
+            </li>
+            <li>
+              <span class="cat b">공지</span>
+              <span class="t">2026년도 총회 분담금 납부 요청</span>
+              <span class="d">2026.04.12</span>
+            </li>
+            <li>
+              <span class="cat g">안내</span>
+              <span class="t">노회 규칙 개정안 의견 수렴 안내</span>
+              <span class="d">2026.04.01</span>
+            </li>
+            <li>
+              <span class="cat b">공지</span>
+              <span class="t">상반기 목사고시 응시자 최종 공고</span>
+              <span class="d">2026.03.20</span>
+            </li>
+            <li>
+              <span class="cat g">안내</span>
+              <span class="t">노회 회의록 열람 신청 안내</span>
+              <span class="d">2026.03.10</span>
+            </li>
+          </ul>
         </div>
 
         <!-- 사이드: 인사말 + 바로가기 -->
         <div class="board-side">
           <div class="recent-photo">
             <h3>
-              <span>최근 사진</span>
-              <a href="/boardpage/album/list.html" class="photo-more" aria-label="최근 사진 더보기">
+              <span>노회/시찰 앨범</span>
+              <a href="/boardpage/album/list.html" class="photo-more" aria-label="노회/시찰 앨범 더보기">
                 <i class="fa-regular fa-plus"></i>
               </a>
             </h3>
             <div class="photo-thumb-swiper swiper">
               <div class="swiper-wrapper">
-                <div class="swiper-slide" data-title="제34회 호남노회 청년연합회 정기 수련회" data-date="2026. 4. 9.">
+                <div class="swiper-slide" data-title="제34회 호남노회 청년연합회 정기 수련회" data-date="2026. 4. 9." data-cat="호남노회" data-cat-type="g">
                   <a href="/boardpage/album/view.html" class="photo-thumb">
                     <img src="assets/images/board/album_01.png" alt="제34회 호남노회 청년연합회 정기 수련회">
                   </a>
                 </div>
-                <div class="swiper-slide" data-title="제107회 정기노회 개회예배" data-date="2026. 3. 18.">
+                <div class="swiper-slide" data-title="제107회 정기노회 개회예배" data-date="2026. 3. 18." data-cat="호남노회" data-cat-type="g">
                   <a href="/boardpage/album/view.html" class="photo-thumb">
                     <img src="assets/images/board/album_02.png" alt="제107회 정기노회 개회예배">
                   </a>
                 </div>
-                <div class="swiper-slide" data-title="광주 동구 독거어르신 반찬나눔 봉사" data-date="2026. 3. 14.">
+                <div class="swiper-slide" data-title="광주 동구 독거어르신 반찬나눔 봉사" data-date="2026. 3. 14." data-cat="광주시찰" data-cat-type="b">
                   <a href="/boardpage/album/view.html" class="photo-thumb">
                     <img src="assets/images/board/album_03.png" alt="광주 동구 독거어르신 반찬나눔 봉사">
                   </a>
@@ -237,6 +297,7 @@
                 <i class="fa-regular fa-angle-left"></i>
               </button>
               <div class="photo-meta-center">
+                <div class="photo-cat g">호남노회</div>
                 <div class="photo-title">제34회 호남노회 청년연합회 정기 수련회</div>
                 <div class="photo-date">2026. 4. 9.</div>
               </div>

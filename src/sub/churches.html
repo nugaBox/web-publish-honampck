@@ -12,7 +12,7 @@
           <span class="cur">소속 교회</span>
         </div>
         <h1>소속 교회</h1>
-        <p class="desc">호남노회 소속 65개 교회 및 교역자 현황입니다.</p>
+        <p class="desc">호남노회 소속 65개 교회 현황입니다.</p>
       </div>
     </div>
 
@@ -22,181 +22,225 @@
       <section class="content">
 
         <div class="tab-wrap">
-          <div class="group-tabs">
-            <button class="on" data-tab="gwangju">광주시찰 <span class="cnt" style="font-size:14px;">25개</span></button>
-            <button data-tab="naju">나주시찰 <span class="cnt" style="font-size:14px;">24개</span></button>
-            <button data-tab="mudeung">무등시찰 <span class="cnt" style="font-size:14px;">16개</span></button>
+          <div class="group-tabs" style="border-bottom:none; margin-bottom:0;">
+            <button class="on" data-tab="all">전체</button>
+            <button data-tab="gwangju">광주시찰</button>
+            <button data-tab="naju">나주시찰</button>
+            <button data-tab="mudeung">무등시찰</button>
+          </div>
+          <p style="font-size:13px;color:var(--hn-text-4);text-align:right;margin:6px 0 16px;">교회명(가나다) 순서입니다</p>
+
+          <!-- 전체 -->
+          <div class="tab-panel on" data-panel="all">
+            <div class="table-scroll">
+              <table class="church-table">
+                <colgroup>
+                  <col style="width:70px">
+                  <col style="width:150px">
+                  <col style="width:110px">
+                  <col>
+                  <col style="width:110px">
+                </colgroup>
+                <thead>
+                  <tr><th>시찰</th><th>교회명</th><th>담임교역자</th><th>주소</th><th>연락처</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>무등</td><td>감사교회</td><td>최영 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>공산교회</td><td>이재기 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>광주반석교회</td><td>강대영 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>광주사랑교회</td><td>김영구 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>광주새물결교회</td><td>김관수 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>광주새백성교회</td><td>장실 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>광주새삶교회</td><td>노민호 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>광주샛별교회</td><td>이춘기 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>광주월산교회</td><td>윤현하 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>광주은평교회</td><td>김범택 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>광주참사랑교회</td><td>배희웅 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>광주창조교회</td><td>박성수 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>나주한사랑교회</td><td>김진만 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>남평교회</td><td>김희경 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>남평동부교회</td><td>김상준 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>내정교회</td><td>김동수 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>노안교회</td><td>박천탁 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>높은뜻목양교회</td><td>한승엽 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>다시교회</td><td>김성경 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>단비교회</td><td>강봉규 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>대안교회</td><td>허상빈 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>덕흥중앙교회</td><td>박성하 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>동행교회</td><td>정근모 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>등정교회</td><td>정준철 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>문평교회</td><td>최재정 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>물댄동산교회</td><td>염경철 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>반남중앙교회</td><td>최용석 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>벧샬롬교회</td><td>김형익 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>복된교회</td><td>이성광 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>봉황제일교회</td><td>박순진 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>비전교회</td><td>서휘창 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>빛날교회</td><td>배효순 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>사랑의교회</td><td>박충근 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>산포교회</td><td>최권식 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>상복교회</td><td>임병열 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>새생명교회</td><td>장준식 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>성화교회</td><td>박계현 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>소망의교회</td><td>박원식 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>송정반석교회</td><td>김광훈 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>시문교회</td><td>김강산 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>액츠29교회</td><td>김요셉 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>어린양교회</td><td>최명원 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>에덴동산교회</td><td>김옥헌 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>에벤에셀교회</td><td>노준태 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>열린교회</td><td>정창일 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>열림교회</td><td>안성일 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>염산제일교회</td><td>최사채 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>예람교회</td><td>박용민 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>예수조은교회</td><td>김진환 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>예찬교회</td><td>이강학 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>용봉교회</td><td>정병선 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>왕곡교회</td><td>박병래 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>왕곡등대교회</td><td>이강학 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>월산은혜교회</td><td>정명환 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>월송교회</td><td>조병준 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>은혜평강교회</td><td>고재균 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>일곡주님의교회</td><td>박만국 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>이음교회</td><td>유훈 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>장성벧엘교회</td><td>이기호 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>정성교회</td><td>이호길 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>주는교회</td><td>문양운 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>주사랑교회</td><td>김기태 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>주와말씀의교회</td><td>김용훈 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>첨단지구촌교회</td><td>김홍섭 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>행복한교회</td><td>박용민 목사</td><td>—</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <!-- 광주시찰 -->
-          <div class="tab-panel on" data-panel="gwangju">
-            <p class="church-count">광주시찰 소속 <b>25</b>개 교회</p>
-            <table class="church-table">
-              <colgroup>
-                <col style="width:200px">
-                <col>
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>교회명</th>
-                  <th>담임교역자</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>염산제일교회</td><td>최사채 목사</td></tr>
-                <tr><td>광주은평교회</td><td>김범택 목사</td></tr>
-                <tr><td>광주창조교회</td><td>박성수 목사</td></tr>
-                <tr><td>광주샛별교회</td><td>이춘기 목사</td></tr>
-                <tr><td>광주새백성교회</td><td>장실 목사</td></tr>
-                <tr><td>예람교회</td><td>박용민 목사</td></tr>
-                <tr><td>장성벧엘교회</td><td>이기호 목사</td></tr>
-                <tr><td>비전교회</td><td>서휘창 목사</td></tr>
-                <tr><td>소망의교회</td><td>박원식 목사</td></tr>
-                <tr><td>광주새물결교회</td><td>김관수 목사</td></tr>
-                <tr><td>행복한교회</td><td>박용민 목사</td></tr>
-                <tr><td>정성교회</td><td>이호길 목사</td></tr>
-                <tr><td>남평교회</td><td>김희경 목사</td></tr>
-                <tr><td>일곡주님의교회</td><td>박만국 목사</td></tr>
-                <tr><td>높은뜻목양교회</td><td>한승엽 목사</td></tr>
-                <tr><td>복된교회</td><td>이성광 목사</td></tr>
-                <tr><td>예수조은교회</td><td>김진환 목사</td></tr>
-                <tr><td>벧샬롬교회</td><td>김형익 목사</td></tr>
-                <tr><td>광주참사랑교회</td><td>배희웅 목사</td></tr>
-                <tr><td>열림교회</td><td>안성일 목사</td></tr>
-                <tr><td>덕흥중앙교회</td><td>박성하 목사</td></tr>
-                <tr><td>주는교회</td><td>문양운 목사</td></tr>
-                <tr><td>주와말씀의교회</td><td>김용훈 목사</td></tr>
-                <tr><td>어린양교회</td><td>최명원 목사</td></tr>
-                <tr><td>광주반석교회</td><td>강대영 목사</td></tr>
-              </tbody>
-            </table>
+          <div class="tab-panel" data-panel="gwangju">
+            <div class="table-scroll">
+              <table class="church-table">
+                <colgroup>
+                  <col style="width:70px">
+                  <col style="width:150px">
+                  <col style="width:110px">
+                  <col>
+                  <col style="width:110px">
+                </colgroup>
+                <thead>
+                  <tr><th>시찰</th><th>교회명</th><th>담임교역자</th><th>주소</th><th>연락처</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>광주</td><td>광주반석교회</td><td>강대영 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>광주새물결교회</td><td>김관수 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>광주새백성교회</td><td>장실 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>광주샛별교회</td><td>이춘기 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>광주은평교회</td><td>김범택 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>광주참사랑교회</td><td>배희웅 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>광주창조교회</td><td>박성수 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>남평교회</td><td>김희경 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>높은뜻목양교회</td><td>한승엽 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>덕흥중앙교회</td><td>박성하 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>벧샬롬교회</td><td>김형익 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>복된교회</td><td>이성광 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>비전교회</td><td>서휘창 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>소망의교회</td><td>박원식 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>어린양교회</td><td>최명원 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>열림교회</td><td>안성일 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>염산제일교회</td><td>최사채 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>예람교회</td><td>박용민 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>예수조은교회</td><td>김진환 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>일곡주님의교회</td><td>박만국 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>장성벧엘교회</td><td>이기호 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>정성교회</td><td>이호길 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>주는교회</td><td>문양운 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>주와말씀의교회</td><td>김용훈 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>광주</td><td>행복한교회</td><td>박용민 목사</td><td>—</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <!-- 나주시찰 -->
           <div class="tab-panel" data-panel="naju">
-            <p class="church-count">나주시찰 소속 <b>24</b>개 교회</p>
-            <table class="church-table">
-              <colgroup>
-                <col style="width:200px">
-                <col>
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>교회명</th>
-                  <th>담임교역자</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>등정교회</td><td>정준철 목사</td></tr>
-                <tr><td>대안교회</td><td>허상빈 목사</td></tr>
-                <tr><td>공산교회</td><td>이재기 목사</td></tr>
-                <tr><td>내정교회</td><td>김동수 목사</td></tr>
-                <tr><td>다시교회</td><td>김성경 목사</td></tr>
-                <tr><td>산포교회</td><td>최권식 목사</td></tr>
-                <tr><td>문평교회</td><td>최재정 목사</td></tr>
-                <tr><td>노안교회</td><td>박천탁 목사</td></tr>
-                <tr><td>월송교회</td><td>조병준 목사</td></tr>
-                <tr><td>시문교회</td><td>김강산 목사</td></tr>
-                <tr><td>상복교회</td><td>임병열 목사</td></tr>
-                <tr><td>반남중앙교회</td><td>최용석 목사</td></tr>
-                <tr><td>왕곡교회</td><td>박병래 목사</td></tr>
-                <tr><td>용봉교회</td><td>정병선 목사</td></tr>
-                <tr><td>봉황제일교회</td><td>박순진 목사</td></tr>
-                <tr><td>나주한사랑교회</td><td>김진만 목사</td></tr>
-                <tr><td>왕곡등대교회</td><td>이강학 목사</td></tr>
-                <tr><td>남평동부교회</td><td>김상준 목사</td></tr>
-                <tr><td>열린교회</td><td>정창일 목사</td></tr>
-                <tr><td>에벤에셀교회</td><td>노준태 목사</td></tr>
-                <tr><td>에덴동산교회</td><td>김옥헌 목사</td></tr>
-                <tr><td>단비교회</td><td>강봉규 목사</td></tr>
-                <tr><td>예찬교회</td><td>이강학 목사</td></tr>
-                <tr><td>동행교회</td><td>정근모 목사</td></tr>
-              </tbody>
-            </table>
+            <div class="table-scroll">
+              <table class="church-table">
+                <colgroup>
+                  <col style="width:70px">
+                  <col style="width:150px">
+                  <col style="width:110px">
+                  <col>
+                  <col style="width:110px">
+                </colgroup>
+                <thead>
+                  <tr><th>시찰</th><th>교회명</th><th>담임교역자</th><th>주소</th><th>연락처</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>나주</td><td>공산교회</td><td>이재기 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>나주한사랑교회</td><td>김진만 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>남평동부교회</td><td>김상준 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>내정교회</td><td>김동수 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>노안교회</td><td>박천탁 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>다시교회</td><td>김성경 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>단비교회</td><td>강봉규 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>대안교회</td><td>허상빈 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>동행교회</td><td>정근모 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>등정교회</td><td>정준철 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>문평교회</td><td>최재정 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>반남중앙교회</td><td>최용석 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>봉황제일교회</td><td>박순진 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>산포교회</td><td>최권식 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>상복교회</td><td>임병열 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>시문교회</td><td>김강산 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>에덴동산교회</td><td>김옥헌 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>에벤에셀교회</td><td>노준태 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>열린교회</td><td>정창일 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>예찬교회</td><td>이강학 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>용봉교회</td><td>정병선 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>왕곡교회</td><td>박병래 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>왕곡등대교회</td><td>이강학 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>나주</td><td>월송교회</td><td>조병준 목사</td><td>—</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <!-- 무등시찰 -->
           <div class="tab-panel" data-panel="mudeung">
-            <p class="church-count">무등시찰 소속 <b>16</b>개 교회 · 3처 기도처</p>
-            <table class="church-table">
-              <colgroup>
-                <col style="width:200px">
-                <col>
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>교회명</th>
-                  <th>담임교역자</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>감사교회</td><td>최영 목사</td></tr>
-                <tr><td>광주사랑교회</td><td>김영구 목사</td></tr>
-                <tr><td>광주새삶교회</td><td>노민호 목사</td></tr>
-                <tr><td>광주월산교회</td><td>윤현하 목사</td></tr>
-                <tr><td>물댄동산교회</td><td>염경철 목사</td></tr>
-                <tr><td>빛날교회</td><td>배효순 목사</td></tr>
-                <tr><td>사랑의교회</td><td>박충근 목사</td></tr>
-                <tr><td>새생명교회</td><td>장준식 목사</td></tr>
-                <tr><td>성화교회</td><td>박계현 목사</td></tr>
-                <tr><td>송정반석교회</td><td>김광훈 목사</td></tr>
-                <tr><td>액츠29교회</td><td>김요셉 목사</td></tr>
-                <tr><td>월산은혜교회</td><td>정명환 목사</td></tr>
-                <tr><td>은혜평강교회</td><td>고재균 목사</td></tr>
-                <tr><td>이음교회</td><td>유훈 목사</td></tr>
-                <tr><td>주사랑교회</td><td>김기태 목사</td></tr>
-                <tr><td>첨단지구촌교회</td><td>김홍섭 목사</td></tr>
-              </tbody>
-            </table>
+            <div class="table-scroll">
+              <table class="church-table">
+                <colgroup>
+                  <col style="width:70px">
+                  <col style="width:150px">
+                  <col style="width:110px">
+                  <col>
+                  <col style="width:110px">
+                </colgroup>
+                <thead>
+                  <tr><th>시찰</th><th>교회명</th><th>담임교역자</th><th>주소</th><th>연락처</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>무등</td><td>감사교회</td><td>최영 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>광주사랑교회</td><td>김영구 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>광주새삶교회</td><td>노민호 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>광주월산교회</td><td>윤현하 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>물댄동산교회</td><td>염경철 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>빛날교회</td><td>배효순 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>사랑의교회</td><td>박충근 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>새생명교회</td><td>장준식 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>성화교회</td><td>박계현 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>송정반석교회</td><td>김광훈 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>액츠29교회</td><td>김요셉 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>월산은혜교회</td><td>정명환 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>은혜평강교회</td><td>고재균 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>이음교회</td><td>유훈 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>주사랑교회</td><td>김기태 목사</td><td>—</td><td>—</td></tr>
+                  <tr><td>무등</td><td>첨단지구촌교회</td><td>김홍섭 목사</td><td>—</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
         </div><!-- /.tab-wrap -->
-
-        <h2 class="ptitle" style="margin-top:48px;"><span>교역자 현황</span></h2>
-        <table class="church-table">
-          <colgroup>
-            <col style="width:100px">
-            <col style="width:140px">
-            <col style="width:140px">
-            <col style="width:80px">
-          </colgroup>
-          <thead>
-            <tr>
-              <th>시찰</th>
-              <th>교회 수</th>
-              <th>교역자 구분</th>
-              <th>인원</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td rowspan="5" style="font-weight:600;text-align:center;vertical-align:middle;">광주시찰</td>
-              <td rowspan="5" style="text-align:center;vertical-align:middle;">25개</td>
-              <td>시무목사</td><td>23명</td>
-            </tr>
-            <tr><td>부목사</td><td>1명</td></tr>
-            <tr><td>무임목사</td><td>2명</td></tr>
-            <tr><td>원로목사</td><td>1명</td></tr>
-            <tr><td>은퇴목사</td><td>2명</td></tr>
-            <tr>
-              <td rowspan="5" style="font-weight:600;text-align:center;vertical-align:middle;">나주시찰</td>
-              <td rowspan="5" style="text-align:center;vertical-align:middle;">24개</td>
-              <td>시무목사</td><td>23명</td>
-            </tr>
-            <tr><td>부목사</td><td>2명</td></tr>
-            <tr><td>원로목사</td><td>2명</td></tr>
-            <tr><td>은퇴목사</td><td>5명</td></tr>
-            <tr><td>무임목사</td><td>2명</td></tr>
-            <tr>
-              <td rowspan="4" style="font-weight:600;text-align:center;vertical-align:middle;">무등시찰</td>
-              <td rowspan="4" style="text-align:center;vertical-align:middle;">16개 교회<br>3처 기도처</td>
-              <td>시무목사</td><td>17명</td>
-            </tr>
-            <tr><td>부목사</td><td>3명</td></tr>
-            <tr><td>협동목사</td><td>1명</td></tr>
-            <tr><td>은퇴목사</td><td>3명</td></tr>
-          </tbody>
-        </table>
 
       </section>
 

@@ -28,12 +28,69 @@ document.addEventListener('DOMContentLoaded', () => {
   const firstTab = document.querySelector('.btabs button[data-tab].on');
   if (firstTab) updateMoreLink(firstTab);
 
+  /* ── 모바일 아코디언 ──────────────────────────────────── */
+  const bcard = document.querySelector('.bcard');
+
+  const initAccordion = () => {
+    if (!bcard) return;
+    const isMobile = window.innerWidth <= 768;
+    const existing = bcard.querySelectorAll('.bacc-btn');
+
+    if (!isMobile) {
+      existing.forEach(b => b.remove());
+      bcard.querySelectorAll('.bacc-more-li').forEach(m => m.remove());
+      bcard.querySelectorAll('.blist-panel').forEach(p => p.hidden = true);
+      const activeTab = bcard.querySelector('.btabs button.on');
+      if (activeTab) {
+        const p = document.getElementById('tab-' + activeTab.dataset.tab);
+        if (p) p.hidden = false;
+      }
+      return;
+    }
+
+    if (existing.length > 0) return;
+
+    bcard.querySelectorAll('.btabs button[data-tab]').forEach(btn => {
+      const panel = document.getElementById('tab-' + btn.dataset.tab);
+      if (!panel) return;
+
+      const accBtn = document.createElement('button');
+      accBtn.className = 'bacc-btn';
+      accBtn.dataset.target = btn.dataset.tab;
+      accBtn.innerHTML = `<span>${btn.textContent.trim()}</span><i class="fa-regular fa-chevron-down bacc-icon"></i>`;
+      bcard.insertBefore(accBtn, panel);
+
+      const moreLi = document.createElement('li');
+      moreLi.className = 'bacc-more-li';
+      moreLi.innerHTML = `<a href="${btn.dataset.href || '#'}"><i class="fa-regular fa-plus"></i> 전체보기</a>`;
+      panel.appendChild(moreLi);
+
+      const isFirst = btn.classList.contains('on');
+      panel.hidden = !isFirst;
+      if (isFirst) accBtn.classList.add('open');
+
+      accBtn.addEventListener('click', () => {
+        const willOpen = panel.hidden;
+        bcard.querySelectorAll('.blist-panel').forEach(p => p.hidden = true);
+        bcard.querySelectorAll('.bacc-btn').forEach(b => b.classList.remove('open'));
+        if (willOpen) {
+          panel.hidden = false;
+          accBtn.classList.add('open');
+        }
+      });
+    });
+  };
+
+  initAccordion();
+  window.addEventListener('resize', initAccordion);
+
   /* ── 최근 사진 Swiper ─────────────────────────────────── */
   const photoSwiperEl = document.querySelector('.photo-thumb-swiper');
   const photoPrevEl = document.querySelector('.photo-meta .swiper-button-prev');
   const photoNextEl = document.querySelector('.photo-meta .swiper-button-next');
   const photoTitleEl = document.querySelector('.photo-title');
   const photoDateEl = document.querySelector('.photo-date');
+  const photoCatEl = document.querySelector('.photo-cat');
 
   if (photoSwiperEl && typeof Swiper !== 'undefined') {
     if (photoSwiperEl.swiper) {
@@ -46,12 +103,18 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!active) return;
       const title = active.dataset.title || '';
       const date = active.dataset.date || '';
+      const cat = active.dataset.cat || '';
+      const catType = active.dataset.catType || '';
       const displayTitle = title.length > 15 ? `${title.slice(0, 15)}...` : title;
       if (photoTitleEl) {
         photoTitleEl.textContent = displayTitle;
         photoTitleEl.title = title;
       }
       if (photoDateEl) photoDateEl.textContent = date;
+      if (photoCatEl) {
+        photoCatEl.textContent = cat;
+        photoCatEl.className = `photo-cat${catType ? ' ' + catType : ''}`;
+      }
     };
 
     const photoSwiper = new Swiper(photoSwiperEl, {
