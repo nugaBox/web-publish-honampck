@@ -320,6 +320,17 @@
   display: none;
 }
 
+.blist li.blist-empty {
+  display: flex;
+  grid-column: 1 / -1;
+  justify-content: center;
+  align-items: center;
+  color: var(--hn-text-3);
+  font-size: 15px;
+  height: 100%;
+  min-height: 160px;
+}
+
 .blist li {
   display: grid;
   grid-template-columns: auto 1fr auto auto;
@@ -565,6 +576,22 @@
 .photo-meta .swiper-button-prev.swiper-button-disabled,
 .photo-meta .swiper-button-next.swiper-button-disabled {
   opacity: .35;
+}
+
+.photo-slide-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 12px;
+  font-family: ui-monospace, Menlo, monospace;
+  padding: 3px 9px;
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 10;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
 }
 
 .photo-thumb-swiper.swiper-fallback .swiper-wrapper {

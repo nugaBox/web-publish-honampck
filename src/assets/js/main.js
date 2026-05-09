@@ -91,12 +91,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const photoTitleEl = document.querySelector('.photo-title');
   const photoDateEl = document.querySelector('.photo-date');
   const photoCatEl = document.querySelector('.photo-cat');
+  const photoBadgeEl = document.querySelector('.photo-slide-badge');
 
   if (photoSwiperEl && typeof Swiper !== 'undefined') {
     if (photoSwiperEl.swiper) {
       photoSwiperEl.swiper.destroy(true, true);
     }
     photoSwiperEl.classList.remove('swiper-fallback');
+
+    const totalSlides = photoSwiperEl.querySelectorAll('.swiper-wrapper > .swiper-slide').length;
 
     const syncPhotoMeta = (swiper) => {
       const active = swiper.slides[swiper.realIndex];
@@ -105,9 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const date = active.dataset.date || '';
       const cat = active.dataset.cat || '';
       const catType = active.dataset.catType || '';
-      const displayTitle = title.length > 15 ? `${title.slice(0, 15)}...` : title;
       if (photoTitleEl) {
-        photoTitleEl.textContent = displayTitle;
+        photoTitleEl.textContent = title;
         photoTitleEl.title = title;
       }
       if (photoDateEl) photoDateEl.textContent = date;
@@ -115,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         photoCatEl.textContent = cat;
         photoCatEl.className = `photo-cat${catType ? ' ' + catType : ''}`;
       }
+      if (photoBadgeEl) photoBadgeEl.textContent = `${swiper.realIndex + 1} / ${totalSlides}`;
     };
 
     const photoSwiper = new Swiper(photoSwiperEl, {
@@ -125,6 +128,10 @@ document.addEventListener('DOMContentLoaded', () => {
       observer: true,
       observeParents: true,
       resizeObserver: true,
+      autoplay: {
+        delay: 7000,
+        disableOnInteraction: false
+      },
       navigation: {
         nextEl: photoNextEl,
         prevEl: photoPrevEl
