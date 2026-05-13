@@ -1,0 +1,347 @@
+<div data-include="../include/header.html"></div>
+
+<main id="main-content">
+    <div class="hn-page-head">
+        <div class="inner">
+            <div class="breadcrumb-hn">
+                <span class="home"
+                    ><i class="fa-regular fa-house"></i> HOME</span
+                >
+                <i class="fa-regular fa-chevron-right"></i>
+                <span>노회 소식</span>
+                <i class="fa-regular fa-chevron-right"></i>
+                <span class="cur">주요 일정</span>
+            </div>
+            <h1>주요 일정</h1>
+            <p class="desc">
+                호남노회 주요 행사 및 일정을 달력으로 확인하세요.
+            </p>
+        </div>
+    </div>
+
+    <div class="sub-layout">
+        <div data-include="../include/sidebar_news.html"></div>
+        <section class="content">
+            <div class="siiru-schdulwrap">
+                <input type="hidden" name="schdulTy" value="L" />
+                <input type="hidden" name="schdulCtgry" value="" />
+                <div class="schdul-select">
+                    <a href="#" class="schdul-prev" aria-label="이전 월"></a>
+                    <p class="schdul-year">2026년 05월</p>
+                    <a href="#" class="schdul-next" aria-label="다음 월"></a>
+                </div>
+                <div class="schdul-calendar">
+                    <table id="calendarTable">
+                        <caption>
+                            일정 달력
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" class="sun">일</th>
+                                <th scope="col">월</th>
+                                <th scope="col">화</th>
+                                <th scope="col">수</th>
+                                <th scope="col">목</th>
+                                <th scope="col">금</th>
+                                <th scope="col" class="sat">토</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><span>1</span></td>
+                                <td class="sat"><span>2</span></td>
+                            </tr>
+                            <tr>
+                                <td class="sun"><span>3</span></td>
+                                <td><span>4</span></td>
+                                <td class="holiday">
+                                    <span><small>어린이날</small>5</span>
+                                </td>
+                                <td><span>6</span></td>
+                                <td><span>7</span></td>
+                                <td><span>8</span></td>
+                                <td class="sat"><span>9</span></td>
+                            </tr>
+                            <tr>
+                                <td class="sun"><span>10</span></td>
+                                <td><span>11</span></td>
+                                <td><span>12</span></td>
+                                <td class="today"><span>13</span></td>
+                                <td><span>14</span></td>
+                                <td><span>15</span></td>
+                                <td class="sat"><span>16</span></td>
+                            </tr>
+                            <tr>
+                                <td class="sun"><span>17</span></td>
+                                <td><span>18</span></td>
+                                <td><span>19</span></td>
+                                <td><span>20</span></td>
+                                <td>
+                                    <span>21</span>
+                                    <a
+                                        href="#"
+                                        data-dt="2026-05-21"
+                                        class="schedule"
+                                        >제34회기 1차 임시회</a
+                                    >
+                                </td>
+                                <td><span>22</span></td>
+                                <td class="sat"><span>23</span></td>
+                            </tr>
+                            <tr>
+                                <td class="sun holiday">
+                                    <span><small>부처님오신날</small>24</span>
+                                </td>
+                                <td class="holiday">
+                                    <span><small>대체공휴일</small>25</span>
+                                </td>
+                                <td>
+                                    <span>26</span>
+                                    <a
+                                        href="#"
+                                        data-dt="2026-05-26"
+                                        class="schedule"
+                                        >광주전남교회협의회 총회</a
+                                    >
+                                </td>
+                                <td><span>27</span></td>
+                                <td><span>28</span></td>
+                                <td><span>29</span></td>
+                                <td class="sat"><span>30</span></td>
+                            </tr>
+                            <tr>
+                                <td class="sun"><span>31</span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="schdul-result"></div>
+                </div>
+                <div class="schdul-resultView"></div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<div data-include="../include/footer.html"></div>
+
+<script>
+    if (window.addEventListener)
+        window.addEventListener("load", siiruSchdul, false);
+    else if (window.attachEvent) window.attachEvent("onload", siiruSchdul);
+    else window.onload = siiruSchdul;
+
+    function siiruSchdul() {
+        var current = moment ? moment() : null;
+        if (!current) return;
+
+        $(".schdul-year").text(current.format("YYYY년 MM월"));
+        showCalendar(current.format("YYYY-MM"));
+
+        $(".schdul-prev").click(function (e) {
+            e.preventDefault();
+            current.add(-1, "months");
+            $(".schdul-year").text(current.format("YYYY년 MM월"));
+            $(".schdul-result").html("");
+            $(".schdul-resultView").html("");
+            showCalendar(current.format("YYYY-MM"));
+        });
+        $(".schdul-next").click(function (e) {
+            e.preventDefault();
+            current.add(1, "months");
+            $(".schdul-year").text(current.format("YYYY년 MM월"));
+            $(".schdul-result").html("");
+            $(".schdul-resultView").html("");
+            showCalendar(current.format("YYYY-MM"));
+        });
+        $("#calendarTable").on("click", "td a.schedule", function (e) {
+            e.preventDefault();
+            showDetail($(this).data("dt"));
+        });
+        $(".schdul-resultView").on("click", ".schdulListBtn", function () {
+            $(".schdul-select").show();
+            $(".schdul-calendar").show();
+            $(".schdul-resultView").html("");
+            $("html,body").animate({
+                scrollTop: $(".schdul-select").offset().top,
+            });
+        });
+    }
+
+    function showCalendar(yearMonth) {
+        $.post("/getSchdul.do", {
+            schdulCtgry: $.trim($('input[name="schdulCtgry"]').val()),
+            schdulMonth: yearMonth,
+        }).done(function (data) {
+            if (data.error == "N") {
+                var calendar = document
+                    .getElementById("calendarTable")
+                    .getElementsByTagName("tbody")[0];
+                $("#calendarTable tbody tr").remove();
+                var map = data.dataMap;
+                var firstDayOfWeek = Number(map.dayOfWeek);
+                if (firstDayOfWeek == 7) firstDayOfWeek = 0;
+                var week =
+                    Math.ceil((firstDayOfWeek + Number(map.dayOfMonth)) / 7) +
+                    1;
+                var leftDays = 7,
+                    setDays = 1;
+                for (var i = 1; i < week; i++) {
+                    var row = calendar.insertRow();
+                    while (firstDayOfWeek != 0) {
+                        row.insertCell().innerHTML = "";
+                        firstDayOfWeek -= 1;
+                        leftDays -= 1;
+                    }
+                    while (leftDays != 0) {
+                        var only = true,
+                            cell = row.insertCell();
+                        if (setDays > Number(map.dayOfMonth)) {
+                            cell.innerHTML = "";
+                            leftDays -= 1;
+                        } else {
+                            var fullDay =
+                                yearMonth + "-" + numberPad(setDays, 2);
+                            var holiday = false,
+                                holidayNm = "";
+                            $.each(map.holiday, function (k, v) {
+                                if ($.trim(v.holiday) == fullDay) {
+                                    holidayNm =
+                                        "<small>" +
+                                        convertHtml($.trim(v.holidayNm)) +
+                                        "</small>";
+                                    holiday = true;
+                                }
+                            });
+                            var schedule = "";
+                            $.each(map.list, function (k, v) {
+                                var inRange =
+                                    Number(v.endDay) > 0
+                                        ? setDays >= Number(v.beginDay) &&
+                                          setDays <= Number(v.endDay)
+                                        : setDays == Number(v.beginDay);
+                                if (inRange) {
+                                    schedule +=
+                                        '<a href="#" data-dt="' +
+                                        fullDay +
+                                        '" class="schedule">' +
+                                        convertHtml($.trim(v.sj)) +
+                                        "</a>";
+                                }
+                            });
+                            var cn = "";
+                            var dow = moment(fullDay).day();
+                            if (dow == 6) cn = "sat";
+                            if (dow == 0) cn = "sun";
+                            if (fullDay == moment().format("YYYY-MM-DD"))
+                                cn += (cn ? " " : "") + "today";
+                            if (holiday) cn += (cn ? " " : "") + "holiday";
+                            cell.innerHTML =
+                                "<span>" +
+                                holidayNm +
+                                setDays +
+                                "</span>" +
+                                schedule;
+                            cell.className = cn;
+                            setDays += 1;
+                            leftDays -= 1;
+                        }
+                    }
+                    leftDays = 7;
+                }
+            }
+        });
+    }
+
+    function showDetail(day) {
+        $.post("/getSchdul.do", {
+            schdulCtgry: $.trim($('input[name="schdulCtgry"]').val()),
+            searchSDt: day,
+            searchEDt: day,
+        }).done(function (data) {
+            if (data.error == "N") {
+                var map = data.dataMap;
+                var html =
+                    '<p class="detailDate">' +
+                    moment(day).format("YYYY년 MM월 DD일 dddd") +
+                    "</p>";
+                $.each(map.list, function (k, v) {
+                    html += showSchdul("T", v);
+                });
+                html +=
+                    '<div class="siiru-btnSet siiru-tc"><button type="button" class="schdulListBtn siiru-btn">목록</button></div>';
+                $(".schdul-resultView").html(html);
+                $("html,body").animate(
+                    { scrollTop: $(".schdul-resultView").offset().top },
+                    100,
+                );
+            }
+        });
+    }
+
+    function showSchdul(ty, v) {
+        var h =
+            '<div class="detail-block"><span>' +
+            convertHtml($.trim(v.sj)) +
+            "</span>";
+        var hasMeta =
+            ty == "D" ||
+            ($.trim(v.endDe) != "" && $.trim(v.beginDe) != $.trim(v.endDe)) ||
+            ($.trim(v.beginTime) != "" && $.trim(v.beginTime) != "00:00") ||
+            $.trim(v.place) != "" ||
+            $.trim(v.chrgDept) != "";
+        if (hasMeta) {
+            h += "<dl>";
+            if ($.trim(v.beginTime) != "" && $.trim(v.beginTime) != "00:00")
+                h +=
+                    "<dt>시간</dt><dd>" +
+                    $.trim(v.beginTime) +
+                    ($.trim(v.endTime) != "" && $.trim(v.endTime) != "00:00"
+                        ? " ~ " + $.trim(v.endTime)
+                        : "") +
+                    "</dd>";
+            if ($.trim(v.endDe) != "" && $.trim(v.beginDe) != $.trim(v.endDe))
+                h +=
+                    "<dt>기간</dt><dd>" +
+                    $.trim(v.beginDe) +
+                    " ~ " +
+                    $.trim(v.endDe) +
+                    "</dd>";
+            if ($.trim(v.place) != "")
+                h +=
+                    "<dt>장소</dt><dd>" +
+                    convertHtml($.trim(v.place)) +
+                    "</dd>";
+            if ($.trim(v.chrgDept) != "")
+                h +=
+                    "<dt>담당</dt><dd>" +
+                    convertHtml($.trim(v.chrgDept)) +
+                    "</dd>";
+            h += "</dl>";
+        }
+        if (Number($.trim(v.fileCnt)) > 0) {
+            h += "<ul>";
+            $.each(v.fileList, function (k, f) {
+                h +=
+                    '<li><a href="' +
+                    $.trim(f.fileUrl) +
+                    '">' +
+                    $.trim(f.fileNm) +
+                    "</a></li>";
+            });
+            h += "</ul>";
+        }
+        h += "</div>";
+        return h;
+    }
+</script>

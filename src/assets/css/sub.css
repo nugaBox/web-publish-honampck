@@ -3431,3 +3431,627 @@
     display: none;
   }
 }
+
+/* ── 게시판 dateSearch 숨김 ────────────────────── */
+.siiruBoard-search .dateSearch { display: none; }
+
+/* ── 게시판 첨부파일 아이콘 ──────────────────────── */
+.siiruBoard-list td.file { font-size: 15px; color: var(--hn-text-3); }
+
+/* ── 일정 달력 ─────────────────────────────────── */
+.siiru-schdulwrap { padding: 8px 0; }
+
+.schdul-select {
+  display: flex; align-items: center; justify-content: center; gap: 20px;
+  padding: 14px 0; margin-bottom: 4px;
+}
+.schdul-year {
+  font-size: 18px; font-weight: 700; color: var(--hn-text); min-width: 150px; text-align: center;
+}
+.schdul-prev, .schdul-next {
+  width: 34px; height: 34px; border: 1px solid var(--hn-line); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--hn-text-2); text-decoration: none; position: relative; overflow: hidden;
+  flex-shrink: 0;
+}
+.schdul-prev::before {
+  content: ''; display: block; width: 9px; height: 9px;
+  border-left: 2px solid var(--hn-text-2); border-bottom: 2px solid var(--hn-text-2);
+  transform: rotate(45deg); margin-left: 4px;
+}
+.schdul-next::before {
+  content: ''; display: block; width: 9px; height: 9px;
+  border-right: 2px solid var(--hn-text-2); border-top: 2px solid var(--hn-text-2);
+  transform: rotate(45deg); margin-right: 4px;
+}
+.schdul-prev:hover, .schdul-next:hover { background: var(--hn-bg-alt); }
+
+.schdul-calendar { margin-bottom: 20px; }
+#calendarTable {
+  width: 100%; border-collapse: collapse;
+  border-top: 2px solid var(--hn-text);
+  table-layout: fixed;
+}
+#calendarTable caption {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);
+}
+#calendarTable thead th {
+  width: calc(100% / 7);
+  padding: 12px 6px; text-align: center; font-size: 15px; font-weight: 700;
+  color: var(--hn-text-2); background: var(--hn-bg-alt); border-bottom: 1px solid var(--hn-line);
+}
+#calendarTable thead th.sun { color: var(--hn-red); }
+#calendarTable thead th.sat { color: var(--hn-blue); }
+
+#calendarTable tbody td {
+  vertical-align: top; padding: 10px 10px 8px; min-height: 100px; height: 100px;
+  border-bottom: 1px solid var(--hn-line-soft);
+  border-right: 1px solid var(--hn-line-soft);
+  font-size: 14px;
+}
+#calendarTable tbody td:last-child { border-right: none; }
+
+#calendarTable tbody td > span {
+  display: block; font-size: 14px; font-weight: 600; color: var(--hn-text-2); margin-bottom: 6px;
+  line-height: 1;
+}
+#calendarTable tbody td.sun > span { color: var(--hn-red); }
+#calendarTable tbody td.sat > span { color: var(--hn-blue); }
+#calendarTable tbody td.holiday > span { color: var(--hn-red); }
+#calendarTable tbody td.holiday > span small {
+  display: block; font-size: 11px; color: var(--hn-red); font-weight: 400; line-height: 1.3;
+}
+#calendarTable tbody td.today > span {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; background: var(--hn-green); color: #fff;
+  border-radius: 50%; font-size: 13px;
+}
+
+#calendarTable tbody td a.schedule {
+  display: block; font-size: 12px; color: #fff; background: var(--hn-blue);
+  padding: 3px 7px; border-radius: 3px; text-decoration: none; margin-bottom: 3px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.5;
+}
+#calendarTable tbody td a.schedule:hover { background: var(--hn-green); }
+#calendarTable tbody td a.m_btn { display: none; }
+
+/* 일정 상세 결과 */
+.schdul-resultView { margin-top: 8px; }
+.detailDate {
+  font-size: 16px; font-weight: 700; color: var(--hn-blue); padding: 12px 0 14px;
+  border-bottom: 2px solid var(--hn-text); margin-bottom: 0;
+}
+.detail-block {
+  padding: 16px 0; border-bottom: 1px solid var(--hn-line-soft);
+}
+.detail-block > span {
+  display: block; font-size: 15px; font-weight: 700; color: var(--hn-text); margin-bottom: 8px;
+}
+.detail-block dl {
+  display: flex; flex-wrap: wrap; font-size: 13px; margin-bottom: 4px;
+}
+.detail-block dl dt {
+  width: 60px; font-weight: 600; color: var(--hn-text-3); flex-shrink: 0; padding: 2px 0;
+}
+.detail-block dl dd { flex: 1; color: var(--hn-text-2); padding: 2px 0; }
+.detail-block ul { list-style: none; padding: 0; margin: 8px 0 0; }
+.detail-block ul li { font-size: 13px; margin-bottom: 4px; }
+.detail-block ul li a { color: var(--hn-blue); text-decoration: none; }
+.result-well {
+  background: var(--hn-bg-alt); padding: 10px 14px; border-radius: 4px;
+  font-size: 13px; color: var(--hn-text-2); margin-top: 8px; line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  #calendarTable tbody td { height: 64px; min-height: 64px; padding: 5px 4px; }
+  #calendarTable thead th { font-size: 12px; padding: 8px 2px; }
+  #calendarTable tbody td a.schedule { font-size: 11px; padding: 2px 4px; }
+  #calendarTable tbody td > span { font-size: 12px; }
+}
+
+/* ================================================
+   SiiRU CMS Board & Skin Styles — 호남노회 디자인 토큰 기반
+   ================================================ */
+
+/* ── 공통 유틸 ──────────────────────────────────── */
+.siiru-fl   { float: left; }
+.siiru-fr   { float: right; }
+.siiru-tc   { text-align: center; }
+.siiru-mt0  { margin-top: 0; }
+.siiru-mr10 { margin-right: 10px; }
+.siiru-tr   { text-align: right; }
+.siiru-clr::after { content: ''; display: block; clear: both; }
+.siiru-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+.siiru-ml5  { margin-left: 5px; }
+.siiru-ml10 { margin-left: 10px; }
+.siiru-mb20 { margin-bottom: 20px; }
+.siiru-mt5  { margin-top: 5px; }
+.siiru-mt10 { margin-top: 10px; }
+.siiru-pt10 { padding-top: 10px; }
+.throughline td, .throughline th { text-decoration: line-through; color: var(--hn-text-3); }
+
+/* ── 버튼 (siiru-btn) ───────────────────────────── */
+.siiru-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 7px 16px; border-radius: 4px; font-size: 13px; font-weight: 500;
+  border: 1px solid var(--hn-line-strong); background: var(--hn-bg);
+  color: var(--hn-text-2); cursor: pointer; text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.siiru-btn:hover { background: var(--hn-bg-alt); }
+.siiru-btn-primary { background: var(--hn-green); border-color: var(--hn-green); color: #fff; }
+.siiru-btn-primary:hover { background: #0a5530; border-color: #0a5530; color: #fff; }
+.siiru-btn-default {
+  background: var(--hn-bg);
+  border-color: var(--hn-line-strong);
+  color: var(--hn-text-2);
+}
+.siiru-btn-default:hover { background: var(--hn-bg-alt); color: var(--hn-text); }
+.siiru-btn-warning { background: #e8a000; border-color: #e8a000; color: #fff; }
+.siiru-btn-warning:hover { background: #c48800; border-color: #c48800; color: #fff; }
+.siiru-btn-danger { background: var(--hn-red); border-color: var(--hn-red); color: #fff; }
+.siiru-btn-danger:hover { background: #8f2228; border-color: #8f2228; color: #fff; }
+.siiru-btn-success { background: #2e7d32; border-color: #2e7d32; color: #fff; }
+.siiru-btn-small { padding: 4px 10px; font-size: 12px; }
+.siiru-btnSet { display: flex; gap: 8px; justify-content: center; margin-top: 20px; }
+
+/* ── 게시판 래퍼 ─────────────────────────────────── */
+.siiru-boardWrap { width: 100%; }
+
+/* ── 검색 폼 ──────────────────────────────────── */
+.siiruBoard-search {
+  padding: 14px 0 18px;
+  border-bottom: 1px solid var(--hn-line);
+  margin-bottom: 14px;
+}
+.siiruBoard-search form { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.siiruBoard-search .dateSearch { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; width: 100%; margin-bottom: 8px; }
+.siiruBoard-search .dateSearch input[type="radio"] { accent-color: var(--hn-green); }
+.siiruBoard-search .dateSearch label { font-size: 13px; color: var(--hn-text-2); cursor: pointer; }
+.siiruBoard-search .dateSearch input.maskDate {
+  padding: 6px 10px; border: 1px solid var(--hn-line); border-radius: 4px;
+  font-size: 13px; width: 120px; outline: 0;
+}
+.siiruBoard-search select {
+  padding: 7px 10px; border: 1px solid var(--hn-line); border-radius: 4px;
+  font-size: 13px; background: var(--hn-bg); color: var(--hn-text-2); cursor: pointer; outline: 0;
+}
+.siiruBoard-search input[type="text"]:not(.maskDate) {
+  flex: 1; padding: 7px 12px; border: 1px solid var(--hn-line); border-radius: 4px;
+  font-size: 13px; outline: 0; min-width: 180px;
+}
+.siiruBoard-search button[type="submit"] {
+  padding: 7px 18px; background: var(--hn-blue); color: #fff;
+  border: none; border-radius: 4px; font-size: 13px; cursor: pointer;
+}
+
+/* ── 목록 정보 ────────────────────────────────── */
+.siiruBoard-listInfo {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0; margin-bottom: 6px; font-size: 13px; color: var(--hn-text-3);
+}
+
+/* ── 테이블 목록 ──────────────────────────────── */
+.siiruBoard-list table {
+  width: 100%; border-collapse: collapse;
+  border-top: 2px solid var(--hn-text);
+}
+.siiruBoard-list thead th {
+  background: var(--hn-bg-alt); padding: 12px 10px;
+  font-size: 13px; font-weight: 700; color: var(--hn-text-2);
+  border-bottom: 1px solid var(--hn-line);
+  text-align: center;
+}
+.siiruBoard-list thead th.boardSj { text-align: left; padding-left: 16px; }
+.siiruBoard-list tbody tr { border-bottom: 1px solid var(--hn-line-soft); }
+.siiruBoard-list tbody tr:hover { background: var(--hn-bg-alt); }
+.siiruBoard-list tbody td,
+.siiruBoard-list tbody th[scope="row"] {
+  padding: 11px 10px; font-size: 14px; color: var(--hn-text-2);
+  text-align: center; vertical-align: middle;
+}
+.siiruBoard-list tbody th[scope="row"].boardSj {
+  text-align: left; padding-left: 16px;
+}
+.siiruBoard-list tbody th[scope="row"].boardSj a {
+  color: var(--hn-text); text-decoration: none; font-weight: 500;
+}
+.siiruBoard-list tbody th[scope="row"].boardSj a:hover { color: var(--hn-green); }
+.siiruBoard-list tbody th[scope="row"].boardSj a.new::after {
+  content: 'N'; display: inline-block; margin-left: 6px;
+  background: var(--hn-red); color: #fff; font-size: 10px;
+  padding: 1px 5px; border-radius: 2px; font-weight: 700; vertical-align: middle;
+}
+.siiruBoard-list span.notice {
+  display: inline-block; background: var(--hn-red); color: #fff;
+  font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 3px;
+}
+.siiruBoard-list .reBlcok { display: inline-block; width: 14px; }
+.siiruBoard-list img.reply { width: 12px; vertical-align: middle; margin-right: 4px; }
+.siiruBoard-list img.file { width: 14px; }
+.siiruBoard-list td.nodata {
+  padding: 40px 0; text-align: center; color: var(--hn-text-3); font-size: 14px;
+}
+.siiruBoard-list tbody tr.notice { background: var(--hn-green-soft); }
+.siiruBoard-list small { font-size: 12px; color: var(--hn-text-3); }
+
+/* ── 페이지네이션 (JS 생성) ───────────────────── */
+#boardPage .pagination { display: flex; justify-content: center; gap: 4px; padding: 20px 0; list-style: none; margin: 0; }
+#boardPage .pagination li a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border: 1px solid var(--hn-line); border-radius: 4px;
+  font-size: 13px; color: var(--hn-text-2); text-decoration: none;
+}
+#boardPage .pagination li a:hover { background: var(--hn-bg-alt); }
+#boardPage .pagination li.active a { background: var(--hn-green); border-color: var(--hn-green); color: #fff; }
+
+/* ── 뷰 페이지 ────────────────────────────────── */
+.siiruBoard-view > form > h4 {
+  padding: 16px 0 14px; font-size: 18px; font-weight: 700; color: var(--hn-text);
+  border-bottom: 1px solid var(--hn-line); line-height: 1.5;
+}
+.siiruBoard-view > form > h4.text-danger { color: var(--hn-red); }
+.siiruBoard-view > form > h4 span.notice {
+  display: inline-block; background: var(--hn-red); color: #fff;
+  font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 3px; margin-right: 6px;
+}
+
+.siiruBoardInfo { border-bottom: 1px solid var(--hn-line); }
+.boardInfo-view {
+  display: flex; gap: 20px; flex-wrap: wrap;
+  padding: 10px 0; font-size: 13px; color: var(--hn-text-3);
+}
+.siiruBoardInfo dl {
+  display: flex; border-top: 1px solid var(--hn-line-soft); padding: 10px 0;
+  font-size: 13px;
+}
+.siiruBoardInfo dl dt { width: 90px; font-weight: 600; color: var(--hn-text-2); flex-shrink: 0; }
+.siiruBoardInfo dl dd { flex: 1; color: var(--hn-text-2); }
+.siiruBoardInfo dl dd ul { list-style: none; padding: 0; margin: 0; }
+.siiruBoardInfo dl dd ul li { margin-bottom: 6px; }
+.siiruBoardInfo dl dd ul li a { color: var(--hn-blue); text-decoration: none; }
+.siiruBoardInfo dl dd ul li a:hover { text-decoration: underline; }
+.siiruBoardInfo dl dd small { font-size: 12px; color: var(--hn-text-3); margin-left: 8px; }
+
+.siiruBoardBody { padding: 24px 0; }
+.boardContents { font-size: 15px; line-height: 1.8; color: var(--hn-text-2); }
+.boardContents p { margin-bottom: 12px; }
+.boardContents h4 { margin: 20px 0 10px; font-size: 16px; font-weight: 700; color: var(--hn-text); }
+
+.imageView { margin-bottom: 20px; }
+.imageView img { max-width: 100%; display: block; margin-bottom: 8px; }
+.imageView small { font-size: 12px; color: var(--hn-text-3); display: block; margin-bottom: 12px; }
+.videoView { margin-bottom: 20px; }
+.videoView video { max-width: 100%; }
+.audioView { margin-bottom: 20px; }
+
+.siiruBoardBtnInfo {
+  padding: 14px 0; border-top: 1px solid var(--hn-line);
+  display: flex; justify-content: space-between;
+  overflow: hidden;
+}
+.siiruBoardBtnInfo::after { content: ''; display: block; clear: both; }
+
+.manageInfo { padding: 10px 0; font-size: 12px; color: var(--hn-text-3); }
+.manageInfo small { display: block; margin-bottom: 4px; }
+
+.siiruBoardList { border-top: 1px solid var(--hn-line); margin-top: 10px; }
+.siiruBoardList ul { list-style: none; padding: 0; margin: 0; }
+.siiruBoardList ul li {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 0; border-bottom: 1px solid var(--hn-line-soft);
+  font-size: 14px;
+}
+.siiruBoardList ul li > span:first-child {
+  width: 48px; font-weight: 700; color: var(--hn-text-3); flex-shrink: 0;
+}
+.siiruBoardList ul li a { color: var(--hn-text-2); text-decoration: none; flex: 1; }
+.siiruBoardList ul li a:hover { color: var(--hn-green); }
+.siiruBoardList ul li small { font-size: 12px; color: var(--hn-text-3); margin-left: auto; }
+
+/* ── 댓글 영역 ────────────────────────────────── */
+.siiruBoardComt { border-top: 2px solid var(--hn-text); margin-top: 24px; }
+.siiruBoardComt dl dt {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0; font-weight: 700; font-size: 15px; color: var(--hn-text);
+}
+.siiruBoardComt dl dd { padding: 0; }
+#boardComtList { list-style: none; padding: 0; margin: 0; }
+#boardComtList li { padding: 14px 0; border-bottom: 1px solid var(--hn-line-soft); }
+#boardComtList li .well { background: var(--hn-bg-alt); padding: 10px 14px; border-radius: 4px; margin: 8px 0; font-size: 14px; }
+#boardComtList li span { font-size: 14px; font-weight: 600; color: var(--hn-text-2); }
+#boardComtList small.siiru-fr { font-size: 12px; color: var(--hn-text-3); }
+.siiruBoardComt .nodata { text-align: center; padding: 20px; color: var(--hn-text-3); font-size: 14px; }
+.comtManage { display: block; font-size: 11px; color: var(--hn-text-3); margin-top: 4px; }
+
+/* ── 작성 폼 (게시판 작성 / 회원가입 S4 등) ───────────────── */
+.siiruBoard-write,
+.joinForm-write { border-top: 2px solid var(--hn-text); }
+.siiruBoard-write dl,
+.joinForm-write dl { display: flex; border-bottom: 1px solid var(--hn-line); }
+.siiruBoard-write dl dt,
+.joinForm-write dl dt {
+  width: 130px; padding: 14px 16px; background: var(--hn-bg-alt);
+  font-size: 13px; font-weight: 700; color: var(--hn-text-2);
+  display: flex; align-items: flex-start; gap: 4px; flex-shrink: 0;
+}
+.siiruBoard-write dl dt span,
+.joinForm-write dl dt span { color: var(--hn-red); }
+.siiruBoard-write dl dt span.label,
+.joinForm-write dl dt span.label { color: var(--hn-text-2); font-weight: 700; }
+.siiruBoard-write dl dt span.required,
+.joinForm-write dl dt span.required { color: var(--hn-red); }
+.siiruBoard-write dl dd,
+.joinForm-write dl dd { flex: 1; padding: 12px 16px; }
+.siiruBoard-write dl dd input[type="text"],
+.siiruBoard-write dl dd input[type="password"],
+.siiruBoard-write dl dd input.maskDate,
+.siiruBoard-write dl dd input.maskTime,
+.joinForm-write dl dd input[type="text"],
+.joinForm-write dl dd input[type="password"],
+.joinForm-write dl dd input.maskDate,
+.joinForm-write dl dd input.maskTime {
+  padding: 8px 12px; border: 1px solid var(--hn-line); border-radius: 4px;
+  font-size: 14px; font-family: inherit; outline: 0; width: 100%; box-sizing: border-box;
+}
+.siiruBoard-write dl dd input.small2,
+.joinForm-write dl dd input.small2 { width: 240px; }
+.siiruBoard-write dl dd input.small,
+.joinForm-write dl dd input.small { width: 140px; }
+.siiruBoard-write dl dd select,
+.joinForm-write dl dd select {
+  padding: 8px 12px; border: 1px solid var(--hn-line); border-radius: 4px;
+  font-size: 14px; background: var(--hn-bg); color: var(--hn-text-2); outline: 0;
+}
+.siiruBoard-write dl.fullCont dd,
+.siiruBoard-write dl dd.fullCont,
+.joinForm-write dl.fullCont dd,
+.joinForm-write dl dd.fullCont { padding: 0; }
+.siiruBoard-write dl dd textarea,
+.joinForm-write dl dd textarea {
+  width: 100%; padding: 12px 14px; border: 1px solid var(--hn-line);
+  font-size: 14px; font-family: inherit; outline: 0; resize: vertical; box-sizing: border-box;
+}
+.siiruBoard-write .separator,
+.joinForm-write .separator { margin: 0 6px; color: var(--hn-text-3); }
+.siiruBoard-write .btnLayer,
+.joinForm-write .btnLayer { margin-left: 10px; }
+.siiruBoard-write small,
+.joinForm-write small { font-size: 12px; color: var(--hn-text-3); display: block; margin-top: 6px; }
+.joinForm-write dl dd input[type="radio"],
+.joinForm-write dl dd input[type="checkbox"] { width: auto; margin-right: 4px; accent-color: var(--hn-green); }
+.joinForm-write dl dd input[type="file"].file { width: auto; max-width: 100%; font-size: 13px; }
+
+.fileLayer { padding: 10px 0; border-bottom: 1px solid var(--hn-line-soft); }
+.fileLayer:last-child { border-bottom: none; }
+.fileInfo { margin-bottom: 6px; font-size: 13px; }
+.fileInfo .fileView a { color: var(--hn-blue); }
+.fileCheckbox { accent-color: var(--hn-green); }
+
+.radioBlock { margin-bottom: 8px; }
+.radioBlock label { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px; }
+
+/* ── 갤러리 목록 ──────────────────────────────── */
+.siiruBoard-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 16px;
+  padding: 16px 0;
+}
+@media (max-width: 1024px) { .siiruBoard-gallery { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px)  { .siiruBoard-gallery { grid-template-columns: repeat(2, 1fr); gap: 14px 10px; } }
+
+.siiruBoard-galleryBox .photoBox {
+  aspect-ratio: 4 / 3; overflow: hidden;
+  background: var(--hn-bg-alt2); border-radius: 6px;
+}
+.siiruBoard-galleryBox .photoBox img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.2s;
+}
+.siiruBoard-galleryBox .photoBox a:hover img { transform: scale(1.04); }
+.siiruBoard-galleryBox dl { margin: 8px 0 0; }
+.siiruBoard-galleryBox dl dt { font-size: 14px; font-weight: 500; color: var(--hn-text); line-height: 1.4; }
+.siiruBoard-galleryBox dl dt.new::after {
+  content: 'N'; display: inline-block; margin-left: 6px;
+  background: var(--hn-red); color: #fff; font-size: 10px;
+  padding: 1px 5px; border-radius: 2px; font-weight: 700;
+}
+.siiruBoard-galleryBox dl dt a { color: inherit; text-decoration: none; }
+.siiruBoard-galleryBox dl dt a:hover { color: var(--hn-green); }
+.siiruBoard-galleryBox dl dd { font-size: 12px; color: var(--hn-text-3); margin-top: 4px; }
+.siiruBoard-galleryBox dl dd span { margin-left: 8px; }
+.siiruBoard-galleryBox.throughline dl dt a { text-decoration: line-through; color: var(--hn-text-3); }
+
+/* ── 로그인 스킨 ──────────────────────────────── */
+.siiru-loginWrap { padding: 8px 0; }
+.loginWrap { max-width: 520px; margin: 0 auto;}
+.loginWrap h4 { font-size: 18px; font-weight: 700; color: var(--hn-text); margin-bottom: 20px; }
+
+/* 로그인 폼: inputWrap 수평 레이아웃 → 수직 오버라이드 */
+.loginWrap .inputWrap dl {
+  display: block; border-bottom: none; margin-bottom: 14px;
+}
+.loginWrap .inputWrap dl:first-of-type { border-top: none; }
+.loginWrap .inputWrap dl dt {
+  width: auto; background: none; padding: 0 0 6px 0;
+  font-size: 13px; font-weight: 600; color: var(--hn-text-2);
+}
+.loginWrap .inputWrap dl dd {
+  padding: 0; display: flex; flex-wrap: wrap; align-items: center;
+}
+.loginWrap .inputWrap dl dd input[type="text"],
+.loginWrap .inputWrap dl dd input[type="password"] {
+  width: 100% !important; flex: none !important;
+  padding: 10px 14px; border: 1px solid var(--hn-line); border-radius: 6px;
+  font-size: 15px; outline: 0; box-sizing: border-box; font-family: inherit;
+}
+.loginWrap .inputWrap dl dd input[type="text"]:focus,
+.loginWrap .inputWrap dl dd input[type="password"]:focus { border-color: var(--hn-green); }
+.loginWrap .inputWrap dl dd input[type="checkbox"] {
+  width: auto !important; margin-left: 0 !important; margin-top: 10px;
+  accent-color: var(--hn-green); cursor: pointer;
+}
+.loginWrap .inputWrap dl dd label {
+  margin-left: 4px; margin-top: 10px;
+  font-size: 13px; color: var(--hn-text-3); cursor: pointer; white-space: nowrap;
+}
+.loginWrap .inputWrap .siiru-btnSet { justify-content: center; margin-top: 20px; }
+.loginWrap .inputWrap .siiru-btn { font-size: 15px; padding: 11px 30px;}
+.siiru-loginWrap .alert-hn { margin-bottom: 20px; }
+
+.joinLayer { list-style: none; padding: 0; margin: 20px 0 0; display: flex; gap: 10px; justify-content: center; border-top: 1px solid var(--hn-line-soft); padding-top: 16px; }
+.joinLayer .siiru-btn { font-size: 14px; }
+
+.certWrap { }
+.certSingle { }
+.kindBoxWrap { display: flex; gap: 12px; margin-bottom: 12px; }
+.kindBox {
+  flex: 1; border: 1px solid var(--hn-line); border-radius: 8px; padding: 16px;
+  text-align: center;
+}
+.kindBox.siiru-mr0 { margin-right: 0; }
+.stepCate p { font-size: 14px; font-weight: 600; color: var(--hn-text); margin-bottom: 10px; }
+.certWrap .info { font-size: 12px; color: var(--hn-text-3); margin-top: 8px; line-height: 1.6; }
+
+/* ── 회원가입 스킨 ────────────────────────────── */
+.siiru-joinWrap { padding: 8px 0; }
+.siiru-joinWrap .stepTab ul {
+  display: flex; list-style: none; padding: 0; margin: 0 0 24px;
+  border-bottom: 2px solid var(--hn-line); gap: 0;
+}
+.siiru-joinWrap .stepTab li { flex: 1; text-align: center; }
+.siiru-joinWrap .stepTab li a {
+  display: block; padding: 11px 0; font-size: 13px; font-weight: 600;
+  color: var(--hn-text-3); text-decoration: none; border-bottom: 3px solid transparent; margin-bottom: -2px;
+}
+.siiru-joinWrap .stepTab li.active a { color: var(--hn-green); border-bottom-color: var(--hn-green); }
+.siiru-joinWrap .stepTitle { font-size: 16px; font-weight: 700; color: var(--hn-text); margin-bottom: 16px; }
+.siiru-joinWrap .stepTitle small {
+  font-weight: 400; font-size: 13px; color: var(--hn-text-3); margin-left: 8px;
+}
+.siiru-joinWrap .joinWelcome {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 30px 36px;
+  margin: 20px 0;
+  line-height: 2;
+  font-size: 15px;
+  color: var(--hn-text-2);
+}
+.siiru-joinWrap .joinWelcome p { margin: 0 0 8px; }
+.siiru-joinWrap .joinWelcome p:first-child { font-size: 1.05em; font-weight: 600; color: var(--hn-text); }
+.siiru-joinWrap .joinWelcome p:last-child { margin-bottom: 0; }
+.siiru-joinWrap .well {
+  background: var(--hn-blue-soft); border: 1px solid var(--hn-line); border-radius: 6px;
+  padding: 14px 18px; font-size: 14px; color: var(--hn-text-2); margin-bottom: 20px;
+}
+.agreeBoxWrap { margin-bottom: 20px; }
+.stepSubTitle { font-size: 14px; font-weight: 700; color: var(--hn-text); margin: 14px 0 8px; }
+.agreeBox {
+  border: 1px solid var(--hn-line); border-radius: 6px; padding: 14px 16px;
+  max-height: 140px; overflow-y: auto; font-size: 13px; color: var(--hn-text-2);
+  background: var(--hn-bg-alt); margin-bottom: 8px;
+}
+.siiru-joinWrap .agreeBox {
+  height: 80px;
+  max-height: 80px;
+  font-size: 0.88em;
+  line-height: 1.7;
+}
+.agreeCheck { font-size: 14px; margin-bottom: 14px; }
+.agreeCheck label { cursor: pointer; }
+
+.siiru-joinWrap .alert-hn { margin-bottom: 20px; }
+.siiru-joinWrap .joinForm-write { border-top: none; }
+.siiru-joinWrap .joinForm-write dl { border-top: 1px solid var(--hn-line); }
+.siiru-joinWrap .joinForm-write dl:first-child { border-top: 2px solid var(--hn-text); }
+.siiru-joinWrap a.siiru-btn { box-sizing: border-box; }
+#join-step-S2 .siiru-btnSet { margin-top: 20px; }
+
+.complete { text-align: center; padding: 40px 0; font-size: 16px; color: var(--hn-text-2); }
+.complete > p { margin: 0; line-height: 1.8; }
+.complete-icon { font-size: 48px; color: var(--hn-green); margin-bottom: 16px; }
+.complete-title { font-size: 18px; font-weight: 700; color: var(--hn-text); margin-bottom: 12px; }
+.complete-desc { font-size: 14px; color: var(--hn-text-3); line-height: 1.8; }
+.complete .siiru-btnSet { margin-top: 24px; }
+
+/* ── 아이디/비밀번호 찾기 스킨 ───────────────── */
+.siiru-findUserWrap { padding: 8px 0; }
+.findUserWrap { max-width: 560px; margin: 0 auto;}
+.findUserWrap h4 { font-size: 18px; font-weight: 700; color: var(--hn-text); margin-bottom: 16px; }
+.findUser-tab ul { display: flex; list-style: none; padding: 0; margin: 0 0 20px; border-bottom: 2px solid var(--hn-line); }
+.findUser-tab li { flex: 1; text-align: center; }
+.findUser-tab li a {
+  display: block; padding: 11px 0; font-size: 14px; font-weight: 600;
+  color: var(--hn-text-3); text-decoration: none; border-bottom: 3px solid transparent; margin-bottom: -2px;
+}
+.findUser-tab li.active a { color: var(--hn-green); border-bottom-color: var(--hn-green); }
+#findSection-P { display: none; }
+.findLayer { }
+.retIdMsg { padding: 12px 0; font-size: 15px; font-weight: 600; color: var(--hn-green); }
+.inputWrap h5 { font-size: 15px; font-weight: 700; color: var(--hn-text); margin: 16px 0 12px; }
+.inputWrap dl { display: flex; border-bottom: 1px solid var(--hn-line-soft); }
+.inputWrap dl dt { width: 110px; padding: 12px 16px; background: var(--hn-bg-alt); font-size: 13px; font-weight: 700; color: var(--hn-text-2); display: flex; align-items: center; flex-shrink: 0; }
+.inputWrap dl dt label { cursor: pointer; }
+.inputWrap dl dd { flex: 1; padding: 10px 16px; display: flex; align-items: center; }
+.inputWrap dl dd input[type="text"],
+.inputWrap dl dd input[type="password"],
+.inputWrap dl dd input.maskDate {
+  width: 100%; padding: 8px 12px; border: 1px solid var(--hn-line); border-radius: 4px;
+  font-size: 14px; outline: 0;
+}
+.inputWrap dl dd input.small { width: 160px; }
+.inputWrap .siiru-btnSet { margin-top: 16px; }
+
+/* ── 회원 탈퇴 스킨 ──────────────────────────── */
+.siiru-userWrap { padding: 8px 0; }
+.siiru-userWrap .leaveForm h4 { font-size: 18px; font-weight: 700; color: var(--hn-text); margin-bottom: 16px; }
+.leaveForm .leave-desc { font-size: 14px; color: var(--hn-text-3); margin-bottom: 16px; }
+.leaveForm .findLayer { }
+.pwCert { margin: 14px 0; }
+.pwCert input[type="password"] {
+  width: 260px; padding: 9px 14px; border: 1px solid var(--hn-line); border-radius: 6px;
+  font-size: 14px; outline: 0;
+}
+
+/* ── 비밀번호 변경 스킨 ──────────────────────── */
+.siiru-passwdWrap { padding: 8px 0; }
+.passwdWrap {  }
+.passwdWrap h4 { font-size: 18px; font-weight: 700; color: var(--hn-text); margin-bottom: 16px; }
+.passwdWrap ul { padding: 14px 18px; background: var(--hn-blue-soft); border: 1px solid var(--hn-line); border-radius: 6px; margin-bottom: 20px; }
+.passwdWrap ul li { font-size: 13px; color: var(--hn-text-2); line-height: 1.8; }
+.passwdWrap .siiruBoard-write { margin-top: 20px; }
+.passwdWrap .siiru-btnSet { margin-top: 16px; }
+
+/* ── 회원 정보 스킨 ──────────────────────────── */
+.siiru-userWrap .userWrap h4 { font-size: 18px; font-weight: 700; color: var(--hn-text); margin-bottom: 16px; }
+.user-tab ul { display: flex; list-style: none; padding: 0; margin: 0 0 20px; border-bottom: 2px solid var(--hn-line); }
+.user-tab li { flex: 1; text-align: center; }
+.user-tab li a {
+  display: block; padding: 11px 0; font-size: 14px; font-weight: 600;
+  color: var(--hn-text-3); text-decoration: none; border-bottom: 3px solid transparent; margin-bottom: -2px;
+}
+.user-tab li.active a { color: var(--hn-green); border-bottom-color: var(--hn-green); }
+.siiru-userWrap .siiruBoard-write dl { border-top: 1px solid var(--hn-line); }
+.siiru-userWrap .siiruBoard-write dl:first-child { border-top: 2px solid var(--hn-text); }
+.siiru-userWrap .siiruBoard-write dl dd { display: flex; align-items: center; }
+.siiru-userWrap input[readonly] { background: var(--hn-bg-alt); color: var(--hn-text-3); }
+.siiru-userWrap .siiru-btnSet { margin-top: 16px; }
+
+/* ── 모달 (siiru-modal) ──────────────────────── */
+.siiruModal.modal { display: none; }
+
+/* ── 반응형 ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .siiruBoard-search form { flex-direction: column; align-items: stretch; }
+  .siiruBoard-search input[type="text"]:not(.maskDate) { min-width: unset; }
+  .siiruBoard-write dl,
+  .joinForm-write dl { flex-direction: column; }
+  .siiruBoard-write dl dt,
+  .joinForm-write dl dt { width: 100%; border-bottom: 1px solid var(--hn-line-soft); }
+  .loginWrap, .passwdWrap, .findUserWrap { max-width: 100%; }
+  .kindBoxWrap { flex-direction: column; }
+  .siiruBoardBtnInfo { flex-direction: column-reverse; gap: 8px; }
+}

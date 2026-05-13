@@ -1,89 +1,302 @@
-  <div data-include="../include/header.html"></div>
+<div data-include="../include/header.html"></div>
 
-  <main id="main-content">
-
+<main id="main-content">
     <div class="hn-page-head">
-      <div class="inner">
-        <div class="breadcrumb-hn">
-          <span class="home"><i class="fa-regular fa-house"></i> HOME</span>
-          <i class="fa-regular fa-chevron-right"></i>
-          <span>부가서비스</span>
-          <i class="fa-regular fa-chevron-right"></i>
-          <span class="cur">아이디/비밀번호찾기</span>
+        <div class="inner">
+            <div class="breadcrumb-hn">
+                <span class="home"
+                    ><i class="fa-regular fa-house"></i> HOME</span
+                >
+                <i class="fa-regular fa-chevron-right"></i>
+                <span>부가서비스</span>
+                <i class="fa-regular fa-chevron-right"></i>
+                <span class="cur">아이디/비밀번호 찾기</span>
+            </div>
+            <h1>아이디/비밀번호 찾기</h1>
+            <p class="desc"></p>
         </div>
-        <h1>아이디/비밀번호찾기</h1>
-        <p class="desc">가입 시 등록한 정보로 아이디 또는 비밀번호를 찾을 수 있습니다.</p>
-      </div>
     </div>
-
     <div class="sub-layout">
+        <div data-include="../include/sidebar_extra.html"></div>
+        <section class="content">
+            <div class="siiru-findUserWrap">
+                <div class="findUserWrap">
+                    <div class="findUser-tab">
+                        <ul>
+                            <li id="fuser-tab-I" class="active">
+                                <a href="#" data-pagetp="I">아이디 찾기</a>
+                            </li>
+                            <li id="fuser-tab-P">
+                                <a href="#" data-pagetp="P">비밀번호 찾기</a>
+                            </li>
+                        </ul>
+                    </div>
 
-      <div data-include="../include/sidebar_extra.html"></div>
-      <section class="content">
+                    <!-- 아이디 찾기 -->
+                    <section id="findSection-I">
+                        <div class="retIdMsg" id="retIdMsg"></div>
+                        <div class="findLayer">
+                            <div class="inputWrap">
+                                <form
+                                    name="siiru-findIdForm"
+                                    id="siiru-findIdForm"
+                                    method="post"
+                                >
+                                    <input
+                                        type="hidden"
+                                        name="action"
+                                        value="I"
+                                    />
+                                    <dl>
+                                        <dt>
+                                            <label for="userNm_I">이름</label>
+                                        </dt>
+                                        <dd>
+                                            <input
+                                                type="text"
+                                                class="small"
+                                                id="userNm_I"
+                                                name="userNm"
+                                                value=""
+                                                placeholder="이름 입력"
+                                            />
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            <label for="brthdy_I"
+                                                >생년월일</label
+                                            >
+                                        </dt>
+                                        <dd>
+                                            <input
+                                                type="text"
+                                                class="maskDate nothangul small"
+                                                id="brthdy_I"
+                                                name="brthdy"
+                                                maxlength="10"
+                                                value=""
+                                                placeholder="YYYY-MM-DD"
+                                            />
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            <label for="email_I">이메일</label>
+                                        </dt>
+                                        <dd>
+                                            <input
+                                                type="text"
+                                                id="email_I"
+                                                name="email"
+                                                value=""
+                                                placeholder="example@email.com"
+                                            />
+                                        </dd>
+                                    </dl>
+                                </form>
+                                <div class="siiru-btnSet siiru-tc">
+                                    <button
+                                        type="button"
+                                        id="findIdBtn"
+                                        class="siiru-btn siiru-btn-primary"
+                                    >
+                                        아이디 찾기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
-        <div class="form-box">
-          <div class="tab-wrap">
-            <div class="group-tabs">
-              <button class="on" data-tab="findid">아이디 찾기</button>
-              <button data-tab="findpw">비밀번호 찾기</button>
+                    <!-- 비밀번호 찾기 -->
+                    <section id="findSection-P">
+                        <div class="retPassMsg" id="retPassMsg"></div>
+                        <div class="findLayer">
+                            <div class="inputWrap">
+                                <form
+                                    name="siiru-findPwForm"
+                                    id="siiru-findPwForm"
+                                    method="post"
+                                >
+                                    <input
+                                        type="hidden"
+                                        name="action"
+                                        value="P"
+                                    />
+                                    <dl>
+                                        <dt>
+                                            <label for="userId_P">아이디</label>
+                                        </dt>
+                                        <dd>
+                                            <input
+                                                type="text"
+                                                class="small"
+                                                id="userId_P"
+                                                name="userId"
+                                                value=""
+                                                placeholder="아이디 입력"
+                                            />
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            <label for="userNm_P">이름</label>
+                                        </dt>
+                                        <dd>
+                                            <input
+                                                type="text"
+                                                class="small"
+                                                id="userNm_P"
+                                                name="userNm"
+                                                value=""
+                                                placeholder="이름 입력"
+                                            />
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            <label for="brthdy_P"
+                                                >생년월일</label
+                                            >
+                                        </dt>
+                                        <dd>
+                                            <input
+                                                type="text"
+                                                class="maskDate nothangul small"
+                                                id="brthdy_P"
+                                                name="brthdy"
+                                                maxlength="10"
+                                                value=""
+                                                placeholder="YYYY-MM-DD"
+                                            />
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>
+                                            <label for="email_P">이메일</label>
+                                        </dt>
+                                        <dd>
+                                            <input
+                                                type="text"
+                                                id="email_P"
+                                                name="email"
+                                                value=""
+                                                placeholder="example@email.com"
+                                            />
+                                        </dd>
+                                    </dl>
+                                </form>
+                                <div class="siiru-btnSet siiru-tc">
+                                    <button
+                                        type="button"
+                                        id="findPwBtn"
+                                        class="siiru-btn siiru-btn-primary"
+                                    >
+                                        비밀번호 찾기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
-
-            <!-- 아이디 찾기 -->
-            <div class="tab-panel on" data-panel="findid">
-              <form action="#" method="post" style="margin-top:28px;">
-                <div class="alert-hn info" style="margin-bottom:24px;">
-                  <i class="fa-regular fa-circle-info"></i>
-                  <div>가입 시 등록한 <b>이름</b>과 <b>이메일</b>로 아이디를 확인할 수 있습니다.</div>
-                </div>
-                <div class="in-field">
-                  <label class="in-label" for="findNm">이름</label>
-                  <input type="text" id="findNm" name="userNm" class="in-text" placeholder="가입 시 등록한 이름">
-                </div>
-                <div class="in-field" style="margin-top:14px;">
-                  <label class="in-label" for="findEmail">이메일</label>
-                  <input type="email" id="findEmail" name="email" class="in-text" placeholder="가입 시 등록한 이메일">
-                </div>
-                <div class="form-btns">
-                  <button type="submit" class="btn-hn primary" style="flex:1; justify-content:center; padding:13px;">
-                    <i class="fa-regular fa-magnifying-glass"></i> 아이디 찾기
-                  </button>
-                </div>
-              </form>
-            </div>
-
-            <!-- 비밀번호 찾기 -->
-            <div class="tab-panel" data-panel="findpw">
-              <form action="#" method="post" style="margin-top:28px;">
-                <div class="alert-hn info" style="margin-bottom:24px;">
-                  <i class="fa-regular fa-circle-info"></i>
-                  <div>가입 시 등록한 <b>아이디</b>와 <b>이메일</b>로 임시 비밀번호를 발송합니다.</div>
-                </div>
-                <div class="in-field">
-                  <label class="in-label" for="pwUserId">아이디</label>
-                  <input type="text" id="pwUserId" name="userId" class="in-text" placeholder="가입 시 등록한 아이디">
-                </div>
-                <div class="in-field" style="margin-top:14px;">
-                  <label class="in-label" for="pwEmail">이메일</label>
-                  <input type="email" id="pwEmail" name="email" class="in-text" placeholder="가입 시 등록한 이메일">
-                </div>
-                <div class="form-btns">
-                  <button type="submit" class="btn-hn primary" style="flex:1; justify-content:center; padding:13px;">
-                    <i class="fa-regular fa-paper-plane"></i> 임시 비밀번호 발송
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div><!-- /.tab-wrap -->
-
-          <div class="form-links">
-            <a href="login.html"><i class="fa-regular fa-arrow-right-to-bracket"></i> 로그인</a>
-            <a href="join.html">회원가입</a>
-          </div>
-        </div>
-
-      </section>
-
+        </section>
     </div>
-  </main>
+</main>
 
-  <div data-include="../include/footer.html"></div>
+<div data-include="../include/footer.html"></div>
+
+<script>
+    (function () {
+        /* 탭 전환 */
+        var tabs = document.querySelectorAll(".findUser-tab li a");
+        tabs.forEach(function (a) {
+            a.addEventListener("click", function (e) {
+                e.preventDefault();
+                var tp = this.dataset.pagetp;
+                ["I", "P"].forEach(function (s) {
+                    document.getElementById("findSection-" + s).style.display =
+                        s === tp ? "block" : "none";
+                    document.getElementById("fuser-tab-" + s).className =
+                        s === tp ? "active" : "";
+                });
+            });
+        });
+
+        /* 생년월일 자동 형식 (YYYY-MM-DD) */
+        document.querySelectorAll(".maskDate").forEach(function (el) {
+            el.addEventListener("keydown", function (e) {
+                var allowed = [
+                    "Backspace",
+                    "Delete",
+                    "Tab",
+                    "ArrowLeft",
+                    "ArrowRight",
+                    "ArrowUp",
+                    "ArrowDown",
+                    "Home",
+                    "End",
+                ];
+                if (allowed.indexOf(e.key) !== -1) return;
+                if (!/^\d$/.test(e.key)) e.preventDefault();
+            });
+            el.addEventListener("input", function () {
+                var digits = el.value.replace(/\D/g, "").substring(0, 8);
+                var result = digits;
+                if (digits.length > 6) {
+                    result =
+                        digits.substring(0, 4) +
+                        "-" +
+                        digits.substring(4, 6) +
+                        "-" +
+                        digits.substring(6);
+                } else if (digits.length > 4) {
+                    result = digits.substring(0, 4) + "-" + digits.substring(4);
+                }
+                el.value = result;
+            });
+        });
+
+        /* 아이디 찾기 유효성 검사 */
+        document
+            .getElementById("findIdBtn")
+            .addEventListener("click", function () {
+                var nm = document.getElementById("userNm_I").value.trim();
+                var email = document.getElementById("email_I").value.trim();
+                if (!nm) {
+                    alert("이름을 입력해 주세요.");
+                    document.getElementById("userNm_I").focus();
+                    return;
+                }
+                if (!email) {
+                    alert("이메일을 입력해 주세요.");
+                    document.getElementById("email_I").focus();
+                    return;
+                }
+            });
+
+        /* 비밀번호 찾기 유효성 검사 */
+        document
+            .getElementById("findPwBtn")
+            .addEventListener("click", function () {
+                var userId = document.getElementById("userId_P").value.trim();
+                var nm = document.getElementById("userNm_P").value.trim();
+                var email = document.getElementById("email_P").value.trim();
+                if (!userId) {
+                    alert("아이디를 입력해 주세요.");
+                    document.getElementById("userId_P").focus();
+                    return;
+                }
+                if (!nm) {
+                    alert("이름을 입력해 주세요.");
+                    document.getElementById("userNm_P").focus();
+                    return;
+                }
+                if (!email) {
+                    alert("이메일을 입력해 주세요.");
+                    document.getElementById("email_P").focus();
+                    return;
+                }
+            });
+    })();
+</script>

@@ -1,91 +1,146 @@
-  <div data-include="../include/header.html"></div>
+<div data-include="../include/header.html"></div>
 
-  <main id="main-content">
-
+<main id="main-content">
     <div class="hn-page-head">
-      <div class="inner">
-        <div class="breadcrumb-hn">
-          <span class="home"><i class="fa-regular fa-house"></i> HOME</span>
-          <i class="fa-regular fa-chevron-right"></i>
-          <span>부가서비스</span>
-          <i class="fa-regular fa-chevron-right"></i>
-          <span class="cur">마이페이지</span>
+        <div class="inner">
+            <div class="breadcrumb-hn">
+                <span class="home"
+                    ><i class="fa-regular fa-house"></i> HOME</span
+                >
+                <i class="fa-regular fa-chevron-right"></i>
+                <span>부가서비스</span>
+                <i class="fa-regular fa-chevron-right"></i>
+                <span class="cur">마이페이지</span>
+            </div>
+            <h1>마이페이지</h1>
+            <p class="desc"></p>
         </div>
-        <h1>마이페이지</h1>
-        <p class="desc">회원 정보를 확인하고 수정할 수 있습니다.</p>
-      </div>
     </div>
-
     <div class="sub-layout">
-
-      <div data-include="../include/sidebar_extra.html"></div>
-      <section class="content">
-
-        <!-- 프로필 카드 -->
-        <div class="myinfo-top">
-          <div class="myinfo-avatar">
-            <i class="fa-regular fa-user"></i>
-          </div>
-          <div>
-            <div class="myinfo-name">홍길동</div>
-            <div class="myinfo-id">ID: honggildong · 광주중앙교회 · 장로</div>
-          </div>
-          <div class="myinfo-actions">
-            <a href="passchange.html" class="btn-hn ghost" style="font-size:15px; padding:9px 16px;">비밀번호변경</a>
-            <a href="leave.html" class="btn-hn ghost" style="font-size:15px; padding:9px 16px; color:var(--hn-red); border-color:var(--hn-red);">회원탈퇴</a>
-          </div>
-        </div>
-
-        <!-- 정보 수정 폼 -->
-        <form action="#" method="post" class="form-box full">
-
-          <div class="in-field">
-            <label class="in-label" for="miUserId">아이디</label>
-            <input type="text" id="miUserId" name="userId" class="in-text" value="honggildong" readonly style="background:var(--hn-bg-alt); color:var(--hn-text-3);">
-          </div>
-
-          <div class="in-field" style="margin-top:14px;">
-            <label class="in-label" for="miUserNm">이름 <span style="color:var(--hn-red);">*</span></label>
-            <input type="text" id="miUserNm" name="userNm" class="in-text" value="홍길동">
-          </div>
-
-          <div class="in-field" style="margin-top:14px;">
-            <label class="in-label" for="miEmail">이메일 <span style="color:var(--hn-red);">*</span></label>
-            <input type="email" id="miEmail" name="email" class="in-text" value="hong@example.com">
-          </div>
-
-          <div class="in-field" style="margin-top:14px;">
-            <label class="in-label" for="miMbtlnum">연락처</label>
-            <input type="tel" id="miMbtlnum" name="mbtlnum" class="in-text" value="010-1234-5678">
-          </div>
-
-          <div class="in-field" style="margin-top:14px;">
-            <label class="in-label" for="miChurch">소속 교회</label>
-            <input type="text" id="miChurch" name="church" class="in-text" value="광주중앙교회">
-          </div>
-
-          <div class="in-field" style="margin-top:14px;">
-            <label class="in-label" for="miPosition">직분</label>
-            <select id="miPosition" name="position" class="in-select">
-              <option>목사</option>
-              <option selected>장로</option>
-              <option>집사</option>
-              <option>권사</option>
-              <option>성도</option>
-            </select>
-          </div>
-
-          <div class="form-btns">
-            <button type="submit" class="btn-hn primary" style="flex:1; justify-content:center; padding:13px;">
-              <i class="fa-regular fa-floppy-disk"></i> 저장하기
-            </button>
-            <a href="/index.html" class="btn-hn ghost">취소</a>
-          </div>
-
-        </form>
-      </section>
-
+        <div data-include="../include/sidebar_extra.html"></div>
+        <section class="content">
+            <div class="siiru-userWrap">
+                <div class="userWrap">
+                    <form
+                        id="siiru-userForm"
+                        name="siiru-userForm"
+                        method="post"
+                        enctype="multipart/form-data"
+                    >
+                        <div class="siiruBoard-write">
+                            <dl>
+                                <dt>아이디</dt>
+                                <dd>
+                                    <input
+                                        type="text"
+                                        id="userId"
+                                        name="userId"
+                                        value="honampck_user"
+                                        class="small2"
+                                        readonly
+                                    />
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <span>*</span
+                                    ><label for="userNm">이름</label>
+                                </dt>
+                                <dd>
+                                    <input
+                                        type="text"
+                                        id="userNm"
+                                        name="userNm"
+                                        maxlength="30"
+                                        value="홍길동"
+                                        class="small2"
+                                    />
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <span>*</span
+                                    ><label for="email">이메일</label>
+                                </dt>
+                                <dd>
+                                    <input
+                                        type="text"
+                                        id="email"
+                                        name="email"
+                                        maxlength="50"
+                                        value="example@church.or.kr"
+                                    />
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <span>*</span
+                                    ><label for="mbtlnum">모바일번호</label>
+                                </dt>
+                                <dd>
+                                    <input
+                                        type="text"
+                                        id="mbtlnum"
+                                        name="mbtlnum"
+                                        maxlength="14"
+                                        value="010-1234-5678"
+                                        class="small2"
+                                    />
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><label for="church">소속(교회)</label></dt>
+                                <dd>
+                                    <input
+                                        type="text"
+                                        id="church"
+                                        name="church"
+                                        maxlength="50"
+                                        value="광주새백성교회"
+                                        class="small2"
+                                    />
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><label for="position">직분</label></dt>
+                                <dd>
+                                    <select id="position" name="position">
+                                        <option value="">선택</option>
+                                        <option value="P">목사</option>
+                                        <option value="E">강도사</option>
+                                        <option value="M">전도사</option>
+                                        <option value="L">장로</option>
+                                        <option value="K">권사</option>
+                                        <option value="D">집사</option>
+                                        <option value="S" selected>성도</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="siiru-btnSet">
+                            <button
+                                type="button"
+                                id="userSubmit"
+                                class="siiru-btn siiru-btn-primary"
+                            >
+                                정보 수정
+                            </button>
+                            <a
+                                href="passchange.html"
+                                class="siiru-btn siiru-ml10"
+                                >비밀번호 변경</a
+                            >
+                            <a
+                                href="leave.html"
+                                class="siiru-btn siiru-btn-danger siiru-ml10"
+                                >회원 탈퇴</a
+                            >
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
     </div>
-  </main>
+</main>
 
-  <div data-include="../include/footer.html"></div>
+<div data-include="../include/footer.html"></div>

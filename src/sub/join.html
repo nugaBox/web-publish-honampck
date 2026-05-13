@@ -1,130 +1,702 @@
-  <div data-include="../include/header.html"></div>
+<div data-include="../include/header.html"></div>
 
-  <main id="main-content">
-
+<main id="main-content">
     <div class="hn-page-head">
-      <div class="inner">
-        <div class="breadcrumb-hn">
-          <span class="home"><i class="fa-regular fa-house"></i> HOME</span>
-          <i class="fa-regular fa-chevron-right"></i>
-          <span>부가서비스</span>
-          <i class="fa-regular fa-chevron-right"></i>
-          <span class="cur">회원가입</span>
+        <div class="inner">
+            <div class="breadcrumb-hn">
+                <span class="home"
+                    ><i class="fa-regular fa-house"></i> HOME</span
+                >
+                <i class="fa-regular fa-chevron-right"></i>
+                <span>부가서비스</span>
+                <i class="fa-regular fa-chevron-right"></i>
+                <span class="cur">회원가입</span>
+            </div>
+            <h1>회원가입</h1>
+            <p class="desc"></p>
         </div>
-        <h1>회원가입</h1>
-        <p class="desc">호남노회 홈페이지 회원으로 가입하시면 다양한 서비스를 이용하실 수 있습니다.</p>
-      </div>
     </div>
-
     <div class="sub-layout">
+        <div data-include="../include/sidebar_extra.html"></div>
+        <section class="content">
+            <div class="siiru-joinWrap">
+                <div class="stepTab">
+                    <ul>
+                        <li id="step-tab-S1" class="active" data-step="S1">
+                            <a href="#">STEP1&nbsp;&nbsp;<strong>가입 안내</strong></a>
+                        </li>
+                        <li id="step-tab-S2" data-step="S2">
+                            <a href="#">STEP2&nbsp;&nbsp;<strong>회원약관</strong></a>
+                        </li>
+                        <li id="step-tab-S4" data-step="S4">
+                            <a href="#">STEP3&nbsp;&nbsp;<strong>회원정보</strong></a>
+                        </li>
+                        <li id="step-tab-S5" data-step="S5">
+                            <a href="#">STEP4&nbsp;&nbsp;<strong>가입 완료</strong></a>
+                        </li>
+                    </ul>
+                </div>
+                <section>
+                    <form
+                        id="siiru-joinForm"
+                        name="siiru-joinForm"
+                        method="post"
+                        enctype="multipart/form-data"
+                        action="#"
+                    >
+                        <input
+                            type="hidden"
+                            id="stepLevel"
+                            name="stepLevel"
+                            value="S1"
+                        />
+                        <input
+                            type="hidden"
+                            id="userKind"
+                            name="userKind"
+                            value="A"
+                        />
 
-      <div data-include="../include/sidebar_extra.html"></div>
-      <section class="content">
+                        <!-- S1: 가입 안내 (joinCustom.jsp S1) -->
+                        <div id="join-step-S1">
+                            <h5 class="stepTitle">
+                                STEP1 가입 안내
+                                <small>회원가입 전 안내 사항을 확인해 주세요.</small>
+                            </h5>
+                            <div class="joinWelcome">
+                                <p>호남노회 홈페이지에 오신 것을 환영합니다.</p>
+                                <p>노회원만 가입이 가능하며, 가입 후 관리자(노회 서기)의 승인 후 이용하실 수 있습니다.</p>
+                                <p>감사합니다.</p>
+                            </div>
+                            <div class="siiru-btnSet siiru-tc" style="margin-top: 24px">
+                                <button
+                                    type="button"
+                                    class="siiru-btn siiru-btn-primary joinStartBtn"
+                                >
+                                    가입하기
+                                </button>
+                            </div>
+                        </div>
 
-        <!-- 단계 표시 -->
-        <div class="join-steps">
-          <div class="join-step"><span class="sn">1</span><span class="st">약관 동의</span></div>
-          <div class="join-step"><span class="sn">2</span><span class="st">본인 인증</span></div>
-          <div class="join-step on"><span class="sn">3</span><span class="st">정보 입력</span></div>
-          <div class="join-step"><span class="sn">4</span><span class="st">가입 완료</span></div>
-        </div>
+                        <!-- S2: 약관 동의 (joinCustom.jsp S2) -->
+                        <div id="join-step-S2" style="display: none">
+                            <h5 class="stepTitle">STEP2 회원약관 동의</h5>
+                            <div class="agreeBoxWrap">
+                                <p class="stepSubTitle">회원가입약관 동의</p>
+                                <div class="agreeBox">
+                                    <strong>제1조 (목적)</strong><br />
+                                    이 약관은 대한예수교장로회(합동) 호남노회(이하 "노회")가 운영하는 홈페이지(이하 "사이트")가 제공하는 인터넷 관련 서비스의 이용 조건 및 절차에 관한 사항과 기타 필요한 사항을 규정함을 목적으로 합니다.<br /><br />
+                                    <strong>제2조 (회원의 정의)</strong><br />
+                                    "회원"이라 함은 노회원으로서 본 사이트에 회원가입 신청을 하여 관리자(노회 서기)의 승인을 받은 자를 말합니다.<br /><br />
+                                    <strong>제3조 (가입 자격)</strong><br />
+                                    본 사이트의 회원가입은 노회 소속 교역자 및 노회원에 한하며, 허위 정보 제공 시 가입이 취소될 수 있습니다.<br /><br />
+                                    <strong>제4조 (이용 제한)</strong><br />
+                                    다음 각 호에 해당하는 경우 이용이 제한될 수 있습니다.<br />
+                                    1. 타인의 정보를 도용하거나 허위 정보를 등록한 경우<br />
+                                    2. 사이트의 정상적인 운영을 방해한 경우<br />
+                                    3. 노회원 자격을 상실한 경우<br /><br />
+                                    <strong>제5조 (서비스 이용)</strong><br />
+                                    회원은 관리자의 승인 후 공지사항, 자료실, 게시판 등 홈페이지에서 제공하는 서비스를 이용할 수 있습니다.
+                                </div>
+                                <p class="agreeCheck">
+                                    <input
+                                        type="checkbox"
+                                        id="agree1"
+                                        name="agree1"
+                                        value="Y"
+                                    />
+                                    <label for="agree1"> 회원약관에 동의합니다.</label>
+                                </p>
+                                <p class="stepSubTitle">개인정보보호방침 및 이용약관 동의</p>
+                                <div class="agreeBox">
+                                    <strong>제1조 (수집하는 개인정보 항목)</strong><br />
+                                    노회 홈페이지는 회원가입 시 아이디, 비밀번호, 이름, 이메일, 모바일번호 등의 개인정보를 수집합니다.<br /><br />
+                                    <strong>제2조 (개인정보 수집 및 이용 목적)</strong><br />
+                                    수집된 개인정보는 회원 관리, 서비스 제공, 공지사항 전달 등의 목적으로만 이용되며, 목적 외 용도로 사용하지 않습니다.<br /><br />
+                                    <strong>제3조 (개인정보 보유 및 이용 기간)</strong><br />
+                                    회원 탈퇴 시 또는 개인정보 수집 및 이용 목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다. 단, 관련 법령에 의한 경우는 예외로 합니다.<br /><br />
+                                    <strong>제4조 (개인정보 제3자 제공)</strong><br />
+                                    노회는 이용자의 개인정보를 원칙적으로 외부에 제공하지 않습니다. 다만, 이용자의 동의가 있거나 법률에 특별한 규정이 있는 경우에는 예외로 합니다.<br /><br />
+                                    <strong>제5조 (개인정보보호 문의)</strong><br />
+                                    개인정보 처리에 관한 문의사항은 노회 서기에게 연락하시기 바랍니다.
+                                </div>
+                                <p class="agreeCheck">
+                                    <input
+                                        type="checkbox"
+                                        id="agree2"
+                                        name="agree2"
+                                        value="Y"
+                                    />
+                                    <label for="agree2"> 개인정보보호방침에 동의합니다.</label>
+                                </p>
+                            </div>
+                            <div class="siiru-btnSet siiru-tc">
+                                <button
+                                    type="button"
+                                    id="agreeAllBtn"
+                                    class="siiru-btn siiru-btn-default"
+                                >
+                                    모두 동의
+                                </button>
+                                <button
+                                    type="button"
+                                    id="joinAgreeNext"
+                                    class="siiru-btn siiru-btn-primary siiru-ml10"
+                                >
+                                    다음단계
+                                </button>
+                                <a
+                                    href="login.html"
+                                    class="siiru-btn siiru-btn-default siiru-ml10"
+                                    >취소</a
+                                >
+                            </div>
+                        </div>
 
-        <form action="#" method="post" class="form-box">
+                        <!-- S4: 개인정보 입력 (joinCustom.jsp S4, joinForm-write) -->
+                        <div id="join-step-S4" style="display: none">
+                            <p class="well">
+                                회원가입에 필요한 필수 정보를 입력하는 폼입니다.<br />
+                                아래의 (*)는 필수입력사항 입니다.
+                            </p>
+                            <h5 class="stepTitle">STEP3 회원정보 입력</h5>
+                            <div class="joinForm-write">
+                                <dl>
+                                    <dt>
+                                        <span class="required">*</span>
+                                        <label for="userId">아이디</label>
+                                    </dt>
+                                    <dd>
+                                        <input
+                                            type="text"
+                                            class="small2 alphanumId nothangul"
+                                            id="userId"
+                                            name="userId"
+                                            maxlength="50"
+                                            value=""
+                                        />
+                                        <button
+                                            type="button"
+                                            class="idCheck siiru-btn siiru-btn-small siiru-ml10"
+                                        >
+                                            아이디 중복확인
+                                        </button>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        <span class="required">*</span>
+                                        <label for="passwd">비밀번호</label>
+                                    </dt>
+                                    <dd>
+                                        <input
+                                            type="password"
+                                            class="small2 alphanumPass nothangul"
+                                            id="passwd"
+                                            name="passwd"
+                                            maxlength="20"
+                                            autocomplete="off"
+                                            value=""
+                                        />
+                                        <small>영문,숫자,특수문자(!@#$%^?*+=_~- 만 허용)를 혼합하여 8~20자 이내</small>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        <span class="required">*</span>
+                                        <label for="passwdConfirm">비밀번호 확인</label>
+                                    </dt>
+                                    <dd>
+                                        <input
+                                            type="password"
+                                            class="small2 alphanumPass nothangul"
+                                            id="passwdConfirm"
+                                            name="passwdConfirm"
+                                            maxlength="20"
+                                            autocomplete="off"
+                                            value=""
+                                        />
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        <span class="required">*</span>
+                                        <label for="userNm">이름</label>
+                                    </dt>
+                                    <dd>
+                                        <input
+                                            type="text"
+                                            class="small2 siiru-mr10"
+                                            id="userNm"
+                                            name="userNm"
+                                            maxlength="50"
+                                            value=""
+                                        />
+                                        <input
+                                            type="radio"
+                                            id="sex_M"
+                                            name="sex"
+                                            value="M"
+                                            checked
+                                        />
+                                        <label for="sex_M">남</label>
+                                        <input
+                                            type="radio"
+                                            id="sex_F"
+                                            name="sex"
+                                            value="F"
+                                        />
+                                        <label for="sex_F">여</label>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt><label for="ncnm">닉네임</label></dt>
+                                    <dd>
+                                        <input
+                                            type="text"
+                                            class="small2 siiru-mr10"
+                                            id="ncnm"
+                                            name="ncnm"
+                                            maxlength="50"
+                                            value=""
+                                        />
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt><label for="brthdy">생년월일</label></dt>
+                                    <dd>
+                                        <input
+                                            type="text"
+                                            class="maskDate nothangul small siiru-mr10"
+                                            id="brthdy"
+                                            name="brthdy"
+                                            maxlength="10"
+                                            value=""
+                                            placeholder="YYYY-MM-DD"
+                                        />
+                                        <input
+                                            type="radio"
+                                            id="lunSol_S"
+                                            name="lunSol"
+                                            value="S"
+                                            checked
+                                        />
+                                        <label for="lunSol_S">양력</label>
+                                        <input
+                                            type="radio"
+                                            id="lunSol_L"
+                                            name="lunSol"
+                                            value="L"
+                                        />
+                                        <label for="lunSol_L">음력</label>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt><label for="agrde">연령대</label></dt>
+                                    <dd>
+                                        <select
+                                            id="agrde"
+                                            name="agrde"
+                                            class="siiru-mt0"
+                                            title="연령대"
+                                        >
+                                            <option value="">연령대 선택</option>
+                                            <option value="10">10대</option>
+                                            <option value="20">20대</option>
+                                            <option value="30">30대</option>
+                                            <option value="40">40대</option>
+                                            <option value="50">50대</option>
+                                            <option value="60">60대 이상</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        <span class="required">*</span>
+                                        <label for="email">이메일</label>
+                                    </dt>
+                                    <dd>
+                                        <input
+                                            type="text"
+                                            id="email"
+                                            name="email"
+                                            maxlength="50"
+                                            value=""
+                                        />
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt><label for="telno">전화번호</label></dt>
+                                    <dd>
+                                        <input
+                                            type="text"
+                                            class="small2 nothangul"
+                                            id="telno"
+                                            name="telno"
+                                            maxlength="30"
+                                            value=""
+                                        />
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>
+                                        <span class="required">*</span>
+                                        <label for="mbtlnum">모바일번호</label>
+                                    </dt>
+                                    <dd>
+                                        <input
+                                            type="text"
+                                            class="small2 telText nothangul"
+                                            id="mbtlnum"
+                                            name="mbtlnum"
+                                            maxlength="14"
+                                            value=""
+                                        />
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt><label for="zip">주소</label></dt>
+                                    <dd>
+                                        <input
+                                            type="text"
+                                            class="small telText nothangul"
+                                            id="zip"
+                                            name="zip"
+                                            maxlength="7"
+                                            value=""
+                                            title="우편번호"
+                                            placeholder="우편번호"
+                                        />
+                                        <button
+                                            type="button"
+                                            class="zipFind siiru-btn siiru-btn-small siiru-ml10"
+                                        >
+                                            우편번호 찾기
+                                        </button>
+                                        <input
+                                            type="text"
+                                            class="siiru-mt5"
+                                            id="addr"
+                                            name="addr"
+                                            maxlength="50"
+                                            value=""
+                                            title="주소"
+                                            placeholder="주소"
+                                        />
+                                        <input
+                                            type="text"
+                                            class="siiru-mt5"
+                                            id="detailAddr"
+                                            name="detailAddr"
+                                            maxlength="50"
+                                            value=""
+                                            title="상세주소"
+                                            placeholder="상세주소"
+                                        />
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt><span class="label">지역</span></dt>
+                                    <dd>
+                                        <input
+                                            type="hidden"
+                                            id="areaCode"
+                                            name="areaCode"
+                                            value=""
+                                        />
+                                        <select
+                                            id="ctprvn"
+                                            name="ctprvn"
+                                            class="areaSelect"
+                                            data-arease="C"
+                                            title="시/도"
+                                        >
+                                            <option value="">시/도 선택</option>
+                                            <option value="11">서울특별시</option>
+                                            <option value="46">전라남도</option>
+                                        </select>
+                                        <select
+                                            id="signgu"
+                                            name="signgu"
+                                            class="areaSelect siiru-ml10"
+                                            data-arease="S"
+                                            title="시/군/구"
+                                        >
+                                            <option value="">시/군/구 선택</option>
+                                            <option value="46110">목포시</option>
+                                        </select>
+                                        <select
+                                            id="emd"
+                                            name="emd"
+                                            class="areaSelect siiru-ml10"
+                                            data-arease="D"
+                                            title="읍/면/동"
+                                        >
+                                            <option value="">읍/면/동 선택</option>
+                                            <option value="4611010100">상동</option>
+                                        </select>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt><span class="label">메일링유무</span></dt>
+                                    <dd>
+                                        <input
+                                            type="radio"
+                                            id="emailAt_Y"
+                                            name="emailAt"
+                                            value="Y"
+                                            checked
+                                        />
+                                        <label for="emailAt_Y">수신</label>
+                                        <input
+                                            type="radio"
+                                            id="emailAt_N"
+                                            name="emailAt"
+                                            value="N"
+                                        />
+                                        <label for="emailAt_N">수신안함</label>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt><span class="label">SMS 수신여부</span></dt>
+                                    <dd>
+                                        <input
+                                            type="radio"
+                                            id="smsAt_Y"
+                                            name="smsAt"
+                                            value="Y"
+                                            checked
+                                        />
+                                        <label for="smsAt_Y">수신</label>
+                                        <input
+                                            type="radio"
+                                            id="smsAt_N"
+                                            name="smsAt"
+                                            value="N"
+                                        />
+                                        <label for="smsAt_N">수신안함</label>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt><span class="label">프로필 이미지</span></dt>
+                                    <dd>
+                                        <input
+                                            type="radio"
+                                            id="proflSe_I"
+                                            name="proflSe"
+                                            value="I"
+                                            checked
+                                        />
+                                        <label for="proflSe_I">이미지</label>
+                                        <input
+                                            type="radio"
+                                            id="proflSe_L"
+                                            name="proflSe"
+                                            value="L"
+                                        />
+                                        <label for="proflSe_L">URL</label>
+                                        <input
+                                            type="text"
+                                            id="proflUrl"
+                                            name="proflUrl"
+                                            maxlength="150"
+                                            class="siiru-mt10"
+                                            value=""
+                                            title="프로필 링크 URL"
+                                            placeholder="http://"
+                                            disabled
+                                        />
+                                        <input
+                                            type="file"
+                                            accept="image/*"
+                                            id="proflImage"
+                                            name="proflImage"
+                                            class="file siiru-mt10"
+                                            title="프로필 이미지"
+                                        />
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="siiru-btnSet siiru-tc siiru-mt10">
+                                <button
+                                    type="button"
+                                    id="joinFormPrev"
+                                    class="siiru-btn siiru-btn-default"
+                                >
+                                    이전단계
+                                </button>
+                                <button
+                                    type="button"
+                                    id="joinFormSubmit"
+                                    class="siiru-btn siiru-btn-primary siiru-ml10"
+                                >
+                                    회원가입
+                                </button>
+                                <a
+                                    href="login.html"
+                                    class="siiru-btn siiru-btn-default siiru-ml10"
+                                    >취소</a
+                                >
+                            </div>
+                        </div>
 
-          <p class="form-notice">
-            <span class="req">*</span> 표시는 필수 입력 항목입니다.
-          </p>
-
-          <!-- 아이디 -->
-          <div class="in-field" style="margin-top:20px;">
-            <label class="in-label" for="userId"><span class="req" style="color:var(--hn-red);">*</span> 아이디</label>
-            <div class="form-row">
-              <input type="text" id="userId" name="userId" class="in-text" placeholder="영문·숫자 4~16자">
-              <button type="button" class="btn-hn ghost" style="white-space:nowrap; flex-shrink:0;">중복확인</button>
+                        <!-- S5: 가입 완료 (joinCustom.jsp S5) -->
+                        <div id="join-step-S5" style="display: none">
+                            <h5 class="stepTitle">STEP4 회원가입완료</h5>
+                            <div class="complete">
+                                <p>
+                                    회원가입 신청이 완료되었습니다.<br />관리자(노회 서기) 승인이 완료되면 홈페이지 이용이 가능합니다.<br />감사합니다.
+                                </p>
+                            </div>
+                            <div class="siiru-btnSet siiru-tc">
+                                <a
+                                    href="/index.html"
+                                    class="siiru-btn siiru-btn-primary"
+                                    >메인</a
+                                >
+                                <a
+                                    href="login.html"
+                                    class="siiru-btn siiru-btn-default siiru-ml10"
+                                    >로그인</a
+                                >
+                            </div>
+                        </div>
+                    </form>
+                </section>
             </div>
-          </div>
-
-          <!-- 비밀번호 -->
-          <div class="in-field" style="margin-top:14px;">
-            <label class="in-label" for="passwd"><span class="req" style="color:var(--hn-red);">*</span> 비밀번호</label>
-            <input type="password" id="passwd" name="passwd" class="in-text" placeholder="영문·숫자·특수문자 8~20자">
-          </div>
-          <div class="in-field" style="margin-top:10px;">
-            <label class="in-label" for="passwdConfirm"><span class="req" style="color:var(--hn-red);">*</span> 비밀번호 확인</label>
-            <input type="password" id="passwdConfirm" name="passwdConfirm" class="in-text" placeholder="비밀번호를 다시 입력하세요">
-          </div>
-
-          <!-- 이름 / 성별 -->
-          <div class="in-field" style="margin-top:14px;">
-            <label class="in-label" for="userNm"><span class="req" style="color:var(--hn-red);">*</span> 이름</label>
-            <input type="text" id="userNm" name="userNm" class="in-text" placeholder="실명을 입력하세요">
-          </div>
-
-          <!-- 이메일 -->
-          <div class="in-field" style="margin-top:14px;">
-            <label class="in-label" for="email"><span class="req" style="color:var(--hn-red);">*</span> 이메일</label>
-            <input type="email" id="email" name="email" class="in-text" placeholder="example@email.com">
-          </div>
-
-          <!-- 연락처 -->
-          <div class="in-field" style="margin-top:14px;">
-            <label class="in-label" for="mbtlnum"><span class="req" style="color:var(--hn-red);">*</span> 연락처</label>
-            <input type="tel" id="mbtlnum" name="mbtlnum" class="in-text" placeholder="010-0000-0000">
-          </div>
-
-          <!-- 소속 교회 -->
-          <div class="in-field" style="margin-top:14px;">
-            <label class="in-label" for="church">소속 교회</label>
-            <input type="text" id="church" name="church" class="in-text" placeholder="소속 교회명">
-          </div>
-
-          <!-- 직분 -->
-          <div class="in-field" style="margin-top:14px;">
-            <label class="in-label" for="position">직분</label>
-            <select id="position" name="position" class="in-select">
-              <option value="">선택</option>
-              <option>목사</option>
-              <option>장로</option>
-              <option>집사</option>
-              <option>권사</option>
-              <option>성도</option>
-            </select>
-          </div>
-
-          <!-- 약관 동의 -->
-          <div style="margin-top:28px; border-top:1px solid var(--hn-line); padding-top:24px;">
-            <div class="in-label" style="margin-bottom:10px;">이용약관 동의</div>
-            <div class="agree-box">
-              본 약관은 대한예수교장로회(합동) 호남노회 홈페이지 이용에 관한 사항을 규정합니다. 서비스를 이용하시면 본 약관에 동의하는 것으로 간주됩니다. 상세 내용은 이용약관 페이지를 참조하시기 바랍니다.
-            </div>
-            <label class="agree-check">
-              <input type="checkbox" name="agree1" value="Y">
-              이용약관에 동의합니다. (필수)
-            </label>
-          </div>
-
-          <div style="margin-top:18px;">
-            <div class="in-label" style="margin-bottom:10px;">개인정보처리방침 동의</div>
-            <div class="agree-box">
-              노회는 회원가입 시 수집한 개인정보를 서비스 제공 목적으로만 이용하며, 관계 법령에 따라 보호합니다. 상세 내용은 개인정보처리방침 페이지를 참조하시기 바랍니다.
-            </div>
-            <label class="agree-check">
-              <input type="checkbox" name="agree2" value="Y">
-              개인정보처리방침에 동의합니다. (필수)
-            </label>
-          </div>
-
-          <div class="form-btns">
-            <button type="submit" class="btn-hn primary" style="flex:1; justify-content:center; padding:13px;">
-              <i class="fa-regular fa-user-check"></i> 가입하기
-            </button>
-            <a href="login.html" class="btn-hn ghost">취소</a>
-          </div>
-
-        </form>
-      </section>
-
+        </section>
     </div>
-  </main>
+</main>
 
-  <div data-include="../include/footer.html"></div>
+<div data-include="../include/footer.html"></div>
+
+<script>
+    (function () {
+        var STEPS = ["S1", "S2", "S4", "S5"];
+
+        function goStep(step) {
+            STEPS.forEach(function (s) {
+                var stepEl = document.getElementById("join-step-" + s);
+                if (stepEl) {
+                    stepEl.style.display = s === step ? "block" : "none";
+                }
+                var tab = document.getElementById("step-tab-" + s);
+                if (tab) {
+                    tab.className = s === step ? "active" : "";
+                }
+            });
+            var sl = document.getElementById("stepLevel");
+            if (sl) sl.value = step;
+        }
+
+        goStep("S1");
+
+        document.querySelector(".joinStartBtn").addEventListener("click", function () {
+            goStep("S2");
+        });
+
+        document.getElementById("agreeAllBtn").addEventListener("click", function () {
+            document.getElementById("agree1").checked = true;
+            document.getElementById("agree2").checked = true;
+        });
+
+        document.getElementById("joinAgreeNext").addEventListener("click", function () {
+            if (!document.getElementById("agree1").checked) {
+                alert("회원약관에 동의하지 않으셨습니다.");
+                document.getElementById("agree1").focus();
+                return;
+            }
+            if (!document.getElementById("agree2").checked) {
+                alert("개인정보보호방침에 동의하지 않으셨습니다.");
+                document.getElementById("agree2").focus();
+                return;
+            }
+            goStep("S4");
+        });
+
+        document.getElementById("joinFormPrev").addEventListener("click", function () {
+            goStep("S2");
+        });
+
+        document.querySelector(".idCheck").addEventListener("click", function () {
+            var uid = document.getElementById("userId").value.trim();
+            if (!uid) {
+                alert("아이디를 입력해 주세요.");
+                document.getElementById("userId").focus();
+                return;
+            }
+            alert("시안 페이지: 실서버에서는 중복확인 API가 호출됩니다.");
+        });
+
+        document.querySelector(".zipFind").addEventListener("click", function () {
+            alert("시안 페이지: 실서버에서는 다음 우편번호 API가 연동됩니다.");
+        });
+
+        var proflUrl = document.getElementById("proflUrl");
+        var proflImage = document.getElementById("proflImage");
+        document.querySelectorAll('input[name="proflSe"]').forEach(function (r) {
+            r.addEventListener("change", function () {
+                if (document.getElementById("proflSe_L").checked) {
+                    proflUrl.disabled = false;
+                    proflImage.disabled = true;
+                } else {
+                    proflUrl.disabled = true;
+                    proflImage.disabled = false;
+                }
+            });
+        });
+
+        document.getElementById("joinFormSubmit").addEventListener("click", function () {
+            var userId = document.getElementById("userId").value.trim();
+            var passwd = document.getElementById("passwd").value;
+            var passwdConfirm = document.getElementById("passwdConfirm").value;
+            var userNm = document.getElementById("userNm").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var mbtlnum = document.getElementById("mbtlnum").value.trim();
+
+            if (!userId) {
+                alert("아이디를 입력해 주세요.");
+                document.getElementById("userId").focus();
+                return;
+            }
+            if (!passwd) {
+                alert("비밀번호를 입력해 주세요.");
+                document.getElementById("passwd").focus();
+                return;
+            }
+            if (!passwdConfirm) {
+                alert("비밀번호를 한번 더 입력해 주세요.");
+                document.getElementById("passwdConfirm").focus();
+                return;
+            }
+            if (passwd !== passwdConfirm) {
+                alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+                document.getElementById("passwdConfirm").value = "";
+                document.getElementById("passwdConfirm").focus();
+                return;
+            }
+            if (passwd.length < 8 || passwd.length > 20) {
+                alert("비밀번호는 8~20자 이내로 입력해 주세요.");
+                document.getElementById("passwd").focus();
+                return;
+            }
+            if (!userNm) {
+                alert("이름을 입력해 주세요.");
+                document.getElementById("userNm").focus();
+                return;
+            }
+            if (!email) {
+                alert("이메일을 입력해 주세요.");
+                document.getElementById("email").focus();
+                return;
+            }
+            if (!mbtlnum) {
+                alert("모바일번호를 입력해 주세요.");
+                document.getElementById("mbtlnum").focus();
+                return;
+            }
+
+            goStep("S5");
+        });
+    })();
+</script>

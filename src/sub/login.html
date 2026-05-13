@@ -1,58 +1,102 @@
-  <div data-include="../include/header.html"></div>
+<div data-include="../include/header.html"></div>
 
-  <main id="main-content">
-
+<main id="main-content">
     <div class="hn-page-head">
-      <div class="inner">
-        <div class="breadcrumb-hn">
-          <span class="home"><i class="fa-regular fa-house"></i> HOME</span>
-          <i class="fa-regular fa-chevron-right"></i>
-          <span>부가서비스</span>
-          <i class="fa-regular fa-chevron-right"></i>
-          <span class="cur">로그인</span>
+        <div class="inner">
+            <div class="breadcrumb-hn">
+                <span class="home"
+                    ><i class="fa-regular fa-house"></i> HOME</span
+                >
+                <i class="fa-regular fa-chevron-right"></i>
+                <span>부가서비스</span>
+                <i class="fa-regular fa-chevron-right"></i>
+                <span class="cur">로그인</span>
+            </div>
+            <h1>로그인</h1>
+            <p class="desc"></p>
         </div>
-        <h1>로그인</h1>
-        <p class="desc">호남노회 홈페이지 회원 로그인 페이지입니다.</p>
-      </div>
     </div>
-
     <div class="sub-layout">
+        <div data-include="../include/sidebar_extra.html"></div>
+        <section class="content">
+            <div class="siiru-loginWrap">
+                <div class="loginWrap">
+                    <div class="alert-hn info">
+                        <i class="fa-regular fa-circle-info"></i>
+                        <div>승인된 노회원만 로그인 가능합니다.</div>
+                    </div>
 
-      <div data-include="../include/sidebar_extra.html"></div>
-      <section class="content">
+                    <form
+                        name="siiru-loginForm"
+                        id="siiru-loginForm"
+                        method="post"
+                        action="#"
+                    >
+                        <input type="hidden" name="pageSe" value="L" />
+                        <input type="hidden" name="siteId" value="" />
+                        <input type="hidden" name="pageId" value="" />
+                        <input type="hidden" name="redirect" value="" />
 
-        <form action="#" method="post" class="form-box">
+                        <div class="inputWrap">
+                            <dl>
+                                <dt><label for="userId">아이디</label></dt>
+                                <dd>
+                                    <input
+                                        type="text"
+                                        id="userId"
+                                        name="userId"
+                                        value=""
+                                        placeholder="아이디를 입력하세요"
+                                        autocomplete="username"
+                                    />
+                                    <input
+                                        type="checkbox"
+                                        id="idSave"
+                                        name="idSave"
+                                        value="Y"
+                                    />
+                                    <label for="idSave">아이디 저장</label>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><label for="passwd">비밀번호</label></dt>
+                                <dd>
+                                    <input
+                                        type="password"
+                                        id="passwd"
+                                        name="passwd"
+                                        value=""
+                                        placeholder="비밀번호를 입력하세요"
+                                        autocomplete="current-password"
+                                    />
+                                </dd>
+                            </dl>
+                            <div class="siiru-btnSet">
+                                <button
+                                    type="submit"
+                                    id="loginSubmit"
+                                    class="siiru-btn siiru-btn-primary"
+                                >
+                                    로그인
+                                </button>
+                            </div>
+                        </div>
+                    </form>
 
-          <div class="in-field">
-            <label class="in-label" for="userId">아이디</label>
-            <input type="text" id="userId" name="userId" class="in-text" placeholder="아이디를 입력하세요" autocomplete="username">
-          </div>
-
-          <div class="in-field" style="margin-top:14px;">
-            <label class="in-label" for="passwd">비밀번호</label>
-            <input type="password" id="passwd" name="passwd" class="in-text" placeholder="비밀번호를 입력하세요" autocomplete="current-password">
-          </div>
-
-          <div style="display:flex; align-items:center; gap:8px; margin-top:14px;">
-            <input type="checkbox" id="idSave" name="idSave" style="width:16px;height:16px;accent-color:var(--hn-blue);">
-            <label for="idSave" style="font-size:15px; color:var(--hn-text-3); cursor:pointer;">아이디 저장</label>
-          </div>
-
-          <div class="form-btns">
-            <button type="submit" class="btn-hn primary" style="flex:1; justify-content:center; padding:13px;">
-              <i class="fa-regular fa-arrow-right-to-bracket"></i> 로그인
-            </button>
-          </div>
-
-          <div class="form-links">
-            <a href="join.html"><i class="fa-regular fa-user-plus"></i> 회원가입</a>
-            <a href="finduser.html">아이디/비밀번호 찾기</a>
-          </div>
-
-        </form>
-      </section>
-
+                    <ul class="joinLayer">
+                        <li>
+                            <a href="join.html" class="siiru-btn">회원가입</a>
+                        </li>
+                        <li>
+                            <a href="finduser.html" class="siiru-btn"
+                                >아이디/비밀번호 찾기</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </div>
-  </main>
+</main>
 
-  <div data-include="../include/footer.html"></div>
+<div data-include="../include/footer.html"></div>

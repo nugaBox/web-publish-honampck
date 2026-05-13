@@ -1,99 +1,87 @@
 <div class="siiru-boardWrap">
 
-  <!-- 숨김 폼 -->
+  <!-- 검색 상태 유지용 hidden form -->
   <form id="boardSearchForm" name="boardSearchForm" method="post">
     <input type="hidden" name="pageId" value="">
-    <input type="hidden" id="movePage" name="movePage" value="1">
+    <input type="hidden" id="movePage" name="movePage" value="">
     <input type="hidden" id="boardId" name="boardId" value="">
-    <input type="hidden" id="searchCtgry" name="searchCtgry" value="">
-    <input type="hidden" id="searchCtgryNm" name="searchCtgryNm" value="">
-    <input type="hidden" id="searchSDe" name="searchSDe" value="">
-    <input type="hidden" id="searchEDe" name="searchEDe" value="">
     <input type="hidden" id="searchTy" name="searchTy" value="">
     <input type="hidden" id="searchQuery" name="searchQuery" value="">
   </form>
 
-  <!-- 게시글 등록 폼 -->
   <form id="boardForm" name="boardForm" method="post" enctype="multipart/form-data">
     <input type="hidden" id="action" name="action" value="insert">
     <input type="hidden" id="seq" name="seq" value="">
+    <input type="hidden" id="levelSn" name="levelSn" value="0">
 
     <div class="siiruBoard-write">
-
-      <!-- 분류 (JSP: bare select) -->
+      <!-- 분류 -->
       <dl>
         <dt><span>*</span> <label for="ctgrySn">분류</label></dt>
         <dd>
-          <select id="ctgrySn" name="ctgrySn" class="small2">
-            <option value="">선택하세요</option>
-            <option value="1">학술행사</option>
-            <option value="2">세미나</option>
-            <option value="3">특강</option>
-            <option value="4">기타</option>
+          <select id="ctgrySn" name="ctgrySn">
+            <option value="">선택</option>
+            <option value="EVENT">행사</option>
+            <option value="WORSHIP">예배</option>
+            <option value="SERVICE">봉사</option>
+            <option value="EDUCATION">교육</option>
           </select>
         </dd>
       </dl>
-
-      <!-- 제목 (JSP: bare input) -->
+      <!-- 제목 -->
       <dl>
         <dt><span>*</span> <label for="boardSj">제목</label></dt>
-        <dd>
-          <input type="text" id="boardSj" name="boardSj" maxlength="200" placeholder="제목을 입력하세요">
-        </dd>
+        <dd><input type="text" id="boardSj" name="boardSj" maxlength="200" value=""></dd>
       </dl>
-
-      <!-- 작성자 (JSP: class="small2") -->
+      <!-- 작성자 -->
       <dl>
         <dt><span>*</span> <label for="userNm">작성자</label></dt>
+        <dd><input type="text" class="small2" id="userNm" name="userNm" maxlength="50" value=""></dd>
+      </dl>
+      <!-- 공지사항 설정 -->
+      <dl>
+        <dt><label for="noticeAt">공지사항</label></dt>
         <dd>
-          <input type="text" class="small2" id="userNm" name="userNm" maxlength="50" placeholder="작성자명">
+          <input type="checkbox" id="noticeAt" name="noticeAt" value="Y">
+          <label for="noticeAt"> 공지로 등록 </label>
         </dd>
       </dl>
-
-      <!-- 설명 (JSP: bare textarea) -->
+      <!-- 첨부파일 (썸네일 체크박스 포함) -->
       <dl>
-        <dt><label for="boardCn">설명</label></dt>
-        <dd>
-          <textarea id="boardCn" name="boardCn" rows="5" placeholder="앨범 설명을 입력하세요. (선택)"></textarea>
-        </dd>
-      </dl>
-
-      <!-- 대표 이미지 -->
-      <dl>
-        <dt><label>대표 이미지</label></dt>
-        <dd>
-          <div class="thumb-preview" onclick="document.getElementById('thumbInput').click()">
-            <i class="fa-solid fa-image"></i>
-            <span>클릭하여 대표 이미지 선택</span>
-            <small>16:9 비율 권장 · JPG, PNG</small>
+        <dt class="siiru-pt10">첨부파일 <span class="btnLayer"><button class="fileAdd siiru-btn siiru-btn-small" type="button">추가</button></span></dt>
+        <dd class="fileChk">
+          <div class="fileLayer">
+            <div class="fileInfo" style="display:none;">
+              <input type="hidden" name="fileSn[]" value="0">
+              <input type="hidden" name="rlFileOldNm[]" value="">
+              <input type="hidden" name="fileOldNm[]" value="">
+              <input type="hidden" name="insrtAt[]" value="N">
+              <input type="hidden" name="fileDelAt[]" value="N">
+            </div>
+            <input type="file" name="fileNm0" class="file" title="파일 선택">
+            <input type="checkbox" id="insrtFile0" name="insrtChk[]" data-input="insrt" class="fileCheckbox" value="Y">
+            <label for="insrtFile0"> 본문에삽입</label>
+            <input type="checkbox" id="thumbFile0" name="thumbChk[]" data-input="thumb" class="fileCheckbox" value="Y">
+            <label for="thumbFile0"> 썸네일로사용</label>
+            <textarea name="fileAlt[]" rows="3" class="siiru-mt10" title="파일 설명"></textarea>
+            <small>최대 20MB · JPG, PNG, GIF 등 이미지 파일</small>
           </div>
-          <input type="file" id="thumbInput" name="thumbFile" class="siiru-hidden" accept="image/*">
+          <div id="fileForm"></div>
         </dd>
       </dl>
-
-      <!-- 사진 업로드 -->
+      <!-- 본문 -->
       <dl>
-        <dt><span>*</span> <label>사진 업로드</label></dt>
-        <dd>
-          <div class="file-upload-drop" onclick="document.getElementById('photoInput').click()">
-            <i class="fa-solid fa-cloud-arrow-up"></i>
-            <p>사진 파일을 드래그하거나 클릭하여 업로드<br><small>여러 파일 선택 가능 · JPG, PNG, WEBP · 각 최대 10MB</small></p>
-          </div>
-          <input type="file" id="photoInput" name="photo[]" class="siiru-hidden" accept="image/*" multiple>
-          <ul class="file-list" id="photoList"></ul>
+        <dt class="siiru-hidden">내용</dt>
+        <dd class="fullCont">
+          <textarea id="boardCn" name="boardCn" rows="20" style="width:100%;height:400px;" title="내용"></textarea>
         </dd>
       </dl>
-
     </div>
 
     <!-- 버튼 -->
-    <div class="siiruBoard-btnArea">
-      <button type="submit" class="siiru-btn siiru-btn-primary">
-        <i class="fa-solid fa-check me-1"></i>등록
-      </button>
-      <a href="list.html" class="siiru-btn">
-        <i class="fa-solid fa-xmark me-1"></i>취소
-      </a>
+    <div class="siiru-tc siiru-mb20">
+      <input type="submit" class="siiru-btn siiru-btn-primary" value="저장">
+      <a href="list.html" class="siiru-btn siiru-ml10">목록</a>
     </div>
   </form>
 

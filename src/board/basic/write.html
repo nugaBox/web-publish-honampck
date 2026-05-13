@@ -1,79 +1,86 @@
-<div class="hn-board-wrap">
+<div class="siiru-boardWrap">
+
+  <!-- 검색 상태 유지용 hidden form -->
+  <form id="boardSearchForm" name="boardSearchForm" method="post">
+    <input type="hidden" name="pageId" value="">
+    <input type="hidden" id="movePage" name="movePage" value="">
+    <input type="hidden" id="boardId" name="boardId" value="">
+    <input type="hidden" id="searchTy" name="searchTy" value="">
+    <input type="hidden" id="searchQuery" name="searchQuery" value="">
+  </form>
 
   <form id="boardForm" name="boardForm" method="post" enctype="multipart/form-data">
     <input type="hidden" id="action" name="action" value="insert">
     <input type="hidden" id="seq" name="seq" value="">
-    <input type="hidden" id="boardId" name="boardId" value="">
+    <input type="hidden" id="levelSn" name="levelSn" value="0">
 
-    <table class="btable" style="border-top:2px solid var(--hn-text);">
-      <colgroup>
-        <col style="width:140px">
-        <col>
-      </colgroup>
-      <tbody>
-        <tr>
-          <th scope="row" style="text-align:left;background:var(--hn-bg-alt);padding:14px 18px;font-size:13px;font-weight:700;color:var(--hn-text-2);">
-            분류
-          </th>
-          <td style="text-align:left;padding:12px 18px;">
-            <select name="ctgrySn" class="b-toolbar select" style="min-width:160px;">
-              <option value="">분류 선택</option>
-              <option value="notice">노회공지</option>
-              <option value="urgent">긴급공지</option>
-              <option value="recruit">채용공모</option>
-              <option value="tender">입찰공고</option>
-              <option value="general">교단공지</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row" style="text-align:left;background:var(--hn-bg-alt);padding:14px 18px;font-size:13px;font-weight:700;color:var(--hn-text-2);">
-            제목 <span style="color:var(--hn-red);">*</span>
-          </th>
-          <td style="text-align:left;padding:12px 18px;">
-            <input type="text" name="boardSj" placeholder="제목을 입력하세요" required
-              style="width:100%;border:1px solid var(--hn-line);padding:9px 14px;font-size:14px;font-family:inherit;outline:0;">
-          </td>
-        </tr>
-        <tr>
-          <th scope="row" style="text-align:left;background:var(--hn-bg-alt);padding:14px 18px;font-size:13px;font-weight:700;color:var(--hn-text-2);">
-            공지 설정
-          </th>
-          <td style="text-align:left;padding:12px 18px;font-size:13px;">
-            <label style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;">
-              <input type="checkbox" name="noticeAt" value="Y"> 공지로 등록
-            </label>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row" style="text-align:left;background:var(--hn-bg-alt);padding:14px 18px;font-size:13px;font-weight:700;color:var(--hn-text-2);vertical-align:top;padding-top:20px;">
-            본문 <span style="color:var(--hn-red);">*</span>
-          </th>
-          <td style="text-align:left;padding:12px 18px;">
-            <textarea name="boardCn" rows="14" placeholder="내용을 입력하세요"
-              style="width:100%;border:1px solid var(--hn-line);padding:12px 14px;font-size:14px;font-family:inherit;outline:0;resize:vertical;"></textarea>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row" style="text-align:left;background:var(--hn-bg-alt);padding:14px 18px;font-size:13px;font-weight:700;color:var(--hn-text-2);">
-            첨부파일
-          </th>
-          <td style="text-align:left;padding:12px 18px;font-size:13px;">
-            <input type="file" name="file" multiple
-              style="border:1px solid var(--hn-line);padding:10px 14px;font-size:13px;width:100%;cursor:pointer;">
-            <div style="margin-top:6px;font-size:12px;color:var(--hn-text-3);">
-              최대 20MB · PDF, HWP, Word, Excel, 이미지 등
+    <div class="siiruBoard-write">
+      <!-- 분류 -->
+      <dl>
+        <dt><span>*</span> <label for="ctgrySn">분류</label></dt>
+        <dd>
+          <select id="ctgrySn" name="ctgrySn">
+            <option value="">선택</option>
+            <option value="NOTICE">노회공지</option>
+            <option value="URGENT">긴급공지</option>
+            <option value="RECRUIT">채용공모</option>
+            <option value="TENDER">입찰공고</option>
+            <option value="GENERAL">교단공지</option>
+          </select>
+        </dd>
+      </dl>
+      <!-- 제목 -->
+      <dl>
+        <dt><span>*</span> <label for="boardSj">제목</label></dt>
+        <dd><input type="text" id="boardSj" name="boardSj" maxlength="200" value=""></dd>
+      </dl>
+      <!-- 작성자 -->
+      <dl>
+        <dt><span>*</span> <label for="userNm">작성자</label></dt>
+        <dd><input type="text" class="small2" id="userNm" name="userNm" maxlength="50" value=""></dd>
+      </dl>
+      <!-- 공지사항 설정 -->
+      <dl>
+        <dt><label for="noticeAt">공지사항</label></dt>
+        <dd>
+          <input type="checkbox" id="noticeAt" name="noticeAt" value="Y">
+          <label for="noticeAt"> 공지로 등록 </label>
+        </dd>
+      </dl>
+      <!-- 첨부파일 -->
+      <dl>
+        <dt class="siiru-pt10">첨부파일 <span class="btnLayer"><button class="fileAdd siiru-btn siiru-btn-small" type="button">추가</button></span></dt>
+        <dd class="fileChk">
+          <div class="fileLayer">
+            <div class="fileInfo" style="display:none;">
+              <input type="hidden" name="fileSn[]" value="0">
+              <input type="hidden" name="rlFileOldNm[]" value="">
+              <input type="hidden" name="fileOldNm[]" value="">
+              <input type="hidden" name="insrtAt[]" value="N">
+              <input type="hidden" name="fileDelAt[]" value="N">
             </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <input type="file" name="fileNm0" class="file" title="파일 선택">
+            <input type="checkbox" id="insrtFile0" name="insrtChk[]" data-input="insrt" class="fileCheckbox" value="Y">
+            <label for="insrtFile0"> 본문에삽입</label>
+            <textarea name="fileAlt[]" rows="3" class="siiru-mt10" title="파일 설명"></textarea>
+            <small>최대 20MB · PDF, HWP, Word, Excel, 이미지 등</small>
+          </div>
+          <div id="fileForm"></div>
+        </dd>
+      </dl>
+      <!-- 본문 -->
+      <dl>
+        <dt class="siiru-hidden">내용</dt>
+        <dd class="fullCont">
+          <textarea id="boardCn" name="boardCn" rows="20" style="width:100%;height:400px;" title="내용"></textarea>
+        </dd>
+      </dl>
+    </div>
 
-    <div class="btable-foot" style="padding-top:24px;">
-      <a href="list.html" class="btn-hn ghost"><i class="fa-regular fa-list"></i> 취소</a>
-      <button type="submit" class="btn-hn primary">
-        <i class="fa-regular fa-floppy-disk"></i> 등록
-      </button>
+    <!-- 버튼 -->
+    <div class="siiru-tc siiru-mb20">
+      <input type="submit" class="siiru-btn siiru-btn-primary" value="저장">
+      <a href="list.html" class="siiru-btn siiru-ml10">목록</a>
     </div>
   </form>
 

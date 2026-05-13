@@ -1,173 +1,175 @@
-<div class="hn-board-wrap">
+<div class="siiru-boardWrap">
 
-  <!-- 툴바: 필터 + 검색 -->
-  <div class="b-toolbar">
-    <div class="left">
-      <span>카테고리</span>
-      <select class="select" aria-label="카테고리 선택">
-        <option>전체</option>
-        <option>행사</option>
-        <option>예배</option>
-        <option>봉사</option>
-        <option>교육</option>
+  <!-- 검색 폼 -->
+  <div class="siiruBoard-search">
+    <form id="boardSearchForm" name="boardSearchForm" method="post" action="#">
+      <input type="hidden" name="pageId" value="">
+      <input type="hidden" id="movePage" name="movePage" value="1">
+      <input type="hidden" id="boardId" name="boardId" value="">
+      <div class="dateSearch">
+        <input type="radio" id="dateSet0" name="searchDateSet" value="0">
+        <label for="dateSet0"> 오늘 </label>
+        <input type="radio" id="dateSet1" name="searchDateSet" value="6">
+        <label for="dateSet1"> 일주일 </label>
+        <input type="radio" id="dateSet2" name="searchDateSet" value="30">
+        <label for="dateSet2"> 1개월 </label>
+        <input type="radio" id="dateSet3" name="searchDateSet" value="90">
+        <label for="dateSet3"> 3개월 </label>
+        <input type="radio" id="dateSet4" name="searchDateSet" value="180">
+        <label for="dateSet4"> 6개월 </label>
+        <input type="radio" id="dateSet5" name="searchDateSet" value="365">
+        <label for="dateSet5"> 1년 </label>
+        <input type="text" class="maskDate" id="searchSDe" name="searchSDe" maxlength="10" placeholder="검색 시작일">
+        ~
+        <input type="text" class="maskDate" id="searchEDe" name="searchEDe" maxlength="10" placeholder="검색 종료일">
+      </div>
+      <select id="searchCtgry" name="searchCtgry" title="분류 선택">
+        <option value="">전체 분류</option>
+        <option value="EVENT">행사</option>
+        <option value="WORSHIP">예배</option>
+        <option value="SERVICE">봉사</option>
+        <option value="EDUCATION">교육</option>
       </select>
-      <span style="margin-left:8px;">정렬</span>
-      <select class="select" aria-label="정렬 기준">
-        <option>최신순</option>
-        <option>조회순</option>
-        <option>사진수</option>
+      <select id="searchTy" name="searchTy" title="검색 조건">
+        <option value="T">제목</option>
+        <option value="TC">제목+내용</option>
+        <option value="N">작성자</option>
       </select>
-    </div>
-    <div class="search-wrap">
-      <input type="text" placeholder="앨범 제목 검색" aria-label="검색어">
-      <button type="button"><i class="fa-regular fa-magnifying-glass"></i> 검색</button>
-    </div>
+      <input type="text" id="searchQuery" name="searchQuery" placeholder="검색어를 입력하세요" title="검색어">
+      <button type="submit">검색</button>
+    </form>
   </div>
 
-  <!-- 앨범 그리드 -->
-  <div class="album-grid">
+  <!-- 목록 정보 -->
+  <div class="siiruBoard-listInfo">
+    <p>전체 : 42 / 페이지 : 5 [today : 1]</p>
+  </div>
 
-    <article class="album-card">
-      <div class="album-thumb">
-        <img src="/assets/images/board/album_01.png" alt="제34회 호남노회 청년연합회 정기 수련회">
-        <span class="cat b">행사</span>
-      </div>
-      <div class="album-body">
-        <a href="view.html" class="t">제34회 호남노회 청년연합회 정기 수련회</a>
-        <div class="meta">
-          <span>2026.04.09 · 청년부</span>
-          <span class="views"><i class="fa-regular fa-eye"></i> 842</span>
-        </div>
-      </div>
-    </article>
+  <!-- 갤러리 그리드 -->
+  <div class="siiruBoard-gallery">
 
-    <article class="album-card">
-      <div class="album-thumb">
-        <img src="/assets/images/board/album_02.png" alt="제107회 정기노회 개회예배">
-        <span class="cat g">예배</span>
+    <div class="siiruBoard-galleryBox">
+      <div class="photoBox">
+        <a href="view.html">
+          <img src="/assets/images/board/album_01.png" alt="제34회 호남노회 청년연합회 정기 수련회">
+        </a>
       </div>
-      <div class="album-body">
-        <a href="view.html" class="t">제107회 정기노회 개회예배</a>
-        <div class="meta">
-          <span>2026.03.18 · 사무처</span>
-          <span class="views"><i class="fa-regular fa-eye"></i> 1,203</span>
-        </div>
-      </div>
-    </article>
+      <dl>
+        <dt class="new">
+          <a href="view.html" data-view="G" data-seq="42">제34회 호남노회 청년연합회 정기 수련회</a>
+        </dt>
+        <dd class="siiru-tr">청년부 <span>2026.04.09</span></dd>
+      </dl>
+    </div>
 
-    <article class="album-card">
-      <div class="album-thumb">
-        <img src="/assets/images/board/album_03.png" alt="광주 동구 독거어르신 반찬나눔 봉사">
-        <span class="cat b">봉사</span>
+    <div class="siiruBoard-galleryBox">
+      <div class="photoBox">
+        <a href="view.html">
+          <img src="/assets/images/board/album_02.png" alt="제107회 정기노회 개회예배">
+        </a>
       </div>
-      <div class="album-body">
-        <a href="view.html" class="t">광주 동구 독거어르신 반찬나눔 봉사</a>
-        <div class="meta">
-          <span>2026.03.14 · 사회봉사부</span>
-          <span class="views"><i class="fa-regular fa-eye"></i> 512</span>
-        </div>
-      </div>
-    </article>
+      <dl>
+        <dt>
+          <a href="view.html" data-view="G" data-seq="41">제107회 정기노회 개회예배</a>
+        </dt>
+        <dd class="siiru-tr">사무처 <span>2026.03.18</span></dd>
+      </dl>
+    </div>
 
-    <article class="album-card">
-      <div class="album-thumb">
-        <img src="/assets/images/board/album_04.png" alt="목회자·사모 영성 수련회">
-        <span class="cat g">교육</span>
+    <div class="siiruBoard-galleryBox">
+      <div class="photoBox">
+        <a href="view.html">
+          <img src="/assets/images/board/album_03.png" alt="광주 동구 독거어르신 반찬나눔 봉사">
+        </a>
       </div>
-      <div class="album-body">
-        <a href="view.html" class="t">목회자·사모 영성 수련회</a>
-        <div class="meta">
-          <span>2026.03.05 · 교육부</span>
-          <span class="views"><i class="fa-regular fa-eye"></i> 687</span>
-        </div>
-      </div>
-    </article>
+      <dl>
+        <dt>
+          <a href="view.html" data-view="G" data-seq="40">광주 동구 독거어르신 반찬나눔 봉사</a>
+        </dt>
+        <dd class="siiru-tr">사회봉사부 <span>2026.03.14</span></dd>
+      </dl>
+    </div>
 
-    <article class="album-card">
-      <div class="album-thumb">
-        <img src="/assets/images/board/album_05.png" alt="여전도회 연합회 정기총회">
-        <span class="cat b">행사</span>
+    <div class="siiruBoard-galleryBox">
+      <div class="photoBox">
+        <a href="view.html">
+          <img src="/assets/images/board/album_04.png" alt="목회자·사모 영성 수련회">
+        </a>
       </div>
-      <div class="album-body">
-        <a href="view.html" class="t">여전도회 연합회 정기총회</a>
-        <div class="meta">
-          <span>2026.02.26 · 여전도회</span>
-          <span class="views"><i class="fa-regular fa-eye"></i> 923</span>
-        </div>
-      </div>
-    </article>
+      <dl>
+        <dt>
+          <a href="view.html" data-view="G" data-seq="39">목회자·사모 영성 수련회</a>
+        </dt>
+        <dd class="siiru-tr">교육부 <span>2026.03.05</span></dd>
+      </dl>
+    </div>
 
-    <article class="album-card">
-      <div class="album-thumb">
-        <img src="/assets/images/board/album_02.png" alt="신년감사예배 및 임직식">
-        <span class="cat g">예배</span>
+    <div class="siiruBoard-galleryBox">
+      <div class="photoBox">
+        <a href="view.html">
+          <img src="/assets/images/board/album_05.png" alt="여전도회 연합회 정기총회">
+        </a>
       </div>
-      <div class="album-body">
-        <a href="view.html" class="t">신년감사예배 및 임직식</a>
-        <div class="meta">
-          <span>2026.01.08 · 사무처</span>
-          <span class="views"><i class="fa-regular fa-eye"></i> 1,805</span>
-        </div>
-      </div>
-    </article>
+      <dl>
+        <dt>
+          <a href="view.html" data-view="G" data-seq="38">여전도회 연합회 정기총회</a>
+        </dt>
+        <dd class="siiru-tr">여전도회 <span>2026.02.26</span></dd>
+      </dl>
+    </div>
 
-    <article class="album-card">
-      <div class="album-thumb">
-        <img src="/assets/images/board/album_03.png" alt="성탄 연합 자선 바자회">
-        <span class="cat b">봉사</span>
+    <div class="siiruBoard-galleryBox">
+      <div class="photoBox">
+        <a href="view.html">
+          <img src="/assets/images/board/album_01.png" alt="신년감사예배 및 임직식">
+        </a>
       </div>
-      <div class="album-body">
-        <a href="view.html" class="t">성탄 연합 자선 바자회</a>
-        <div class="meta">
-          <span>2025.12.21 · 사회봉사부</span>
-          <span class="views"><i class="fa-regular fa-eye"></i> 1,124</span>
-        </div>
-      </div>
-    </article>
+      <dl>
+        <dt>
+          <a href="view.html" data-view="G" data-seq="37">신년감사예배 및 임직식</a>
+        </dt>
+        <dd class="siiru-tr">사무처 <span>2026.01.08</span></dd>
+      </dl>
+    </div>
 
-    <article class="album-card">
-      <div class="album-thumb">
-        <img src="/assets/images/board/album_04.png" alt="장로 리더십 컨퍼런스">
-        <span class="cat g">교육</span>
+    <div class="siiruBoard-galleryBox">
+      <div class="photoBox">
+        <a href="view.html">
+          <img src="/assets/images/board/album_02.png" alt="성탄 연합 자선 바자회">
+        </a>
       </div>
-      <div class="album-body">
-        <a href="view.html" class="t">장로 리더십 컨퍼런스</a>
-        <div class="meta">
-          <span>2025.12.08 · 교육부</span>
-          <span class="views"><i class="fa-regular fa-eye"></i> 456</span>
-        </div>
-      </div>
-    </article>
+      <dl>
+        <dt>
+          <a href="view.html" data-view="G" data-seq="36">성탄 연합 자선 바자회</a>
+        </dt>
+        <dd class="siiru-tr">사회봉사부 <span>2025.12.21</span></dd>
+      </dl>
+    </div>
 
-    <article class="album-card">
-      <div class="album-thumb">
-        <img src="/assets/images/board/album_05.png" alt="창립 70주년 기념 감사예배">
-        <span class="cat b">행사</span>
+    <div class="siiruBoard-galleryBox">
+      <div class="photoBox">
+        <a href="view.html">
+          <img src="/assets/images/board/album_03.png" alt="창립 70주년 기념 감사예배">
+        </a>
       </div>
-      <div class="album-body">
-        <a href="view.html" class="t">창립 70주년 기념 감사예배</a>
-        <div class="meta">
-          <span>2025.11.15 · 사무처</span>
-          <span class="views"><i class="fa-regular fa-eye"></i> 2,314</span>
-        </div>
-      </div>
-    </article>
+      <dl>
+        <dt>
+          <a href="view.html" data-view="G" data-seq="35">창립 70주년 기념 감사예배</a>
+        </dt>
+        <dd class="siiru-tr">사무처 <span>2025.11.15</span></dd>
+      </dl>
+    </div>
 
   </div>
 
-  <!-- 페이지네이션 + 버튼 -->
-  <div class="btable-foot" style="margin-top:28px;">
-    <button type="button" class="btn-hn ghost"><i class="fa-regular fa-list"></i> 목록</button>
-    <nav class="pagination-hn" aria-label="페이지 이동">
-      <a aria-label="이전 페이지"><i class="fa-regular fa-chevron-left"></i></a>
-      <a class="on" aria-current="page">1</a>
-      <a>2</a>
-      <a>3</a>
-      <a>4</a>
-      <a>5</a>
-      <a aria-label="다음 페이지"><i class="fa-regular fa-chevron-right"></i></a>
-    </nav>
-    <button type="button" class="btn-hn primary"><i class="fa-regular fa-camera"></i> 앨범 등록</button>
+  <!-- 페이징 -->
+  <div id="boardPage">
+    <div class="pagination"></div>
+  </div>
+
+  <!-- 등록 버튼 -->
+  <div class="siiru-tr siiru-mb20">
+    <a href="write.html" class="siiru-btn siiru-btn-primary">등록</a>
   </div>
 
 </div>
