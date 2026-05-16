@@ -290,7 +290,8 @@ const html = `  <div data-include="../include/header.html"></div>
     <div class="sub-layout">
 
       <div data-include="../include/sidebar_organization.html"></div>
-      <section class="content churches-page">
+      <section class="content">
+        <div class="churches-page">
         <!-- 제34회기 (2026년 4월 14일 기준) -->
 
         <div class="churches-toolbar">
@@ -312,6 +313,7 @@ const html = `  <div data-include="../include/header.html"></div>
 ${panels}
         </div><!-- /.tab-wrap -->
 
+        </div><!-- /.churches-page -->
       </section>
 
     </div>
