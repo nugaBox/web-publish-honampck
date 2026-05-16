@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       markActiveSidebar();
       initMobileMenu();
       initFooterSites();
+      initImageViewer();
     });
   } else {
     initGnb();
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     markActiveSidebar();
     initMobileMenu();
     initFooterSites();
+    initImageViewer();
   }
 
   /* ── GNB 현재 섹션 활성화 ────────────────────────────── */
@@ -49,23 +51,91 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 사이드바 현재 메뉴 활성화 ───────────────────────── */
   function markActiveSidebar() {
-    const curPath = window.location.pathname;
-    const curDir  = curPath.substring(0, curPath.lastIndexOf('/') + 1);
+    const curUrl = new URL(window.location.href);
 
-    document.querySelectorAll('.sidebar-list a').forEach(link => {
-      const href = link.getAttribute('href');
-      if (!href || href === '#') return;
-      try {
-        const linkPath = new URL(href, window.location.href).pathname;
-        const linkDir  = linkPath.substring(0, linkPath.lastIndexOf('/') + 1);
-        const isActive = linkPath === curPath ||
-          (curDir === linkDir && linkPath.endsWith('/list.html'));
-        if (!isActive) return;
+    /** CMS boardList.do 등 동일 pathname·다른 쿼리 메뉴 구분 */
+    const getSidebarLinkSignature = url => {
+      const path = url.pathname;
 
-        link.classList.add('on');
-        const icon = link.querySelector('.fa-chevron-right');
-        if (icon) icon.replaceWith(document.createElement('span'));
-      } catch (_) {}
+      if (/boardlist\.do$/i.test(path)) {
+        const boardId = url.searchParams.get('boardId') || '';
+        const pageId = url.searchParams.get('pageId') || '';
+        return `boardlist:${boardId}:${pageId}`;
+      }
+
+      if (/contentsview\.do$/i.test(path)) {
+        return `contentsview:${url.searchParams.get('pageId') || ''}`;
+      }
+
+      if (/\.do$/i.test(path)) {
+        const pageId = url.searchParams.get('pageId') || '';
+        const boardId = url.searchParams.get('boardId') || '';
+        if (pageId || boardId) {
+          return `${path.toLowerCase()}:${boardId}:${pageId}`;
+        }
+        return `${path.toLowerCase()}:${url.search}`;
+      }
+
+      return `path:${path}`;
+    };
+
+    const curSignature = getSidebarLinkSignature(curUrl);
+
+    const isSidebarLinkActive = linkUrl => {
+      if (getSidebarLinkSignature(linkUrl) === curSignature) return true;
+
+      const curPath = curUrl.pathname;
+      const linkPath = linkUrl.pathname;
+      if (curPath === linkPath && !/\.do$/i.test(curPath)) return true;
+
+      const curDir = curPath.substring(0, curPath.lastIndexOf('/'));
+      const linkDir = linkPath.substring(0, linkPath.lastIndexOf('/'));
+      return (
+        curDir === linkDir &&
+        curPath.endsWith('/list.html') &&
+        linkPath.endsWith('/list.html') &&
+        curPath === linkPath
+      );
+    };
+
+    const restoreSidebarChevron = link => {
+      if (link.querySelector('.fa-chevron-right')) return;
+      const last = link.lastElementChild;
+      if (last && last.tagName === 'SPAN' && !last.textContent.trim()) {
+        const icon = document.createElement('i');
+        icon.className = 'fa-regular fa-chevron-right';
+        icon.style.fontSize = '10px';
+        last.replaceWith(icon);
+      }
+    };
+
+    const setSidebarActive = link => {
+      link.classList.add('on');
+      const icon = link.querySelector('.fa-chevron-right');
+      if (icon) icon.replaceWith(document.createElement('span'));
+    };
+
+    document.querySelectorAll('.sidebar-list').forEach(nav => {
+      nav.querySelectorAll('a').forEach(link => {
+        link.classList.remove('on');
+        restoreSidebarChevron(link);
+      });
+
+      let matched = false;
+      nav.querySelectorAll('a').forEach(link => {
+        if (matched) return;
+
+        const href = link.getAttribute('href');
+        if (!href || href === '#') return;
+
+        try {
+          const linkUrl = new URL(href, window.location.href);
+          if (!isSidebarLinkActive(linkUrl)) return;
+
+          matched = true;
+          setSidebarActive(link);
+        } catch (_) {}
+      });
     });
   }
 
@@ -132,6 +202,248 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isOpen) group.classList.add('open');
       });
     });
+  }
+
+  /* ── 이미지 원본 뷰어 (공통) ───────────────────────────── */
+  function initImageViewer() {
+    const ZOOM_EXCLUDE = '#site-header, #site-footer, .hn-drawer, .hn-logo, .siiruBoard-gallery, [data-no-zoom]';
+    const ZOOM_SRC_SKIP = /(?:logo|favicon|banner-short|banner-long|banner-full|honam-banner)/i;
+    const MIN_NATURAL = 64;
+
+    let viewer = document.getElementById('hnImgViewer');
+    if (!viewer) {
+      viewer = document.createElement('div');
+      viewer.id = 'hnImgViewer';
+      viewer.className = 'hn-img-viewer';
+      viewer.setAttribute('role', 'dialog');
+      viewer.setAttribute('aria-modal', 'true');
+      viewer.setAttribute('aria-hidden', 'true');
+      viewer.innerHTML = `
+        <div class="hn-img-viewer__backdrop" data-viewer-close></div>
+        <div class="hn-img-viewer__bar">
+          <p class="hn-img-viewer__caption" id="hnImgViewerCaption"></p>
+          <div class="hn-img-viewer__tools">
+            <button type="button" class="hn-img-viewer__btn" data-viewer-zoom="out" aria-label="축소"><i class="fa-regular fa-minus"></i></button>
+            <button type="button" class="hn-img-viewer__btn" data-viewer-zoom="reset" aria-label="화면에 맞춤"><i class="fa-regular fa-compress"></i></button>
+            <button type="button" class="hn-img-viewer__btn" data-viewer-zoom="in" aria-label="확대"><i class="fa-regular fa-plus"></i></button>
+            <button type="button" class="hn-img-viewer__btn hn-img-viewer__btn--close" data-viewer-close aria-label="닫기">닫기</button>
+          </div>
+        </div>
+        <div class="hn-img-viewer__stage" id="hnImgViewerStage">
+          <div class="hn-img-viewer__canvas" id="hnImgViewerCanvas">
+            <img class="hn-img-viewer__img" id="hnImgViewerImg" alt="">
+          </div>
+        </div>
+      `
+      document.body.appendChild(viewer);
+    }
+
+    viewer.querySelector('#hnImgViewerHint')?.remove();
+
+    if (viewer.dataset.viewerReady === '1') return;
+    viewer.dataset.viewerReady = '1';
+
+    const captionEl = viewer.querySelector('#hnImgViewerCaption');
+    const stage = viewer.querySelector('#hnImgViewerStage');
+    const canvas = viewer.querySelector('#hnImgViewerCanvas');
+    const imgEl = viewer.querySelector('#hnImgViewerImg');
+
+    let scale = 1;
+    let tx = 0;
+    let ty = 0;
+    let baseW = 0;
+    let baseH = 0;
+    let dragging = false;
+    let dragStart = null;
+    let pinchStart = null;
+
+    const applyTransform = () => {
+      canvas.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+    };
+
+    const fitToStage = () => {
+      if (!baseW || !baseH) return;
+      const pad = 32;
+      const sw = stage.clientWidth - pad;
+      const sh = stage.clientHeight - pad;
+      scale = Math.min(sw / baseW, sh / baseH, 1);
+      tx = 0;
+      ty = 0;
+      applyTransform();
+    };
+
+    const clampPan = () => {
+      const w = baseW * scale;
+      const h = baseH * scale;
+      const margin = 40;
+      if (w <= stage.clientWidth) tx = 0;
+      else tx = Math.min(margin, Math.max(stage.clientWidth - w - margin, tx));
+      if (h <= stage.clientHeight) ty = 0;
+      else ty = Math.min(margin, Math.max(stage.clientHeight - h - margin, ty));
+      applyTransform();
+    };
+
+    const setZoom = delta => {
+      scale = Math.min(6, Math.max(0.2, scale * delta));
+      clampPan();
+    };
+
+    const open = sourceImg => {
+      if (!sourceImg?.src) return;
+      const src = sourceImg.currentSrc || sourceImg.src;
+      imgEl.src = src;
+      imgEl.alt = sourceImg.alt || '';
+      captionEl.textContent = sourceImg.alt || '이미지 원본';
+
+      const onLoad = () => {
+        baseW = imgEl.naturalWidth;
+        baseH = imgEl.naturalHeight;
+        fitToStage();
+        imgEl.removeEventListener('load', onLoad);
+      };
+      imgEl.addEventListener('load', onLoad);
+      if (imgEl.complete) onLoad();
+
+      viewer.classList.add('is-open');
+      viewer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const close = () => {
+      viewer.classList.remove('is-open');
+      viewer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      scale = 1;
+      tx = 0;
+      ty = 0;
+      imgEl.removeAttribute('src');
+    };
+
+    const isZoomable = img => {
+      if (!img || img.dataset.hnZoomBound) return false;
+      if (img.closest(ZOOM_EXCLUDE)) return false;
+      const root = img.closest('#main-content, main, .content, .siiru-boardWrap');
+      if (!root) return false;
+      const src = img.getAttribute('src') || '';
+      if (!src || src.startsWith('data:')) return false;
+      if (ZOOM_SRC_SKIP.test(src)) return false;
+      if (img.naturalWidth > 0 && img.naturalWidth < MIN_NATURAL) return false;
+      return true;
+    };
+
+    const bindImage = img => {
+      if (!isZoomable(img)) return;
+      img.dataset.hnZoomBound = '1';
+      img.classList.add('hn-zoomable');
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-label', (img.alt || '이미지') + ' 원본 보기');
+
+      const onActivate = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        open(img);
+      };
+
+      img.addEventListener('click', onActivate);
+      img.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          open(img);
+        }
+      });
+    };
+
+    const scan = () => {
+      document.querySelectorAll('#main-content img, main img, .content img, .siiru-boardWrap img').forEach(img => {
+        if (img.naturalWidth) bindImage(img);
+        else img.addEventListener('load', () => bindImage(img), { once: true });
+      });
+    };
+
+    viewer.querySelectorAll('[data-viewer-close]').forEach(el => {
+      el.addEventListener('click', close);
+    });
+
+    viewer.querySelector('[data-viewer-zoom="in"]')?.addEventListener('click', () => setZoom(1.2));
+    viewer.querySelector('[data-viewer-zoom="out"]')?.addEventListener('click', () => setZoom(1 / 1.2));
+    viewer.querySelector('[data-viewer-zoom="reset"]')?.addEventListener('click', fitToStage);
+
+    document.addEventListener('keydown', e => {
+      if (!viewer.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === '+' || e.key === '=') setZoom(1.15);
+      if (e.key === '-') setZoom(1 / 1.15);
+    });
+
+    stage.addEventListener('wheel', e => {
+      if (!viewer.classList.contains('is-open')) return;
+      e.preventDefault();
+      setZoom(e.deltaY < 0 ? 1.1 : 1 / 1.1);
+    }, { passive: false });
+
+    stage.addEventListener('pointerdown', e => {
+      if (!viewer.classList.contains('is-open')) return;
+      if (pinchStart) return;
+      stage.setPointerCapture(e.pointerId);
+      dragging = true;
+      stage.classList.add('is-dragging');
+      dragStart = { x: e.clientX - tx, y: e.clientY - ty, id: e.pointerId };
+    });
+
+    stage.addEventListener('pointermove', e => {
+      if (!dragging || !dragStart || dragStart.id !== e.pointerId) return;
+      if (e.pointerType === 'touch' && e.isPrimary === false) return;
+
+      tx = e.clientX - dragStart.x;
+      ty = e.clientY - dragStart.y;
+      clampPan();
+    });
+
+    stage.addEventListener('pointerup', e => {
+      if (dragStart?.id === e.pointerId) {
+        dragging = false;
+        dragStart = null;
+        stage.classList.remove('is-dragging');
+        try { stage.releasePointerCapture(e.pointerId); } catch (_) {}
+      }
+    });
+
+    stage.addEventListener('touchstart', e => {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        const d = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        const cx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        const cy = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        pinchStart = { dist: d, cx, cy };
+        dragging = false;
+      }
+    }, { passive: false });
+
+    stage.addEventListener('touchmove', e => {
+      if (e.touches.length === 2 && pinchStart) {
+        e.preventDefault();
+        const d = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        if (pinchStart.dist > 0) setZoom(d / pinchStart.dist);
+        pinchStart.dist = d;
+      }
+    }, { passive: false });
+
+    stage.addEventListener('touchend', () => {
+      if (pinchStart) pinchStart = null;
+    });
+
+    window.addEventListener('resize', () => {
+      if (viewer.classList.contains('is-open')) fitToStage();
+    });
+
+    scan();
   }
 
   /* ── 푸터 관련사이트 토글 ─────────────────────────────── */
