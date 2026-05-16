@@ -4,6 +4,55 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ── 노회/시찰 소식·앨범: 시찰 탭(CMS: siiru-boardWrap > siiru-clr) → searchCtgry + 폼 제출 ─ */
+  document.querySelectorAll('.board-district-filter').forEach(filter => {
+    const wrap = filter.closest('.siiru-boardWrap');
+    const form = wrap?.querySelector('#boardSearchForm');
+    const sel = form?.querySelector('#searchCtgry');
+    if (!form || !sel) return;
+
+    const tabs = filter.querySelectorAll('button[data-category]');
+    if (!tabs.length) return;
+
+    const tabVals = [...tabs].map(t => (t.dataset.category !== undefined ? t.dataset.category : ''));
+    const optVals = new Set([...sel.options].map(o => o.value));
+    const everyTabHasOption = tabVals.every(v => optVals.has(v));
+    if (!everyTabHasOption) {
+      const prevVal = sel.value;
+      sel.innerHTML = '';
+      tabs.forEach(tab => {
+        const val = tab.dataset.category !== undefined ? tab.dataset.category : '';
+        const label = tab.textContent.replace(/\s+/g, ' ').trim();
+        sel.appendChild(new Option(label, val));
+      });
+      if ([...sel.options].some(o => o.value === prevVal)) sel.value = prevVal;
+      else sel.value = '';
+    }
+
+    const syncTabOn = () => {
+      const v = sel.value;
+      tabs.forEach(t => {
+        const tv = t.dataset.category !== undefined ? t.dataset.category : '';
+        t.classList.toggle('on', tv === v);
+      });
+    };
+    syncTabOn();
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const val = tab.dataset.category !== undefined ? tab.dataset.category : '';
+        if (![...sel.options].some(o => o.value === val)) return;
+        sel.value = val;
+        tabs.forEach(t => t.classList.remove('on'));
+        tab.classList.add('on');
+        const mp = form.querySelector('#movePage');
+        if (mp) mp.value = '1';
+        if (typeof form.requestSubmit === 'function') form.requestSubmit();
+        else form.submit();
+      });
+    });
+  });
+
   /* ── 게시판 카테고리 필터 탭 ──────────────────────────── */
   const subtabs = document.querySelectorAll('.m-subtabs button');
   subtabs.forEach(btn => {
@@ -70,8 +119,28 @@ document.addEventListener('DOMContentLoaded', () => {
     sessItems[0].click();
   }
 
+  /* ── 소속 회원 및 교회: 회원별 / 교회별 보기 전환 ───── */
+  const churchesPage = document.querySelector('.churches-page');
+  if (churchesPage) {
+    const viewBtns = churchesPage.querySelectorAll('.churches-view-toggle button[data-churches-view]');
+    viewBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const view = btn.dataset.churchesView;
+        viewBtns.forEach(b => {
+          const on = b === btn;
+          b.classList.toggle('on', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        churchesPage.querySelectorAll('.churches-view').forEach(panel => {
+          panel.classList.toggle('on', panel.dataset.churchesView === view);
+        });
+      });
+    });
+  }
+
   /* ── 그룹 탭 전환 (시찰별·회기별 등) ────────────────── */
   document.querySelectorAll('.group-tabs').forEach(tabGroup => {
+    if (tabGroup.classList.contains('board-district-filter')) return;
     const buttons = tabGroup.querySelectorAll('button');
 
     /* 같은 .tab-wrap 컨테이너 안에 .group-tabs + .tab-panel 패턴 지원 */
@@ -98,5 +167,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const hashBtn = document.querySelector(`.group-tabs button[data-tab="${hash}"]`);
     if (hashBtn) hashBtn.click();
   }
+
+  /* ── 회원 정보: 비밀번호 확인 → 정보 수정 화면 ─────── */
+  const myinfoGate = document.getElementById('myinfo-gate');
+  const myinfoEdit = document.getElementById('myinfo-edit');
+  const acceptBtn = document.getElementById('acceptBtn');
+  const cancelBtn = document.getElementById('cancelBtn');
+
+  const showMyinfoEdit = () => {
+    if (!myinfoGate || !myinfoEdit) return;
+    myinfoGate.classList.add('is-hidden');
+    myinfoEdit.classList.add('is-open');
+  };
+
+  const showMyinfoGate = () => {
+    if (!myinfoGate || !myinfoEdit) return;
+    myinfoGate.classList.remove('is-hidden');
+    myinfoEdit.classList.remove('is-open');
+    const gatePasswd = document.getElementById('gate-passwd');
+    if (gatePasswd) gatePasswd.value = '';
+  };
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', showMyinfoEdit);
+  }
+  if (cancelBtn) {
+    cancelBtn.addEventListener('click', showMyinfoGate);
+  }
+
+  /* 프로필 이미지: 파일 업로드 / URL 링크 전환 */
+  document.querySelectorAll('input[name="proflSe"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const isLink = radio.value === 'L' && radio.checked;
+      const proflUrl = document.getElementById('proflUrl');
+      const proflImage = document.getElementById('proflImage');
+      if (proflUrl) proflUrl.disabled = !isLink;
+      if (proflImage) proflImage.disabled = isLink;
+    });
+  });
 
 });

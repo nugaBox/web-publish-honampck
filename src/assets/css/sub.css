@@ -226,6 +226,17 @@
   font-weight: 800;
 }
 
+/* 소제목 오른쪽: 회기·부제 */
+.ptitle .cnt.ptitle-meta {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--hn-text-2);
+  text-align: right;
+  line-height: 1.45;
+  max-width: 58%;
+}
+
+
 .ptitle-sub {
   font-size: 15px;
   font-weight: 600;
@@ -1335,7 +1346,8 @@
   margin-bottom: 28px;
 }
 
-.group-tabs button {
+.group-tabs button,
+.group-tabs a {
   padding: 13px 24px;
   font-size: 17px;
   font-weight: 600;
@@ -1350,15 +1362,25 @@
   transition: color .15s;
 }
 
-.group-tabs button.on {
+.group-tabs a {
+  display: inline-block;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.group-tabs button.on,
+.group-tabs a.on {
   color: var(--hn-text);
   font-weight: 800;
   border-bottom-color: var(--hn-blue);
 }
 
-.group-tabs button:hover {
+.group-tabs button:hover,
+.group-tabs a:hover {
   color: var(--hn-text);
 }
+
+
 
 .tab-panel {
   display: none;
@@ -1421,6 +1443,200 @@
 .church-count b {
   color: var(--hn-blue);
   font-weight: 800;
+}
+
+/* ── 소속 회원 및 교회 (churches.html) ─────────────────────── */
+.churches-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  min-height: 44px;
+}
+
+.churches-term-label {
+  margin: 0;
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--hn-text-4);
+  white-space: nowrap;
+}
+
+.churches-view-toggle {
+  display: inline-flex;
+  gap: 0;
+  padding: 4px;
+  background: var(--hn-bg-alt);
+  border: 1px solid var(--hn-line);
+  border-radius: 8px;
+}
+
+.churches-view-toggle button {
+  min-width: 96px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--hn-text-3);
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+
+.churches-view-toggle button.on {
+  color: var(--hn-green);
+  background: var(--hn-bg);
+  box-shadow: 0 1px 3px rgba(21, 24, 29, 0.08);
+  font-weight: 700;
+}
+
+.churches-view-toggle button:hover:not(.on) {
+  color: var(--hn-text);
+}
+
+/* 시찰 탭: 컨테이너 검정 긴 줄만 제거, 활성 탭 밑줄(--hn-blue)은 유지 */
+.churches-tab-wrap .churches-district-tabs {
+  margin-top: 8px;
+  border-bottom: none;
+  margin-bottom: 28px;
+}
+
+.churches-page .church-table {
+  font-size: 15px;
+}
+
+.churches-page .church-table thead th,
+.churches-page .church-table tbody td {
+  padding: 10px 12px;
+}
+
+.churches-page .member-section {
+  margin-bottom: 28px;
+}
+
+.churches-page .member-section-title {
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+}
+
+.churches-sort-hint {
+  display: none;
+  font-size: 13px;
+  color: var(--hn-text-4);
+  text-align: right;
+  margin: 6px 0 16px;
+}
+
+.churches-page:has(.churches-view[data-churches-view="church"].on) .churches-sort-hint {
+  display: block;
+}
+
+.churches-view {
+  display: none;
+}
+
+.churches-view.on {
+  display: block;
+}
+
+.member-section {
+  margin-bottom: 36px;
+}
+
+.member-section:last-child {
+  margin-bottom: 0;
+}
+
+.member-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--hn-text);
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--hn-line-soft);
+}
+
+.member-section-cnt {
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--hn-text-4);
+}
+
+.member-empty {
+  margin: 0;
+  padding: 20px 16px;
+  font-size: 15px;
+  color: var(--hn-text-3);
+  text-align: center;
+  background: var(--hn-bg-alt);
+  border-radius: 4px;
+}
+
+/* 회원별·교회별 — 시찰 뱃지 (메인 index .cat 스타일) */
+.churches-page .church-table .cat {
+  display: inline-block;
+  font-size: 12px;
+  padding: 3px 8px;
+  border: 1px solid var(--hn-line-strong);
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.churches-page .church-table .cat.b {
+  background: var(--hn-blue);
+  border-color: var(--hn-blue);
+  color: #fff;
+}
+
+.churches-page .church-table .cat.r {
+  background: color-mix(in srgb, var(--hn-blue) 72%, white);
+  border-color: color-mix(in srgb, var(--hn-blue) 72%, white);
+  color: #fff;
+}
+
+.churches-page .church-table .cat.o {
+  background: color-mix(in srgb, var(--hn-blue) 48%, white);
+  border-color: color-mix(in srgb, var(--hn-blue) 48%, white);
+  color: #fff;
+}
+
+.churches-page .church-table tbody td:first-child {
+  font-weight: 400;
+  text-align: center;
+}
+
+.churches-page .church-member-table tbody td:nth-child(2) {
+  font-weight: 700;
+  color: var(--hn-text);
+}
+
+/* 회원별·교회별 — 전화·분류 열 */
+.churches-page .member-table tbody .col-phone,
+.churches-page .church-member-table .col-phone,
+.churches-page .church-member-table .col-category {
+  font-size: 13px;
+  color: var(--hn-text-3);
+  letter-spacing: -0.02em;
+}
+
+.churches-page .church-member-table .col-phone {
+  width: 1%;
+  min-width: 8.5rem;
+  white-space: nowrap;
+}
+
+.churches-page .church-list-section {
+  margin-bottom: 0;
+}
+
+.churches-page .church-list-section .member-section-title {
+  margin-bottom: 12px;
 }
 
 /* ── 시찰 소개 ─────────────────────────────────────────────── */
@@ -1542,19 +1758,28 @@
 
 .district-card .d-actions {
   display: flex;
+  flex-direction: column;
   gap: 8px;
   margin-top: auto;
   padding-top: 16px;
   border-top: 1px solid var(--hn-line);
 }
 
-.district-card .d-actions a.btn-hn {
+.district-card .d-actions-row {
+  display: flex;
+  gap: 8px;
+}
+
+.district-card .d-actions > a.btn-hn,
+.district-card .d-actions-row a.btn-hn {
   flex: 1;
   justify-content: center;
   font-size: 14px;
   padding: 9px 8px;
   text-decoration: none;
 }
+
+
 
 .table-scroll {
   overflow-x: auto;
