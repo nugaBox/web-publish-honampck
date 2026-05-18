@@ -6,7 +6,7 @@
 .hn-kv {
   background-image:
     linear-gradient(180deg, rgba(27, 53, 87, 0.92) 0%, rgba(16, 34, 57, 0.92) 100%),
-    url('../images/common/hero-section.png');
+    url('../images/common/hero-section_34.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -169,12 +169,12 @@
 }
 
 .hn-quick-card {
-  padding: 35px 30px;
+  padding: 28px 22px;
   border-right: 1px solid var(--hn-line-soft);
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  min-height: 196px;
+  gap: 12px;
+  min-height: 168px;
   cursor: pointer;
   transition: background .15s;
   position: relative;
@@ -189,7 +189,7 @@
 }
 
 .hn-quick-card .num {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--hn-text-4);
   letter-spacing: 0.14em;
   font-weight: 600;
@@ -198,20 +198,21 @@
 
 .hn-quick-card .ic {
   color: var(--hn-green);
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .hn-quick-card .t {
-  font-size: 21px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--hn-text);
   letter-spacing: -0.02em;
 }
 
 .hn-quick-card .d {
-  font-size: 15px;
+  font-size: 13px;
   color: var(--hn-text-3);
   margin-top: auto;
+  line-height: 1.45;
 }
 
 .hn-quick-card .arrow {
@@ -345,6 +346,33 @@
   border-bottom: 0;
 }
 
+/* 분류 없음(공지·노회 공문 등): 제목 — 날짜 우측 정렬 */
+.blist li:not(:has(.cat)),
+.blist--no-cat li {
+  grid-template-columns: 1fr auto;
+}
+
+.blist li:not(:has(.cat)) .t,
+.blist--no-cat li .t {
+  grid-column: 1;
+  min-width: 0;
+}
+
+.blist li:not(:has(.cat)) .file,
+.blist--no-cat li .file {
+  grid-column: 2;
+}
+
+.blist li:not(:has(.cat)) .d,
+.blist--no-cat li .d {
+  grid-column: -1;
+}
+
+.blist li:not(:has(.cat)):has(.file),
+.blist--no-cat li:has(.file) {
+  grid-template-columns: 1fr auto auto;
+}
+
 .blist .cat {
   font-size: 13px;
   padding: 4px 10px;
@@ -377,6 +405,31 @@
   background: #6B4FAB;
   color: #fff;
   border-color: #6B4FAB;
+}
+
+/* 노회/시찰 소식 — 호남노회 녹색, 시찰별 파란색(밝기) */
+#tab-events .cat.g {
+  background: var(--hn-green);
+  border-color: var(--hn-green);
+  color: #fff;
+}
+
+#tab-events .cat.b {
+  background: var(--hn-blue);
+  border-color: var(--hn-blue);
+  color: #fff;
+}
+
+#tab-events .cat.r {
+  background: color-mix(in srgb, var(--hn-blue) 72%, white);
+  border-color: color-mix(in srgb, var(--hn-blue) 72%, white);
+  color: #fff;
+}
+
+#tab-events .cat.o {
+  background: color-mix(in srgb, var(--hn-blue) 48%, white);
+  border-color: color-mix(in srgb, var(--hn-blue) 48%, white);
+  color: #fff;
 }
 
 .blist .t {
@@ -531,11 +584,11 @@
 }
 
 .photo-cat.r {
-  background: var(--hn-red);
+  background: color-mix(in srgb, var(--hn-blue) 72%, white);
 }
 
 .photo-cat.o {
-  background: #6B4FAB;
+  background: color-mix(in srgb, var(--hn-blue) 48%, white);
 }
 
 .photo-meta .swiper-button-prev,
@@ -805,8 +858,22 @@
   }
 
   .hn-quick-card {
-    padding: 18px 16px;
+    padding: 14px 12px;
     min-height: auto;
+    gap: 8px;
+  }
+
+  .hn-quick-card .num {
+    font-size: 11px;
+  }
+
+  .hn-quick-card .ic {
+    font-size: 17px;
+  }
+
+  .hn-quick-card .t {
+    font-size: 15px;
+    line-height: 1.35;
   }
 
   .hn-quick-card .d,
@@ -834,6 +901,16 @@
     grid-template-columns: auto 1fr auto;
     gap: 8px;
     font-size: 15px;
+  }
+
+  .blist li:not(:has(.cat)),
+  .blist--no-cat li {
+    grid-template-columns: 1fr auto;
+  }
+
+  .blist li:not(:has(.cat)):has(.file),
+  .blist--no-cat li:has(.file) {
+    grid-template-columns: 1fr auto auto;
   }
 
   .blist .cat {

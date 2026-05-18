@@ -12,7 +12,7 @@
 .hn-page-head {
   background-image:
     linear-gradient(180deg, rgba(22, 46, 76, 0.93) 0%, rgba(12, 28, 50, 0.95) 100%),
-    url('../images/common/hero-section.png');
+    url('../images/common/hero-section_34.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -235,7 +235,6 @@
   line-height: 1.45;
   max-width: 58%;
 }
-
 
 .ptitle-sub {
   font-size: 15px;
@@ -1380,8 +1379,6 @@
   color: var(--hn-text);
 }
 
-
-
 .tab-panel {
   display: none;
 }
@@ -1779,8 +1776,6 @@
   text-decoration: none;
 }
 
-
-
 .table-scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -1934,6 +1929,37 @@
   font-weight: 700;
   text-align: center;
   vertical-align: middle;
+}
+
+/* 상비부 조직표(5열) — 서기·회계만 가운데 정렬 */
+.dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3),
+.dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4) {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.dept-table tbody td.title {
+  text-align: left;
+  line-height: 1.7;
+}
+
+.dept-table .dept-member-group {
+  display: block;
+}
+
+.dept-table .dept-member-group + .dept-member-group {
+  margin-top: 6px;
+}
+
+.dept-table .dept-member-label {
+  display: inline;
+  font-weight: 700;
+  color: var(--hn-text);
+  margin-right: 6px;
+}
+
+.dept-table .dept-member-list {
+  display: inline;
 }
 
 /* ── 노회 소개 페이지 ──────────────────────────────────────── */
@@ -3221,7 +3247,8 @@
     font-size: 14px;
   }
 
-  .group-tabs button {
+  .group-tabs button,
+  .group-tabs a {
     padding: 10px 16px;
     font-size: 15px;
   }
@@ -3294,6 +3321,212 @@
 
   .intro-stats {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* ── 컨텐츠 페이지 모바일 레이아웃 (게시판 제외) ───────────── */
+@media (max-width: 768px) {
+  .content:not(:has(.siiru-boardWrap)) .ptitle {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .ptitle .cnt.ptitle-meta {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .intro-lead {
+    padding: 20px 18px;
+    margin-bottom: 28px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .sec-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding-bottom: 16px;
+    margin-bottom: 22px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .officer-card {
+    flex-direction: column;
+    border: 1px solid var(--hn-line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .officer-role {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--hn-bg-alt);
+    border-bottom: 1px solid var(--hn-line-soft);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .officer-persons {
+    flex-direction: column;
+    border: 0;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .officer-person {
+    padding: 14px 16px;
+    gap: 16px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .officer-person + .officer-person {
+    border-left: 0;
+    border-top: 1px solid var(--hn-line-soft);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .officer-photo {
+    width: 72px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .timeline {
+    padding-left: 0;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .timeline::before {
+    display: none;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .timeline-item {
+    padding: 0 0 28px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .timeline-item .year {
+    position: static;
+    width: auto;
+    text-align: left;
+    margin-bottom: 6px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .timeline-item .t {
+    margin-bottom: 6px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .hist-acc-sess {
+    min-width: 96px;
+    padding: 12px 10px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .officer-sess-item {
+    padding: 14px 14px 12px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table {
+    border-top: 0;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table thead {
+    display: none;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table tbody tr {
+    display: block;
+    margin-bottom: 14px;
+    border: 1px solid var(--hn-line);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table tbody td {
+    display: block;
+    border-right: 0;
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table tbody td.dept-name {
+    padding: 14px 16px;
+    text-align: center;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2)::before,
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3)::before,
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4)::before,
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5)::before {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--hn-text-3);
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2)::before {
+    content: '부장';
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3)::before {
+    content: '서기';
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4)::before {
+    content: '회계';
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5)::before {
+    content: '부원 / 위원';
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2)::before,
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3)::before {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--hn-text-3);
+    margin-bottom: 6px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2)::before {
+    content: '목사';
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3)::before {
+    content: '장로';
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table tbody td.dept-chief {
+    text-align: left;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .group-tabs,
+  .content:not(:has(.siiru-boardWrap)) .churches-tab-wrap .churches-district-tabs,
+  .content:not(:has(.siiru-boardWrap)) .group-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .group-tabs::-webkit-scrollbar,
+  .content:not(:has(.siiru-boardWrap)) .churches-tab-wrap .churches-district-tabs::-webkit-scrollbar,
+  .content:not(:has(.siiru-boardWrap)) .group-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .group-tabs button,
+  .content:not(:has(.siiru-boardWrap)) .churches-page .group-tabs a,
+  .content:not(:has(.siiru-boardWrap)) .churches-tab-wrap .churches-district-tabs button,
+  .content:not(:has(.siiru-boardWrap)) .churches-tab-wrap .churches-district-tabs a,
+  .content:not(:has(.siiru-boardWrap)) .group-tabs button,
+  .content:not(:has(.siiru-boardWrap)) .group-tabs a {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .rules-doc .chapter-head {
+    padding: 14px 16px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .rules-list > li {
+    padding: 14px 16px;
     gap: 12px;
   }
 }
@@ -3487,6 +3720,20 @@
   margin-top: 2px;
 }
 
+/* 역대 노회장 표 제1대~제15대: 대수(진하고 크게), 회기(연하고 작게) */
+.hn-pres-simple .hps-term--swap .hps-gen {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--hn-text);
+}
+
+.hn-pres-simple .hps-term--swap .hps-sess {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--hn-text-4);
+  margin-top: 2px;
+}
+
 /* ── 역대 노회임원 좌우 분할 레이아웃 (officers-past) ───── */
 .officer-split {
   display: grid;
@@ -3607,12 +3854,14 @@
   color: #fff;
   font-size: 12px;
   padding: 9px 10px;
+  font-family: inherit;
 }
 
 .officer-detail .btable tbody td {
   padding: 9px 10px;
   border-bottom: 1px solid var(--hn-line);
   background: #fff;
+  font-family: inherit;
 }
 
 @media (max-width: 1024px) {
@@ -3651,14 +3900,7 @@
     width: auto;
   }
 
-  .officer-detail .btable thead th:nth-child(4),
-  .officer-detail .btable tbody td:nth-child(4) {
-    display: none;
-  }
 }
-
-/* ── 게시판 dateSearch 숨김 ────────────────────── */
-.siiruBoard-search .dateSearch { display: none; }
 
 /* ── 게시판 첨부파일 아이콘 ──────────────────────── */
 .siiruBoard-list td.file { font-size: 15px; color: var(--hn-text-3); }
@@ -3820,30 +4062,96 @@
 .siiru-btn-small { padding: 4px 10px; font-size: 12px; }
 .siiru-btnSet { display: flex; gap: 8px; justify-content: center; margin-top: 20px; }
 
-/* ── 게시판 래퍼 ─────────────────────────────────── */
-.siiru-boardWrap { width: 100%; }
+/* ── 게시판 목록: 검색(좌) + 등록(우) 한 줄 ───────── */
+.siiru-boardWrap:has(> .siiruBoard-list),
+.siiru-boardWrap:has(> .siiruBoard-gallery) {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "listinfo listinfo"
+    "list list"
+    "page page"
+    "search register";
+  width: 100%;
+  align-items: center;
+  column-gap: 16px;
+}
+/* 노회/시찰 소식·앨범: CMS 게시판 상단(시찰 탭)이 siiru-boardWrap 안에 있을 때 */
+.siiru-boardWrap:has(> .siiru-clr .board-district-filter):has(> .siiruBoard-list),
+.siiru-boardWrap:has(> .siiru-clr .board-district-filter):has(> .siiruBoard-gallery) {
+  grid-template-areas:
+    "tabs tabs"
+    "listinfo listinfo"
+    "list list"
+    "page page"
+    "search register";
+}
+.siiru-boardWrap:has(> .siiru-clr .board-district-filter) > .siiru-clr {
+  grid-area: tabs;
+  min-width: 0;
+  margin-bottom: 24px;
+}
+.siiru-boardWrap:has(> .siiru-clr .board-district-filter) > .siiru-clr .board-district-filter.group-tabs {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.siiru-boardWrap:has(> .siiruBoard-list) > .siiruBoard-listInfo,
+.siiru-boardWrap:has(> .siiruBoard-gallery) > .siiruBoard-listInfo {
+  grid-area: listinfo;
+  border-bottom: 1px solid var(--hn-line-soft);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+.siiru-boardWrap > .siiruBoard-list,
+.siiru-boardWrap > .siiruBoard-gallery { grid-area: list; }
+.siiru-boardWrap > #boardPage {
+  grid-area: page;
+  grid-column: 1 / -1;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid var(--hn-line-soft);
+}
+.siiru-boardWrap > .siiruBoard-search {
+  grid-area: search;
+  min-width: 0;
+  margin-top: 16px;
+}
+.siiru-boardWrap > .siiru-tr.board-register,
+.siiru-boardWrap > .siiru-tr.siiru-mb20 {
+  grid-area: register;
+  margin-top: 16px;
+}
 
 /* ── 검색 폼 ──────────────────────────────────── */
 .siiruBoard-search {
-  padding: 14px 0 18px;
-  border-bottom: 1px solid var(--hn-line);
-  margin-bottom: 14px;
+  padding: 0;
+  margin: 0;
 }
-.siiruBoard-search form { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-.siiruBoard-search .dateSearch { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; width: 100%; margin-bottom: 8px; }
-.siiruBoard-search .dateSearch input[type="radio"] { accent-color: var(--hn-green); }
-.siiruBoard-search .dateSearch label { font-size: 13px; color: var(--hn-text-2); cursor: pointer; }
-.siiruBoard-search .dateSearch input.maskDate {
-  padding: 6px 10px; border: 1px solid var(--hn-line); border-radius: 4px;
-  font-size: 13px; width: 120px; outline: 0;
+.siiruBoard-search form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.siiruBoard-search .dateSearch { display: none; }
+.siiruBoard-search .board-district-filter {
+  display: none;
+  width: 100%;
 }
 .siiruBoard-search select {
   padding: 7px 10px; border: 1px solid var(--hn-line); border-radius: 4px;
   font-size: 13px; background: var(--hn-bg); color: var(--hn-text-2); cursor: pointer; outline: 0;
 }
 .siiruBoard-search input[type="text"]:not(.maskDate) {
-  flex: 1; padding: 7px 12px; border: 1px solid var(--hn-line); border-radius: 4px;
-  font-size: 13px; outline: 0; min-width: 180px;
+  flex: 0 1 auto;
+  width: 200px;
+  max-width: 100%;
+  padding: 7px 12px;
+  border: 1px solid var(--hn-line);
+  border-radius: 4px;
+  font-size: 13px;
+  outline: 0;
 }
 .siiruBoard-search button[type="submit"] {
   padding: 7px 18px; background: var(--hn-blue); color: #fff;
@@ -3853,7 +4161,9 @@
 /* ── 목록 정보 ────────────────────────────────── */
 .siiruBoard-listInfo {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 8px 0; margin-bottom: 6px; font-size: 13px; color: var(--hn-text-3);
+  padding: 8px 0 0;
+  margin-bottom: 0;
+  font-size: 13px; color: var(--hn-text-3);
 }
 
 /* ── 테이블 목록 ──────────────────────────────── */
@@ -3867,7 +4177,8 @@
   border-bottom: 1px solid var(--hn-line);
   text-align: center;
 }
-.siiruBoard-list thead th.boardSj { text-align: left; padding-left: 16px; }
+.siiruBoard-list thead th.boardSj,
+.siiruBoard-list thead th.subject {padding-left: 16px; }
 .siiruBoard-list tbody tr { border-bottom: 1px solid var(--hn-line-soft); }
 .siiruBoard-list tbody tr:hover { background: var(--hn-bg-alt); }
 .siiruBoard-list tbody td,
@@ -3875,14 +4186,18 @@
   padding: 11px 10px; font-size: 14px; color: var(--hn-text-2);
   text-align: center; vertical-align: middle;
 }
-.siiruBoard-list tbody th[scope="row"].boardSj {
+.siiruBoard-list tbody th[scope="row"].boardSj,
+.siiruBoard-list tbody th[scope="row"].subject {
   text-align: left; padding-left: 16px;
 }
-.siiruBoard-list tbody th[scope="row"].boardSj a {
+.siiruBoard-list tbody th[scope="row"].boardSj a,
+.siiruBoard-list tbody th[scope="row"].subject a {
   color: var(--hn-text); text-decoration: none; font-weight: 500;
 }
-.siiruBoard-list tbody th[scope="row"].boardSj a:hover { color: var(--hn-green); }
-.siiruBoard-list tbody th[scope="row"].boardSj a.new::after {
+.siiruBoard-list tbody th[scope="row"].boardSj a:hover,
+.siiruBoard-list tbody th[scope="row"].subject a:hover { color: var(--hn-green); }
+.siiruBoard-list tbody th[scope="row"].boardSj a.new::after,
+.siiruBoard-list tbody th[scope="row"].subject a.new::after {
   content: 'N'; display: inline-block; margin-left: 6px;
   background: var(--hn-red); color: #fff; font-size: 10px;
   padding: 1px 5px; border-radius: 2px; font-weight: 700; vertical-align: middle;
@@ -3900,15 +4215,42 @@
 .siiruBoard-list tbody tr.notice { background: var(--hn-green-soft); }
 .siiruBoard-list small { font-size: 12px; color: var(--hn-text-3); }
 
-/* ── 페이지네이션 (JS 생성) ───────────────────── */
-#boardPage .pagination { display: flex; justify-content: center; gap: 4px; padding: 20px 0; list-style: none; margin: 0; }
+/* ── 페이지네이션 (CMS: .pagination > ul > li > a) ───── */
+#boardPage .pagination {
+  clear: both;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+}
+#boardPage .pagination ul {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+}
+#boardPage .pagination li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 #boardPage .pagination li a {
   display: inline-flex; align-items: center; justify-content: center;
   width: 34px; height: 34px; border: 1px solid var(--hn-line); border-radius: 4px;
   font-size: 13px; color: var(--hn-text-2); text-decoration: none;
 }
+#boardPage .pagination li a.prev,
+#boardPage .pagination li a.next {
+  font-size: 12px;
+}
 #boardPage .pagination li a:hover { background: var(--hn-bg-alt); }
-#boardPage .pagination li.active a { background: var(--hn-green); border-color: var(--hn-green); color: #fff; }
+#boardPage .pagination li.active a,
+#boardPage .pagination li a.active {
+  background: var(--hn-blue); border-color: var(--hn-blue); color: #fff;
+}
 
 /* ── 뷰 페이지 ────────────────────────────────── */
 .siiruBoard-view > form > h4 {
@@ -4073,10 +4415,17 @@
 .siiruBoard-galleryBox .photoBox img {
   width: 100%; height: 100%; object-fit: cover; display: block;
   transition: transform 0.2s;
+  cursor: pointer;
 }
 .siiruBoard-galleryBox .photoBox a:hover img { transform: scale(1.04); }
 .siiruBoard-galleryBox dl { margin: 8px 0 0; }
-.siiruBoard-galleryBox dl dt { font-size: 14px; font-weight: 500; color: var(--hn-text); line-height: 1.4; }
+.siiruBoard-galleryBox dl dt {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--hn-text);
+  line-height: 1.45;
+  text-align: left;
+}
 .siiruBoard-galleryBox dl dt.new::after {
   content: 'N'; display: inline-block; margin-left: 6px;
   background: var(--hn-red); color: #fff; font-size: 10px;
@@ -4084,8 +4433,13 @@
 }
 .siiruBoard-galleryBox dl dt a { color: inherit; text-decoration: none; }
 .siiruBoard-galleryBox dl dt a:hover { color: var(--hn-green); }
-.siiruBoard-galleryBox dl dd { font-size: 12px; color: var(--hn-text-3); margin-top: 4px; }
-.siiruBoard-galleryBox dl dd span { margin-left: 8px; }
+.siiruBoard-galleryBox dl dd {
+  font-size: 12px;
+  color: var(--hn-text-3);
+  margin-top: 4px;
+  text-align: right;
+}
+.siiruBoard-galleryBox dl dd span { margin-left: 5px; }
 .siiruBoard-galleryBox.throughline dl dt a { text-decoration: line-through; color: var(--hn-text-3); }
 
 /* ── 로그인 스킨 ──────────────────────────────── */
@@ -4190,8 +4544,16 @@
 
 .siiru-joinWrap .alert-hn { margin-bottom: 20px; }
 .siiru-joinWrap .joinForm-write { border-top: none; }
-.siiru-joinWrap .joinForm-write dl { border-top: 1px solid var(--hn-line); }
-.siiru-joinWrap .joinForm-write dl:first-child { border-top: 2px solid var(--hn-text); }
+.siiru-joinWrap .joinForm-write dl {
+  border-top: none;
+  border-bottom: 1px solid var(--hn-line);
+}
+.siiru-joinWrap .joinForm-write dl:first-child {
+  border-top: 2px solid var(--hn-text);
+}
+.siiru-joinWrap .joinForm-write dl:last-child {
+  border-bottom: 1px solid var(--hn-line);
+}
 .siiru-joinWrap a.siiru-btn { box-sizing: border-box; }
 #join-step-S2 .siiru-btnSet { margin-top: 20px; }
 
@@ -4230,28 +4592,384 @@
 .inputWrap dl dd input.small { width: 160px; }
 .inputWrap .siiru-btnSet { margin-top: 16px; }
 
-/* ── 회원 탈퇴 스킨 ──────────────────────────── */
+/* ── 회원 탈퇴 스킨 (leave.jsp) ───────────────── */
 .siiru-userWrap { padding: 8px 0; }
-.siiru-userWrap .leaveForm h4 { font-size: 18px; font-weight: 700; color: var(--hn-text); margin-bottom: 16px; }
-.leaveForm .leave-desc { font-size: 14px; color: var(--hn-text-3); margin-bottom: 16px; }
-.leaveForm .findLayer { }
-.pwCert { margin: 14px 0; }
-.pwCert input[type="password"] {
-  width: 260px; padding: 9px 14px; border: 1px solid var(--hn-line); border-radius: 6px;
-  font-size: 14px; outline: 0;
+.siiru-userWrap .leaveForm {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+.siiru-userWrap .leaveForm h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--hn-text);
+  margin: 0 0 16px;
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--hn-line);
+}
+.siiru-userWrap .leaveForm .findLayer {
+  margin-top: 0;
+}
+.siiru-userWrap .leaveForm .inputWrap {
+  margin-top: 4px;
+}
+.siiru-userWrap .leaveForm .inputWrap > h5 {
+  margin: 0 0 16px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--hn-text);
+}
+.siiru-userWrap .leaveForm .leave-warn {
+  margin-bottom: 20px;
+}
+.siiru-userWrap .leaveForm .leave-desc {
+  margin: 0;
+  font-size: 15px;
+  color: var(--hn-text-2);
+  line-height: 1.85;
+}
+.siiru-userWrap .leaveForm .pwCert {
+  margin: 0 0 4px;
+}
+.siiru-userWrap .leaveForm .pwCert input[type="password"] {
+  width: 100%;
+  max-width: 320px;
+  padding: 9px 14px;
+  border: 1px solid var(--hn-line);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--hn-text);
+  outline: 0;
+  box-sizing: border-box;
+}
+.siiru-userWrap .leaveForm .pwCert input[type="password"]:focus {
+  border-color: var(--hn-green);
+}
+.siiru-userWrap .leaveForm .siiru-btnSet {
+  margin-top: 20px;
+}
+.siiru-userWrap .leaveWrap {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 32px 24px;
+  border: 1px solid var(--hn-line);
+  border-radius: 8px;
+  background: var(--hn-bg-alt);
+  text-align: center;
+}
+.siiru-userWrap .leaveWrap p {
+  margin: 0 0 20px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--hn-text);
+  letter-spacing: -0.02em;
+}
+.siiru-userWrap .leaveWrap .siiru-btnSet {
+  margin-top: 0;
 }
 
-/* ── 비밀번호 변경 스킨 ──────────────────────── */
+/* ── 비밀번호 변경 스킨 (passChange.jsp) ─────── */
 .siiru-passwdWrap { padding: 8px 0; }
-.passwdWrap {  }
-.passwdWrap h4 { font-size: 18px; font-weight: 700; color: var(--hn-text); margin-bottom: 16px; }
-.passwdWrap ul { padding: 14px 18px; background: var(--hn-blue-soft); border: 1px solid var(--hn-line); border-radius: 6px; margin-bottom: 20px; }
-.passwdWrap ul li { font-size: 13px; color: var(--hn-text-2); line-height: 1.8; }
-.passwdWrap .siiruBoard-write { margin-top: 20px; }
-.passwdWrap .siiru-btnSet { margin-top: 16px; }
+.siiru-passwdWrap .passwdWrap {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+.siiru-passwdWrap .passwdWrap h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--hn-text);
+  margin: 0 0 16px;
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--hn-line);
+}
+.siiru-passwdWrap .passwdWrap ul {
+  padding: 14px 18px;
+  background: var(--hn-blue-soft);
+  border: 1px solid var(--hn-line);
+  border-radius: 6px;
+  margin: 0 0 20px;
+  list-style: none;
+}
+.siiru-passwdWrap .passwdWrap ul li {
+  font-size: 13px;
+  color: var(--hn-text-2);
+  line-height: 1.8;
+}
+.siiru-passwdWrap .passwdWrap #siiru-passwdForm > dl:first-of-type {
+  border-top: 2px solid var(--hn-text);
+}
+.siiru-passwdWrap .passwdWrap dl {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-bottom: 1px solid var(--hn-line);
+}
+.siiru-passwdWrap .passwdWrap dl dt {
+  width: 130px;
+  padding: 14px 16px;
+  background: var(--hn-bg-alt);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--hn-text-2);
+  flex-shrink: 0;
+}
+.siiru-passwdWrap .passwdWrap dl dt label {
+  cursor: pointer;
+  line-height: 1.4;
+}
+.siiru-passwdWrap .passwdWrap dl dd {
+  flex: 1;
+  padding: 12px 16px;
+}
+.siiru-passwdWrap .passwdWrap dl dd input[type="password"] {
+  width: 100%;
+  max-width: 320px;
+  padding: 8px 12px;
+  border: 1px solid var(--hn-line);
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--hn-text);
+  outline: 0;
+  box-sizing: border-box;
+}
+.siiru-passwdWrap .passwdWrap .siiru-btnSet {
+  margin-top: 20px;
+}
 
-/* ── 회원 정보 스킨 ──────────────────────────── */
-.siiru-userWrap .userWrap h4 { font-size: 18px; font-weight: 700; color: var(--hn-text); margin-bottom: 16px; }
+/* ── 회원 정보 스킨 (myInfo.jsp) ───────────────── */
+.myinfo-edit { display: none; }
+.myinfo-edit.is-open { display: block; }
+.myinfo-gate.is-hidden { display: none; }
+/* 비밀번호 확인 게이트 — CMS 실서버(#M > .findLayer) + 퍼블(.myinfo-gate) 공통 */
+.siiru-userWrap .userWrap section#M > .findLayer,
+.siiru-userWrap .userWrap .myinfo-gate .findLayer {
+  padding: 32px 24px;
+  border: 1px solid var(--hn-line);
+  border-radius: 8px;
+  background: var(--hn-bg-alt);
+  text-align: center;
+}
+.siiru-userWrap .userWrap section#M > .findLayer .inputWrap,
+.siiru-userWrap .userWrap .myinfo-gate .inputWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.siiru-userWrap .userWrap section#M > .findLayer .inputWrap > h5,
+.siiru-userWrap .userWrap .myinfo-gate .inputWrap > h5 {
+  margin: 0 0 16px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--hn-text);
+  text-align: center;
+}
+.siiru-userWrap .userWrap section#M > .findLayer .inputWrap form,
+.siiru-userWrap .userWrap .myinfo-gate .inputWrap form {
+  width: 100%;
+  max-width: 320px;
+}
+.siiru-userWrap .userWrap section#M > .findLayer .pwCert,
+.siiru-userWrap .userWrap .myinfo-gate .pwCert {
+  margin: 0 0 4px;
+  width: 100%;
+}
+.siiru-userWrap .userWrap section#M > .findLayer .pwCert input[type="password"],
+.siiru-userWrap .userWrap .myinfo-gate .pwCert input[type="password"] {
+  width: 100%;
+  max-width: none;
+  padding: 9px 14px;
+  border: 1px solid var(--hn-line);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--hn-text);
+  outline: 0;
+  box-sizing: border-box;
+  background: var(--hn-bg);
+}
+.siiru-userWrap .userWrap section#M > .findLayer .pwCert input[type="password"]:focus,
+.siiru-userWrap .userWrap .myinfo-gate .pwCert input[type="password"]:focus {
+  border-color: var(--hn-green);
+}
+.siiru-userWrap .userWrap section#M > .findLayer .siiru-btnSet,
+.siiru-userWrap .userWrap .myinfo-gate .siiru-btnSet {
+  margin-top: 20px;
+  justify-content: center;
+  width: 100%;
+}
+.siiru-userWrap .userWrap #position,
+.siiru-joinWrap .joinForm-write #position {
+  min-width: 140px;
+  max-width: 240px;
+}
+.siiru-userWrap .userWrap {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+.siiru-userWrap .userWrap h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--hn-text);
+  margin: 0 0 16px;
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--hn-line);
+}
+/* dl 목록이 있는 수정 폼에만 상단 보더 (게이트용 #siiru-userForm 제외) */
+.siiru-userWrap .userWrap #siiru-userForm:has(> dl),
+.siiru-userWrap .userWrap .myinfo-edit #siiru-userForm {
+  border-top: 2px solid var(--hn-text);
+}
+.siiru-userWrap .userWrap dl {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: visible;
+  border-bottom: 1px solid var(--hn-line);
+}
+.siiru-userWrap .userWrap dl dt {
+  width: 130px;
+  padding: 14px 16px;
+  background: var(--hn-bg-alt);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--hn-text-2);
+  text-align: left;
+  border-right: 0;
+  flex-shrink: 0;
+  vertical-align: top;
+}
+.siiru-userWrap .userWrap dl dt span.required {
+  color: var(--hn-red);
+  margin-right: 2px;
+}
+.siiru-userWrap .userWrap dl dt label {
+  cursor: pointer;
+  line-height: 1.4;
+}
+.siiru-userWrap .userWrap dl dd {
+  flex: 1;
+  width: auto;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--hn-text-2);
+  vertical-align: top;
+}
+.siiru-userWrap .userWrap dl dd input[type="text"],
+.siiru-userWrap .userWrap dl dd input[type="password"] {
+  padding: 8px 12px;
+  border: 1px solid var(--hn-line);
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--hn-text);
+  outline: 0;
+  box-sizing: border-box;
+  margin-top: 0;
+  height: auto;
+}
+.siiru-userWrap .userWrap dl dd input[type="text"]:not(.small):not(.small2):not(#zip),
+.siiru-userWrap .userWrap dl dd input[type="password"] {
+  width: 100%;
+  max-width: 480px;
+}
+.siiru-userWrap .userWrap dl dd input.small {
+  width: 140px;
+  max-width: 100%;
+}
+.siiru-userWrap .userWrap dl dd input.small2 {
+  width: 240px;
+  max-width: 100%;
+}
+.siiru-userWrap .userWrap dl dd input#zip {
+  width: 140px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.siiru-userWrap .userWrap dl dd input.siiru-mt5,
+.siiru-userWrap .userWrap dl dd input.siiru-mt10 {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+}
+.siiru-userWrap .userWrap dl dd input.siiru-mt5 { margin-top: 8px; }
+.siiru-userWrap .userWrap dl dd input.siiru-mt10 { margin-top: 10px; }
+.siiru-userWrap .userWrap dl dd input[type="text"][disabled],
+.siiru-userWrap .userWrap dl dd input[type="text"][readonly] {
+  background: var(--hn-bg-alt);
+  color: var(--hn-text-3);
+  cursor: not-allowed;
+}
+.siiru-userWrap .userWrap dl dd select {
+  min-width: 140px;
+  padding: 8px 12px;
+  border: 1px solid var(--hn-line);
+  border-radius: 4px;
+  font-size: 14px;
+  background: var(--hn-bg);
+  color: var(--hn-text-2);
+  outline: 0;
+  vertical-align: middle;
+}
+.siiru-userWrap .userWrap dl dd select.areaSelect {
+  display: inline-block;
+  width: auto;
+  max-width: calc(33.33% - 8px);
+}
+.siiru-userWrap .userWrap dl dd input[type="radio"],
+.siiru-userWrap .userWrap dl dd input[type="checkbox"] {
+  width: auto;
+  margin: 0 4px 0 0;
+  accent-color: var(--hn-green);
+  vertical-align: middle;
+}
+.siiru-userWrap .userWrap dl dd label {
+  padding: 0 16px 0 4px;
+  font-size: 14px;
+  color: var(--hn-text-2);
+  cursor: pointer;
+  vertical-align: middle;
+}
+.siiru-userWrap .userWrap dl dd .fileInfo {
+  padding-top: 6px;
+  font-size: 13px;
+  color: var(--hn-text-3);
+}
+.siiru-userWrap .userWrap dl dd .fileInfo input[type="checkbox"] {
+  margin-left: 8px;
+}
+.siiru-userWrap .userWrap dl dd input[type="file"].file {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  font-size: 13px;
+  border: 0;
+  padding: 0;
+}
+.siiru-userWrap .userWrap dl dd small {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--hn-text-3);
+}
+.siiru-userWrap input[readonly] { background: var(--hn-bg-alt); color: var(--hn-text-3); }
+.siiru-userWrap .siiru-btnSet { margin-top: 20px; }
 .user-tab ul { display: flex; list-style: none; padding: 0; margin: 0 0 20px; border-bottom: 2px solid var(--hn-line); }
 .user-tab li { flex: 1; text-align: center; }
 .user-tab li a {
@@ -4262,16 +4980,29 @@
 .siiru-userWrap .siiruBoard-write dl { border-top: 1px solid var(--hn-line); }
 .siiru-userWrap .siiruBoard-write dl:first-child { border-top: 2px solid var(--hn-text); }
 .siiru-userWrap .siiruBoard-write dl dd { display: flex; align-items: center; }
-.siiru-userWrap input[readonly] { background: var(--hn-bg-alt); color: var(--hn-text-3); }
-.siiru-userWrap .siiru-btnSet { margin-top: 16px; }
 
 /* ── 모달 (siiru-modal) ──────────────────────── */
 .siiruModal.modal { display: none; }
 
 /* ── 반응형 ──────────────────────────────────── */
 @media (max-width: 768px) {
-  .siiruBoard-search form { flex-direction: column; align-items: stretch; }
-  .siiruBoard-search input[type="text"]:not(.maskDate) { min-width: unset; }
+  .siiru-boardWrap:has(> .siiruBoard-list),
+  .siiru-boardWrap:has(> .siiruBoard-gallery) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "listinfo"
+      "list"
+      "page"
+      "search"
+      "register";
+  }
+  .siiru-boardWrap > .siiru-tr.board-register { justify-self: end; }
+  .siiruBoard-search form {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+  .siiruBoard-search input[type="text"]:not(.maskDate) { width: 100%; }
   .siiruBoard-write dl,
   .joinForm-write dl { flex-direction: column; }
   .siiruBoard-write dl dt,
@@ -4279,4 +5010,19 @@
   .loginWrap, .passwdWrap, .findUserWrap { max-width: 100%; }
   .kindBoxWrap { flex-direction: column; }
   .siiruBoardBtnInfo { flex-direction: column-reverse; gap: 8px; }
+  .siiru-userWrap .userWrap dl { flex-direction: column; }
+  .siiru-userWrap .userWrap dl dt { width: 100%; border-bottom: 1px solid var(--hn-line-soft); }
+  .siiru-userWrap .userWrap dl dd select.areaSelect {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0 0 8px;
+  }
+  .siiru-userWrap .userWrap dl dd select.areaSelect.siiru-ml10 { margin-left: 0; }
+  .siiru-passwdWrap .passwdWrap dl { flex-direction: column; }
+  .siiru-passwdWrap .passwdWrap dl dt { width: 100%; border-bottom: 1px solid var(--hn-line-soft); }
+  .siiru-passwdWrap .passwdWrap dl dd input[type="password"] { max-width: none; }
+  .siiru-userWrap .leaveForm .pwCert input[type="password"] { max-width: none; }
+  .siiru-userWrap .userWrap section#M > .findLayer .pwCert input[type="password"],
+  .siiru-userWrap .userWrap .myinfo-gate .pwCert input[type="password"] { max-width: none; }
 }
