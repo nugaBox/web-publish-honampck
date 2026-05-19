@@ -202,14 +202,14 @@
 }
 
 .hn-quick-card .t {
-  font-size: 17px;
+  font-size: 23px;
   font-weight: 700;
   color: var(--hn-text);
   letter-spacing: -0.02em;
 }
 
 .hn-quick-card .d {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--hn-text-3);
   margin-top: auto;
   line-height: 1.45;

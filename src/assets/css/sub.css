@@ -2172,6 +2172,12 @@
   text-align: center;
 }
 
+/* PC: 모바일 전용 회기·부노회장 통합 열 숨김 */
+.content-history .hn-pres-simple .hn-pres-th--mob,
+.content-history .hn-pres-simple .hpt-officer--mob {
+  display: none;
+}
+
 .content-history .hpt-info {
   width: 128px;
   flex-shrink: 0;
@@ -4417,19 +4423,101 @@
     padding: 16px;
   }
 
-  .hn-pres-simple thead th:nth-child(3),
-  .hn-pres-simple thead th:nth-child(4),
-  .hn-pres-simple tbody td:nth-child(3),
-  .hn-pres-simple tbody td:nth-child(4) {
+  /* 호남노회 역대 노회장 — 모바일 3열(회기·노회장·부노회장) */
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple {
+    --hn-pres-photo-w: 44px;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hn-pres-th--desk {
     display: none;
   }
 
-  .hn-pres-simple .hpt-photo {
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hn-pres-th--mob {
+    display: table-cell;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-officer--desk {
     display: none;
   }
 
-  .hn-pres-simple .hpt-info {
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-officer--mob {
+    display: table-cell;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hps-term-inner {
+    min-height: 0;
+    padding: 10px 6px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-person {
+    justify-content: flex-start;
+    gap: 8px;
+    min-height: 0;
+    padding: 4px 0;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-info {
     width: auto;
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-vp-mob {
+    text-align: left;
+    padding: 10px 8px;
+    vertical-align: middle;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-vp-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-vp-person + .hpt-vp-person {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--hn-line-soft);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-vp-person .hpt-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--hn-text);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-vp-person .hpt-church {
+    font-size: 12px;
+    color: var(--hn-text-3);
+    margin-top: 2px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple thead th,
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple tbody td {
+    padding: 10px 6px;
+    font-size: 13px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hps-term--swap .hps-gen {
+    font-size: 13px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hps-term--swap .hps-sess {
+    font-size: 11px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hps-term:not(.hps-term--swap) .hps-sess {
+    font-size: 13px;
   }
 
 }

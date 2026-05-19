@@ -90,11 +90,16 @@ p {
   /* 드롭다운 환영 패널과 너비 공유 */
 }
 
+.hn-logo img,
+.hn-logo picture {
+  display: block;
+  max-width: 100%;
+}
+
 .hn-logo img {
   height: 53px;
   width: auto;
   max-width: 100%;
-  display: block;
 }
 
 /* ── 탑바 ─────────────────────────────────────────────────── */
@@ -619,6 +624,7 @@ p {
 
 .hn-footer-main dt {
   color: #7f8894;
+  white-space: nowrap;
 }
 
 .hn-footer-main dd {
@@ -1052,18 +1058,26 @@ p {
     display: flex;
   }
 
+  /* 로고만 남는 너비에 맞춰 축소, 메뉴 버튼·바깥 패딩은 고정 */
   .hn-logo {
+    flex: 1 1 auto;
+    min-width: 0;
     width: auto;
-    flex-shrink: 0;
     max-width: none;
   }
 
   .hn-logo img {
-    height: 48px;
+    display: block;
     width: auto;
-    max-width: none;
-    flex-shrink: 0;
+    height: auto;
+    max-height: 42px;
+    max-width: 100%;
     object-fit: contain;
+  }
+
+  .hn-logo picture {
+    display: block;
+    max-width: 100%;
   }
 
   .hn-footer-main {
