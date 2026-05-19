@@ -178,6 +178,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.getElementById('hnDrawerClose');
     if (!btn || !drawer) return;
 
+    /* header 내부에 남아 있으면 frosted glass(backdrop-filter)가 깨짐 */
+    if (drawer.closest('#site-header')) {
+      document.body.appendChild(drawer);
+    }
+    if (overlay?.closest('#site-header')) {
+      document.body.appendChild(overlay);
+    }
+
     const openMenu = () => {
       drawer.classList.add('open');
       overlay.classList.add('open');

@@ -1567,6 +1567,26 @@
   display: block;
 }
 
+.churches-mobile-detail-hint {
+  display: none;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--hn-text-3);
+  background: var(--hn-bg-alt);
+  border-radius: 6px;
+}
+
+.churches-mobile-detail-hint i {
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 15px;
+  color: var(--hn-blue);
+}
+
 .churches-view {
   display: none;
 }
@@ -1636,6 +1656,13 @@
   background: color-mix(in srgb, var(--hn-blue) 48%, white);
   border-color: color-mix(in srgb, var(--hn-blue) 48%, white);
   color: #fff;
+}
+
+/* 시찰 미표기(—) · 특수 분류 → 기타 */
+.churches-page .church-table .cat.misc {
+  background: var(--hn-bg);
+  border-color: var(--hn-line-strong);
+  color: var(--hn-text-3);
 }
 
 .churches-page .church-table tbody td:first-child {
@@ -3584,12 +3611,12 @@
     display: none;
   }
 
-  /* 노회장 셀: 사진 숨기고 텍스트만 */
-  .hpt-photo {
+  /* 역대 노회 임원 아코디언 표: 사진 숨기고 텍스트만 */
+  .hn-pres-table .hpt-photo {
     display: none;
   }
 
-  .hpt-info {
+  .hn-pres-table .hpt-info {
     width: auto;
   }
 
@@ -3776,6 +3803,33 @@
     text-align: left;
   }
 
+  /* 노회 조직 — 상비부 등: 제목·회기 한 줄, 제목 크기 축소 */
+  .content-org:not(:has(.siiru-boardWrap)) .ptitle {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 10px 14px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom-width: 1px;
+  }
+
+  .content-org:not(:has(.siiru-boardWrap)) .ptitle > span:first-child {
+    min-width: 0;
+  }
+
+  .content-org:not(:has(.siiru-boardWrap)) .ptitle .cnt.ptitle-meta {
+    flex-shrink: 0;
+    max-width: none;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--hn-text-3);
+    white-space: nowrap;
+  }
+
   .content:not(:has(.siiru-boardWrap)) .intro-lead {
     padding: 20px 18px;
     margin-bottom: 28px;
@@ -3949,31 +4003,125 @@
   }
 
   .content:not(:has(.siiru-boardWrap)) .dept-table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
     border-top: 0;
+    table-layout: auto;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table colgroup {
+    display: none;
   }
 
   .content:not(:has(.siiru-boardWrap)) .dept-table thead {
     display: none;
   }
 
+  .content:not(:has(.siiru-boardWrap)) .dept-table tbody {
+    display: block;
+    width: 100%;
+  }
+
   .content:not(:has(.siiru-boardWrap)) .dept-table tbody tr {
     display: block;
-    margin-bottom: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
     border: 1px solid var(--hn-line);
     border-radius: 8px;
     overflow: hidden;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table tbody td {
-    display: block;
-    border-right: 0;
-    padding: 12px 16px;
-    text-align: left;
+  /* 상비부(5열): 부장·서기·회계 한 행 3열 */
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody tr {
+    display: flex;
+    flex-wrap: wrap;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table tbody td.dept-name {
-    padding: 14px 16px;
+  .content:not(:has(.siiru-boardWrap)) .dept-table tbody td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-right: 0;
+    border-bottom: 1px solid var(--hn-line-soft);
+    padding: 9px 12px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table tbody tr td:last-child {
+    border-bottom: 0;
+  }
+
+  .content-org:not(:has(.siiru-boardWrap)) .dept-table tbody td.dept-name {
+    width: 100%;
+    padding: 10px 12px;
     text-align: center;
+    font-size: 16px;
+    font-weight: 800;
+    border-bottom: 1px solid var(--hn-line);
+    background: var(--hn-blue-soft);
+    color: var(--hn-text);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table tbody td.dept-name--oneline-m br {
+    display: none;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table tbody td.dept-name--oneline-m {
+    font-size: 16px;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2),
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3),
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4) {
+    flex: 1 1 0;
+    min-width: 0;
+    width: 33.333%;
+    padding: 8px 6px;
+    text-align: center;
+    border-right: 1px solid var(--hn-line-soft);
+    border-bottom: 1px solid var(--hn-line-soft);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4) {
+    border-right: 0;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5) {
+    width: 100%;
+    padding: 6px 12px 7px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table tbody td.title {
+    padding-top: 6px;
+    padding-bottom: 7px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table .dept-member-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 8px;
+    line-height: 1.55;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table .dept-member-group + .dept-member-group {
+    margin-top: 6px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table .dept-member-label {
+    flex-shrink: 0;
+    margin-right: 0;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table .dept-member-list {
+    flex: 1;
+    min-width: 0;
   }
 
   .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2)::before,
@@ -3981,11 +4129,17 @@
   .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4)::before,
   .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5)::before {
     display: block;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     color: var(--hn-text-3);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     letter-spacing: 0.02em;
+    text-align: center;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5)::before {
+    text-align: center;
+    margin-bottom: 3px;
   }
 
   .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2)::before {
@@ -4001,16 +4155,43 @@
   }
 
   .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5)::before {
-    content: '부원 / 위원';
+    content: '부원';
+  }
+
+  /* 총대 명부(3열): 구분 헤더 + 목사·장로 라벨열·내용열 */
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2),
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3) {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 7px 12px;
+    border-bottom: 1px solid var(--hn-line-soft);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) .dept-cell-body {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.5;
   }
 
   .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2)::before,
   .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3)::before {
     display: block;
-    font-size: 12px;
+    flex: 0 0 3.25rem;
+    width: 3.25rem;
+    font-size: 11px;
     font-weight: 700;
     color: var(--hn-text-3);
-    margin-bottom: 6px;
+    margin-bottom: 0;
+    text-align: center;
+    letter-spacing: 0.02em;
   }
 
   .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2)::before {
@@ -4019,6 +4200,19 @@
 
   .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3)::before {
     content: '장로';
+  }
+
+  /* 목사·장로 미분리(단일 colspan) 행 */
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td[colspan] {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    text-align: center;
+    border-bottom: 0;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td[colspan]::before {
+    display: none;
   }
 
   .content-org:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2)::before,
@@ -4030,8 +4224,26 @@
     font-size: 13px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table tbody td.dept-chief {
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2),
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3) {
     text-align: left;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td[colspan].dept-chief {
+    text-align: center;
+    color: var(--hn-blue);
+    font-weight: 700;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td.dept-chief {
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3),
+  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4) {
+    text-align: center;
+    font-size: 13px;
   }
 
   .content:not(:has(.siiru-boardWrap)) .churches-page .group-tabs,
@@ -4057,6 +4269,332 @@
   .content:not(:has(.siiru-boardWrap)) .group-tabs a {
     flex-shrink: 0;
     white-space: nowrap;
+  }
+
+  /* 소속 회원·교회 — 모바일 카드형 목록 */
+  .content:not(:has(.siiru-boardWrap)) .churches-mobile-detail-hint {
+    display: flex;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-toolbar {
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    margin-bottom: 14px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-term-label {
+    width: 100%;
+    margin-left: 0;
+    text-align: right;
+    order: 3;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-view-toggle button {
+    min-width: 0;
+    flex: 1;
+    padding: 9px 14px;
+    font-size: 14px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .member-section {
+    margin-bottom: 22px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .member-section-title {
+    font-size: 16px;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .table-scroll {
+    overflow-x: visible;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .table-scroll .church-table {
+    min-width: 0;
+    border-top-width: 0;
+    margin-top: 0;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table thead,
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table thead {
+    display: none;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody,
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody {
+    display: block;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody tr,
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody tr {
+    display: grid;
+    margin-bottom: 8px;
+    border: 1px solid var(--hn-line);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--hn-bg);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card.church-m-open {
+    border-color: var(--hn-green);
+    background: var(--hn-bg);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card:active:not(.church-m-open) {
+    background: var(--hn-bg-alt);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody tr:hover td,
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody tr:hover td {
+    background: transparent;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card:hover td:not(.church-m-acc-cell) {
+    background: transparent;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td.church-m-empty,
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td.church-m-empty {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 0;
+    line-height: 0;
+    color: transparent;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td:nth-child(1).church-m-empty,
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(1).church-m-empty {
+    flex: 0 0 0;
+    width: 0;
+    min-width: 0;
+    padding-left: 10px;
+    padding-right: 0;
+    overflow: hidden;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td,
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td {
+    display: block;
+    padding: 8px 10px;
+    border-bottom: 0;
+    font-size: 14px;
+    line-height: 1.45;
+    vertical-align: top;
+  }
+
+  /* 회원별: 시찰 · 성명 · 시무교회 · 토글 */
+  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody tr {
+    grid-template-columns: minmax(3.1rem, auto) minmax(0, 1fr) minmax(0, 1fr) 1.75rem;
+    align-items: center;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td:nth-child(1) {
+    grid-row: 1;
+    grid-column: 1;
+    padding-right: 4px;
+    text-align: center;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td:nth-child(2) {
+    grid-row: 1;
+    grid-column: 2;
+    font-weight: 700;
+    color: var(--hn-text);
+    padding-left: 0;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td:nth-child(3) {
+    grid-row: 1;
+    grid-column: 3;
+    font-size: 13px;
+    padding-left: 0;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-toggle-cell {
+    grid-row: 1;
+    grid-column: -1;
+    align-self: center;
+    padding: 0 10px 0 2px;
+    pointer-events: none;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-ico-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    color: var(--hn-text-3);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card.church-m-open .church-m-acc-ico-wrap {
+    color: var(--hn-green);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-ico {
+    font-size: 12px;
+    line-height: 1;
+    transition: transform 0.2s;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card.church-m-open .church-m-acc-ico {
+    transform: rotate(180deg);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-cell {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding: 0;
+    border: 0;
+    cursor: default;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card:not(.church-m-open) .church-m-acc-cell {
+    display: none;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-panel {
+    display: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card.church-m-open .church-m-acc-panel {
+    display: block;
+    margin-top: 8px;
+    padding: 8px 12px 10px;
+    border-top: 1px solid var(--hn-line-soft);
+    background: var(--hn-bg);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 4px 0;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--hn-text-2);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line .k {
+    flex: 0 0 4.75rem;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--hn-text-3);
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line .v {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line .col-phone,
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line .v {
+    letter-spacing: -0.02em;
+  }
+
+  /* 교회별: colgroup 해제 + 1행 flex (시찰 · 교회 · 분류 · 교역자 · 토글) */
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table {
+    table-layout: auto;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table colgroup {
+    display: none;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody tr {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 6px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td {
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(1) {
+    flex: 0 0 3.25rem;
+    padding-left: 10px;
+    padding-right: 2px;
+    text-align: center;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(2) {
+    flex: 1 1 0;
+    min-width: 2.75rem;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 700;
+    color: var(--hn-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(3) {
+    flex: 0 0 auto;
+    padding: 8px 0;
+    font-size: 12px;
+    color: var(--hn-text-3);
+    white-space: nowrap;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(3)::before {
+    content: '·';
+    margin-right: 6px;
+    color: var(--hn-text-4);
+    font-weight: 400;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(4) {
+    flex: 0 1 auto;
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--hn-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(4)::before {
+    content: '·';
+    margin-right: 6px;
+    color: var(--hn-text-4);
+    font-weight: 400;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table .church-m-toggle-cell {
+    flex: 0 0 1.75rem;
+    margin-left: auto;
+    padding: 8px 10px 8px 2px;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table .church-m-acc-cell {
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 0;
+  }
+
+  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table .col-phone {
+    min-width: 0;
+    white-space: normal;
   }
 
   .content:not(:has(.siiru-boardWrap)) .rules-doc .chapter-head {
@@ -4273,6 +4811,10 @@
 }
 
 /* ── 역대 노회임원 좌우 분할 레이아웃 (officers-past) ───── */
+.officer-sess-hint {
+  display: none;
+}
+
 .officer-split {
   display: grid;
   grid-template-columns: 3fr 7fr;
@@ -4413,110 +4955,141 @@
     grid-template-columns: 1fr;
   }
 
-  .officer-sess-list {
-    max-height: 220px;
+  .content-history .officer-sess-hint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--hn-blue);
+    background: var(--hn-blue-soft);
+    border-bottom: 1px solid rgba(20, 65, 122, 0.12);
+  }
+
+  .content-history .officer-sess-hint i {
+    flex-shrink: 0;
+    font-size: 15px;
+    opacity: 0.85;
+  }
+
+  .content-history .officer-sess-list {
+    /* 모바일 회기 행 실측(~68px) 기준 — 4.5행 노출로 스크롤 암시 */
+    --officer-sess-row-h: 68px;
+    max-height: calc(var(--officer-sess-row-h) * 4.5);
     border-right: 0;
     border-bottom: 1px solid var(--hn-line);
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 20px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 20px), transparent 100%);
   }
 
   .officer-detail {
     padding: 16px;
   }
 
-  /* 호남노회 역대 노회장 — 모바일 3열(회기·노회장·부노회장) */
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple {
+  /* 호남노회 역대 노회장 — 모바일 2열(회기·노회장) */
+  .content-history .hn-pres-simple.hn-pres-honam,
+  .hn-pres-simple.hn-pres-honam {
     --hn-pres-photo-w: 44px;
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hn-pres-th--desk {
+  .content-history .hn-pres-simple.hn-pres-honam colgroup,
+  .hn-pres-simple.hn-pres-honam colgroup {
     display: none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hn-pres-th--mob {
-    display: table-cell;
+  .content-history .hn-pres-simple.hn-pres-honam thead th:nth-child(1),
+  .content-history .hn-pres-simple.hn-pres-honam tbody td:nth-child(1),
+  .hn-pres-simple.hn-pres-honam thead th:nth-child(1),
+  .hn-pres-simple.hn-pres-honam tbody td:nth-child(1) {
+    width: 33.333%;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-officer--desk {
-    display: none;
+  .content-history .hn-pres-simple.hn-pres-honam thead th:nth-child(2),
+  .content-history .hn-pres-simple.hn-pres-honam tbody td:nth-child(2),
+  .hn-pres-simple.hn-pres-honam thead th:nth-child(2),
+  .hn-pres-simple.hn-pres-honam tbody td:nth-child(2) {
+    width: 66.667%;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-officer--mob {
-    display: table-cell;
+  .content-history .hn-pres-simple.hn-pres-honam thead th:nth-child(n + 3),
+  .content-history .hn-pres-simple.hn-pres-honam tbody td:nth-child(n + 3),
+  .hn-pres-simple.hn-pres-honam thead th:nth-child(n + 3),
+  .hn-pres-simple.hn-pres-honam tbody td:nth-child(n + 3),
+  .content-history .hn-pres-simple.hn-pres-honam .hn-pres-th--desk,
+  .content-history .hn-pres-simple.hn-pres-honam .hpt-officer--desk,
+  .content-history .hn-pres-simple.hn-pres-honam .hn-pres-th--mob,
+  .content-history .hn-pres-simple.hn-pres-honam .hpt-officer--mob,
+  .hn-pres-simple.hn-pres-honam .hn-pres-th--desk,
+  .hn-pres-simple.hn-pres-honam .hpt-officer--desk,
+  .hn-pres-simple.hn-pres-honam .hn-pres-th--mob,
+  .hn-pres-simple.hn-pres-honam .hpt-officer--mob {
+    display: none !important;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hps-term-inner {
+  .content-history .hn-pres-simple.hn-pres-honam .hps-term-inner,
+  .hn-pres-simple.hn-pres-honam .hps-term-inner {
     min-height: 0;
     padding: 10px 6px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-person {
-    justify-content: flex-start;
+  .content-history .hn-pres-simple.hn-pres-honam tbody td:nth-child(2),
+  .hn-pres-simple.hn-pres-honam tbody td:nth-child(2) {
+    text-align: center;
+  }
+
+  .content-history .hn-pres-simple.hn-pres-honam .hpt-person,
+  .hn-pres-simple.hn-pres-honam .hpt-person {
+    justify-content: center;
+    margin: 0 auto;
+    width: fit-content;
+    max-width: 100%;
     gap: 8px;
     min-height: 0;
     padding: 4px 0;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-photo {
-    display: flex;
+  .content-history .hn-pres-simple.hn-pres-honam .hpt-photo,
+  .hn-pres-simple.hn-pres-honam .hpt-photo {
+    display: flex !important;
     align-items: center;
     justify-content: center;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-info {
+  .content-history .hn-pres-simple.hn-pres-honam .hpt-info,
+  .hn-pres-simple.hn-pres-honam .hpt-info {
     width: auto;
-    flex: 1;
-    min-width: 0;
-    text-align: left;
+    flex-shrink: 0;
+    text-align: center;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-vp-mob {
-    text-align: left;
-    padding: 10px 8px;
-    vertical-align: middle;
-  }
-
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-vp-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-vp-person + .hpt-vp-person {
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid var(--hn-line-soft);
-  }
-
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-vp-person .hpt-name {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--hn-text);
-  }
-
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hpt-vp-person .hpt-church {
-    font-size: 12px;
-    color: var(--hn-text-3);
-    margin-top: 2px;
-  }
-
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple thead th,
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple tbody td {
+  .content-history .hn-pres-simple.hn-pres-honam thead th,
+  .content-history .hn-pres-simple.hn-pres-honam tbody td,
+  .hn-pres-simple.hn-pres-honam thead th,
+  .hn-pres-simple.hn-pres-honam tbody td {
     padding: 10px 6px;
     font-size: 13px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hps-term--swap .hps-gen {
+  .content-history .hn-pres-simple.hn-pres-honam .hps-term--swap .hps-gen,
+  .hn-pres-simple.hn-pres-honam .hps-term--swap .hps-gen {
     font-size: 13px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hps-term--swap .hps-sess {
+  .content-history .hn-pres-simple.hn-pres-honam .hps-term--swap .hps-sess,
+  .hn-pres-simple.hn-pres-honam .hps-term--swap .hps-sess {
     font-size: 11px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .content-history .hn-pres-simple .hps-term:not(.hps-term--swap) .hps-sess {
+  .content-history .hn-pres-simple.hn-pres-honam .hps-term:not(.hps-term--swap) .hps-sess,
+  .hn-pres-simple.hn-pres-honam .hps-term:not(.hps-term--swap) .hps-sess {
     font-size: 13px;
   }
 
@@ -4885,7 +5458,7 @@
   gap: 4px;
   padding: 7px 16px;
   border-radius: 4px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   border: 1px solid var(--hn-line-strong);
   background: var(--hn-bg);
@@ -4954,7 +5527,7 @@
 
 .siiru-btn-small {
   padding: 4px 10px;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .siiru-btnSet {
@@ -5096,7 +5669,7 @@
   align-items: center;
   padding: 8px 0 0;
   margin-bottom: 0;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--hn-text-3);
 }
 
@@ -5110,7 +5683,7 @@
 .siiruBoard-list thead th {
   background: var(--hn-bg-alt);
   padding: 12px 10px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--hn-text-2);
   border-bottom: 1px solid var(--hn-line);
@@ -5132,8 +5705,8 @@
 
 .siiruBoard-list tbody td,
 .siiruBoard-list tbody th[scope="row"] {
-  padding: 11px 10px;
-  font-size: 14px;
+  padding: 12px 10px;
+  font-size: 15px;
   color: var(--hn-text-2);
   text-align: center;
   vertical-align: middle;
@@ -5147,9 +5720,12 @@
 
 .siiruBoard-list tbody th[scope="row"].boardSj a,
 .siiruBoard-list tbody th[scope="row"].subject a {
+  display: inline;
   color: var(--hn-text);
   text-decoration: none;
   font-weight: 500;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .siiruBoard-list tbody th[scope="row"].boardSj a:hover,
@@ -5160,15 +5736,79 @@
 .siiruBoard-list tbody th[scope="row"].boardSj a.new::after,
 .siiruBoard-list tbody th[scope="row"].subject a.new::after {
   content: 'N';
-  display: inline-block;
+  display: inline;
   margin-left: 6px;
-  background: var(--hn-red);
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  color: var(--hn-red);
+  font-size: 12px;
+  font-weight: 800;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+/* 게시판 분류 뱃지 (basic 목록 · 앨범 공통) */
+.board-cat {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
   color: #fff;
-  font-size: 10px;
-  padding: 1px 5px;
-  border-radius: 2px;
-  font-weight: 700;
+  background: var(--hn-blue);
+  border: 1px solid var(--hn-blue);
+  border-radius: 4px;
   vertical-align: middle;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.board-cat.cat-g {
+  background: var(--hn-green);
+  border-color: var(--hn-green);
+}
+
+.board-cat.cat-b {
+  background: var(--hn-blue);
+  border-color: var(--hn-blue);
+}
+
+.board-cat.cat-r {
+  background: #2d5a8a;
+  border-color: #2d5a8a;
+}
+
+.board-cat.cat-o {
+  background: #5a7fa8;
+  border-color: #5a7fa8;
+}
+
+.siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.ctgryNm,
+.siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr > td:nth-child(2) {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* basic 목록 분류 — 번호열 Notice 뱃지와 동일 크기 */
+.siiruBoard-list .board-cat {
+  padding: 2px 7px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* NEW — 메인 .blist .t .new 와 동일 (배경 없는 빨간 N) */
+.new-mark {
+  display: inline;
+  color: var(--hn-red);
+  font-size: 12px;
+  font-weight: 800;
+  margin-left: 6px;
+  vertical-align: top;
+  white-space: nowrap;
 }
 
 .siiruBoard-list span.notice {
@@ -5178,7 +5818,7 @@
   font-size: 11px;
   font-weight: 700;
   padding: 2px 7px;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .siiruBoard-list .reBlcok {
@@ -5255,6 +5895,42 @@
   font-size: 12px;
 }
 
+/* CMS pagination() — first/prev/next/last 링크는 내용 없이 class만 출력 */
+.siiru-boardWrap .pagination li a.first:empty,
+.siiru-boardWrap .pagination li a.prev:empty,
+.siiru-boardWrap .pagination li a.next:empty,
+.siiru-boardWrap .pagination li a.last:empty {
+  font-size: 0;
+}
+
+.siiru-boardWrap .pagination li a.first:empty::before,
+.siiru-boardWrap .pagination li a.prev:empty::before,
+.siiru-boardWrap .pagination li a.next:empty::before,
+.siiru-boardWrap .pagination li a.last:empty::before {
+  font-family: "Font Awesome 7 Pro", "Font Awesome 6 Pro", "Font Awesome 6 Free";
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--hn-text-2);
+  speak: never;
+}
+
+.siiru-boardWrap .pagination li a.first:empty::before {
+  content: "\f323";
+}
+
+.siiru-boardWrap .pagination li a.prev:empty::before {
+  content: "\f053";
+}
+
+.siiru-boardWrap .pagination li a.next:empty::before {
+  content: "\f054";
+}
+
+.siiru-boardWrap .pagination li a.last:empty::before {
+  content: "\f324";
+}
+
 #boardPage .pagination li a:hover {
   background: var(--hn-bg-alt);
 }
@@ -5267,13 +5943,21 @@
 }
 
 /* ── 뷰 페이지 ────────────────────────────────── */
+.siiruBoard-view {
+  width: 100%;
+  border-top: 2px solid var(--hn-text);
+  margin-bottom: 20px;
+}
+
 .siiruBoard-view>form>h4 {
-  padding: 16px 0 14px;
-  font-size: 18px;
-  font-weight: 700;
+  margin: 0;
+  padding: 12px 16px;
+  font-size: 20px;
+  font-weight: 600;
   color: var(--hn-text);
+  background: var(--hn-bg-alt);
   border-bottom: 1px solid var(--hn-line);
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 .siiruBoard-view>form>h4.text-danger {
@@ -5296,19 +5980,31 @@
 }
 
 .boardInfo-view {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 10px 0;
-  font-size: 13px;
-  color: var(--hn-text-3);
+  display: block;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--hn-text-2);
+  line-height: 1.5;
+}
+
+.boardInfo-view span {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 4px;
+  vertical-align: middle;
+}
+
+.boardInfo-view span:nth-child(2) {
+  border-left: 1px solid var(--hn-line-strong);
+  border-right: 1px solid var(--hn-line-strong);
+  padding: 0 15px;
 }
 
 .siiruBoardInfo dl {
   display: flex;
   border-top: 1px solid var(--hn-line-soft);
-  padding: 10px 0;
-  font-size: 13px;
+  padding: 10px 16px;
+  font-size: 14px;
 }
 
 .siiruBoardInfo dl dt {
@@ -5349,13 +6045,23 @@
 }
 
 .siiruBoardBody {
-  padding: 24px 0;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--hn-line);
+  color: var(--hn-text-2);
 }
 
 .boardContents {
-  font-size: 15px;
-  line-height: 1.8;
+  padding: 24px 16px;
+  font-size: 16px;
+  line-height: 1.75;
   color: var(--hn-text-2);
+}
+
+.boardContents img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 8px;
 }
 
 .boardContents p {
@@ -5399,33 +6105,55 @@
 }
 
 .siiruBoardBtnInfo {
-  padding: 14px 0;
-  border-top: 1px solid var(--hn-line);
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  overflow: hidden;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 12px 16px;
+  background: var(--hn-bg-alt);
+  border-top: 1px solid var(--hn-line);
+  overflow: visible;
 }
 
-.siiruBoardBtnInfo::after {
-  content: '';
-  display: block;
-  clear: both;
+.siiruBoardBtnInfo .siiru-fl,
+.siiruBoardBtnInfo .siiru-fr {
+  float: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.siiruBoardBtnInfo .siiru-fr > .siiru-btn:not([class*="siiru-btn-"]) {
+  background: var(--hn-bg);
+  border-color: var(--hn-line-strong);
+  color: var(--hn-text-2);
+}
+
+.siiruBoardBtnInfo .siiru-fr > .siiru-btn:not([class*="siiru-btn-"]):hover {
+  background: var(--hn-bg);
+  border-color: var(--hn-text-3);
+  color: var(--hn-text);
 }
 
 .manageInfo {
-  padding: 10px 0;
-  font-size: 12px;
+  padding: 12px 16px 16px;
+  font-size: 13px;
   color: var(--hn-text-3);
+  border-top: 1px solid var(--hn-line-soft);
 }
 
 .manageInfo small {
   display: block;
   margin-bottom: 4px;
+  line-height: 1.5;
 }
 
 .siiruBoardList {
-  border-top: 1px solid var(--hn-line);
-  margin-top: 10px;
+  margin: 0;
+  padding: 0 16px;
 }
 
 .siiruBoardList ul {
@@ -5435,25 +6163,32 @@
 }
 
 .siiruBoardList ul li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 11px 0;
-  border-bottom: 1px solid var(--hn-line-soft);
-  font-size: 14px;
+  display: block;
+  padding: 14px 10px 12px;
+  border-top: 1px solid var(--hn-line-strong);
+  font-size: 15px;
+  color: var(--hn-text-2);
+  line-height: 1.5;
+}
+
+.siiruBoardList ul li:last-child {
+  border-bottom: 1px solid var(--hn-line-strong);
 }
 
 .siiruBoardList ul li>span:first-child {
-  width: 48px;
+  display: inline-block;
+  width: auto;
+  margin-right: 15px;
+  padding-right: 15px;
+  border-right: 1px solid var(--hn-line-strong);
   font-weight: 700;
-  color: var(--hn-text-3);
-  flex-shrink: 0;
+  color: var(--hn-text);
+  vertical-align: top;
 }
 
 .siiruBoardList ul li a {
   color: var(--hn-text-2);
   text-decoration: none;
-  flex: 1;
 }
 
 .siiruBoardList ul li a:hover {
@@ -5461,9 +6196,35 @@
 }
 
 .siiruBoardList ul li small {
-  font-size: 12px;
+  float: right;
+  font-size: 13px;
   color: var(--hn-text-3);
-  margin-left: auto;
+}
+
+.siiruBoardViewlist {
+  margin-top: 28px;
+  padding: 0;
+}
+
+.siiruBoardViewlist .siiruBoard-listInfo {
+  padding: 8px 0 12px;
+  font-size: 14px;
+  color: var(--hn-text-3);
+}
+
+.siiruBoardViewlist .siiruBoard-list thead th {
+  font-size: 14px;
+  padding: 12px 10px;
+}
+
+.siiruBoardViewlist .siiruBoard-list tbody td,
+.siiruBoardViewlist .siiruBoard-list tbody th[scope="row"] {
+  font-size: 15px;
+  padding: 12px 10px;
+}
+
+.siiruBoardViewlist #boardPage .pagination li a {
+  font-size: 14px;
 }
 
 /* ── 댓글 영역 ────────────────────────────────── */
@@ -5755,25 +6516,36 @@
   text-align: left;
 }
 
-.siiruBoard-galleryBox dl dt.new::after {
-  content: 'N';
-  display: inline-block;
-  margin-left: 6px;
-  background: var(--hn-red);
-  color: #fff;
-  font-size: 10px;
-  padding: 1px 5px;
-  border-radius: 2px;
-  font-weight: 700;
-}
-
 .siiruBoard-galleryBox dl dt a {
+  display: block;
+  line-height: 1.45;
   color: inherit;
   text-decoration: none;
 }
 
 .siiruBoard-galleryBox dl dt a:hover {
   color: var(--hn-green);
+}
+
+.siiruBoard-galleryBox dl dt a:hover .board-sj {
+  color: var(--hn-green);
+}
+
+.siiruBoard-galleryBox .board-cat {
+  margin: 0 0 6px;
+}
+
+.siiruBoard-galleryBox .board-sj {
+  display: inline;
+  font-weight: 500;
+  line-height: inherit;
+  color: var(--hn-text);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.siiruBoard-galleryBox a:not(.new) .new-mark {
+  display: none;
 }
 
 .siiruBoard-galleryBox dl dd {
@@ -6754,22 +7526,236 @@
       "listinfo"
       "list"
       "page"
-      "search"
-      "register";
+      "register"
+      "search";
   }
 
-  .siiru-boardWrap>.siiru-tr.board-register {
+  .siiru-boardWrap:has(> .siiru-clr .board-district-filter):has(> .siiruBoard-list),
+  .siiru-boardWrap:has(> .siiru-clr .board-district-filter):has(> .siiruBoard-gallery) {
+    grid-template-areas:
+      "tabs"
+      "listinfo"
+      "list"
+      "page"
+      "register"
+      "search";
+  }
+
+  .siiru-boardWrap > .siiru-tr.board-register,
+  .siiru-boardWrap > .siiru-tr.siiru-mb20 {
+    margin-top: 16px;
+    margin-bottom: 0;
     justify-self: end;
   }
 
+  .siiru-boardWrap > .siiruBoard-search {
+    width: 100%;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--hn-line-soft);
+  }
+
   .siiruBoard-search form {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: stretch;
     justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .siiruBoard-search select {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
+    padding: 9px 10px;
+    font-size: 13px;
   }
 
   .siiruBoard-search input[type="text"]:not(.maskDate) {
+    flex: 1.4 1 0;
+    width: auto;
+    min-width: 0;
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+
+  .siiruBoard-search button[type="submit"] {
+    flex: 0 0 auto;
+    padding: 9px 16px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  /* basic 게시판 목록 — 분류 + 제목 + 작성일 (카드형) */
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) table {
+    border-top-width: 1px;
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) colgroup,
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) thead {
+    display: none;
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "cat date"
+      "title title";
+    gap: 8px 12px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--hn-line-soft);
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr:hover {
+    background: var(--hn-bg-alt);
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr.notice {
+    background: var(--hn-green-soft);
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td,
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody th {
+    display: block;
+    padding: 0;
+    border: 0;
+    text-align: left;
+    background: transparent;
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.sn,
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.num,
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.userNm,
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.writer,
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.file,
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.rdcnt,
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.hit {
+    display: none;
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr > td:nth-child(2),
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.ctgryNm {
+    grid-area: cat;
+    justify-self: start;
+    align-self: center;
+    width: auto;
+    max-width: 100%;
+    padding: 0;
+    background: transparent;
+    border: 0;
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr.notice > td.sn,
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr.notice > td.num {
+    display: block;
+    grid-area: cat;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr.notice > td.sn .notice,
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr.notice > td.num .notice {
+    display: inline-block;
+    padding: 2px 7px;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.3;
+    border-radius: 4px;
+    vertical-align: middle;
+    letter-spacing: 0.04em;
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr.notice > td:nth-child(2) {
+    display: none;
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody th.boardSj,
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody th.subject {
+    grid-area: title;
     width: 100%;
+    min-width: 0;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--hn-text);
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody th.boardSj a,
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody th.subject a {
+    display: inline;
+    font-weight: 600;
+    color: var(--hn-text);
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+
+  .siiruBoard-list .board-cat {
+    padding: 2px 6px;
+    font-size: 10px;
+    line-height: 1.25;
+    border-radius: 4px;
+  }
+
+  .new-mark,
+  .siiruBoard-list tbody th[scope="row"].boardSj a.new::after,
+  .siiruBoard-list tbody th[scope="row"].subject a.new::after {
+    font-size: 11px;
+    margin-left: 5px;
+  }
+
+  .siiruBoard-galleryBox .board-cat {
+    margin-bottom: 5px;
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.regDt,
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.date {
+    grid-area: date;
+    justify-self: end;
+    align-self: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--hn-text-3);
+    white-space: nowrap;
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr:has(> td.nodata[colspan]) {
+    display: block;
+    padding: 32px 16px;
+    text-align: center;
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.nodata[colspan] {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    color: var(--hn-text-3);
+    text-align: center;
+  }
+
+  /* 노회/시찰 앨범·소식 — 시찰 탭 5개 한 줄 */
+  .board-district-filter.group-tabs {
+    flex-wrap: nowrap;
+    gap: 0;
+    margin-bottom: 20px;
+    overflow: visible;
+  }
+
+  .board-district-filter.group-tabs button {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 7px 0;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .board-district-filter.group-tabs button.on {
+    font-weight: 800;
   }
 
   .siiruBoard-write dl,
@@ -6795,7 +7781,18 @@
 
   .siiruBoardBtnInfo {
     flex-direction: column-reverse;
-    gap: 8px;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .siiruBoardBtnInfo .siiru-fl,
+  .siiruBoardBtnInfo .siiru-fr {
+    justify-content: flex-end;
+  }
+
+  .siiruBoardBtnInfo .siiru-fl {
+    justify-content: flex-start;
   }
 
   .siiru-userWrap .userWrap dl {

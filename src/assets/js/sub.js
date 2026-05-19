@@ -2,7 +2,66 @@
  * sub.js — 서브 페이지 전용 스크립트
  */
 
+/** CMS 앨범: [분류] 제목 한 줄 출력 → board-cat + board-sj 분리 (퍼블 HTML과 동일 구조) */
+function boardCatClass(name) {
+  if (name.includes('무등')) return 'cat-o';
+  if (name.includes('나주')) return 'cat-r';
+  if (name.includes('광주')) return 'cat-b';
+  if (name.includes('호남')) return 'cat-g';
+  return 'cat-b';
+}
+
+function parseBoardBracketTitle(text) {
+  let rest = text.replace(/\s+/g, ' ').trim();
+  const prefixes = [];
+  while (rest.startsWith('[')) {
+    const end = rest.indexOf(']');
+    if (end === -1) break;
+    prefixes.push(rest.slice(1, end));
+    rest = rest.slice(end + 1).trim();
+  }
+  if (!prefixes.length || !rest) return null;
+  return { catName: prefixes[prefixes.length - 1], title: rest };
+}
+
+function enhanceBoardGalleryTitles() {
+  document.querySelectorAll('.siiruBoard-galleryBox dl dt').forEach((dt) => {
+    const link = dt.querySelector('a[href]');
+    if (!link || link.querySelector('.board-sj')) return;
+
+    const parsed = parseBoardBracketTitle(link.textContent);
+    if (!parsed) return;
+
+    const isNew = dt.classList.contains('new') || link.classList.contains('new');
+    link.textContent = '';
+
+    const cat = document.createElement('span');
+    cat.className = `board-cat ${boardCatClass(parsed.catName)}`;
+    cat.textContent = parsed.catName;
+
+    const sj = document.createElement('span');
+    sj.className = 'board-sj';
+    sj.textContent = parsed.title;
+
+    link.appendChild(cat);
+    link.appendChild(sj);
+
+    if (isNew) {
+      const mark = document.createElement('span');
+      mark.className = 'new-mark';
+      mark.setAttribute('aria-hidden', 'true');
+      mark.textContent = 'N';
+      link.appendChild(mark);
+      link.classList.add('new');
+    }
+
+    dt.classList.remove('new');
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+
+  enhanceBoardGalleryTitles();
 
   /* ── 노회/시찰 소식·앨범: 시찰 탭(CMS: siiru-boardWrap > siiru-clr) → searchCtgry + 폼 제출 ─ */
   document.querySelectorAll('.board-district-filter').forEach(filter => {
@@ -120,10 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
         item.classList.add('active');
         const panel = document.getElementById(item.dataset.target);
         if (panel) panel.classList.add('active');
-        if (window.innerWidth < 769) {
-          const detail = item.closest('.officer-split')?.querySelector('.officer-detail');
-          if (detail) detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
       });
     });
     sessItems[0].click();
@@ -132,6 +187,149 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── 소속 회원 및 교회: 회원별 / 교회별 보기 전환 ───── */
   const churchesPage = document.querySelector('.churches-page');
   if (churchesPage) {
+    const churchMobileMq = window.matchMedia('(max-width: 768px)');
+
+    function restoreChurchTableRows(table) {
+      table.querySelectorAll('tbody tr').forEach((tr) => {
+        if (tr.dataset.churchRowOriginal == null) return;
+        tr.innerHTML = tr.dataset.churchRowOriginal;
+        tr.classList.remove('church-m-card', 'church-m-open');
+        tr.removeAttribute('role');
+        tr.removeAttribute('tabindex');
+        tr.removeAttribute('aria-expanded');
+        tr.removeAttribute('aria-label');
+      });
+    }
+
+    function setChurchMobileCardOpen(tr, open) {
+      tr.classList.toggle('church-m-open', open);
+      tr.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    function isEmptyChurchCellValue(val) {
+      const v = val.trim();
+      if (!v) return true;
+      return /^[\u2010-\u2015\u2212\uFF0D\-ㅡ\s]+$/.test(v);
+    }
+
+    function applySichalMiscBadge(td) {
+      if (!td || td.querySelector('.cat')) return;
+      if (!isEmptyChurchCellValue(td.textContent)) return;
+      td.innerHTML = '<span class="cat misc">기타</span>';
+    }
+
+    function applyChurchTableDistrictBadges(table) {
+      table.querySelectorAll('tbody tr').forEach((tr) => {
+        applySichalMiscBadge(tr.querySelector('td:first-child'));
+      });
+    }
+
+    function normalizeChurchMobilePrimaryCells(tr, primaryCount) {
+      [...tr.querySelectorAll('td')]
+        .filter((td) => !td.classList.contains('church-m-toggle-cell') && !td.classList.contains('church-m-acc-cell'))
+        .slice(0, primaryCount)
+        .forEach((td) => {
+          if (td.querySelector('.cat')) {
+            td.classList.remove('church-m-empty');
+            return;
+          }
+          if (isEmptyChurchCellValue(td.textContent)) {
+            td.textContent = '';
+            td.classList.add('church-m-empty');
+          } else {
+            td.classList.remove('church-m-empty');
+          }
+        });
+    }
+
+    function buildChurchMobileCards(table) {
+      const isChurchView = table.classList.contains('church-member-table');
+      const primaryCount = isChurchView ? 4 : 3;
+      const headers = [...table.querySelectorAll('thead th')].map((th) => th.textContent.trim());
+
+      table.querySelectorAll('tbody tr').forEach((tr) => {
+        if (tr.dataset.churchRowOriginal == null) {
+          tr.dataset.churchRowOriginal = tr.innerHTML;
+        } else {
+          tr.innerHTML = tr.dataset.churchRowOriginal;
+          tr.classList.remove('church-m-card', 'church-m-open');
+        }
+
+        applySichalMiscBadge(tr.querySelector('td:first-child'));
+
+        tr.querySelectorAll('td').forEach((td, i) => {
+          if (headers[i]) td.dataset.label = headers[i];
+        });
+
+        const cells = [...tr.querySelectorAll('td')];
+        const details = cells.slice(primaryCount);
+        if (!details.length) return;
+
+        const panel = document.createElement('div');
+        panel.className = 'church-m-acc-panel';
+
+        details.forEach((td) => {
+          if (isEmptyChurchCellValue(td.textContent)) {
+            td.remove();
+            return;
+          }
+          const line = document.createElement('div');
+          line.className = 'church-m-acc-line';
+          line.innerHTML = `<span class="k">${td.dataset.label || ''}</span><span class="v">${td.innerHTML}</span>`;
+          panel.appendChild(line);
+          td.remove();
+        });
+
+        normalizeChurchMobilePrimaryCells(tr, primaryCount);
+
+        if (!panel.children.length) return;
+
+        const toggleCell = document.createElement('td');
+        toggleCell.className = 'church-m-toggle-cell';
+        toggleCell.innerHTML = '<span class="church-m-acc-ico-wrap" aria-hidden="true"><i class="fa-regular fa-chevron-down church-m-acc-ico"></i></span>';
+
+        const panelCell = document.createElement('td');
+        panelCell.className = 'church-m-acc-cell';
+        panelCell.appendChild(panel);
+
+        tr.appendChild(toggleCell);
+        tr.appendChild(panelCell);
+        tr.classList.add('church-m-card');
+        tr.setAttribute('role', 'button');
+        tr.setAttribute('tabindex', '0');
+        tr.setAttribute('aria-expanded', 'false');
+        tr.setAttribute('aria-label', '상세 정보 펼치기');
+
+        tr.addEventListener('click', (e) => {
+          if (e.target.closest('.church-m-acc-cell')) return;
+          setChurchMobileCardOpen(tr, !tr.classList.contains('church-m-open'));
+        });
+
+        panelCell.addEventListener('click', (e) => e.stopPropagation());
+
+        tr.addEventListener('keydown', (e) => {
+          if (e.key !== 'Enter' && e.key !== ' ') return;
+          e.preventDefault();
+          setChurchMobileCardOpen(tr, !tr.classList.contains('church-m-open'));
+        });
+      });
+    }
+
+    function syncChurchesMobileLayout() {
+      churchesPage.querySelectorAll('.member-table, .church-member-table').forEach((table) => {
+        if (churchMobileMq.matches) {
+          buildChurchMobileCards(table);
+        } else {
+          restoreChurchTableRows(table);
+          applyChurchTableDistrictBadges(table);
+        }
+      });
+    }
+
+    churchesPage.querySelectorAll('.member-table, .church-member-table').forEach(applyChurchTableDistrictBadges);
+    syncChurchesMobileLayout();
+    churchMobileMq.addEventListener('change', syncChurchesMobileLayout);
+
     const viewBtns = churchesPage.querySelectorAll('.churches-view-toggle button[data-churches-view]');
     viewBtns.forEach(btn => {
       btn.addEventListener('click', () => {
