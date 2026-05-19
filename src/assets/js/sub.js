@@ -79,6 +79,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ── 노회 규칙 개정 이력 아코디언 ─────────────────────── */
+  document.querySelectorAll('.rules-rev-acc-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const acc = btn.closest('.rules-rev-acc');
+      if (!acc) return;
+      const isOpen = acc.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  });
+
   /* ── 전신/호남노회 섹션 배너 아코디언 (officers-past) ─── */
   document.querySelectorAll('.presec-acc-toggle').forEach(banner => {
     const body = document.getElementById(banner.dataset.target);
