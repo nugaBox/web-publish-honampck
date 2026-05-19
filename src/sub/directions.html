@@ -60,4 +60,35 @@
     </div>
   </main>
 
+  <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=y4usjod3si&submodules=geocoder"></script>
+  <script>
+    (function () {
+      var TARGET_ADDRESS = '전남 나주시 예향로 4172';
+      var MARKER_TITLE   = '에벤에셀교회';
+      var FALLBACK_LAT   = 35.0160;
+      var FALLBACK_LNG   = 126.7107;
+
+      function initMap(position) {
+        var map = new naver.maps.Map('naver-map', {
+          center: position,
+          zoom: 17
+        });
+        new naver.maps.Marker({
+          position: position,
+          map: map,
+          title: MARKER_TITLE
+        });
+      }
+
+      naver.maps.Service.geocode({ query: TARGET_ADDRESS }, function (status, response) {
+        if (status !== naver.maps.Service.Status.OK || !response.v2.addresses.length) {
+          initMap(new naver.maps.LatLng(FALLBACK_LAT, FALLBACK_LNG));
+          return;
+        }
+        var addr = response.v2.addresses[0];
+        initMap(new naver.maps.LatLng(parseFloat(addr.y), parseFloat(addr.x)));
+      });
+    })();
+  </script>
+
   <div data-include="../include/footer.html"></div>

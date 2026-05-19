@@ -10,9 +10,9 @@
                 <i class="fa-regular fa-chevron-right"></i>
                 <span>부가서비스</span>
                 <i class="fa-regular fa-chevron-right"></i>
-                <span class="cur">마이페이지</span>
+                <span class="cur">회원 정보</span>
             </div>
-            <h1>마이페이지</h1>
+            <h1>회원 정보</h1>
             <p class="desc"></p>
         </div>
     </div>
@@ -21,122 +21,181 @@
         <section class="content">
             <div class="siiru-userWrap">
                 <div class="userWrap">
-                    <form
-                        id="siiru-userForm"
-                        name="siiru-userForm"
-                        method="post"
-                        enctype="multipart/form-data"
-                    >
-                        <div class="siiruBoard-write">
-                            <dl>
-                                <dt>아이디</dt>
-                                <dd>
-                                    <input
-                                        type="text"
-                                        id="userId"
-                                        name="userId"
-                                        value="honampck_user"
-                                        class="small2"
-                                        readonly
-                                    />
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>
-                                    <span>*</span
-                                    ><label for="userNm">이름</label>
-                                </dt>
-                                <dd>
-                                    <input
-                                        type="text"
-                                        id="userNm"
-                                        name="userNm"
-                                        maxlength="30"
-                                        value="홍길동"
-                                        class="small2"
-                                    />
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>
-                                    <span>*</span
-                                    ><label for="email">이메일</label>
-                                </dt>
-                                <dd>
-                                    <input
-                                        type="text"
-                                        id="email"
-                                        name="email"
-                                        maxlength="50"
-                                        value="example@church.or.kr"
-                                    />
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>
-                                    <span>*</span
-                                    ><label for="mbtlnum">모바일번호</label>
-                                </dt>
-                                <dd>
-                                    <input
-                                        type="text"
-                                        id="mbtlnum"
-                                        name="mbtlnum"
-                                        maxlength="14"
-                                        value="010-1234-5678"
-                                        class="small2"
-                                    />
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt><label for="church">소속(교회)</label></dt>
-                                <dd>
-                                    <input
-                                        type="text"
-                                        id="church"
-                                        name="church"
-                                        maxlength="50"
-                                        value="광주새백성교회"
-                                        class="small2"
-                                    />
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt><label for="position">직분</label></dt>
-                                <dd>
-                                    <select id="position" name="position">
-                                        <option value="">선택</option>
-                                        <option value="P">목사</option>
-                                        <option value="E">강도사</option>
-                                        <option value="M">전도사</option>
-                                        <option value="L">장로</option>
-                                        <option value="K">권사</option>
-                                        <option value="D">집사</option>
-                                        <option value="S" selected>성도</option>
-                                    </select>
-                                </dd>
-                            </dl>
+                    <h4>회원 정보</h4>
+
+                    <section id="M">
+                        <div id="myinfo-gate" class="myinfo-gate">
+                            <div class="findLayer">
+                                <div class="inputWrap">
+                                    <h5>비밀번호를 한 번 더 입력해주세요</h5>
+                                    <form
+                                        name="siiru-userGateForm"
+                                        id="siiru-userGateForm"
+                                        method="post"
+                                    >
+                                        <input
+                                            type="hidden"
+                                            name="action"
+                                            value="L"
+                                        />
+                                        <input
+                                            type="hidden"
+                                            name="siteId"
+                                            value=""
+                                        />
+                                        <input
+                                            type="hidden"
+                                            name="pageId"
+                                            value=""
+                                        />
+                                        <div class="pwCert">
+                                            <input
+                                                type="password"
+                                                id="gate-passwd"
+                                                name="passwd"
+                                                value=""
+                                                title="비밀번호"
+                                                autocomplete="off"
+                                            />
+                                        </div>
+                                    </form>
+                                    <div class="siiru-btnSet siiru-tc">
+                                        <button
+                                            type="button"
+                                            id="acceptBtn"
+                                            class="siiru-btn siiru-btn-primary"
+                                        >
+                                            정보 확인
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="siiru-btnSet">
-                            <button
-                                type="button"
-                                id="userSubmit"
-                                class="siiru-btn siiru-btn-primary"
+
+                        <div id="myinfo-edit" class="myinfo-edit">
+                            <form
+                                id="siiru-userForm"
+                                name="siiru-userForm"
+                                method="post"
+                                enctype="multipart/form-data"
                             >
-                                정보 수정
-                            </button>
-                            <a
-                                href="passchange.html"
-                                class="siiru-btn siiru-ml10"
-                                >비밀번호 변경</a
-                            >
-                            <a
-                                href="leave.html"
-                                class="siiru-btn siiru-btn-danger siiru-ml10"
-                                >회원 탈퇴</a
-                            >
+                                <input
+                                    type="hidden"
+                                    id="passwdNow"
+                                    name="passwdNow"
+                                    value=""
+                                />
+                                <input
+                                    type="hidden"
+                                    id="passwd"
+                                    name="passwd"
+                                    value=""
+                                />
+                                <input
+                                    type="hidden"
+                                    id="passwdConfirm"
+                                    name="passwdConfirm"
+                                    value=""
+                                />
+
+                                <dl>
+                                    <dt>아이디</dt>
+                                    <dd>honampck_user</dd>
+                                </dl>
+
+                                <dl>
+                                    <dt>이름</dt>
+                                    <dd>홍길동</dd>
+                                </dl>
+
+                                <dl>
+                                    <dt>
+                                        <span class="required">*</span>
+                                        <label for="email">이메일</label>
+                                    </dt>
+                                    <dd>
+                                        <input
+                                            type="text"
+                                            id="email"
+                                            name="email"
+                                            maxlength="50"
+                                            value="example@church.or.kr"
+                                        />
+                                    </dd>
+                                </dl>
+
+                                <dl>
+                                    <dt>
+                                        <span class="required">*</span>
+                                        <label for="mbtlnum">모바일번호</label>
+                                    </dt>
+                                    <dd>
+                                        <input
+                                            type="text"
+                                            id="mbtlnum"
+                                            name="mbtlnum"
+                                            class="small telText nothangul"
+                                            maxlength="14"
+                                            value="010-1234-5678"
+                                        />
+                                    </dd>
+                                </dl>
+
+                                <dl>
+                                    <dt>
+                                        <label for="church">소속(교회)</label>
+                                    </dt>
+                                    <dd>
+                                        <input
+                                            type="text"
+                                            id="church"
+                                            name="church"
+                                            maxlength="50"
+                                            value="광주새백성교회"
+                                        />
+                                    </dd>
+                                </dl>
+
+                                <dl>
+                                    <dt>
+                                        <label for="position">직분</label>
+                                    </dt>
+                                    <dd>
+                                        <select id="position" name="position">
+                                            <option value="">선택</option>
+                                            <option value="P">목사</option>
+                                            <option value="E">강도사</option>
+                                            <option value="M">전도사</option>
+                                            <option value="L">장로</option>
+                                            <option value="K">권사</option>
+                                            <option value="D">집사</option>
+                                            <option value="S" selected>
+                                                성도
+                                            </option>
+                                        </select>
+                                    </dd>
+                                </dl>
+
+
+                                <div class="siiru-btnSet siiru-tc">
+                                    <button
+                                        type="button"
+                                        id="userSubmit"
+                                        class="siiru-btn siiru-btn-primary"
+                                    >
+                                        수정
+                                    </button>
+                                    <button
+                                        type="button"
+                                        id="cancelBtn"
+                                        class="siiru-btn siiru-btn-default siiru-ml10"
+                                    >
+                                        취소
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </section>
                 </div>
             </div>
         </section>

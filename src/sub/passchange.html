@@ -22,30 +22,6 @@
         <section class="content">
             <div class="siiru-passwdWrap">
                 <div class="passwdWrap">
-                    <h4>비밀번호 변경</h4>
-                    <ul>
-                        <li>
-                            1. 이름, 생년월일 등 쉽게 유추 가능한 정보로
-                            비밀번호를 사용하지 마십시오.
-                        </li>
-                        <li>
-                            2. 현재 사용 중인 비밀번호가 아닌 다른 비밀번호로
-                            변경하시기 바랍니다.
-                        </li>
-                        <li>
-                            3. 1234, qwer 같은 단순 문자열이나 연속 문자열은
-                            위험합니다.
-                        </li>
-                        <li>
-                            4. 비밀번호는 3개월에 한 번씩 변경하는 것이
-                            권장됩니다.
-                        </li>
-                        <li>5. 비밀번호는 절대 타인에게 알려주지 마십시오.</li>
-                        <li>
-                            6. 영문·숫자·특수문자(!@#$%^?*+=_~-)를 혼합하여
-                            8~20자 이내로 설정하세요.
-                        </li>
-                    </ul>
                     <form
                         name="siiru-passwdForm"
                         id="siiru-passwdForm"
@@ -53,74 +29,106 @@
                     >
                         <input type="hidden" name="siteId" value="" />
                         <input type="hidden" name="pageId" value="" />
-                        <div class="siiruBoard-write">
-                            <dl>
-                                <dt>
-                                    <label for="passwd">현재 비밀번호</label>
-                                </dt>
-                                <dd>
-                                    <input
-                                        type="password"
-                                        id="passwd"
-                                        name="passwd"
-                                        class="small2 alphanumPass"
-                                        maxlength="20"
-                                        autocomplete="off"
-                                        placeholder="현재 비밀번호"
-                                        value=""
-                                    />
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>
-                                    <label for="newPasswd">새 비밀번호</label>
-                                </dt>
-                                <dd>
-                                    <input
-                                        type="password"
-                                        id="newPasswd"
-                                        name="newPasswd"
-                                        class="small2 alphanumPass"
-                                        maxlength="20"
-                                        autocomplete="off"
-                                        placeholder="새 비밀번호 (8~20자)"
-                                        value=""
-                                    />
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>
-                                    <label for="newPasswdConfirm"
-                                        >새 비밀번호 확인</label
-                                    >
-                                </dt>
-                                <dd>
-                                    <input
-                                        type="password"
-                                        id="newPasswdConfirm"
-                                        name="newPasswdConfirm"
-                                        class="small2 alphanumPass"
-                                        maxlength="20"
-                                        autocomplete="off"
-                                        placeholder="새 비밀번호를 다시 입력"
-                                        value=""
-                                    />
-                                </dd>
-                            </dl>
+                        <input type="hidden" name="redirect" value="" />
+
+                        <h4>비밀번호 변경</h4>
+                        <ul>
+                            <li>
+                                1. 이름, 생년월일, 전화번호 등 쉽게 타인이 유추할
+                                수 있는 정보로 비밀번호를 사용하지 마십시오.
+                            </li>
+                            <li>
+                                2. 현재 사용 중인 비밀번호가 아닌 다른 비밀번호로
+                                변경하시기 바랍니다.
+                            </li>
+                            <li>
+                                3. 1234, qwer와 같은 단순한 문자열, 1111처럼
+                                연속되는 단순 문자열, 또는 love, happy 와 같은
+                                단어로 구성된 비밀번호의 사용은 위험합니다.
+                            </li>
+                            <li>
+                                4. 비밀번호는 3개월에 한번씩 또는 그보다 자주
+                                변경하는 것이 좋습니다.
+                            </li>
+                            <li>
+                                5. 비밀번호 등 개인정보를 타인에게 절대
+                                알려주지 마십시오.
+                            </li>
+                            <li>
+                                6. 영문,숫자,특수문자(!@#$%^?*+=_~- 만 허용)를
+                                혼합하여 8~20자 이내
+                            </li>
+                            <li>7. 공백(Space)는 입력할수 없습니다.</li>
+                        </ul>
+
+                        <dl>
+                            <dt>
+                                <label for="passwd">현재 비밀번호</label>
+                            </dt>
+                            <dd>
+                                <input
+                                    type="password"
+                                    id="passwd"
+                                    name="passwd"
+                                    class="alphanumPass nothangul"
+                                    maxlength="20"
+                                    autocomplete="off"
+                                    value=""
+                                />
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="newPasswd">새 비밀번호</label>
+                            </dt>
+                            <dd>
+                                <input
+                                    type="password"
+                                    id="newPasswd"
+                                    name="newPasswd"
+                                    class="alphanumPass nothangul"
+                                    maxlength="20"
+                                    autocomplete="off"
+                                    value=""
+                                />
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <label for="newPasswdConfirm"
+                                    >새 비밀번호 확인</label
+                                >
+                            </dt>
+                            <dd>
+                                <input
+                                    type="password"
+                                    id="newPasswdConfirm"
+                                    name="newPasswdConfirm"
+                                    class="alphanumPass nothangul"
+                                    maxlength="20"
+                                    autocomplete="off"
+                                    value=""
+                                />
+                            </dd>
+                        </dl>
+
+                        <div class="siiru-btnSet siiru-tc">
+                            <button
+                                type="button"
+                                id="passwdSubmit"
+                                class="siiru-btn siiru-btn-primary"
+                            >
+                                비밀번호 변경
+                            </button>
+                            <button
+                                type="button"
+                                id="cancelBtn"
+                                class="siiru-btn siiru-btn-default siiru-ml10"
+                            >
+                                다음에 변경
+                            </button>
                         </div>
                     </form>
-                    <div class="siiru-btnSet siiru-tc">
-                        <button
-                            type="button"
-                            id="passwdSubmit"
-                            class="siiru-btn siiru-btn-primary"
-                        >
-                            비밀번호 변경
-                        </button>
-                        <a href="myinfo.html" class="siiru-btn siiru-ml10"
-                            >취소</a
-                        >
-                    </div>
                 </div>
             </div>
         </section>

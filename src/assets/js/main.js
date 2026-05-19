@@ -4,13 +4,25 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /** CMS/JSP 속성의 &amp; → 실제 URL용 & */
+  const normalizeBoardHref = href => {
+    if (!href || href === '#') return href || '#';
+    return String(href).replace(/&amp;/gi, '&').replace(/&#0*38;/gi, '&');
+  };
+
   /* ── 메인 게시판 탭 전환 ──────────────────────────────── */
   const tabs = document.querySelectorAll('.btabs button[data-tab]');
   const panels = document.querySelectorAll('.blist-panel');
   const moreLink = document.querySelector('.btabs .more');
+  if (moreLink) {
+    const initialMore = moreLink.getAttribute('href');
+    if (initialMore) moreLink.href = normalizeBoardHref(initialMore);
+  }
 
-  const updateMoreLink = (btn) => {
-    if (moreLink && btn.dataset.href) moreLink.href = btn.dataset.href;
+  const updateMoreLink = btn => {
+    if (moreLink && btn.dataset.href) {
+      moreLink.href = normalizeBoardHref(btn.dataset.href);
+    }
   };
 
   tabs.forEach(btn => {
@@ -62,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const moreLi = document.createElement('li');
       moreLi.className = 'bacc-more-li';
-      moreLi.innerHTML = `<a href="${btn.dataset.href || '#'}"><i class="fa-regular fa-plus"></i> 전체보기</a>`;
+      moreLi.innerHTML = `<a href="${normalizeBoardHref(btn.dataset.href)}"><i class="fa-regular fa-plus"></i> 전체보기</a>`;
       panel.appendChild(moreLi);
 
       const isFirst = btn.classList.contains('on');

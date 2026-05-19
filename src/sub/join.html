@@ -226,37 +226,9 @@
                                     <dd>
                                         <input
                                             type="text"
-                                            class="small2 siiru-mr10"
+                                            class="small2"
                                             id="userNm"
                                             name="userNm"
-                                            maxlength="50"
-                                            value=""
-                                        />
-                                        <input
-                                            type="radio"
-                                            id="sex_M"
-                                            name="sex"
-                                            value="M"
-                                            checked
-                                        />
-                                        <label for="sex_M">남</label>
-                                        <input
-                                            type="radio"
-                                            id="sex_F"
-                                            name="sex"
-                                            value="F"
-                                        />
-                                        <label for="sex_F">여</label>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt><label for="ncnm">닉네임</label></dt>
-                                    <dd>
-                                        <input
-                                            type="text"
-                                            class="small2 siiru-mr10"
-                                            id="ncnm"
-                                            name="ncnm"
                                             maxlength="50"
                                             value=""
                                         />
@@ -267,47 +239,13 @@
                                     <dd>
                                         <input
                                             type="text"
-                                            class="maskDate nothangul small siiru-mr10"
+                                            class="maskDate nothangul small"
                                             id="brthdy"
                                             name="brthdy"
                                             maxlength="10"
                                             value=""
                                             placeholder="YYYY-MM-DD"
                                         />
-                                        <input
-                                            type="radio"
-                                            id="lunSol_S"
-                                            name="lunSol"
-                                            value="S"
-                                            checked
-                                        />
-                                        <label for="lunSol_S">양력</label>
-                                        <input
-                                            type="radio"
-                                            id="lunSol_L"
-                                            name="lunSol"
-                                            value="L"
-                                        />
-                                        <label for="lunSol_L">음력</label>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt><label for="agrde">연령대</label></dt>
-                                    <dd>
-                                        <select
-                                            id="agrde"
-                                            name="agrde"
-                                            class="siiru-mt0"
-                                            title="연령대"
-                                        >
-                                            <option value="">연령대 선택</option>
-                                            <option value="10">10대</option>
-                                            <option value="20">20대</option>
-                                            <option value="30">30대</option>
-                                            <option value="40">40대</option>
-                                            <option value="50">50대</option>
-                                            <option value="60">60대 이상</option>
-                                        </select>
                                     </dd>
                                 </dl>
                                 <dl>
@@ -321,19 +259,6 @@
                                             id="email"
                                             name="email"
                                             maxlength="50"
-                                            value=""
-                                        />
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt><label for="telno">전화번호</label></dt>
-                                    <dd>
-                                        <input
-                                            type="text"
-                                            class="small2 nothangul"
-                                            id="telno"
-                                            name="telno"
-                                            maxlength="30"
                                             value=""
                                         />
                                     </dd>
@@ -355,165 +280,36 @@
                                     </dd>
                                 </dl>
                                 <dl>
-                                    <dt><label for="zip">주소</label></dt>
+                                    <dt>
+                                        <label for="church">소속(교회)</label>
+                                    </dt>
                                     <dd>
                                         <input
                                             type="text"
-                                            class="small telText nothangul"
-                                            id="zip"
-                                            name="zip"
-                                            maxlength="7"
-                                            value=""
-                                            title="우편번호"
-                                            placeholder="우편번호"
-                                        />
-                                        <button
-                                            type="button"
-                                            class="zipFind siiru-btn siiru-btn-small siiru-ml10"
-                                        >
-                                            우편번호 찾기
-                                        </button>
-                                        <input
-                                            type="text"
-                                            class="siiru-mt5"
-                                            id="addr"
-                                            name="addr"
+                                            id="church"
+                                            name="church"
                                             maxlength="50"
                                             value=""
-                                            title="주소"
-                                            placeholder="주소"
-                                        />
-                                        <input
-                                            type="text"
-                                            class="siiru-mt5"
-                                            id="detailAddr"
-                                            name="detailAddr"
-                                            maxlength="50"
-                                            value=""
-                                            title="상세주소"
-                                            placeholder="상세주소"
                                         />
                                     </dd>
                                 </dl>
                                 <dl>
-                                    <dt><span class="label">지역</span></dt>
+                                    <dt>
+                                        <label for="position">직분</label>
+                                    </dt>
                                     <dd>
-                                        <input
-                                            type="hidden"
-                                            id="areaCode"
-                                            name="areaCode"
-                                            value=""
-                                        />
-                                        <select
-                                            id="ctprvn"
-                                            name="ctprvn"
-                                            class="areaSelect"
-                                            data-arease="C"
-                                            title="시/도"
-                                        >
-                                            <option value="">시/도 선택</option>
-                                            <option value="11">서울특별시</option>
-                                            <option value="46">전라남도</option>
+                                        <select id="position" name="position">
+                                            <option value="">선택</option>
+                                            <option value="P">목사</option>
+                                            <option value="E">강도사</option>
+                                            <option value="M">전도사</option>
+                                            <option value="L">장로</option>
+                                            <option value="K">권사</option>
+                                            <option value="D">집사</option>
+                                            <option value="S" selected>
+                                                성도
+                                            </option>
                                         </select>
-                                        <select
-                                            id="signgu"
-                                            name="signgu"
-                                            class="areaSelect siiru-ml10"
-                                            data-arease="S"
-                                            title="시/군/구"
-                                        >
-                                            <option value="">시/군/구 선택</option>
-                                            <option value="46110">목포시</option>
-                                        </select>
-                                        <select
-                                            id="emd"
-                                            name="emd"
-                                            class="areaSelect siiru-ml10"
-                                            data-arease="D"
-                                            title="읍/면/동"
-                                        >
-                                            <option value="">읍/면/동 선택</option>
-                                            <option value="4611010100">상동</option>
-                                        </select>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt><span class="label">메일링유무</span></dt>
-                                    <dd>
-                                        <input
-                                            type="radio"
-                                            id="emailAt_Y"
-                                            name="emailAt"
-                                            value="Y"
-                                            checked
-                                        />
-                                        <label for="emailAt_Y">수신</label>
-                                        <input
-                                            type="radio"
-                                            id="emailAt_N"
-                                            name="emailAt"
-                                            value="N"
-                                        />
-                                        <label for="emailAt_N">수신안함</label>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt><span class="label">SMS 수신여부</span></dt>
-                                    <dd>
-                                        <input
-                                            type="radio"
-                                            id="smsAt_Y"
-                                            name="smsAt"
-                                            value="Y"
-                                            checked
-                                        />
-                                        <label for="smsAt_Y">수신</label>
-                                        <input
-                                            type="radio"
-                                            id="smsAt_N"
-                                            name="smsAt"
-                                            value="N"
-                                        />
-                                        <label for="smsAt_N">수신안함</label>
-                                    </dd>
-                                </dl>
-                                <dl>
-                                    <dt><span class="label">프로필 이미지</span></dt>
-                                    <dd>
-                                        <input
-                                            type="radio"
-                                            id="proflSe_I"
-                                            name="proflSe"
-                                            value="I"
-                                            checked
-                                        />
-                                        <label for="proflSe_I">이미지</label>
-                                        <input
-                                            type="radio"
-                                            id="proflSe_L"
-                                            name="proflSe"
-                                            value="L"
-                                        />
-                                        <label for="proflSe_L">URL</label>
-                                        <input
-                                            type="text"
-                                            id="proflUrl"
-                                            name="proflUrl"
-                                            maxlength="150"
-                                            class="siiru-mt10"
-                                            value=""
-                                            title="프로필 링크 URL"
-                                            placeholder="http://"
-                                            disabled
-                                        />
-                                        <input
-                                            type="file"
-                                            accept="image/*"
-                                            id="proflImage"
-                                            name="proflImage"
-                                            class="file siiru-mt10"
-                                            title="프로필 이미지"
-                                        />
                                     </dd>
                                 </dl>
                             </div>
@@ -626,24 +422,6 @@
                 return;
             }
             alert("시안 페이지: 실서버에서는 중복확인 API가 호출됩니다.");
-        });
-
-        document.querySelector(".zipFind").addEventListener("click", function () {
-            alert("시안 페이지: 실서버에서는 다음 우편번호 API가 연동됩니다.");
-        });
-
-        var proflUrl = document.getElementById("proflUrl");
-        var proflImage = document.getElementById("proflImage");
-        document.querySelectorAll('input[name="proflSe"]').forEach(function (r) {
-            r.addEventListener("change", function () {
-                if (document.getElementById("proflSe_L").checked) {
-                    proflUrl.disabled = false;
-                    proflImage.disabled = true;
-                } else {
-                    proflUrl.disabled = true;
-                    proflImage.disabled = false;
-                }
-            });
         });
 
         document.getElementById("joinFormSubmit").addEventListener("click", function () {

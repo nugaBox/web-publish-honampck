@@ -25,18 +25,22 @@
                     <div class="findLayer">
                         <div class="inputWrap">
                             <h5>비밀번호를 통한 탈퇴</h5>
-                            <p class="leave-desc">
-                                탈퇴 시 모든 회원 정보와 작성 데이터가 삭제되며
-                                복구할 수 없습니다.<br />
-                                아래에 비밀번호를 입력하고 탈퇴 버튼을
-                                클릭하세요.
-                            </p>
+                            <div class="leave-warn">
+                                <p class="leave-desc">
+                                    탈퇴 시 모든 회원 정보와 작성 데이터가 삭제되며
+                                    복구할 수 없습니다.<br />
+                                    아래에 비밀번호를 입력하고 탈퇴 버튼을
+                                    클릭하세요.
+                                </p>
+                            </div>
                             <form
                                 name="siiru-leaveForm"
                                 id="siiru-leaveForm"
                                 method="post"
                             >
                                 <input type="hidden" name="action" value="L" />
+                                <input type="hidden" name="siteId" value="" />
+                                <input type="hidden" name="pageId" value="" />
                                 <div class="pwCert">
                                     <input
                                         type="password"
@@ -45,7 +49,6 @@
                                         value=""
                                         title="비밀번호"
                                         autocomplete="off"
-                                        placeholder="현재 비밀번호"
                                     />
                                 </div>
                             </form>
@@ -53,19 +56,26 @@
                                 <button
                                     type="button"
                                     id="acceptBtn"
-                                    class="siiru-btn siiru-btn-danger"
+                                    class="siiru-btn siiru-btn-primary"
                                 >
                                     회원 탈퇴
                                 </button>
-                                <a
-                                    href="myinfo.html"
-                                    class="siiru-btn siiru-ml10"
-                                    >취소</a
-                                >
                             </div>
                         </div>
                     </div>
                 </section>
+                <div class="leaveWrap siiru-hidden">
+                    <p>회원탈퇴 처리가 완료되었습니다.</p>
+                    <div class="siiru-btnSet siiru-tc">
+                        <button
+                            type="button"
+                            id="mainBtn"
+                            class="siiru-btn siiru-btn-primary"
+                        >
+                            메인화면
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
     </div>

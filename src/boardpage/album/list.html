@@ -19,8 +19,19 @@
     <div class="sub-layout">
 
       <div data-include="../../include/sidebar_news.html"></div>
-      <section class="content">
-        <div data-include="../../board/multimedia/list.html"></div>
+      <section class="content board-district-page">
+        <div class="siiru-boardWrap">
+          <div class="siiru-clr">
+            <div class="group-tabs board-district-filter" role="group" aria-label="시찰 구분">
+              <button type="button" data-category="">전체</button>
+              <button type="button" data-category="1">호남노회</button>
+              <button type="button" data-category="2">광주시찰</button>
+              <button type="button" data-category="3">나주시찰</button>
+              <button type="button" data-category="4">무등시찰</button>
+            </div>
+          </div>
+          <div data-include="../../board/multimedia/list-inner.html"></div>
+        </div>
       </section>
 
     </div>
