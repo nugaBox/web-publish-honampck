@@ -25,37 +25,54 @@ function parseBoardBracketTitle(text) {
 }
 
 function enhanceBoardGalleryTitles() {
-  document.querySelectorAll('.siiruBoard-galleryBox dl dt').forEach((dt) => {
-    const link = dt.querySelector('a[href]');
-    if (!link || link.querySelector('.board-sj')) return;
+  document.querySelectorAll('.siiruBoard-galleryBox').forEach((box) => {
+    const dt = box.querySelector('dl dt');
+    const link = dt?.querySelector('a[href]');
+    if (!link) return;
 
-    const parsed = parseBoardBracketTitle(link.textContent);
-    if (!parsed) return;
+    const photoCat = box.querySelector('.photoBox .board-cat');
+    if (photoCat && !link.querySelector('.board-cat')) {
+      link.insertBefore(photoCat, link.firstChild);
+    }
 
     const isNew = dt.classList.contains('new') || link.classList.contains('new');
-    link.textContent = '';
 
-    const cat = document.createElement('span');
-    cat.className = `board-cat ${boardCatClass(parsed.catName)}`;
-    cat.textContent = parsed.catName;
+    if (!link.querySelector('.board-sj')) {
+      const parsed = parseBoardBracketTitle(link.textContent);
+      if (!parsed) return;
 
-    const sj = document.createElement('span');
-    sj.className = 'board-sj';
-    sj.textContent = parsed.title;
+      link.textContent = '';
 
-    link.appendChild(cat);
-    link.appendChild(sj);
+      const cat = document.createElement('span');
+      cat.className = `board-cat ${boardCatClass(parsed.catName)}`;
+      cat.textContent = parsed.catName;
 
-    if (isNew) {
+      const sj = document.createElement('span');
+      sj.className = 'board-sj';
+      sj.textContent = parsed.title;
+
+      link.appendChild(cat);
+      link.appendChild(sj);
+
+      if (isNew) {
+        const mark = document.createElement('span');
+        mark.className = 'new-mark';
+        mark.setAttribute('aria-hidden', 'true');
+        mark.textContent = 'N';
+        link.appendChild(mark);
+        link.classList.add('new');
+      }
+
+      dt.classList.remove('new');
+    } else if (isNew && !link.querySelector('.new-mark')) {
       const mark = document.createElement('span');
       mark.className = 'new-mark';
       mark.setAttribute('aria-hidden', 'true');
       mark.textContent = 'N';
       link.appendChild(mark);
       link.classList.add('new');
+      dt.classList.remove('new');
     }
-
-    dt.classList.remove('new');
   });
 }
 

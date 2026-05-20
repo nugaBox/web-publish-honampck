@@ -330,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isZoomable = img => {
       if (!img || img.dataset.hnZoomBound) return false;
       if (img.closest(ZOOM_EXCLUDE)) return false;
-      const root = img.closest('#main-content, main, .content, .siiru-boardWrap');
+      const root = img.closest('#main-content, main, .siiru-boardWrap');
       if (!root) return false;
       const src = img.getAttribute('src') || '';
       if (!src || src.startsWith('data:')) return false;
@@ -363,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const scan = () => {
-      document.querySelectorAll('#main-content img, main img, .content img, .siiru-boardWrap img').forEach(img => {
+      document.querySelectorAll('#main-content img, main img, .siiru-boardWrap img').forEach(img => {
         if (img.naturalWidth) bindImage(img);
         else img.addEventListener('load', () => bindImage(img), { once: true });
       });

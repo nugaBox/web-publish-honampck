@@ -203,7 +203,7 @@
 }
 
 /* ── 컨텐츠 영역 제목 ─────────────────────────────────────── */
-.content .ptitle {
+.sub-layout > section .ptitle {
   font-size: 30px;
   font-weight: 800;
   margin: 0 0 30px;
@@ -2025,116 +2025,119 @@
 }
 
 /* 노회 조직 — 상비부·시찰·총대 명부 (본문 가독성 +1px) */
-.content-org .ptitle {
+.sub-layout > section:has(.district-grid) .ptitle,
+.sub-layout > section:has(.dept-table) .ptitle {
   font-size: 31px;
 }
 
-.content-org .ptitle .cnt {
+.sub-layout > section:has(.district-grid) .ptitle .cnt,
+.sub-layout > section:has(.dept-table) .ptitle .cnt {
   font-size: 17px;
 }
 
-.content-org .ptitle .cnt.ptitle-meta {
+.sub-layout > section:has(.district-grid) .ptitle .cnt.ptitle-meta,
+.sub-layout > section:has(.dept-table) .ptitle .cnt.ptitle-meta {
   font-size: 18px;
 }
 
-.content-org .dept-table {
+.dept-table {
   font-size: 17px;
 }
 
-.content-org .dept-table thead th {
+.dept-table thead th {
   font-size: 16px;
 }
 
-.content-org .dept-table tbody td {
+.dept-table tbody td {
   font-size: 16px;
 }
 
-.content-org .dept-table tbody td.dept-name {
+.dept-table tbody td.dept-name {
   font-size: 17px;
 }
 
-.content-org .dt-table {
+.sub-layout > section:has(.dept-table) .dt-table {
   font-size: 18px;
 }
 
-.content-org .district-card .d-thumb .photo-empty {
+.district-card .d-thumb .photo-empty {
   font-size: 13px;
 }
 
-.content-org .district-card .d-thumb .d-badge {
+.district-card .d-thumb .d-badge {
   font-size: 14px;
 }
 
-.content-org .district-card .d-title {
+.district-card .d-title {
   font-size: 23px;
 }
 
-.content-org .district-card .d-info {
+.district-card .d-info {
   font-size: 16px;
 }
 
-.content-org .district-card .d-info .k {
+.district-card .d-info .k {
   font-size: 15px;
 }
 
-.content-org .district-card .d-count {
+.district-card .d-count {
   font-size: 16px;
 }
 
-.content-org .district-card .d-count b {
+.district-card .d-count b {
   font-size: 23px;
 }
 
-.content-org .district-card .d-clergy {
+.district-card .d-clergy {
   font-size: 14px;
 }
 
-.content-org .district-card .d-actions>a.btn-hn,
-.content-org .district-card .d-actions-row a.btn-hn {
+.district-card .d-actions>a.btn-hn,
+.district-card .d-actions-row a.btn-hn {
   font-size: 15px;
 }
 
 /* 노회 역사 — 역대 노회장·역대 노회임원 (가독성) */
-.content-history .presec-banner .pb-title {
+.presec-banner .pb-title {
   font-size: 19px;
 }
 
 /* 전신 노회 */
-.content-history .presy-block-head {
+.presy-block-head {
   font-size: 15px;
 }
 
-.content-history .presy-table .pt-term {
+.presy-table .pt-term {
   font-size: 14px;
 }
 
-.content-history .presy-table .pt-name {
+.presy-table .pt-name {
   font-size: 16px;
 }
 
-.content-history .presy-table .pt-sub-label {
+.presy-table .pt-sub-label {
   font-size: 12px;
 }
 
 /* 기간(pt-period)은 작게 유지 */
 
 /* 호남노회 역대 노회장 표 */
-.content-history .hn-pres-simple {
+.hn-pres-simple {
   --hn-pres-photo-w: 52px;
   --hn-pres-photo-h: calc(var(--hn-pres-photo-w) * 4 / 3);
   font-size: 15px;
 }
 
-.content-history .hn-pres-simple thead th {
+.hn-pres-simple thead th {
   font-size: 14px;
 }
 
-.content-history .hn-pres-simple tbody td {
+.hn-pres-simple tbody td {
   vertical-align: middle;
   height: 1px;
 }
 
-.content-history .hn-pres-simple tbody td.hps-term {
+.hn-pres-simple tbody td.hps-term {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
@@ -2142,7 +2145,7 @@
   padding: 0;
 }
 
-.content-history .hn-pres-simple .hps-term-inner {
+.hn-pres-simple .hps-term-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2155,7 +2158,7 @@
   box-sizing: border-box;
 }
 
-.content-history .hn-pres-simple .hpt-person {
+.hn-pres-simple .hpt-person {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2163,27 +2166,27 @@
   min-height: var(--hn-pres-photo-h);
 }
 
-.content-history .hn-pres-simple .hps-term--swap .hps-gen {
+.hn-pres-simple .hps-term--swap .hps-gen {
   font-size: 15px;
   font-weight: 800;
   color: var(--hn-blue);
   margin-top: 0;
 }
 
-.content-history .hn-pres-simple .hps-term--swap .hps-sess {
+.hn-pres-simple .hps-term--swap .hps-sess {
   font-size: 13px;
   font-weight: 600;
   color: var(--hn-text);
   margin-top: 0;
 }
 
-.content-history .hn-pres-simple .hps-term:not(.hps-term--swap) .hps-sess {
+.hn-pres-simple .hps-term:not(.hps-term--swap) .hps-sess {
   font-size: 16px;
   font-weight: 800;
   color: var(--hn-blue);
 }
 
-.content-history .hpt-photo {
+.hpt-photo {
   width: var(--hn-pres-photo-w);
   height: var(--hn-pres-photo-h);
   aspect-ratio: auto;
@@ -2191,46 +2194,46 @@
   flex-shrink: 0;
 }
 
-.content-history .hpt-photo .hpt-ico {
+.hpt-photo .hpt-ico {
   font-size: 18px;
 }
 
-.content-history .hn-pres-simple tbody td.hpt-officer {
+.hn-pres-simple tbody td.hpt-officer {
   text-align: center;
 }
 
 /* PC: 모바일 전용 회기·부노회장 통합 열 숨김 */
-.content-history .hn-pres-simple .hn-pres-th--mob,
-.content-history .hn-pres-simple .hpt-officer--mob {
+.hn-pres-simple .hn-pres-th--mob,
+.hn-pres-simple .hpt-officer--mob {
   display: none;
 }
 
-.content-history .hpt-info {
+.hpt-info {
   width: 128px;
   flex-shrink: 0;
   text-align: center;
 }
 
-.content-history .hpt-info .hpt-name,
-.content-history .hpt-officer .hpt-name {
+.hpt-info .hpt-name,
+.hpt-officer .hpt-name {
   font-size: 16px;
 }
 
-.content-history .hpt-info .hpt-church,
-.content-history .hpt-officer .hpt-church {
+.hpt-info .hpt-church,
+.hpt-officer .hpt-church {
   font-size: 13px;
 }
 
 /* 역대 노회임원 — 좌측 회기 목록 */
-.content-history .osi-term {
+.osi-term {
   display: flex;
   flex-wrap: nowrap;
   align-items: baseline;
   gap: 6px;
 }
 
-.content-history .osi-gen,
-.content-history .osi-sess {
+.osi-gen,
+.osi-sess {
   display: inline;
   font-size: 15px;
   font-weight: 800;
@@ -2238,54 +2241,54 @@
   margin-top: 0;
 }
 
-.content-history .osi-sess {
+.osi-sess {
   color: var(--hn-text-2);
   font-weight: 700;
 }
 
-.content-history .osi-sess-hl {
+.osi-sess-hl {
   font-size: 16px;
 }
 
-.content-history .osi-period {
+.osi-period {
   font-size: 12px;
 }
 
-.content-history .officer-sess-item.active .osi-sess {
+.officer-sess-item.active .osi-sess {
   color: rgba(20, 65, 122, 0.75);
 }
 
 /* 역대 노회임원 — 우측 명단 */
-.content-history .officer-detail-label {
+.officer-detail-label {
   font-size: 16px;
   letter-spacing: 0.02em;
 }
 
-.content-history .officer-detail .btable {
+.officer-detail .btable {
   font-size: 15px;
 }
 
-.content-history .officer-detail .btable thead th {
+.officer-detail .btable thead th {
   font-size: 14px;
 }
 
-.content-history .officer-detail .btable tbody td {
+.officer-detail .btable tbody td {
   font-family: inherit;
   font-size: 15px;
   padding: 11px 12px;
 }
 
-.content-history .officer-detail .btable tbody td:nth-child(1) {
+.officer-detail .btable tbody td:nth-child(1) {
   font-weight: 700;
   color: var(--hn-blue);
 }
 
-.content-history .officer-detail .btable tbody td:nth-child(2) {
+.officer-detail .btable tbody td:nth-child(2) {
   font-weight: 700;
   color: var(--hn-text);
 }
 
-.content-history .pgp-caption {
+.pgp-caption {
   font-size: 13px;
 }
 
@@ -3790,7 +3793,7 @@
 
 /* ── 컨텐츠 페이지 모바일 레이아웃 (게시판 제외) ───────────── */
 @media (max-width: 768px) {
-  .content:not(:has(.siiru-boardWrap)) .ptitle {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .ptitle {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
@@ -3798,13 +3801,13 @@
     padding-bottom: 18px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .ptitle .cnt.ptitle-meta {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .ptitle .cnt.ptitle-meta {
     max-width: 100%;
     text-align: left;
   }
 
   /* 노회 조직 — 상비부 등: 제목·회기 한 줄, 제목 크기 축소 */
-  .content-org:not(:has(.siiru-boardWrap)) .ptitle {
+  .sub-layout > section:not(:has(.siiru-boardWrap)):is(:has(.district-grid), :has(.dept-table)) .ptitle {
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
@@ -3816,11 +3819,11 @@
     border-bottom-width: 1px;
   }
 
-  .content-org:not(:has(.siiru-boardWrap)) .ptitle > span:first-child {
+  .sub-layout > section:not(:has(.siiru-boardWrap)):is(:has(.district-grid), :has(.dept-table)) .ptitle > span:first-child {
     min-width: 0;
   }
 
-  .content-org:not(:has(.siiru-boardWrap)) .ptitle .cnt.ptitle-meta {
+  .sub-layout > section:not(:has(.siiru-boardWrap)):is(:has(.district-grid), :has(.dept-table)) .ptitle .cnt.ptitle-meta {
     flex-shrink: 0;
     max-width: none;
     text-align: right;
@@ -3830,12 +3833,12 @@
     white-space: nowrap;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .intro-lead {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .intro-lead {
     padding: 20px 18px;
     margin-bottom: 28px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .sec-head {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .sec-head {
     flex-direction: column;
     align-items: flex-start;
     gap: 14px;
@@ -3843,22 +3846,22 @@
     margin-bottom: 22px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-grid {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-grid {
     grid-template-columns: 1fr;
     gap: 10px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-card--desk {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card--desk {
     display: none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-card--mob {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card--mob {
     display: flex;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-card,
-  .content:not(:has(.siiru-boardWrap)) .officer-card--mob,
-  .content:not(:has(.siiru-boardWrap)) .officer-card--dual {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card--mob,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card--dual {
     border: 1px solid var(--hn-line);
     border-radius: 8px;
     overflow: hidden;
@@ -3867,30 +3870,30 @@
     grid-column: 1 / -1;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-card:not(.officer-card--dual) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card:not(.officer-card--dual) {
     flex-direction: column;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-card--dual:not(.officer-card--mob) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card--dual:not(.officer-card--mob) {
     display: flex;
     flex-direction: row;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-card--dual.officer-card--mob {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card--dual.officer-card--mob {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-card--dual.officer-card--mob > .officer-role--span {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card--dual.officer-card--mob > .officer-role--span {
     grid-column: 1 / -1;
     color: var(--hn-blue);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-card--dual.officer-card--mob .officer-dual-col + .officer-dual-col {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card--dual.officer-card--mob .officer-dual-col + .officer-dual-col {
     border-left: 1px solid var(--hn-line-soft);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-role {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-role {
     width: 100%;
     padding: 10px 8px;
     font-size: 15px;
@@ -3899,32 +3902,32 @@
     border-bottom: 1px solid var(--hn-line-soft);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-card.sub > .officer-role,
-  .content:not(:has(.siiru-boardWrap)) .officer-dual-col.sub .officer-role {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card.sub > .officer-role,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-dual-col.sub .officer-role {
     color: var(--hn-text-3);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-dual-col {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-dual-col {
     flex: 1;
     flex-direction: column;
     min-width: 0;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-card--dual:not(.officer-card--mob) .officer-dual-col + .officer-dual-col {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card--dual:not(.officer-card--mob) .officer-dual-col + .officer-dual-col {
     border-left: 1px solid var(--hn-line-soft);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-dual-col .officer-role {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-dual-col .officer-role {
     border-bottom: 1px solid var(--hn-line-soft);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-persons {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-persons {
     flex-direction: column;
     border: 0;
     background: #fff;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-person {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-person {
     flex: 1;
     min-width: 0;
     padding: 12px 10px;
@@ -3935,74 +3938,74 @@
     border:none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-person + .officer-person {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-person + .officer-person {
     border-left: 1px solid var(--hn-line-soft);
     border-top: 0;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-person-empty {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-person-empty {
     display: none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-card:nth-child(1) .officer-person {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card:nth-child(1) .officer-person {
     padding: 14px 16px;
     gap: 14px;
     border:none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-photo {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-photo {
     width: 64px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-card:nth-child(1) .officer-photo {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card:nth-child(1) .officer-photo {
     width: 72px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-info .oname {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-info .oname {
     font-size: 16px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-card:nth-child(1) .officer-info .oname {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-card:nth-child(1) .officer-info .oname {
     font-size: 18px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-info .ochurch {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-info .ochurch {
     font-size: 12px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .timeline {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .timeline {
     padding-left: 0;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .timeline::before {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .timeline::before {
     display: none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .timeline-item {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .timeline-item {
     padding: 0 0 28px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .timeline-item .year {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .timeline-item .year {
     position: static;
     width: auto;
     text-align: left;
     margin-bottom: 6px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .timeline-item .t {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .timeline-item .t {
     margin-bottom: 6px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .hist-acc-sess {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .hist-acc-sess {
     min-width: 96px;
     padding: 12px 10px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .officer-sess-item {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .officer-sess-item {
     padding: 14px 14px 12px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table {
     display: block;
     width: 100%;
     max-width: 100%;
@@ -4010,20 +4013,20 @@
     table-layout: auto;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table colgroup {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table colgroup {
     display: none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table thead {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table thead {
     display: none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table tbody {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table tbody {
     display: block;
     width: 100%;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table tbody tr {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table tbody tr {
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -4034,12 +4037,12 @@
   }
 
   /* 상비부(5열): 부장·서기·회계 한 행 3열 */
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody tr {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody tr {
     display: flex;
     flex-wrap: wrap;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table tbody td {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table tbody td {
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -4051,11 +4054,11 @@
     line-height: 1.45;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table tbody tr td:last-child {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table tbody tr td:last-child {
     border-bottom: 0;
   }
 
-  .content-org:not(:has(.siiru-boardWrap)) .dept-table tbody td.dept-name {
+  .sub-layout > section:not(:has(.siiru-boardWrap)):is(:has(.district-grid), :has(.dept-table)) .dept-table tbody td.dept-name {
     width: 100%;
     padding: 10px 12px;
     text-align: center;
@@ -4066,19 +4069,19 @@
     color: var(--hn-text);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table tbody td.dept-name--oneline-m br {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table tbody td.dept-name--oneline-m br {
     display: none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table tbody td.dept-name--oneline-m {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table tbody td.dept-name--oneline-m {
     font-size: 16px;
     line-height: 1.35;
     letter-spacing: -0.02em;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2),
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3),
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2),
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3),
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4) {
     flex: 1 1 0;
     min-width: 0;
     width: 33.333%;
@@ -4088,21 +4091,21 @@
     border-bottom: 1px solid var(--hn-line-soft);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4) {
     border-right: 0;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5) {
     width: 100%;
     padding: 6px 12px 7px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table tbody td.title {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table tbody td.title {
     padding-top: 6px;
     padding-bottom: 7px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table .dept-member-group {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table .dept-member-group {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
@@ -4110,24 +4113,24 @@
     line-height: 1.55;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table .dept-member-group + .dept-member-group {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table .dept-member-group + .dept-member-group {
     margin-top: 6px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table .dept-member-label {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table .dept-member-label {
     flex-shrink: 0;
     margin-right: 0;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table .dept-member-list {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table .dept-member-list {
     flex: 1;
     min-width: 0;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2)::before,
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3)::before,
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4)::before,
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5)::before {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2)::before,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3)::before,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4)::before,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5)::before {
     display: block;
     font-size: 11px;
     font-weight: 700;
@@ -4137,35 +4140,35 @@
     text-align: center;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5)::before {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5)::before {
     text-align: center;
     margin-bottom: 3px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2)::before {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2)::before {
     content: '부장';
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3)::before {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3)::before {
     content: '서기';
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4)::before {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4)::before {
     content: '회계';
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5)::before {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5)::before {
     content: '부원';
   }
 
   /* 총대 명부(3열): 구분 헤더 + 목사·장로 라벨열·내용열 */
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody tr {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody tr {
     display: flex;
     flex-wrap: wrap;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2),
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2),
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3) {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -4175,14 +4178,14 @@
     border-bottom: 1px solid var(--hn-line-soft);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) .dept-cell-body {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) .dept-cell-body {
     flex: 1;
     min-width: 0;
     line-height: 1.5;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2)::before,
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3)::before {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2)::before,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3)::before {
     display: block;
     flex: 0 0 3.25rem;
     width: 3.25rem;
@@ -4194,16 +4197,16 @@
     letter-spacing: 0.02em;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2)::before {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2)::before {
     content: '목사';
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3)::before {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3)::before {
     content: '장로';
   }
 
   /* 목사·장로 미분리(단일 colspan) 행 */
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td[colspan] {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td[colspan] {
     display: block;
     width: 100%;
     padding: 8px 12px;
@@ -4211,123 +4214,123 @@
     border-bottom: 0;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td[colspan]::before {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td[colspan]::before {
     display: none;
   }
 
-  .content-org:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2)::before,
-  .content-org:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3)::before,
-  .content-org:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4)::before,
-  .content-org:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5)::before,
-  .content-org:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2)::before,
-  .content-org:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3)::before {
+  .sub-layout > section:not(:has(.siiru-boardWrap)):is(:has(.district-grid), :has(.dept-table)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2)::before,
+  .sub-layout > section:not(:has(.siiru-boardWrap)):is(:has(.district-grid), :has(.dept-table)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3)::before,
+  .sub-layout > section:not(:has(.siiru-boardWrap)):is(:has(.district-grid), :has(.dept-table)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4)::before,
+  .sub-layout > section:not(:has(.siiru-boardWrap)):is(:has(.district-grid), :has(.dept-table)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5)::before,
+  .sub-layout > section:not(:has(.siiru-boardWrap)):is(:has(.district-grid), :has(.dept-table)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2)::before,
+  .sub-layout > section:not(:has(.siiru-boardWrap)):is(:has(.district-grid), :has(.dept-table)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3)::before {
     font-size: 13px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2),
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2),
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3) {
     text-align: left;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td[colspan].dept-chief {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td[colspan].dept-chief {
     text-align: center;
     color: var(--hn-blue);
     font-weight: 700;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td.dept-chief {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td.dept-chief {
     text-align: center;
     font-size: 13px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3),
-  .content:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3),
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4) {
     text-align: center;
     font-size: 13px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .group-tabs,
-  .content:not(:has(.siiru-boardWrap)) .churches-tab-wrap .churches-district-tabs,
-  .content:not(:has(.siiru-boardWrap)) .group-tabs {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .group-tabs,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-tab-wrap .churches-district-tabs,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .group-tabs {
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .group-tabs::-webkit-scrollbar,
-  .content:not(:has(.siiru-boardWrap)) .churches-tab-wrap .churches-district-tabs::-webkit-scrollbar,
-  .content:not(:has(.siiru-boardWrap)) .group-tabs::-webkit-scrollbar {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .group-tabs::-webkit-scrollbar,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-tab-wrap .churches-district-tabs::-webkit-scrollbar,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .group-tabs::-webkit-scrollbar {
     display: none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .group-tabs button,
-  .content:not(:has(.siiru-boardWrap)) .churches-page .group-tabs a,
-  .content:not(:has(.siiru-boardWrap)) .churches-tab-wrap .churches-district-tabs button,
-  .content:not(:has(.siiru-boardWrap)) .churches-tab-wrap .churches-district-tabs a,
-  .content:not(:has(.siiru-boardWrap)) .group-tabs button,
-  .content:not(:has(.siiru-boardWrap)) .group-tabs a {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .group-tabs button,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .group-tabs a,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-tab-wrap .churches-district-tabs button,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-tab-wrap .churches-district-tabs a,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .group-tabs button,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .group-tabs a {
     flex-shrink: 0;
     white-space: nowrap;
   }
 
   /* 소속 회원·교회 — 모바일 카드형 목록 */
-  .content:not(:has(.siiru-boardWrap)) .churches-mobile-detail-hint {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-mobile-detail-hint {
     display: flex;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-toolbar {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-toolbar {
     flex-wrap: wrap;
     gap: 10px 12px;
     margin-bottom: 14px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-term-label {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-term-label {
     width: 100%;
     margin-left: 0;
     text-align: right;
     order: 3;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-view-toggle button {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-view-toggle button {
     min-width: 0;
     flex: 1;
     padding: 9px 14px;
     font-size: 14px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .member-section {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-section {
     margin-bottom: 22px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .member-section-title {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-section-title {
     font-size: 16px;
     margin-bottom: 6px;
     padding-bottom: 6px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .table-scroll {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .table-scroll {
     overflow-x: visible;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .table-scroll .church-table {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .table-scroll .church-table {
     min-width: 0;
     border-top-width: 0;
     margin-top: 0;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table thead,
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table thead {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table thead,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table thead {
     display: none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody,
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody {
     display: block;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody tr,
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody tr {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody tr,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody tr {
     display: grid;
     margin-bottom: 8px;
     border: 1px solid var(--hn-line);
@@ -4336,32 +4339,32 @@
     background: var(--hn-bg);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-card {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     transition: border-color 0.15s, background 0.15s;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card.church-m-open {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-card.church-m-open {
     border-color: var(--hn-green);
     background: var(--hn-bg);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card:active:not(.church-m-open) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-card:active:not(.church-m-open) {
     background: var(--hn-bg-alt);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody tr:hover td,
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody tr:hover td {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody tr:hover td,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody tr:hover td {
     background: transparent;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card:hover td:not(.church-m-acc-cell) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-card:hover td:not(.church-m-acc-cell) {
     background: transparent;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td.church-m-empty,
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td.church-m-empty {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td.church-m-empty,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td.church-m-empty {
     padding-top: 0;
     padding-bottom: 0;
     font-size: 0;
@@ -4369,8 +4372,8 @@
     color: transparent;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td:nth-child(1).church-m-empty,
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(1).church-m-empty {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td:nth-child(1).church-m-empty,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(1).church-m-empty {
     flex: 0 0 0;
     width: 0;
     min-width: 0;
@@ -4379,8 +4382,8 @@
     overflow: hidden;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td,
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td {
     display: block;
     padding: 8px 10px;
     border-bottom: 0;
@@ -4390,19 +4393,19 @@
   }
 
   /* 회원별: 시찰 · 성명 · 시무교회 · 토글 */
-  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody tr {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody tr {
     grid-template-columns: minmax(3.1rem, auto) minmax(0, 1fr) minmax(0, 1fr) 1.75rem;
     align-items: center;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td:nth-child(1) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td:nth-child(1) {
     grid-row: 1;
     grid-column: 1;
     padding-right: 4px;
     text-align: center;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td:nth-child(2) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td:nth-child(2) {
     grid-row: 1;
     grid-column: 2;
     font-weight: 700;
@@ -4410,14 +4413,14 @@
     padding-left: 0;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td:nth-child(3) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody td:nth-child(3) {
     grid-row: 1;
     grid-column: 3;
     font-size: 13px;
     padding-left: 0;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-toggle-cell {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-toggle-cell {
     grid-row: 1;
     grid-column: -1;
     align-self: center;
@@ -4425,7 +4428,7 @@
     pointer-events: none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-ico-wrap {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-ico-wrap {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -4433,21 +4436,21 @@
     color: var(--hn-text-3);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card.church-m-open .church-m-acc-ico-wrap {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-card.church-m-open .church-m-acc-ico-wrap {
     color: var(--hn-green);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-ico {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-ico {
     font-size: 12px;
     line-height: 1;
     transition: transform 0.2s;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card.church-m-open .church-m-acc-ico {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-card.church-m-open .church-m-acc-ico {
     transform: rotate(180deg);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-cell {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-cell {
     grid-column: 1 / -1;
     grid-row: 2;
     padding: 0;
@@ -4455,11 +4458,11 @@
     cursor: default;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card:not(.church-m-open) .church-m-acc-cell {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-card:not(.church-m-open) .church-m-acc-cell {
     display: none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-panel {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-panel {
     display: none;
     margin: 0;
     padding: 0;
@@ -4467,7 +4470,7 @@
     background: transparent;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-card.church-m-open .church-m-acc-panel {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-card.church-m-open .church-m-acc-panel {
     display: block;
     margin-top: 8px;
     padding: 8px 12px 10px;
@@ -4475,7 +4478,7 @@
     background: var(--hn-bg);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line {
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -4485,40 +4488,40 @@
     color: var(--hn-text-2);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line .k {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line .k {
     flex: 0 0 4.75rem;
     font-size: 11px;
     font-weight: 700;
     color: var(--hn-text-3);
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line .v {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line .v {
     flex: 1;
     min-width: 0;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line .col-phone,
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line .v {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line .col-phone,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-m-acc-line .v {
     letter-spacing: -0.02em;
   }
 
   /* 교회별: colgroup 해제 + 1행 flex (시찰 · 교회 · 분류 · 교역자 · 토글) */
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table {
     table-layout: auto;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table colgroup {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table colgroup {
     display: none;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody tr {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody tr {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0 6px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td {
     width: auto;
     max-width: none;
     min-width: 0;
@@ -4526,14 +4529,14 @@
     padding-bottom: 8px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(1) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(1) {
     flex: 0 0 3.25rem;
     padding-left: 10px;
     padding-right: 2px;
     text-align: center;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(2) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(2) {
     flex: 1 1 0;
     min-width: 2.75rem;
     padding-left: 0;
@@ -4545,7 +4548,7 @@
     text-overflow: ellipsis;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(3) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(3) {
     flex: 0 0 auto;
     padding: 8px 0;
     font-size: 12px;
@@ -4553,14 +4556,14 @@
     white-space: nowrap;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(3)::before {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(3)::before {
     content: '·';
     margin-right: 6px;
     color: var(--hn-text-4);
     font-weight: 400;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(4) {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(4) {
     flex: 0 1 auto;
     min-width: 0;
     padding-left: 0;
@@ -4573,35 +4576,35 @@
     text-overflow: ellipsis;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(4)::before {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody td:nth-child(4)::before {
     content: '·';
     margin-right: 6px;
     color: var(--hn-text-4);
     font-weight: 400;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table .church-m-toggle-cell {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table .church-m-toggle-cell {
     flex: 0 0 1.75rem;
     margin-left: auto;
     padding: 8px 10px 8px 2px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table .church-m-acc-cell {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table .church-m-acc-cell {
     flex: 0 0 100%;
     width: 100%;
     padding: 0;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .churches-page .church-member-table .col-phone {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table .col-phone {
     min-width: 0;
     white-space: normal;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .rules-doc .chapter-head {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .rules-doc .chapter-head {
     padding: 14px 16px;
   }
 
-  .content:not(:has(.siiru-boardWrap)) .rules-list>li {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .rules-list>li {
     padding: 14px 16px;
     gap: 12px;
   }
@@ -4955,7 +4958,7 @@
     grid-template-columns: 1fr;
   }
 
-  .content-history .officer-sess-hint {
+  .officer-sess-hint {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -4969,13 +4972,13 @@
     border-bottom: 1px solid rgba(20, 65, 122, 0.12);
   }
 
-  .content-history .officer-sess-hint i {
+  .officer-sess-hint i {
     flex-shrink: 0;
     font-size: 15px;
     opacity: 0.85;
   }
 
-  .content-history .officer-sess-list {
+  .officer-sess-list {
     /* 모바일 회기 행 실측(~68px) 기준 — 4.5행 노출로 스크롤 암시 */
     --officer-sess-row-h: 68px;
     max-height: calc(var(--officer-sess-row-h) * 4.5);
@@ -4992,7 +4995,7 @@
   }
 
   /* 호남노회 역대 노회장 — 모바일 2열(회기·노회장) */
-  .content-history .hn-pres-simple.hn-pres-honam,
+  .hn-pres-simple.hn-pres-honam,
   .hn-pres-simple.hn-pres-honam {
     --hn-pres-photo-w: 44px;
     display: table;
@@ -5000,33 +5003,33 @@
     table-layout: fixed;
   }
 
-  .content-history .hn-pres-simple.hn-pres-honam colgroup,
+  .hn-pres-simple.hn-pres-honam colgroup,
   .hn-pres-simple.hn-pres-honam colgroup {
     display: none;
   }
 
-  .content-history .hn-pres-simple.hn-pres-honam thead th:nth-child(1),
-  .content-history .hn-pres-simple.hn-pres-honam tbody td:nth-child(1),
+  .hn-pres-simple.hn-pres-honam thead th:nth-child(1),
+  .hn-pres-simple.hn-pres-honam tbody td:nth-child(1),
   .hn-pres-simple.hn-pres-honam thead th:nth-child(1),
   .hn-pres-simple.hn-pres-honam tbody td:nth-child(1) {
     width: 33.333%;
   }
 
-  .content-history .hn-pres-simple.hn-pres-honam thead th:nth-child(2),
-  .content-history .hn-pres-simple.hn-pres-honam tbody td:nth-child(2),
+  .hn-pres-simple.hn-pres-honam thead th:nth-child(2),
+  .hn-pres-simple.hn-pres-honam tbody td:nth-child(2),
   .hn-pres-simple.hn-pres-honam thead th:nth-child(2),
   .hn-pres-simple.hn-pres-honam tbody td:nth-child(2) {
     width: 66.667%;
   }
 
-  .content-history .hn-pres-simple.hn-pres-honam thead th:nth-child(n + 3),
-  .content-history .hn-pres-simple.hn-pres-honam tbody td:nth-child(n + 3),
   .hn-pres-simple.hn-pres-honam thead th:nth-child(n + 3),
   .hn-pres-simple.hn-pres-honam tbody td:nth-child(n + 3),
-  .content-history .hn-pres-simple.hn-pres-honam .hn-pres-th--desk,
-  .content-history .hn-pres-simple.hn-pres-honam .hpt-officer--desk,
-  .content-history .hn-pres-simple.hn-pres-honam .hn-pres-th--mob,
-  .content-history .hn-pres-simple.hn-pres-honam .hpt-officer--mob,
+  .hn-pres-simple.hn-pres-honam thead th:nth-child(n + 3),
+  .hn-pres-simple.hn-pres-honam tbody td:nth-child(n + 3),
+  .hn-pres-simple.hn-pres-honam .hn-pres-th--desk,
+  .hn-pres-simple.hn-pres-honam .hpt-officer--desk,
+  .hn-pres-simple.hn-pres-honam .hn-pres-th--mob,
+  .hn-pres-simple.hn-pres-honam .hpt-officer--mob,
   .hn-pres-simple.hn-pres-honam .hn-pres-th--desk,
   .hn-pres-simple.hn-pres-honam .hpt-officer--desk,
   .hn-pres-simple.hn-pres-honam .hn-pres-th--mob,
@@ -5034,18 +5037,18 @@
     display: none !important;
   }
 
-  .content-history .hn-pres-simple.hn-pres-honam .hps-term-inner,
+  .hn-pres-simple.hn-pres-honam .hps-term-inner,
   .hn-pres-simple.hn-pres-honam .hps-term-inner {
     min-height: 0;
     padding: 10px 6px;
   }
 
-  .content-history .hn-pres-simple.hn-pres-honam tbody td:nth-child(2),
+  .hn-pres-simple.hn-pres-honam tbody td:nth-child(2),
   .hn-pres-simple.hn-pres-honam tbody td:nth-child(2) {
     text-align: center;
   }
 
-  .content-history .hn-pres-simple.hn-pres-honam .hpt-person,
+  .hn-pres-simple.hn-pres-honam .hpt-person,
   .hn-pres-simple.hn-pres-honam .hpt-person {
     justify-content: center;
     margin: 0 auto;
@@ -5056,39 +5059,39 @@
     padding: 4px 0;
   }
 
-  .content-history .hn-pres-simple.hn-pres-honam .hpt-photo,
+  .hn-pres-simple.hn-pres-honam .hpt-photo,
   .hn-pres-simple.hn-pres-honam .hpt-photo {
     display: flex !important;
     align-items: center;
     justify-content: center;
   }
 
-  .content-history .hn-pres-simple.hn-pres-honam .hpt-info,
+  .hn-pres-simple.hn-pres-honam .hpt-info,
   .hn-pres-simple.hn-pres-honam .hpt-info {
     width: auto;
     flex-shrink: 0;
     text-align: center;
   }
 
-  .content-history .hn-pres-simple.hn-pres-honam thead th,
-  .content-history .hn-pres-simple.hn-pres-honam tbody td,
+  .hn-pres-simple.hn-pres-honam thead th,
+  .hn-pres-simple.hn-pres-honam tbody td,
   .hn-pres-simple.hn-pres-honam thead th,
   .hn-pres-simple.hn-pres-honam tbody td {
     padding: 10px 6px;
     font-size: 13px;
   }
 
-  .content-history .hn-pres-simple.hn-pres-honam .hps-term--swap .hps-gen,
+  .hn-pres-simple.hn-pres-honam .hps-term--swap .hps-gen,
   .hn-pres-simple.hn-pres-honam .hps-term--swap .hps-gen {
     font-size: 13px;
   }
 
-  .content-history .hn-pres-simple.hn-pres-honam .hps-term--swap .hps-sess,
+  .hn-pres-simple.hn-pres-honam .hps-term--swap .hps-sess,
   .hn-pres-simple.hn-pres-honam .hps-term--swap .hps-sess {
     font-size: 11px;
   }
 
-  .content-history .hn-pres-simple.hn-pres-honam .hps-term:not(.hps-term--swap) .hps-sess,
+  .hn-pres-simple.hn-pres-honam .hps-term:not(.hps-term--swap) .hps-sess,
   .hn-pres-simple.hn-pres-honam .hps-term:not(.hps-term--swap) .hps-sess {
     font-size: 13px;
   }
@@ -5096,7 +5099,7 @@
 }
 
 /* ── 게시판 첨부파일 아이콘 ──────────────────────── */
-.siiruBoard-list td.file {
+.siiru-boardWrap .siiruBoard-list td.file {
   font-size: 15px;
   color: var(--hn-text-3);
 }
@@ -5608,12 +5611,12 @@
 }
 
 /* ── 검색 폼 ──────────────────────────────────── */
-.siiruBoard-search {
+.siiru-boardWrap .siiruBoard-search {
   padding: 0;
   margin: 0;
 }
 
-.siiruBoard-search form {
+.siiru-boardWrap .siiruBoard-search form {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -5621,16 +5624,16 @@
   gap: 8px;
 }
 
-.siiruBoard-search .dateSearch {
+.siiru-boardWrap .siiruBoard-search .dateSearch {
   display: none;
 }
 
-.siiruBoard-search .board-district-filter {
+.siiru-boardWrap .siiruBoard-search .board-district-filter {
   display: none;
   width: 100%;
 }
 
-.siiruBoard-search select {
+.siiru-boardWrap .siiruBoard-search select {
   padding: 7px 10px;
   border: 1px solid var(--hn-line);
   border-radius: 4px;
@@ -5641,7 +5644,7 @@
   outline: 0;
 }
 
-.siiruBoard-search input[type="text"]:not(.maskDate) {
+.siiru-boardWrap .siiruBoard-search input[type="text"]:not(.maskDate) {
   flex: 0 1 auto;
   width: 200px;
   max-width: 100%;
@@ -5652,7 +5655,7 @@
   outline: 0;
 }
 
-.siiruBoard-search button[type="submit"] {
+.siiru-boardWrap .siiruBoard-search button[type="submit"] {
   padding: 7px 18px;
   background: var(--hn-blue);
   color: #fff;
@@ -5663,7 +5666,7 @@
 }
 
 /* ── 목록 정보 ────────────────────────────────── */
-.siiruBoard-listInfo {
+.siiru-boardWrap .siiruBoard-listInfo {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -5674,13 +5677,13 @@
 }
 
 /* ── 테이블 목록 ──────────────────────────────── */
-.siiruBoard-list table {
+.siiru-boardWrap .siiruBoard-list table {
   width: 100%;
   border-collapse: collapse;
   border-top: 2px solid var(--hn-text);
 }
 
-.siiruBoard-list thead th {
+.siiru-boardWrap .siiruBoard-list thead th {
   background: var(--hn-bg-alt);
   padding: 12px 10px;
   font-size: 14px;
@@ -5690,21 +5693,21 @@
   text-align: center;
 }
 
-.siiruBoard-list thead th.boardSj,
-.siiruBoard-list thead th.subject {
+.siiru-boardWrap .siiruBoard-list thead th.boardSj,
+.siiru-boardWrap .siiruBoard-list thead th.subject {
   padding-left: 16px;
 }
 
-.siiruBoard-list tbody tr {
+.siiru-boardWrap .siiruBoard-list tbody tr {
   border-bottom: 1px solid var(--hn-line-soft);
 }
 
-.siiruBoard-list tbody tr:hover {
+.siiru-boardWrap .siiruBoard-list tbody tr:hover {
   background: var(--hn-bg-alt);
 }
 
-.siiruBoard-list tbody td,
-.siiruBoard-list tbody th[scope="row"] {
+.siiru-boardWrap .siiruBoard-list tbody td,
+.siiru-boardWrap .siiruBoard-list tbody th[scope="row"] {
   padding: 12px 10px;
   font-size: 15px;
   color: var(--hn-text-2);
@@ -5712,14 +5715,14 @@
   vertical-align: middle;
 }
 
-.siiruBoard-list tbody th[scope="row"].boardSj,
-.siiruBoard-list tbody th[scope="row"].subject {
+.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].boardSj,
+.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].subject {
   text-align: left;
   padding-left: 16px;
 }
 
-.siiruBoard-list tbody th[scope="row"].boardSj a,
-.siiruBoard-list tbody th[scope="row"].subject a {
+.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].boardSj a,
+.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].subject a {
   display: inline;
   color: var(--hn-text);
   text-decoration: none;
@@ -5728,13 +5731,13 @@
   overflow-wrap: anywhere;
 }
 
-.siiruBoard-list tbody th[scope="row"].boardSj a:hover,
-.siiruBoard-list tbody th[scope="row"].subject a:hover {
+.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].boardSj a:hover,
+.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].subject a:hover {
   color: var(--hn-green);
 }
 
-.siiruBoard-list tbody th[scope="row"].boardSj a.new::after,
-.siiruBoard-list tbody th[scope="row"].subject a.new::after {
+.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].boardSj a.new::after,
+.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].subject a.new::after {
   content: 'N';
   display: inline;
   margin-left: 6px;
@@ -5786,14 +5789,15 @@
   border-color: #5a7fa8;
 }
 
-.siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.ctgryNm,
-.siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr > td:nth-child(2) {
+.siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.ctgryNm,
+.siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.category,
+.siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody tr > td:nth-child(2) {
   text-align: center;
   vertical-align: middle;
 }
 
 /* basic 목록 분류 — 번호열 Notice 뱃지와 동일 크기 */
-.siiruBoard-list .board-cat {
+.siiru-boardWrap .siiruBoard-list .board-cat {
   padding: 2px 7px;
   font-size: 11px;
   font-weight: 700;
@@ -5811,7 +5815,7 @@
   white-space: nowrap;
 }
 
-.siiruBoard-list span.notice {
+.siiru-boardWrap .siiruBoard-list span.notice {
   display: inline-block;
   background: var(--hn-red);
   color: #fff;
@@ -5821,46 +5825,46 @@
   border-radius: 4px;
 }
 
-.siiruBoard-list .reBlcok {
+.siiru-boardWrap .siiruBoard-list .reBlcok {
   display: inline-block;
   width: 14px;
 }
 
-.siiruBoard-list img.reply {
+.siiru-boardWrap .siiruBoard-list img.reply {
   width: 12px;
   vertical-align: middle;
   margin-right: 4px;
 }
 
-.siiruBoard-list img.file {
+.siiru-boardWrap .siiruBoard-list img.file {
   width: 14px;
 }
 
-.siiruBoard-list td.nodata {
+.siiru-boardWrap .siiruBoard-list td.nodata {
   padding: 40px 0;
   text-align: center;
   color: var(--hn-text-3);
   font-size: 14px;
 }
 
-.siiruBoard-list tbody tr.notice {
+.siiru-boardWrap .siiruBoard-list tbody tr.notice {
   background: var(--hn-green-soft);
 }
 
-.siiruBoard-list small {
+.siiru-boardWrap .siiruBoard-list small {
   font-size: 12px;
   color: var(--hn-text-3);
 }
 
 /* ── 페이지네이션 (CMS: .pagination > ul > li > a) ───── */
-#boardPage .pagination {
+.siiru-boardWrap #boardPage .pagination {
   clear: both;
   width: 100%;
   text-align: center;
   padding: 20px 0;
 }
 
-#boardPage .pagination ul {
+.siiru-boardWrap #boardPage .pagination ul {
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -5871,13 +5875,13 @@
   list-style: none;
 }
 
-#boardPage .pagination li {
+.siiru-boardWrap #boardPage .pagination li {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-#boardPage .pagination li a {
+.siiru-boardWrap #boardPage .pagination li a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -5890,8 +5894,8 @@
   text-decoration: none;
 }
 
-#boardPage .pagination li a.prev,
-#boardPage .pagination li a.next {
+.siiru-boardWrap #boardPage .pagination li a.prev,
+.siiru-boardWrap #boardPage .pagination li a.next {
   font-size: 12px;
 }
 
@@ -5931,25 +5935,25 @@
   content: "\f324";
 }
 
-#boardPage .pagination li a:hover {
+.siiru-boardWrap #boardPage .pagination li a:hover {
   background: var(--hn-bg-alt);
 }
 
-#boardPage .pagination li.active a,
-#boardPage .pagination li a.active {
+.siiru-boardWrap #boardPage .pagination li.active a,
+.siiru-boardWrap #boardPage .pagination li a.active {
   background: var(--hn-blue);
   border-color: var(--hn-blue);
   color: #fff;
 }
 
 /* ── 뷰 페이지 ────────────────────────────────── */
-.siiruBoard-view {
+.siiru-boardWrap .siiruBoard-view {
   width: 100%;
   border-top: 2px solid var(--hn-text);
   margin-bottom: 20px;
 }
 
-.siiruBoard-view>form>h4 {
+.siiru-boardWrap .siiruBoard-view>form>h4 {
   margin: 0;
   padding: 12px 16px;
   font-size: 20px;
@@ -5960,11 +5964,11 @@
   line-height: 1.45;
 }
 
-.siiruBoard-view>form>h4.text-danger {
+.siiru-boardWrap .siiruBoard-view>form>h4.text-danger {
   color: var(--hn-red);
 }
 
-.siiruBoard-view>form>h4 span.notice {
+.siiru-boardWrap .siiruBoard-view>form>h4 span.notice {
   display: inline-block;
   background: var(--hn-red);
   color: #fff;
@@ -5975,7 +5979,7 @@
   margin-right: 6px;
 }
 
-.siiruBoardInfo {
+.siiru-boardWrap .siiruBoardInfo {
   border-bottom: 1px solid var(--hn-line);
 }
 
@@ -6000,51 +6004,51 @@
   padding: 0 15px;
 }
 
-.siiruBoardInfo dl {
+.siiru-boardWrap .siiruBoardInfo dl {
   display: flex;
   border-top: 1px solid var(--hn-line-soft);
   padding: 10px 16px;
   font-size: 14px;
 }
 
-.siiruBoardInfo dl dt {
+.siiru-boardWrap .siiruBoardInfo dl dt {
   width: 90px;
   font-weight: 600;
   color: var(--hn-text-2);
   flex-shrink: 0;
 }
 
-.siiruBoardInfo dl dd {
+.siiru-boardWrap .siiruBoardInfo dl dd {
   flex: 1;
   color: var(--hn-text-2);
 }
 
-.siiruBoardInfo dl dd ul {
+.siiru-boardWrap .siiruBoardInfo dl dd ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.siiruBoardInfo dl dd ul li {
+.siiru-boardWrap .siiruBoardInfo dl dd ul li {
   margin-bottom: 6px;
 }
 
-.siiruBoardInfo dl dd ul li a {
+.siiru-boardWrap .siiruBoardInfo dl dd ul li a {
   color: var(--hn-blue);
   text-decoration: none;
 }
 
-.siiruBoardInfo dl dd ul li a:hover {
+.siiru-boardWrap .siiruBoardInfo dl dd ul li a:hover {
   text-decoration: underline;
 }
 
-.siiruBoardInfo dl dd small {
+.siiru-boardWrap .siiruBoardInfo dl dd small {
   font-size: 12px;
   color: var(--hn-text-3);
   margin-left: 8px;
 }
 
-.siiruBoardBody {
+.siiru-boardWrap .siiruBoardBody {
   margin: 0;
   padding: 0;
   border-top: 1px solid var(--hn-line);
@@ -6104,7 +6108,7 @@
   margin-bottom: 20px;
 }
 
-.siiruBoardBtnInfo {
+.siiru-boardWrap .siiruBoardBtnInfo {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -6117,8 +6121,8 @@
   overflow: visible;
 }
 
-.siiruBoardBtnInfo .siiru-fl,
-.siiruBoardBtnInfo .siiru-fr {
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fl,
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr {
   float: none;
   display: flex;
   align-items: center;
@@ -6126,13 +6130,13 @@
   gap: 5px;
 }
 
-.siiruBoardBtnInfo .siiru-fr > .siiru-btn:not([class*="siiru-btn-"]) {
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr > .siiru-btn:not([class*="siiru-btn-"]) {
   background: var(--hn-bg);
   border-color: var(--hn-line-strong);
   color: var(--hn-text-2);
 }
 
-.siiruBoardBtnInfo .siiru-fr > .siiru-btn:not([class*="siiru-btn-"]):hover {
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr > .siiru-btn:not([class*="siiru-btn-"]):hover {
   background: var(--hn-bg);
   border-color: var(--hn-text-3);
   color: var(--hn-text);
@@ -6151,18 +6155,18 @@
   line-height: 1.5;
 }
 
-.siiruBoardList {
+.siiru-boardWrap .siiruBoardList {
   margin: 0;
   padding: 0 16px;
 }
 
-.siiruBoardList ul {
+.siiru-boardWrap .siiruBoardList ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.siiruBoardList ul li {
+.siiru-boardWrap .siiruBoardList ul li {
   display: block;
   padding: 14px 10px 12px;
   border-top: 1px solid var(--hn-line-strong);
@@ -6171,11 +6175,11 @@
   line-height: 1.5;
 }
 
-.siiruBoardList ul li:last-child {
+.siiru-boardWrap .siiruBoardList ul li:last-child {
   border-bottom: 1px solid var(--hn-line-strong);
 }
 
-.siiruBoardList ul li>span:first-child {
+.siiru-boardWrap .siiruBoardList ul li>span:first-child {
   display: inline-block;
   width: auto;
   margin-right: 15px;
@@ -6186,54 +6190,54 @@
   vertical-align: top;
 }
 
-.siiruBoardList ul li a {
+.siiru-boardWrap .siiruBoardList ul li a {
   color: var(--hn-text-2);
   text-decoration: none;
 }
 
-.siiruBoardList ul li a:hover {
+.siiru-boardWrap .siiruBoardList ul li a:hover {
   color: var(--hn-green);
 }
 
-.siiruBoardList ul li small {
+.siiru-boardWrap .siiruBoardList ul li small {
   float: right;
   font-size: 13px;
   color: var(--hn-text-3);
 }
 
-.siiruBoardViewlist {
+.siiru-boardWrap .siiruBoardViewlist {
   margin-top: 28px;
   padding: 0;
 }
 
-.siiruBoardViewlist .siiruBoard-listInfo {
+.siiru-boardWrap .siiruBoardViewlist .siiruBoard-listInfo {
   padding: 8px 0 12px;
   font-size: 14px;
   color: var(--hn-text-3);
 }
 
-.siiruBoardViewlist .siiruBoard-list thead th {
+.siiru-boardWrap .siiruBoardViewlist .siiruBoard-list thead th {
   font-size: 14px;
   padding: 12px 10px;
 }
 
-.siiruBoardViewlist .siiruBoard-list tbody td,
-.siiruBoardViewlist .siiruBoard-list tbody th[scope="row"] {
+.siiru-boardWrap .siiruBoardViewlist .siiruBoard-list tbody td,
+.siiru-boardWrap .siiruBoardViewlist .siiruBoard-list tbody th[scope="row"] {
   font-size: 15px;
   padding: 12px 10px;
 }
 
-.siiruBoardViewlist #boardPage .pagination li a {
+.siiru-boardWrap .siiruBoardViewlist #boardPage .pagination li a {
   font-size: 14px;
 }
 
 /* ── 댓글 영역 ────────────────────────────────── */
-.siiruBoardComt {
+.siiru-boardWrap .siiruBoardComt {
   border-top: 2px solid var(--hn-text);
   margin-top: 24px;
 }
 
-.siiruBoardComt dl dt {
+.siiru-boardWrap .siiruBoardComt dl dt {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -6243,7 +6247,7 @@
   color: var(--hn-text);
 }
 
-.siiruBoardComt dl dd {
+.siiru-boardWrap .siiruBoardComt dl dd {
   padding: 0;
 }
 
@@ -6277,7 +6281,7 @@
   color: var(--hn-text-3);
 }
 
-.siiruBoardComt .nodata {
+.siiru-boardWrap .siiruBoardComt .nodata {
   text-align: center;
   padding: 20px;
   color: var(--hn-text-3);
@@ -6292,18 +6296,18 @@
 }
 
 /* ── 작성 폼 (게시판 작성 / 회원가입 S4 등) ───────────────── */
-.siiruBoard-write,
+.siiru-boardWrap .siiruBoard-write,
 .joinForm-write {
   border-top: 2px solid var(--hn-text);
 }
 
-.siiruBoard-write dl,
+.siiru-boardWrap .siiruBoard-write dl,
 .joinForm-write dl {
   display: flex;
   border-bottom: 1px solid var(--hn-line);
 }
 
-.siiruBoard-write dl dt,
+.siiru-boardWrap .siiruBoard-write dl dt,
 .joinForm-write dl dt {
   width: 130px;
   padding: 14px 16px;
@@ -6317,32 +6321,32 @@
   flex-shrink: 0;
 }
 
-.siiruBoard-write dl dt span,
+.siiru-boardWrap .siiruBoard-write dl dt span,
 .joinForm-write dl dt span {
   color: var(--hn-red);
 }
 
-.siiruBoard-write dl dt span.label,
+.siiru-boardWrap .siiruBoard-write dl dt span.label,
 .joinForm-write dl dt span.label {
   color: var(--hn-text-2);
   font-weight: 700;
 }
 
-.siiruBoard-write dl dt span.required,
+.siiru-boardWrap .siiruBoard-write dl dt span.required,
 .joinForm-write dl dt span.required {
   color: var(--hn-red);
 }
 
-.siiruBoard-write dl dd,
+.siiru-boardWrap .siiruBoard-write dl dd,
 .joinForm-write dl dd {
   flex: 1;
   padding: 12px 16px;
 }
 
-.siiruBoard-write dl dd input[type="text"],
-.siiruBoard-write dl dd input[type="password"],
-.siiruBoard-write dl dd input.maskDate,
-.siiruBoard-write dl dd input.maskTime,
+.siiru-boardWrap .siiruBoard-write dl dd input[type="text"],
+.siiru-boardWrap .siiruBoard-write dl dd input[type="password"],
+.siiru-boardWrap .siiruBoard-write dl dd input.maskDate,
+.siiru-boardWrap .siiruBoard-write dl dd input.maskTime,
 .joinForm-write dl dd input[type="text"],
 .joinForm-write dl dd input[type="password"],
 .joinForm-write dl dd input.maskDate,
@@ -6357,17 +6361,17 @@
   box-sizing: border-box;
 }
 
-.siiruBoard-write dl dd input.small2,
+.siiru-boardWrap .siiruBoard-write dl dd input.small2,
 .joinForm-write dl dd input.small2 {
   width: 240px;
 }
 
-.siiruBoard-write dl dd input.small,
+.siiru-boardWrap .siiruBoard-write dl dd input.small,
 .joinForm-write dl dd input.small {
   width: 140px;
 }
 
-.siiruBoard-write dl dd select,
+.siiru-boardWrap .siiruBoard-write dl dd select,
 .joinForm-write dl dd select {
   padding: 8px 12px;
   border: 1px solid var(--hn-line);
@@ -6378,14 +6382,14 @@
   outline: 0;
 }
 
-.siiruBoard-write dl.fullCont dd,
-.siiruBoard-write dl dd.fullCont,
+.siiru-boardWrap .siiruBoard-write dl.fullCont dd,
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont,
 .joinForm-write dl.fullCont dd,
 .joinForm-write dl dd.fullCont {
   padding: 0;
 }
 
-.siiruBoard-write dl dd textarea,
+.siiru-boardWrap .siiruBoard-write dl dd textarea,
 .joinForm-write dl dd textarea {
   width: 100%;
   padding: 12px 14px;
@@ -6397,18 +6401,18 @@
   box-sizing: border-box;
 }
 
-.siiruBoard-write .separator,
+.siiru-boardWrap .siiruBoard-write .separator,
 .joinForm-write .separator {
   margin: 0 6px;
   color: var(--hn-text-3);
 }
 
-.siiruBoard-write .btnLayer,
+.siiru-boardWrap .siiruBoard-write .btnLayer,
 .joinForm-write .btnLayer {
   margin-left: 10px;
 }
 
-.siiruBoard-write small,
+.siiru-boardWrap .siiruBoard-write small,
 .joinForm-write small {
   font-size: 12px;
   color: var(--hn-text-3);
@@ -6464,7 +6468,7 @@
 }
 
 /* ── 갤러리 목록 ──────────────────────────────── */
-.siiruBoard-gallery {
+.siiru-boardWrap .siiruBoard-gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px 16px;
@@ -6472,26 +6476,26 @@
 }
 
 @media (max-width: 1024px) {
-  .siiruBoard-gallery {
+  .siiru-boardWrap .siiruBoard-gallery {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .siiruBoard-gallery {
+  .siiru-boardWrap .siiruBoard-gallery {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px 10px;
   }
 }
 
-.siiruBoard-galleryBox .photoBox {
+.siiru-boardWrap .siiruBoard-galleryBox .photoBox {
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--hn-bg-alt2);
   border-radius: 6px;
 }
 
-.siiruBoard-galleryBox .photoBox img {
+.siiru-boardWrap .siiruBoard-galleryBox .photoBox img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -6500,15 +6504,15 @@
   cursor: pointer;
 }
 
-.siiruBoard-galleryBox .photoBox a:hover img {
+.siiru-boardWrap .siiruBoard-galleryBox .photoBox a:hover img {
   transform: scale(1.04);
 }
 
-.siiruBoard-galleryBox dl {
+.siiru-boardWrap .siiruBoard-galleryBox dl {
   margin: 8px 0 0;
 }
 
-.siiruBoard-galleryBox dl dt {
+.siiru-boardWrap .siiruBoard-galleryBox dl dt {
   font-size: 14px;
   font-weight: 500;
   color: var(--hn-text);
@@ -6516,50 +6520,62 @@
   text-align: left;
 }
 
-.siiruBoard-galleryBox dl dt a {
+.siiru-boardWrap .siiruBoard-galleryBox dl dt a {
   display: block;
-  line-height: 1.45;
+  line-height: 1.5;
   color: inherit;
   text-decoration: none;
 }
 
-.siiruBoard-galleryBox dl dt a:hover {
+.siiru-boardWrap .siiruBoard-galleryBox dl dt a:hover {
   color: var(--hn-green);
 }
 
-.siiruBoard-galleryBox dl dt a:hover .board-sj {
+.siiru-boardWrap .siiruBoard-galleryBox dl dt a:hover .board-sj {
   color: var(--hn-green);
 }
 
-.siiruBoard-galleryBox .board-cat {
+.siiru-boardWrap .siiruBoard-galleryBox dl dt a .board-cat {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
   margin: 0 0 6px;
+  padding: 2px 7px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
-.siiruBoard-galleryBox .board-sj {
+.siiru-boardWrap .siiruBoard-galleryBox dl dt a .board-sj,
+.siiru-boardWrap .siiruBoard-galleryBox dl dt a .new-mark {
   display: inline;
+  vertical-align: top;
+}
+
+.siiru-boardWrap .siiruBoard-galleryBox .board-sj {
   font-weight: 500;
-  line-height: inherit;
+  line-height: 1.45;
   color: var(--hn-text);
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
 
-.siiruBoard-galleryBox a:not(.new) .new-mark {
+.siiru-boardWrap .siiruBoard-galleryBox a:not(.new) .new-mark {
   display: none;
 }
 
-.siiruBoard-galleryBox dl dd {
+.siiru-boardWrap .siiruBoard-galleryBox dl dd {
   font-size: 12px;
   color: var(--hn-text-3);
   margin-top: 4px;
   text-align: right;
 }
 
-.siiruBoard-galleryBox dl dd span {
+.siiru-boardWrap .siiruBoard-galleryBox dl dd span {
   margin-left: 5px;
 }
 
-.siiruBoard-galleryBox.throughline dl dt a {
+.siiru-boardWrap .siiruBoard-galleryBox.throughline dl dt a {
   text-decoration: line-through;
   color: var(--hn-text-3);
 }
@@ -7555,7 +7571,7 @@
     border-top: 1px solid var(--hn-line-soft);
   }
 
-  .siiruBoard-search form {
+  .siiru-boardWrap .siiruBoard-search form {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: stretch;
@@ -7564,7 +7580,7 @@
     width: 100%;
   }
 
-  .siiruBoard-search select {
+  .siiru-boardWrap .siiruBoard-search select {
     flex: 1 1 0;
     min-width: 0;
     max-width: none;
@@ -7572,7 +7588,7 @@
     font-size: 13px;
   }
 
-  .siiruBoard-search input[type="text"]:not(.maskDate) {
+  .siiru-boardWrap .siiruBoard-search input[type="text"]:not(.maskDate) {
     flex: 1.4 1 0;
     width: auto;
     min-width: 0;
@@ -7580,7 +7596,7 @@
     font-size: 13px;
   }
 
-  .siiruBoard-search button[type="submit"] {
+  .siiru-boardWrap .siiruBoard-search button[type="submit"] {
     flex: 0 0 auto;
     padding: 9px 16px;
     font-size: 13px;
@@ -7588,16 +7604,16 @@
   }
 
   /* basic 게시판 목록 — 분류 + 제목 + 작성일 (카드형) */
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) table {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) table {
     border-top-width: 1px;
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) colgroup,
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) thead {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) colgroup,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) thead {
     display: none;
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody tr {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas:
@@ -7608,16 +7624,16 @@
     border-bottom: 1px solid var(--hn-line-soft);
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr:hover {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody tr:hover {
     background: var(--hn-bg-alt);
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr.notice {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody tr.notice {
     background: var(--hn-green-soft);
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td,
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody th {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th {
     display: block;
     padding: 0;
     border: 0;
@@ -7625,18 +7641,37 @@
     background: transparent;
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.sn,
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.num,
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.userNm,
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.writer,
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.file,
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.rdcnt,
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.hit {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.sn,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.num,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.userNm,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.writer,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.file,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.rdcnt,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.hit {
     display: none;
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr > td:nth-child(2),
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.ctgryNm {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.category:not(:has(.board-cat)),
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.ctgryNm:not(:has(.board-cat)) {
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.25;
+    border-radius: 4px;
+    background: var(--hn-blue);
+    border: 1px solid var(--hn-blue);
+    color: #fff;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody tr > td:nth-child(2),
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.ctgryNm,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.category {
     grid-area: cat;
     justify-self: start;
     align-self: center;
@@ -7647,8 +7682,8 @@
     border: 0;
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr.notice > td.sn,
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr.notice > td.num {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody tr.notice > td.sn,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody tr.notice > td.num {
     display: block;
     grid-area: cat;
     padding: 0;
@@ -7656,8 +7691,8 @@
     background: transparent;
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr.notice > td.sn .notice,
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr.notice > td.num .notice {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody tr.notice > td.sn .notice,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody tr.notice > td.num .notice {
     display: inline-block;
     padding: 2px 7px;
     font-size: 10px;
@@ -7668,12 +7703,12 @@
     letter-spacing: 0.04em;
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr.notice > td:nth-child(2) {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody tr.notice > td:nth-child(2) {
     display: none;
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody th.boardSj,
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody th.subject {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th.boardSj,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th.subject {
     grid-area: title;
     width: 100%;
     min-width: 0;
@@ -7683,8 +7718,8 @@
     color: var(--hn-text);
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody th.boardSj a,
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody th.subject a {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th.boardSj a,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th.subject a {
     display: inline;
     font-weight: 600;
     color: var(--hn-text);
@@ -7692,7 +7727,7 @@
     overflow-wrap: anywhere;
   }
 
-  .siiruBoard-list .board-cat {
+  .siiru-boardWrap .siiruBoard-list .board-cat {
     padding: 2px 6px;
     font-size: 10px;
     line-height: 1.25;
@@ -7700,18 +7735,19 @@
   }
 
   .new-mark,
-  .siiruBoard-list tbody th[scope="row"].boardSj a.new::after,
-  .siiruBoard-list tbody th[scope="row"].subject a.new::after {
+  .siiru-boardWrap .siiruBoard-list tbody th[scope="row"].boardSj a.new::after,
+  .siiru-boardWrap .siiruBoard-list tbody th[scope="row"].subject a.new::after {
     font-size: 11px;
     margin-left: 5px;
   }
 
-  .siiruBoard-galleryBox .board-cat {
-    margin-bottom: 5px;
+  .siiru-boardWrap .siiruBoard-galleryBox dl dt a .board-cat {
+    font-size: 10px;
+    padding: 2px 6px;
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.regDt,
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.date {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.regDt,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.date {
     grid-area: date;
     justify-self: end;
     align-self: center;
@@ -7721,13 +7757,13 @@
     white-space: nowrap;
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody tr:has(> td.nodata[colspan]) {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody tr:has(> td.nodata[colspan]) {
     display: block;
     padding: 32px 16px;
     text-align: center;
   }
 
-  .siiru-boardWrap > .siiruBoard-list:has(.ctgryNm) tbody td.nodata[colspan] {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody td.nodata[colspan] {
     display: block;
     width: 100%;
     font-size: 14px;
@@ -7736,14 +7772,14 @@
   }
 
   /* 노회/시찰 앨범·소식 — 시찰 탭 5개 한 줄 */
-  .board-district-filter.group-tabs {
+  .siiru-boardWrap .board-district-filter.group-tabs {
     flex-wrap: nowrap;
     gap: 0;
     margin-bottom: 20px;
     overflow: visible;
   }
 
-  .board-district-filter.group-tabs button {
+  .siiru-boardWrap .board-district-filter.group-tabs button {
     flex: 1 1 0;
     min-width: 0;
     padding: 7px 0;
@@ -7754,16 +7790,16 @@
     text-align: center;
   }
 
-  .board-district-filter.group-tabs button.on {
+  .siiru-boardWrap .board-district-filter.group-tabs button.on {
     font-weight: 800;
   }
 
-  .siiruBoard-write dl,
+  .siiru-boardWrap .siiruBoard-write dl,
   .joinForm-write dl {
     flex-direction: column;
   }
 
-  .siiruBoard-write dl dt,
+  .siiru-boardWrap .siiruBoard-write dl dt,
   .joinForm-write dl dt {
     width: 100%;
     border-bottom: 1px solid var(--hn-line-soft);
@@ -7779,19 +7815,19 @@
     flex-direction: column;
   }
 
-  .siiruBoardBtnInfo {
+  .siiru-boardWrap .siiruBoardBtnInfo {
     flex-direction: column-reverse;
     align-items: stretch;
     gap: 10px;
     padding: 12px;
   }
 
-  .siiruBoardBtnInfo .siiru-fl,
-  .siiruBoardBtnInfo .siiru-fr {
+  .siiru-boardWrap .siiruBoardBtnInfo .siiru-fl,
+  .siiru-boardWrap .siiruBoardBtnInfo .siiru-fr {
     justify-content: flex-end;
   }
 
-  .siiruBoardBtnInfo .siiru-fl {
+  .siiru-boardWrap .siiruBoardBtnInfo .siiru-fl {
     justify-content: flex-start;
   }
 

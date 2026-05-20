@@ -487,6 +487,20 @@ p {
   background: rgba(255, 255, 255, 0.85);
 }
 
+.hn-drawer-utils a.hn-drawer-admin-btn {
+  grid-column: 1 / -1;
+  background: var(--hn-bg-dark);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  min-height: 48px;
+}
+
+.hn-drawer-utils a.hn-drawer-admin-btn:hover {
+  background: var(--hn-text);
+  color: #fff;
+}
+
 .hn-drawer-utils a.hn-drawer-login-btn {
   grid-column: 1 / -1;
   background: var(--hn-green);
