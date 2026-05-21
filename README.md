@@ -120,8 +120,8 @@ const CMS = {
 };
 ```
 
-SiiRU Export 시 `header.html` / `footer.html` include 태그는 빈 문자열로 대체되어
-레이아웃 없이 `<main>` 본문만 출력됩니다. `dist-siiru/`는 `.gitignore`에 등록됩니다.
+SiiRU Export 시 `header.html` / `footer.html` include 태그는 빈 문자열로 대체됩니다.
+`src/sub/`, `src/boardpage/` 페이지는 **`.sub-layout` 안 `<section>`의 자식 HTML만** 출력되므로 CMS 편집기에 그대로 복사·붙여넣기하면 됩니다. (`dist-siiru/`는 `.gitignore`에 등록)
 
 ### 4. 새 프로젝트 생성
 

@@ -197,12 +197,14 @@ src/
   <div class="sub-layout">
     <div data-include="../include/sidebar_XXX.html"></div>
 
-    <section class="content">
+    <section>
+      <div class="content">
       <h2 class="ptitle">
         <span>페이지 제목</span>
         <span class="cnt">부가 정보 <b>강조</b></span>
       </h2>
       <!-- 컨텐츠 -->
+      </div>
     </section>
   </div>
 
@@ -556,6 +558,10 @@ sidebar include 파일 내부의 링크는 반드시 루트 절대경로(`/sub/.
 - [ ] CSS·JS·이미지 경로는 전부 루트 절대경로(`/assets/...`) 또는 header.html이 자동 제공 — 별도 `<link>` 불필요
 - [ ] 디자인 토큰(CSS 변수) 사용, 임의 색상 하드코딩 금지
 - [ ] 사진·단체사진 자리에는 `<div class="placeholder">PHOTO<br>PLACEHOLDER</div>` 삽입
+
+**CMS section (SiiRU)**
+- [ ] `.sub-layout` 안 `<section>`에는 **class/id 금지** — 스코프 클래스는 section **직하위** 래퍼 `div`에 (예: `.catechism-page`, `.rules-page`)
+- [ ] `npm run build:siiru` → `dist-siiru/sub/`, `dist-siiru/boardpage/`는 section **자식 HTML만** 출력되는지 확인
 
 **기타**
 - [ ] 탭 전환: `.tab-wrap > .group-tabs[data-tab] + .tab-panel[data-panel]` 패턴

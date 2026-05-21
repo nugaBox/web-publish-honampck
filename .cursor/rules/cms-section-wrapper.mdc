@@ -1,0 +1,55 @@
+---
+description: 서브·게시판 페이지 CMS section 태그 규칙 (클래스는 section 하위에)
+globs: src/sub/**/*.html,src/boardpage/**/*.html
+alwaysApply: false
+---
+
+# CMS section 태그 규칙
+
+SiiRU CMS는 **`<section>` 태그 이하의 HTML만** 편집기에 넣을 수 있다. CMS가 제공하는 `<section>`에는 **class·id를 붙이지 않는다.**
+
+## 필수 구조
+
+```html
+<div class="sub-layout">
+  <div data-include="../include/sidebar_XXX.html"></div>
+
+  <section>
+    <div class="페이지-래퍼-클래스">
+      <!-- 실제 콘텐츠: ptitle, 탭, 본문 등 -->
+    </div>
+  </section>
+</div>
+```
+
+## 금지
+
+```html
+<!-- BAD: section에 클래스/스타일 훅 -->
+<section class="catechism-page">
+<section class="rules-page">
+<section class="content">
+```
+
+## 허용
+
+- `section` **안쪽** 첫 래퍼 `div`(또는 의미 있는 블록)에 페이지 스코프 클래스 지정
+- `section` 내부의 **하위** `section`·`nav`·`article`에는 필요 시 클래스 사용 (예: `rules-intro`, `catechism-subnav`)
+
+## 예시
+
+| 페이지 | section 직하위 래퍼 |
+|--------|---------------------|
+| 문답 | `<div class="catechism-page">` |
+| 노회 규칙 | `<div class="rules-page">` |
+| 게시판 | 스킨만 넣을 때는 래퍼 생략 가능, 스코프 클래스는 `.siiru-boardWrap` 등 **자식**에 |
+
+## 빌드
+
+`npm run build:siiru` 시 `src/sub/`, `src/boardpage/` HTML은 **`.sub-layout` 안 section의 자식 HTML만** `dist-siiru/`에 출력된다. CMS에 그대로 복사·붙여넣기한다.
+
+## 새 페이지 체크
+
+- [ ] `<section>`에 `class` 없음
+- [ ] 페이지 전용 스타일·JS 훅은 section 하위 래퍼에 있음
+- [ ] `build:siiru` 결과가 히어로·사이드바·`<section>` 태그 없이 본문만인지 확인

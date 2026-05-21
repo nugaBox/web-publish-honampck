@@ -16,7 +16,9 @@
  * │ siiru       │ npm run build:siiru│ dist-siiru/│ 레이아웃     │
  * │             │                    │            │ (header/     │
  * │             │                    │            │  footer)     │
- * │             │                    │            │ 제외, 본문만.│
+ * │             │                    │            │ 제외. sub/   │
+ * │             │                    │            │ boardpage는  │
+ * │             │                    │            │ section자식만│
  * │             │                    │            │ CMS 변수     │
  * │             │                    │            │ 치환 적용.   │
  * └─────────────────────────────────────────────────────────────┘
@@ -148,6 +150,58 @@ function injectMobileSidebar(html) {
   return html.slice(0, subLayoutIdx) + mobileBlock + html.slice(subLayoutIdx);
 }
 
+/** .sub-layout 직하위 section 한 개의 내부 HTML만 반환 (CMS section 태그 제외) */
+function extractSectionInner(html, sectionOpenIndex) {
+  const tagEnd = html.indexOf('>', sectionOpenIndex);
+  if (tagEnd === -1) return null;
+
+  const contentStart = tagEnd + 1;
+  let depth = 1;
+  let i = contentStart;
+
+  while (i < html.length) {
+    const nextOpen = html.indexOf('<section', i);
+    const nextClose = html.indexOf('</section>', i);
+    if (nextClose === -1) return null;
+
+    if (nextOpen !== -1 && nextOpen < nextClose) {
+      depth += 1;
+      i = html.indexOf('>', nextOpen) + 1;
+    } else {
+      depth -= 1;
+      if (depth === 0) return html.slice(contentStart, nextClose).trim();
+      i = nextClose + '</section>'.length;
+    }
+  }
+
+  return null;
+}
+
+/**
+ * SiiRU CMS용: sub·boardpage 페이지는 .sub-layout 내 section 자식만 출력.
+ * (히어로·사이드바·section 태그 자체는 CMS 레이아웃에 포함됨)
+ */
+function extractSiiruCmsSectionContent(html) {
+  const layoutIdx = html.indexOf('<div class="sub-layout">');
+  if (layoutIdx === -1) return html;
+
+  const sectionIdx = html.indexOf('<section', layoutIdx);
+  if (sectionIdx === -1) return html;
+
+  const inner = extractSectionInner(html, sectionIdx);
+  return inner !== null ? inner : html;
+}
+
+function isSiiruCmsPage(relPath) {
+  const norm = relPath.split(path.sep).join('/');
+  return norm.startsWith('sub/') || norm.startsWith('boardpage/');
+}
+
+function shouldSkipHtmlFile(relPath) {
+  const norm = relPath.split(path.sep).join('/');
+  return norm.includes('include/') || norm.includes('_partials/');
+}
+
 // ── 빌드 실행 ─────────────────────────────────────────────────
 
 console.log(`\n🏗️  [${label}] 빌드 시작...\n`);
@@ -155,13 +209,18 @@ console.log(`\n🏗️  [${label}] 빌드 시작...\n`);
 // 1. 출력 디렉터리 초기화 + 소스 복사
 if (fs.existsSync(DIST)) fs.rmSync(DIST, { recursive: true });
 copyRecursive(SRC, DIST);
+if (skipLayout) {
+  const partialsDir = path.join(DIST, 'sub', '_partials');
+  if (fs.existsSync(partialsDir)) fs.rmSync(partialsDir, { recursive: true });
+}
 console.log(`✅  src/ → ${path.relative(ROOT, DIST)}/ 복사 완료`);
 
 // 2. HTML 처리
-const htmlFiles = walkFiles(
-  DIST,
-  p => p.endsWith('.html') && !p.includes(`${path.sep}include${path.sep}`)
-);
+const htmlFiles = walkFiles(DIST, p => {
+  if (!p.endsWith('.html')) return false;
+  const rel = path.relative(DIST, p);
+  return !shouldSkipHtmlFile(rel);
+});
 
 for (const filePath of htmlFiles) {
   const label = path.relative(DIST, filePath);
@@ -169,7 +228,12 @@ for (const filePath of htmlFiles) {
 
   html = inlineIncludes(html, path.dirname(filePath));
   if (!skipLayout) html = injectMobileSidebar(html);
-  if (applyCms) html = replaceImgPathsHtml(html);
+  if (applyCms) {
+    html = replaceImgPathsHtml(html);
+    if (isSiiruCmsPage(label)) {
+      html = extractSiiruCmsSectionContent(html);
+    }
+  }
 
   fs.writeFileSync(filePath, html, 'utf-8');
   console.log(`✅  ${label}`);
