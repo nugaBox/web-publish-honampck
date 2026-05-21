@@ -141,13 +141,65 @@ function injectMobileSidebar(html) {
   const asideMatch = html.match(/<aside>[\s\S]*?<\/aside>/);
   if (!asideMatch) return html;
 
-  const subLayoutIdx = html.indexOf('<div class="sub-layout">');
-  if (subLayoutIdx === -1) return html;
+  const layoutMatch = SUB_LAYOUT_OPEN_RE.exec(html);
+  if (!layoutMatch) return html;
+  const subLayoutIdx = layoutMatch.index;
 
   const mobileBlock =
     `<div class="sidebar-mob" aria-label="섹션 메뉴">\n${asideMatch[0]}\n</div>\n\n`;
 
   return html.slice(0, subLayoutIdx) + mobileBlock + html.slice(subLayoutIdx);
+}
+
+const SUB_LAYOUT_OPEN_RE = /<div\s+class="sub-layout"[^>]*>/i;
+
+/** div 여는 태그 위치에서 짝 맞는 </div> 위치 반환 */
+function findMatchingCloseDiv(html, divOpenIndex) {
+  const tagEnd = html.indexOf('>', divOpenIndex);
+  if (tagEnd === -1) return -1;
+
+  let depth = 1;
+  let i = tagEnd + 1;
+
+  while (i < html.length) {
+    const nextOpen = html.indexOf('<div', i);
+    const nextClose = html.indexOf('</div>', i);
+    if (nextClose === -1) return -1;
+
+    if (nextOpen !== -1 && nextOpen < nextClose && /^<div[\s>]/.test(html.slice(nextOpen))) {
+      depth += 1;
+      i = html.indexOf('>', nextOpen) + 1;
+    } else {
+      depth -= 1;
+      if (depth === 0) return nextClose;
+      i = nextClose + '</div>'.length;
+    }
+  }
+
+  return -1;
+}
+
+/** .sub-layout 블록 안 사이드바 </aside> 다음 CMS용 <section> 시작 위치 */
+function findCmsSectionStart(html) {
+  const layoutMatch = SUB_LAYOUT_OPEN_RE.exec(html);
+  if (!layoutMatch) return -1;
+
+  const layoutOpen = layoutMatch.index;
+  const contentStart = layoutOpen + layoutMatch[0].length;
+  const layoutClose = findMatchingCloseDiv(html, layoutOpen);
+  const blockEnd = layoutClose === -1 ? html.length : layoutClose;
+  const block = html.slice(contentStart, blockEnd);
+
+  let searchFrom = 0;
+  const sidebarAsideClose = block.indexOf('</aside>');
+  if (sidebarAsideClose !== -1) {
+    searchFrom = sidebarAsideClose + '</aside>'.length;
+  }
+
+  const sectionInBlock = block.indexOf('<section', searchFrom);
+  if (sectionInBlock === -1) return -1;
+
+  return contentStart + sectionInBlock;
 }
 
 /** .sub-layout 직하위 section 한 개의 내부 HTML만 반환 (CMS section 태그 제외) */
@@ -177,19 +229,35 @@ function extractSectionInner(html, sectionOpenIndex) {
   return null;
 }
 
+const SIIRU_LAYOUT_MARKERS = [
+  'hn-page-head',
+  'sub-layout',
+  '<main id="main-content"',
+  'data-include',
+];
+
+function siiruOutputLooksLikeLayout(html) {
+  return SIIRU_LAYOUT_MARKERS.some(marker => html.includes(marker));
+}
+
 /**
  * SiiRU CMS용: sub·boardpage 페이지는 .sub-layout 내 section 자식만 출력.
  * (히어로·사이드바·section 태그 자체는 CMS 레이아웃에 포함됨)
  */
-function extractSiiruCmsSectionContent(html) {
-  const layoutIdx = html.indexOf('<div class="sub-layout">');
-  if (layoutIdx === -1) return html;
-
-  const sectionIdx = html.indexOf('<section', layoutIdx);
-  if (sectionIdx === -1) return html;
+function extractSiiruCmsSectionContent(html, relPath) {
+  const sectionIdx = findCmsSectionStart(html);
+  if (sectionIdx === -1) {
+    console.warn(`  ⚠️  CMS section 추출 실패 (${relPath}): .sub-layout 또는 <section> 없음`);
+    return html;
+  }
 
   const inner = extractSectionInner(html, sectionIdx);
-  return inner !== null ? inner : html;
+  if (inner === null) {
+    console.warn(`  ⚠️  CMS section 추출 실패 (${relPath}): </section> 짝 불일치`);
+    return html;
+  }
+
+  return inner;
 }
 
 function isSiiruCmsPage(relPath) {
@@ -227,7 +295,10 @@ for (const filePath of htmlFiles) {
   if (applyCms) {
     html = replaceImgPathsHtml(html);
     if (isSiiruCmsPage(label)) {
-      html = extractSiiruCmsSectionContent(html);
+      html = extractSiiruCmsSectionContent(html, label);
+      if (siiruOutputLooksLikeLayout(html)) {
+        console.warn(`  ⚠️  CMS 본문에 레이아웃 잔존 (${label}) — src 마크업 확인`);
+      }
     }
   }
 
@@ -235,10 +306,12 @@ for (const filePath of htmlFiles) {
   console.log(`✅  ${label}`);
 }
 
-// include 조각(_partials)은 빌드 중에만 사용 — siiru 출력물에서 제거
+// siiru 전용: 인라인에만 쓰는 조각·include 템플릿은 출력에서 제거
 if (skipLayout) {
-  const partialsDir = path.join(DIST, 'sub', '_partials');
-  if (fs.existsSync(partialsDir)) fs.rmSync(partialsDir, { recursive: true });
+  for (const relDir of ['sub/_partials', 'include']) {
+    const dir = path.join(DIST, ...relDir.split('/'));
+    if (fs.existsSync(dir)) fs.rmSync(dir, { recursive: true });
+  }
 }
 
 // 3. CSS 처리 (siiru 모드에서만 경로 치환)
