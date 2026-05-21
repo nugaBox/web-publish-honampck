@@ -647,7 +647,20 @@ p {
   line-height: 1.7;
 }
 
-.hn-footer-main dl {
+.hn-footer-main > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 데스크톱: 링크 모음 → 주소 (HTML은 모바일 순서 유지) */
+.hn-footer-main > div:nth-child(2) .footer-policy-links {
+  order: 1;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+.hn-footer-main > div:nth-child(2) dl {
+  order: 2;
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 5px 17px;
@@ -1004,10 +1017,6 @@ p {
 }
 
 /* ── 푸터 빠른링크 ──────────────────────────────────────────── */
-.footer-policy-links {
-  margin-bottom: 20px;
-}
-
 .footer-policy-title {
   font-size: 14px;
   color: #7f8894;
@@ -1143,21 +1152,27 @@ p {
     line-height: 1.35;
   }
 
+  /* 모바일: 주소 → 링크 모음 (HTML 순서) */
+  .hn-footer-main > div:nth-child(2) dl {
+    order: 1;
+    width: var(--footer-contact-width);
+    margin: 0 auto;
+    font-size: 15.5px;
+    line-height: 1.55;
+    gap: 10px 14px;
+  }
+
   .hn-footer-main > div:nth-child(2) .footer-policy-links {
+    order: 2;
+    width: var(--footer-contact-width);
+    margin: 24px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #3a424c;
     text-align: center;
-    margin-bottom: 36px;
   }
 
   .hn-footer-main .footer-policy-row {
     justify-content: center;
-  }
-
-  .hn-footer-main > div:nth-child(2) dl {
-    width: var(--footer-contact-width);
-    margin: 0 auto 4px;
-    font-size: 15.5px;
-    line-height: 1.55;
-    gap: 10px 14px;
   }
 
   .hn-footer-main > .sites {

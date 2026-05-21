@@ -1578,18 +1578,6 @@
   padding-bottom: 8px;
 }
 
-.churches-sort-hint {
-  display: none;
-  font-size: 13px;
-  color: var(--hn-text-4);
-  text-align: right;
-  margin: 6px 0 16px;
-}
-
-.churches-page:has(.churches-view[data-churches-view="church"].on) .churches-sort-hint {
-  display: block;
-}
-
 .churches-mobile-detail-hint {
   display: none;
   align-items: flex-start;
@@ -1642,6 +1630,10 @@
   color: var(--hn-text-4);
 }
 
+.member-section-cnt:empty {
+  display: none;
+}
+
 .member-empty {
   margin: 0;
   padding: 20px 16px;
@@ -1682,10 +1674,40 @@
 }
 
 /* 시찰 미표기(—) · 특수 분류 → 기타 */
-.churches-page .church-table .cat.misc {
+.churches-page .church-table .cat.misc,
+.churches-page .church-mob-list .cat.misc {
   background: var(--hn-bg);
   border-color: var(--hn-line-strong);
   color: var(--hn-text-3);
+}
+
+/* 교회별 모바일 카드 — 시찰 뱃지 색상(회원별·표와 동일) */
+.churches-page .church-mob-list .cat {
+  display: inline-block;
+  font-size: 12px;
+  padding: 3px 8px;
+  border: 1px solid var(--hn-line-strong);
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.churches-page .church-mob-list .cat.b {
+  background: var(--hn-blue);
+  border-color: var(--hn-blue);
+  color: #fff;
+}
+
+.churches-page .church-mob-list .cat.r {
+  background: color-mix(in srgb, var(--hn-blue) 72%, white);
+  border-color: color-mix(in srgb, var(--hn-blue) 72%, white);
+  color: #fff;
+}
+
+.churches-page .church-mob-list .cat.o {
+  background: color-mix(in srgb, var(--hn-blue) 48%, white);
+  border-color: color-mix(in srgb, var(--hn-blue) 48%, white);
+  color: #fff;
 }
 
 .churches-page .church-table tbody td:first-child {
@@ -1693,9 +1715,100 @@
   text-align: center;
 }
 
-.churches-page .church-member-table tbody td:nth-child(2) {
+/* ── 회원별·교회별 — 데스크탑 제목 행 메타 ─────────────────── */
+.member-section-head,
+.church-list-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 16px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--hn-line-soft);
+}
+
+.member-section--lead .member-section-head .member-section-title,
+.church-list-section-head .member-section-title {
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
+}
+
+.member-section-meta,
+.church-list-section-meta {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.churches-list-meta-line {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--hn-text-4);
+  white-space: nowrap;
+}
+
+.churches-term-label,
+.churches-sort-hint {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--hn-text-4);
+  white-space: nowrap;
+}
+
+.church-mob-list {
+  display: none;
+}
+
+.churches-page .church-member-table tbody td.church-group-church {
   font-weight: 700;
   color: var(--hn-text);
+}
+
+.churches-page .church-member-table .col-category {
+  text-align: center;
+}
+
+.churches-page .church-member-table .col-clergy-lead .oname-n,
+.churches-page .church-member-table .col-clergy-lead .oname-t {
+  font-weight: 700;
+  color: var(--hn-text);
+}
+
+.churches-page .church-member-table .col-clergy .oname-plain {
+  font-weight: 400;
+  color: var(--hn-text-2);
+}
+
+.churches-page .church-member-table tbody td.church-group-lead {
+  vertical-align: top;
+}
+
+.churches-mobile-detail-hint__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.churches-mobile-detail-hint__term,
+.churches-mobile-detail-hint__sort {
+  display: none;
+  color: var(--hn-text-4);
+}
+
+/* 모바일 안내: 제34회기(공통) + 보기별 정렬 문구 */
+.churches-page:has(.tab-panel.on .churches-view.on) .churches-mobile-detail-hint__term {
+  display: block;
+}
+
+.churches-page:has(.tab-panel.on .churches-view[data-churches-view="member"].on) .churches-mobile-detail-hint__sort--member {
+  display: block;
+}
+
+.churches-page:has(.tab-panel.on .churches-view[data-churches-view="church"].on) .churches-mobile-detail-hint__sort--church {
+  display: block;
 }
 
 /* 회원별·교회별 — 전화·분류 열 */
@@ -1715,10 +1828,6 @@
 
 .churches-page .church-list-section {
   margin-bottom: 0;
-}
-
-.churches-page .church-list-section .member-section-title {
-  margin-bottom: 12px;
 }
 
 /* ── 시찰 소개 ─────────────────────────────────────────────── */
@@ -4662,18 +4771,124 @@
     margin-top: 0;
   }
 
-  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table thead,
-  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table thead {
+  /* 회원별·교회별 — 모바일: 데스크탑 메타 숨김(상단 안내에 표시) */
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-section-meta,
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-list-section-meta {
     display: none;
   }
 
-  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody,
-  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody {
+  /* 교회별 — 모바일: 정적 카드 목록, 데스크탑 표 숨김 */
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-list-section .table-scroll {
+    display: none;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-card {
+    border: 1px solid var(--hn-line);
+    border-radius: 8px;
+    background: var(--hn-bg);
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-card.is-open {
+    border-color: var(--hn-green);
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-card__top {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 8px 10px;
+    padding: 12px 14px;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-card__name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--hn-text);
+    min-width: 0;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-card__summary {
+    grid-column: 2 / -2;
+    font-size: 13px;
+    color: var(--hn-text-3);
+    text-align: right;
+    min-width: 0;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-card__toggle {
+    color: var(--hn-text-4);
+    font-size: 14px;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-card.is-open .church-mob-card__ico {
+    transform: rotate(180deg);
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-card__panel {
+    display: none;
+    padding: 0 14px 12px;
+    border-top: 1px solid var(--hn-line-soft);
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-card.is-open .church-mob-card__panel {
     display: block;
   }
 
-  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody tr,
-  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-member-table tbody tr {
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-member {
+    padding-top: 10px;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-member + .church-mob-member {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--hn-line-soft);
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-member__line {
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+    line-height: 1.45;
+    margin-bottom: 4px;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-member__line:last-child {
+    margin-bottom: 0;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-member__line .k {
+    flex: 0 0 72px;
+    color: var(--hn-text-4);
+    font-weight: 600;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .church-mob-member__line .v {
+    flex: 1;
+    min-width: 0;
+    color: var(--hn-text-2);
+    word-break: break-word;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table thead {
+    display: none;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody {
+    display: block;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .member-table tbody tr {
     display: grid;
     margin-bottom: 8px;
     border: 1px solid var(--hn-line);

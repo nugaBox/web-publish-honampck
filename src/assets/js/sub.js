@@ -350,8 +350,28 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    function setChurchMobCardOpen(card, open) {
+      card.classList.toggle('is-open', open);
+      card.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    function initChurchMobList() {
+      churchesPage.querySelectorAll('.church-mob-card').forEach((card) => {
+        if (card.dataset.churchMobBound) return;
+        card.dataset.churchMobBound = '1';
+        const toggle = () => setChurchMobCardOpen(card, !card.classList.contains('is-open'));
+        card.addEventListener('click', toggle);
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle();
+          }
+        });
+      });
+    }
+
     function syncChurchesMobileLayout() {
-      churchesPage.querySelectorAll('.member-table, .church-member-table').forEach((table) => {
+      churchesPage.querySelectorAll('.member-table').forEach((table) => {
         if (churchMobileMq.matches) {
           buildChurchMobileCards(table);
         } else {
@@ -361,9 +381,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    churchesPage.querySelectorAll('.member-table, .church-member-table').forEach(applyChurchTableDistrictBadges);
+    churchesPage.querySelectorAll('.member-table').forEach(applyChurchTableDistrictBadges);
+    initChurchMobList();
     syncChurchesMobileLayout();
     churchMobileMq.addEventListener('change', syncChurchesMobileLayout);
+
+    function getActiveDistrictPanel() {
+      return churchesPage.querySelector('.churches-tab-wrap .tab-panel.on');
+    }
 
     const viewBtns = churchesPage.querySelectorAll('.churches-view-toggle button[data-churches-view]');
     viewBtns.forEach(btn => {
@@ -375,15 +400,50 @@ document.addEventListener('DOMContentLoaded', () => {
           b.setAttribute('aria-selected', on ? 'true' : 'false');
         });
         churchesPage.querySelectorAll('.churches-view').forEach(panel => {
+          panel.classList.remove('on');
+        });
+        const districtPanel = getActiveDistrictPanel();
+        if (!districtPanel) return;
+        districtPanel.querySelectorAll('.churches-view').forEach(panel => {
           panel.classList.toggle('on', panel.dataset.churchesView === view);
         });
       });
     });
+
+    const districtTabGroup = churchesPage.querySelector('.churches-district-tabs');
+    if (districtTabGroup) {
+      const wrap = districtTabGroup.closest('.tab-wrap');
+      const wrapPanels = wrap ? wrap.querySelectorAll('.tab-panel') : null;
+      const districtBtns = districtTabGroup.querySelectorAll('button');
+
+      districtBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          districtBtns.forEach(b => b.classList.remove('on'));
+          btn.classList.add('on');
+          const target = btn.dataset.tab;
+          if (!wrapPanels) return;
+          wrapPanels.forEach(p => p.classList.remove('on'));
+          const active = wrap.querySelector(`.tab-panel[data-panel="${target}"]`);
+          if (!active) return;
+          active.classList.add('on');
+          const currentView =
+            churchesPage.querySelector('.churches-view-toggle button.on')?.dataset.churchesView || 'member';
+          churchesPage.querySelectorAll('.churches-view').forEach(panel => {
+            panel.classList.remove('on');
+          });
+          active.querySelectorAll('.churches-view').forEach(panel => {
+            panel.classList.toggle('on', panel.dataset.churchesView === currentView);
+          });
+          syncChurchesMobileLayout();
+        });
+      });
+    }
   }
 
   /* ── 그룹 탭 전환 (시찰별·회기별 등) ────────────────── */
   document.querySelectorAll('.group-tabs').forEach(tabGroup => {
     if (tabGroup.classList.contains('board-district-filter')) return;
+    if (tabGroup.classList.contains('churches-district-tabs')) return;
     const buttons = tabGroup.querySelectorAll('button');
 
     /* 같은 .tab-wrap 컨테이너 안에 .group-tabs + .tab-panel 패턴 지원 */
