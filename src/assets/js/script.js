@@ -72,7 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      if (linkPath === current) {
+      const activePrefix = link.dataset.activePrefix;
+      if (linkPath === current || (activePrefix && current.startsWith(normalizePathname(activePrefix)))) {
         link.classList.add('on');
       }
     });
@@ -139,7 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const linkPath = normalizePathname(
             new URL(href, window.location.origin).pathname
           );
-          if (linkPath === current) {
+          const activePrefix = link.dataset.activePrefix;
+          if (linkPath === current || (activePrefix && current.startsWith(normalizePathname(activePrefix)))) {
             item.classList.add('is-active');
             option.setAttribute('aria-selected', 'true');
             option.setAttribute('aria-current', 'page');

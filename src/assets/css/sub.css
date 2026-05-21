@@ -2983,6 +2983,125 @@
   background: var(--hn-blue);
 }
 
+.sitemap-box-list .sitemap-has-sub {
+  border-bottom: 0;
+}
+
+.sitemap-l2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--hn-text);
+}
+
+.sitemap-l2::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--hn-line-strong);
+  flex-shrink: 0;
+}
+
+.sitemap-sub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 4px;
+  background: var(--hn-bg-alt);
+}
+
+.sitemap-sub-list li {
+  border-bottom: 1px solid var(--hn-line-soft);
+}
+
+.sitemap-sub-list li:last-child {
+  border-bottom: 0;
+}
+
+.sitemap-sub-list a {
+  padding-left: 36px;
+  font-size: 14px;
+}
+
+.sitemap-sub-list a::before {
+  width: 4px;
+  height: 4px;
+  background: var(--hn-text-4);
+}
+
+/* 신앙표준문서 — 3뎁스 탭 + 문답 본문 */
+.catechism-page {
+  --rules-serif: 'BonmyeongjoSourceHanSerif', 'Noto Serif KR', serif;
+}
+
+.catechism-subnav {
+  margin-bottom: 32px;
+}
+
+.catechism-subnav .group-tabs {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.catechism-subnav .group-tabs button,
+.catechism-subnav .group-tabs a {
+  margin-bottom: 0;
+}
+
+.catechism-page-head {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.catechism-page-title {
+  margin: 0;
+  font-family: var(--rules-serif, var(--font-base));
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--hn-text);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.catechism-page-title-en {
+  margin: 8px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--hn-text-3);
+  letter-spacing: 0.02em;
+}
+
+.catechism-page .catechism-doc {
+  margin-top: 0;
+}
+
+.catechism-list > li > span:not(.art) {
+  display: block;
+}
+
+.catechism-q {
+  display: block;
+  margin-bottom: 0.45em;
+  font-weight: 700;
+  color: var(--hn-text);
+}
+
+.catechism-a {
+  display: block;
+  color: var(--hn-text-2);
+}
+
+.catechism-refs {
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.92em;
+  color: var(--hn-text-3);
+  font-style: normal;
+}
+
 /* 회원탈퇴 경고 */
 .leave-warn {
   padding: 22px 24px;
