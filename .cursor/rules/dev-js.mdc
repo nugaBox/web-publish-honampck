@@ -1,0 +1,39 @@
+---
+description: 개발 서버 전용 dev.js — 실서버(JSP)에 넣지 않는 JS
+globs: src/assets/js/**/*.js,src/include/footer.html
+alwaysApply: false
+---
+
+# dev.js — 개발 서버 전용 스크립트
+
+## 로드 위치
+
+- **포함**: `src/include/footer.html` — `script.js` 다음, `sub.js` 이전
+- **제외**: CMS·JSP 실서버 footer, `npm run build:siiru` 산출물
+
+## 무엇을 넣는가
+
+**실서버(JSP/CMS)에서 하지 않고, 로컬 퍼블·`npm run dev`에서만 필요한 JS**는 `src/assets/js/dev.js`에만 작성한다.
+
+| dev.js (O) | script.js (실서버 포함) |
+|------------|-------------------------|
+| `markActiveSidebar()` — URL로 사이드바 `.on` | GNB·드로어·스크롤 |
+| `data-active-prefix` 연동 등 미리보기 편의 | `data-include` 로더 (정적 미리보기) |
+
+## 사이드바 `.on`
+
+- 퍼블 HTML·sidebar include에 `class="on"` **하드코딩 금지**
+- 로컬: `dev.js` → `hn-includes-ready` 시 `markActiveSidebar()` 실행
+- 실서버: JSP가 현재 메뉴에 `.on` 출력
+
+## 이벤트 순서
+
+1. `script.js` — `data-include` 인라인 완료
+2. `document.dispatchEvent('hn-includes-ready')`
+3. `dev.js` — `markActiveSidebar()`
+4. `script.js` — `mountMobileSidebar()` → `initMobileSidebarSelect()`
+
+## 새 코드 체크
+
+- [ ] JSP에 없는 기능인가? → `dev.js`
+- [ ] `footer.html`에만 `<script src="/assets/js/dev.js">` 추가했는가? (JSP 템플릿에는 추가하지 않음)

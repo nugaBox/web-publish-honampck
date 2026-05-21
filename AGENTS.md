@@ -11,7 +11,7 @@
 | 레이아웃 | 서브 페이지에 사이드바(300px) + 콘텐츠(1fr) 2열 레이아웃 적용 |
 | 디자인 시스템 | `--hn-green`, `--hn-blue`, `--hn-red` 등 프로젝트 전용 CSS 변수 체계 |
 | 반응형 | Bootstrap 기본 브레이크포인트 대신 태블릿 1024px / 모바일 768px 커스텀 사용 |
-| JS 기능 | 사이드바 활성 `.on`은 CMS/JSP에서 처리 (퍼블 JS는 URL 자동 활성화 없음) |
+| JS 기능 | `dev.js` — 개발 서버 전용(사이드바 `.on` URL 활성화 등). 실서버는 CMS/JSP |
 | 컴포넌트 | `person-grid`, `tab-wrap`, `church-table`, `district-card`, `timeline`, `rules-doc` 등 커스텀 |
 | 페이지 구조 | `board/` 스킨 + `boardpage/` 인스턴스 분리 구조 (8개 게시판) |
 | 메인 페이지 | fragment 방식 미사용. 자체 `<head>` + `headerSub`/`footerSub` 직접 include |
@@ -46,7 +46,8 @@ src/
 │   │   ├── main.css       # 메인(index.html) 전용
 │   │   └── sub.css        # 서브·게시판 페이지 전용
 │   ├── js/
-│   │   ├── script.js      # 공통 전역 스크립트 (GNB·드로어·스크롤)
+│   │   ├── script.js      # 공통 전역 스크립트 (GNB·드로어·스크롤) — CMS·실서버 포함
+│   │   ├── dev.js         # 개발 서버 전용 (사이드바 .on 등). footer에만 로드, JSP 제외
 │   │   ├── main.js        # 메인 전용 (탭·Swiper)
 │   │   └── sub.js         # 서브·게시판 전용
 │   └── images/
@@ -224,8 +225,10 @@ src/
 | 노회 소식 | `sidebar_news.html` |
 | 부가서비스 | `sidebar_extra.html` |
 
-사이드바 활성 메뉴(`.on`)는 CMS/JSP에서 현재 URL 기준으로 출력한다.
+사이드바 활성 메뉴(`.on`)는 **실서버(CMS/JSP)**에서 현재 URL 기준으로 출력한다.
+**로컬 개발**(`npm run dev`)에서는 `dev.js`의 `markActiveSidebar()`가 URL로 `.on`을 붙인다.
 sidebar include 파일 내부의 링크는 반드시 루트 절대경로(`/sub/...`)로 작성할 것.
+신앙표준문서 등 하위 경로 묶음은 `data-active-prefix="/sub/catechism-"` 사용 가능(dev.js 전용).
 
 **경로 규칙**
 - `src/sub/*.html` → `../include/header.html`, `../include/sidebar_XXX.html`, `../include/footer.html`
@@ -528,7 +531,7 @@ sidebar include 파일 내부의 링크는 반드시 루트 절대경로(`/sub/.
 ### 게시판 섹션별 사이드바
 
 사이드바는 `include/sidebar_XXX.html`을 data-include로 삽입한다.
-활성 항목(`.on`)은 CMS/JSP에서 처리.
+활성 항목(`.on`)은 CMS/JSP에서 처리(로컬은 `dev.js`).
 
 | 섹션 | include 파일 | 포함 메뉴 |
 |---|---|---|
@@ -550,7 +553,22 @@ sidebar include 파일 내부의 링크는 반드시 루트 절대경로(`/sub/.
 
 **사이드바**
 - [ ] sidebar include 파일 내 링크는 루트 절대경로(`/sub/...`)만 사용
-- [ ] 사이드바 `class="on"`은 퍼블 HTML에 넣지 않음 (CMS/JSP 담당)
+- [ ] 사이드바 `class="on"`은 퍼블 HTML에 넣지 않음 (로컬은 `dev.js`, 실서버는 CMS/JSP)
+
+---
+
+## dev.js (개발 서버 전용)
+
+`src/assets/js/dev.js`는 **`include/footer.html`에서만** 로드한다. CMS·JSP 실서버 footer에는 넣지 않는다.
+
+| 구분 | script.js | dev.js |
+|------|-----------|--------|
+| 대상 | 실서버·개발 공통 | `npm run dev` / 퍼블 미리보기만 |
+| 예시 | GNB, 드로어, `data-include` 로더 | `markActiveSidebar()` (URL → `.on`) |
+
+**규칙**: JSP/실서버에 없는 동작(퍼블 미리보기 편의, URL 기반 사이드바 활성화 등)은 `script.js`가 아니라 **`dev.js`에만** 작성한다.
+
+`script.js`는 include 로드 완료 후 `hn-includes-ready` 이벤트를 발생시키고, `dev.js`가 그때 사이드바 `.on`을 처리한다. 이후 `mountMobileSidebar()`가 `.on`이 반영된 사이드바를 복제한다.
 - [ ] 새 메뉴가 생기면 `include/headerSub.html` (드롭다운 + 모바일 드로어) + 해당 `sidebar_XXX.html` 양쪽 업데이트
 
 **CSS / 에셋**

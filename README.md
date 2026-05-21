@@ -140,7 +140,8 @@ npm run dev
 ### CSS/JS 작성 원칙
 
 - **`style.css`**: 전역 공통 스타일. Bootstrap 유틸리티 클래스를 최대한 활용하고, 커스텀 클래스는 이 파일에 작성. CMS CSS 항목에 등록됨
-- **`script.js`**: 전역 공통 스크립트. 모든 페이지에서 동작해야 하는 코드만 작성. CMS JS 항목에 등록됨
+- **`script.js`**: 전역 공통 스크립트. 실서버(CMS)·개발 공통. CMS JS 항목에 등록됨
+- **`dev.js`**: 개발 서버 전용(`npm run dev`). `footer.html`에만 로드. 사이드바 URL `.on` 등 JSP에 없는 편의 기능
 - **`main.js` / `sub.js` 등**: 페이지 단위 스크립트. 해당 페이지(`index.html`, `sub.html` 등)에서만 로드
 - CSS 변수(`:root`)를 통해 컬러/간격을 일관되게 관리
 
@@ -157,8 +158,9 @@ npm run dev
 <script src="assets/js/script.js"></script>
 <script src="assets/js/main.js"></script>
 
-<!-- sub.html: 전역 script.js 로드 후 페이지 전용 sub.js 추가 로드 -->
+<!-- sub.html: script.js + dev.js(로컬만) + sub.js -->
 <script src="assets/js/script.js"></script>
+<script src="assets/js/dev.js"></script>
 <script src="assets/js/sub.js"></script>
 ```
 

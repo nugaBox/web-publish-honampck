@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
           .catch(err => console.warn(err))
       )
     ).then(() => {
+      document.dispatchEvent(new CustomEvent('hn-includes-ready'));
       mountMobileSidebar();
       initMobileSidebarSelect();
       initGnb();
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       initImageViewer();
     });
   } else {
+    document.dispatchEvent(new CustomEvent('hn-includes-ready'));
     mountMobileSidebar();
     initMobileSidebarSelect();
     initGnb();
