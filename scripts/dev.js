@@ -8,35 +8,71 @@
  * 실행: npm run dev
  */
 
-const { execSync, spawn } = require('child_process');
-const fs   = require('fs');
+const { execSync } = require('child_process');
+const fs = require('fs');
 const path = require('path');
+const browserSync = require('browser-sync').create();
 
-const ROOT    = path.resolve(__dirname, '..');
-const SRC     = path.join(ROOT, 'src');
-const BUILD   = () => execSync('node scripts/build.js', { cwd: ROOT, stdio: 'inherit' });
+const ROOT = path.resolve(__dirname, '..');
+const SRC = path.join(ROOT, 'src');
+const DIST = path.join(ROOT, 'dist');
+const BUILD = () => execSync('node scripts/build.js', { cwd: ROOT, stdio: 'inherit' });
 const BS_PORT = 3000;
+
+/** CMS·운영 URL처럼 확장자 없는 경로 → dist 내 .html 파일로 연결 */
+function htmlExtensionMiddleware(req, _res, next) {
+  const raw = req.url || '/';
+  const qIndex = raw.indexOf('?');
+  const pathname = (qIndex >= 0 ? raw.slice(0, qIndex) : raw).replace(/\/$/, '') || '/';
+  const query = qIndex >= 0 ? raw.slice(qIndex) : '';
+
+  if (path.extname(pathname)) {
+    next();
+    return;
+  }
+
+  if (pathname === '/') {
+    next();
+    return;
+  }
+
+  const rel = pathname.replace(/^\//, '');
+  const asFile = path.join(DIST, rel + '.html');
+  if (fs.existsSync(asFile)) {
+    req.url = '/' + rel + '.html' + query;
+    next();
+    return;
+  }
+
+  const asIndex = path.join(DIST, rel, 'index.html');
+  if (fs.existsSync(asIndex)) {
+    req.url = '/' + rel + '/index.html' + query;
+  }
+
+  next();
+}
 
 // ── 최초 빌드 ─────────────────────────────────────────────────
 console.log('\n🔨  초기 빌드...\n');
-try { BUILD(); } catch (e) { process.exit(1); }
+try {
+  BUILD();
+} catch (e) {
+  process.exit(1);
+}
 
 // ── browser-sync 시작 ─────────────────────────────────────────
-const bs = spawn(
-  process.platform === 'win32' ? 'npx.cmd' : 'npx',
-  [
-    'browser-sync', 'start',
-    '--server', 'dist',
-    '--port', String(BS_PORT),
-    '--no-notify',
-    '--no-open',
-  ],
-  { cwd: ROOT, stdio: 'inherit' }
-);
+browserSync.init({
+  server: {
+    baseDir: DIST,
+    middleware: [htmlExtensionMiddleware],
+  },
+  port: BS_PORT,
+  notify: false,
+  open: false,
+  files: [path.join(DIST, '**/*')],
+});
 
-bs.on('error', err => console.error('browser-sync 오류:', err));
-
-// ── src/ 감시 + 재빌드 + reload ───────────────────────────────
+// ── src/ 감시 + 재빌드 ─────────────────────────────────────────
 let rebuildTimer = null;
 
 fs.watch(SRC, { recursive: true }, (_event, filename) => {
@@ -46,20 +82,15 @@ fs.watch(SRC, { recursive: true }, (_event, filename) => {
     console.log(`\n📁  변경 감지: ${filename} — 재빌드 중...`);
     try {
       BUILD();
-      // browser-sync는 dist/ 변경을 감지하여 자동 리로드
-      // (--watch 없이 파일 교체만으로 리로드가 필요하면 bs reload 호출)
-      triggerBsReload();
     } catch (_) {}
   }, 150);
 });
 
-// browser-sync REST API로 리로드 트리거
-function triggerBsReload() {
-  const http = require('http');
-  http.get(`http://localhost:${BS_PORT}/__browser_sync__?method=reload`, () => {}).on('error', () => {
-    // API 미지원 버전이면 무시 — bs가 dist/ 파일 변경으로 자체 감지
-  });
-}
-
-process.on('SIGINT', () => { bs.kill(); process.exit(0); });
-process.on('SIGTERM', () => { bs.kill(); process.exit(0); });
+process.on('SIGINT', () => {
+  browserSync.exit();
+  process.exit(0);
+});
+process.on('SIGTERM', () => {
+  browserSync.exit();
+  process.exit(0);
+});

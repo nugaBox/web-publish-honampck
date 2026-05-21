@@ -129,6 +129,25 @@ function inlineIncludes(html, baseDir) {
   );
 }
 
+/**
+ * 서브·게시판 페이지: 인라인된 aside( sidebar include )를 히어로(hn-page-head) 직후
+ * .sidebar-mob 에 한 번 더 배치 — 모바일 섹션 네비 (메뉴 원본은 include 파일 그대로).
+ */
+function injectMobileSidebar(html) {
+  if (html.includes('sidebar-mob') || !html.includes('sub-layout')) return html;
+
+  const asideMatch = html.match(/<aside>[\s\S]*?<\/aside>/);
+  if (!asideMatch) return html;
+
+  const subLayoutIdx = html.indexOf('<div class="sub-layout">');
+  if (subLayoutIdx === -1) return html;
+
+  const mobileBlock =
+    `<div class="sidebar-mob" aria-label="섹션 메뉴">\n${asideMatch[0]}\n</div>\n\n`;
+
+  return html.slice(0, subLayoutIdx) + mobileBlock + html.slice(subLayoutIdx);
+}
+
 // ── 빌드 실행 ─────────────────────────────────────────────────
 
 console.log(`\n🏗️  [${label}] 빌드 시작...\n`);
@@ -149,6 +168,7 @@ for (const filePath of htmlFiles) {
   let html = fs.readFileSync(filePath, 'utf-8');
 
   html = inlineIncludes(html, path.dirname(filePath));
+  if (!skipLayout) html = injectMobileSidebar(html);
   if (applyCms) html = replaceImgPathsHtml(html);
 
   fs.writeFileSync(filePath, html, 'utf-8');

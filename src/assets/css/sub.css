@@ -167,6 +167,11 @@
   display: none;
 }
 
+/* 모바일 섹션 네비 — 빌드 시 sidebar include 내용이 히어로 아래 복제됨 */
+.sidebar-mob {
+  display: none;
+}
+
 .sidebar-help {
   margin-top: 20px;
   background: var(--hn-bg-alt);
@@ -1234,6 +1239,24 @@
   color: var(--hn-text-4);
 }
 
+/* 이름·직함 — 단어 단위 줄바꿈 (공통) */
+.oname-n,
+.oname-t {
+  white-space: nowrap;
+}
+
+.sub-layout .oname,
+.sub-layout .g-name,
+.sub-layout .hpt-name,
+.sub-layout .pt-name,
+.sub-layout .btable tbody td:nth-child(2),
+.sub-layout .dept-table tbody td:not(.dept-name):not(.title),
+.sub-layout .church-table.member-table tbody td:nth-child(2),
+.sub-layout .district-card .d-info .r > span:not(.k),
+.sub-layout .dept-chief {
+  word-break: keep-all;
+}
+
 .officer-info .oname {
   font-size: 18px;
   font-weight: 800;
@@ -2097,201 +2120,6 @@
   font-size: 15px;
 }
 
-/* 노회 역사 — 역대 노회장·역대 노회임원 (가독성) */
-.presec-banner .pb-title {
-  font-size: 19px;
-}
-
-/* 전신 노회 */
-.presy-block-head {
-  font-size: 15px;
-}
-
-.presy-table .pt-term {
-  font-size: 14px;
-}
-
-.presy-table .pt-name {
-  font-size: 16px;
-}
-
-.presy-table .pt-sub-label {
-  font-size: 12px;
-}
-
-/* 기간(pt-period)은 작게 유지 */
-
-/* 호남노회 역대 노회장 표 */
-.hn-pres-simple {
-  --hn-pres-photo-w: 52px;
-  --hn-pres-photo-h: calc(var(--hn-pres-photo-w) * 4 / 3);
-  font-size: 15px;
-}
-
-.hn-pres-simple thead th {
-  font-size: 14px;
-}
-
-.hn-pres-simple tbody td {
-  vertical-align: middle;
-  height: 1px;
-}
-
-.hn-pres-simple tbody td.hps-term {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  white-space: normal;
-  padding: 0;
-}
-
-.hn-pres-simple .hps-term-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  line-height: 1.35;
-  min-height: var(--hn-pres-photo-h);
-  height: 100%;
-  padding: 12px 14px;
-  box-sizing: border-box;
-}
-
-.hn-pres-simple .hpt-person {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: var(--hn-pres-photo-h);
-}
-
-.hn-pres-simple .hps-term--swap .hps-gen {
-  font-size: 15px;
-  font-weight: 800;
-  color: var(--hn-blue);
-  margin-top: 0;
-}
-
-.hn-pres-simple .hps-term--swap .hps-sess {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--hn-text);
-  margin-top: 0;
-}
-
-.hn-pres-simple .hps-term:not(.hps-term--swap) .hps-sess {
-  font-size: 16px;
-  font-weight: 800;
-  color: var(--hn-blue);
-}
-
-.hpt-photo {
-  width: var(--hn-pres-photo-w);
-  height: var(--hn-pres-photo-h);
-  aspect-ratio: auto;
-  border-radius: 4px;
-  flex-shrink: 0;
-}
-
-.hpt-photo .hpt-ico {
-  font-size: 18px;
-}
-
-.hn-pres-simple tbody td.hpt-officer {
-  text-align: center;
-}
-
-/* PC: 모바일 전용 회기·부노회장 통합 열 숨김 */
-.hn-pres-simple .hn-pres-th--mob,
-.hn-pres-simple .hpt-officer--mob {
-  display: none;
-}
-
-.hpt-info {
-  width: 128px;
-  flex-shrink: 0;
-  text-align: center;
-}
-
-.hpt-info .hpt-name,
-.hpt-officer .hpt-name {
-  font-size: 16px;
-}
-
-.hpt-info .hpt-church,
-.hpt-officer .hpt-church {
-  font-size: 13px;
-}
-
-/* 역대 노회임원 — 좌측 회기 목록 */
-.osi-term {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: baseline;
-  gap: 6px;
-}
-
-.osi-gen,
-.osi-sess {
-  display: inline;
-  font-size: 15px;
-  font-weight: 800;
-  color: var(--hn-blue);
-  margin-top: 0;
-}
-
-.osi-sess {
-  color: var(--hn-text-2);
-  font-weight: 700;
-}
-
-.osi-sess-hl {
-  font-size: 16px;
-}
-
-.osi-period {
-  font-size: 12px;
-}
-
-.officer-sess-item.active .osi-sess {
-  color: rgba(20, 65, 122, 0.75);
-}
-
-/* 역대 노회임원 — 우측 명단 */
-.officer-detail-label {
-  font-size: 16px;
-  letter-spacing: 0.02em;
-}
-
-.officer-detail .btable {
-  font-size: 15px;
-}
-
-.officer-detail .btable thead th {
-  font-size: 14px;
-}
-
-.officer-detail .btable tbody td {
-  font-family: inherit;
-  font-size: 15px;
-  padding: 11px 12px;
-}
-
-.officer-detail .btable tbody td:nth-child(1) {
-  font-weight: 700;
-  color: var(--hn-blue);
-}
-
-.officer-detail .btable tbody td:nth-child(2) {
-  font-weight: 700;
-  color: var(--hn-text);
-}
-
-.pgp-caption {
-  font-size: 13px;
-}
-
 /* ── 노회 소개 페이지 ──────────────────────────────────────── */
 .intro-lead {
   font-size: 17px;
@@ -2597,140 +2425,290 @@
   color: var(--hn-text-2);
 }
 
-/* ── 노회 규칙 ────────────────────────────────────────────── */
-.rules-doc .chapter-head {
-  font-size: 16px;
+/* ── 노회 규칙 (문서형) ───────────────────────────────────── */
+@font-face {
+  font-family: 'BonmyeongjoSourceHanSerif';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff') format('woff');
+  font-weight: normal;
+  font-display: swap;
+}
+
+.rules-page {
+  --rules-serif: 'BonmyeongjoSourceHanSerif', 'Noto Serif KR', serif;
+}
+
+/* 안내 + 총회 로고·버튼 통합 패널 */
+.rules-intro {
+  margin-bottom: 32px;
+  border: 1px solid var(--hn-line);
+  background: var(--hn-bg);
+  box-shadow: 0 1px 0 var(--hn-line-soft);
+  overflow: hidden;
+}
+
+.rules-intro-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 20px 14px;
+  border-bottom: 1px solid var(--hn-line-soft);
+  background: var(--hn-bg-alt);
+}
+
+.rules-ref-logo {
+  display: block;
+  height: 52px;
+  width: auto;
+}
+
+.rules-intro-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: stretch;
+}
+
+.rules-intro-text {
+  margin: 0;
+  padding: 22px 26px;
+  font-family: var(--font-base);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--hn-text-2);
+  border-right: 1px solid var(--hn-line-soft);
+}
+
+.rules-intro-text b {
+  color: var(--hn-text);
+  font-weight: 700;
+}
+
+.rules-page .rules-alert-br {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .rules-page .rules-alert-br {
+    display: block;
+  }
+}
+
+.rules-ref-links {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 10px;
+  padding: 22px 20px;
+}
+
+.rules-ref-links .btn-hn {
+  justify-content: center;
+  width: 100%;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 15px;
+  padding: 10px 16px;
+}
+
+.rules-ref-links .btn-hn i {
+  margin-left: 6px;
+  font-size: 0.85em;
+  opacity: 0.85;
+}
+
+/* 목차 */
+.rules-toc {
+  margin-bottom: 40px;
+}
+
+.rules-toc-inner {
+  padding: 28px 32px 30px;
+  background: var(--hn-bg);
+  border: 1px solid var(--hn-line);
+  box-shadow: 0 1px 0 var(--hn-line-soft);
+}
+
+.rules-toc-label {
+  margin: 0 0 22px;
+  font-family: var(--rules-serif);
+  font-size: 20px;
   font-weight: 800;
-  color: #fff;
-  margin: 40px 0 0;
-  padding: 14px 22px;
-  background: var(--hn-blue);
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: var(--hn-text);
+}
+
+.rules-toc-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 28px;
+  font-family: var(--rules-serif);
+}
+
+.rules-toc-list a {
+  display: block;
+  padding: 6px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--hn-text-2);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color .15s, border-color .15s;
+}
+
+.rules-toc-list a:hover {
+  color: var(--hn-blue);
+  border-bottom-color: var(--hn-line);
+}
+
+/* 본문 */
+.rules-doc {
+  font-family: var(--rules-serif);
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--hn-text);
   letter-spacing: -0.01em;
 }
 
-.rules-doc .chapter-head:first-child {
+.rules-doc-title {
+  margin: 0 0 40px;
+  font-family: var(--rules-serif);
+  font-size: 24px;
+  font-weight: 900;
+  font-synthesis: weight;
+  text-align: center;
+  color: var(--hn-text);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  -webkit-text-stroke: 0.35px var(--hn-text);
+  paint-order: stroke fill;
+}
+
+.rules-doc .rules-chapter {
+  margin: 52px 0 22px;
+  padding: 0;
+  font-family: var(--rules-serif);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--hn-text);
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  scroll-margin-top: 140px;
+}
+
+.rules-doc-title + .rules-chapter {
   margin-top: 0;
 }
 
 .rules-list {
   list-style: none;
+  margin: 0;
   padding: 0;
-  margin: 0 0 0;
-  border: 1px solid var(--hn-line);
-  border-top: 0;
+  border: 0;
 }
 
-.rules-list>li {
-  display: flex;
-  gap: 14px;
-  padding: 14px 22px;
+.rules-list > li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.65em;
+  align-items: start;
+  margin: 0 0 1.15em;
+  padding: 0 0 1.15em;
   border-bottom: 1px solid var(--hn-line-soft);
-  font-size: 16px;
-  color: var(--hn-text-2);
-  line-height: 1.8;
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
 }
 
-.rules-list>li:last-child {
+.rules-list > li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
   border-bottom: 0;
 }
 
-.rules-list .art {
-  font-weight: 800;
-  color: var(--hn-blue);
-  min-width: 48px;
-  flex-shrink: 0;
+.rules-list > li > .art {
+  grid-column: 1;
+  font-weight: 700;
+  color: var(--hn-text);
+  white-space: nowrap;
 }
 
-/* 노회 규칙 — 개정 이력 아코디언 */
-.rules-rev-acc {
-  margin-bottom: 28px;
-  border: 1px solid var(--hn-line);
-  border-left: 3px solid var(--hn-blue);
-  background: var(--hn-blue-soft);
+.rules-list > li > span:not(.art) {
+  grid-column: 2;
+  min-width: 0;
 }
 
-.rules-rev-acc-btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-  text-align: left;
-  transition: background .15s;
-}
-
-.rules-rev-acc-btn:hover,
-.rules-rev-acc.open .rules-rev-acc-btn {
-  background: rgba(20, 65, 122, 0.06);
-}
-
-.rules-rev-acc-ico {
-  font-size: 18px;
-  color: var(--hn-blue);
-  flex-shrink: 0;
-}
-
-.rules-rev-acc-title {
-  font-size: 16px;
-  font-weight: 800;
-  color: var(--hn-blue);
-  flex: 1;
-}
-
-.rules-rev-acc-chevron {
-  font-size: 12px;
-  color: var(--hn-text-4);
-  transition: transform .25s;
-  flex-shrink: 0;
-}
-
-.rules-rev-acc.open .rules-rev-acc-chevron {
-  transform: rotate(180deg);
-  color: var(--hn-blue);
-}
-
-.rules-rev-acc-body {
-  display: none;
-  border-top: 1px solid var(--hn-line-soft);
-  background: #fff;
-}
-
-.rules-rev-acc.open .rules-rev-acc-body {
-  display: block;
-}
-
-.rules-rev-list {
-  border: 0;
-  margin: 0;
-}
-
-.rules-rev-list>li {
-  font-size: 15px;
-}
-
+/* 항목 들여쓰기 — 매 단계 동일한 hanging indent */
 .rules-sub {
-  margin: 8px 0 0;
+  margin: 0.65em 0 0;
+  padding: 0;
+  list-style: none;
 }
 
 .rules-sub li {
-  font-size: 15px;
-  color: var(--hn-text-3);
-  padding: 4px 0;
-  line-height: 1.7;
+  margin: 0 0 0.4em;
+  padding: 0 0 0 1.75em;
+  text-indent: -1.75em;
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
   list-style: none;
-  display: flex;
-  gap: 10px;
+}
+
+.rules-sub li:last-child {
+  margin-bottom: 0;
 }
 
 .rules-sub .art {
-  min-width: 30px;
-  color: var(--hn-text-4);
+  display: inline;
   font-weight: 600;
+  color: var(--hn-text);
+  margin-right: 0.3em;
+}
+
+.rules-sub .rules-sub {
+  margin: 0.45em 0 0.2em 1.5em;
+}
+
+.rules-sub .rules-sub .rules-sub {
+  margin-left: 1.5em;
+}
+
+/* 개정 이력 — 제9장 다음 */
+.rules-rev-block {
+  margin: 56px 0 0;
+  padding-top: 32px;
+  border-top: 2px solid var(--hn-text);
+}
+
+.rules-rev-title {
+  margin: 0 0 20px;
+  font-family: var(--rules-serif);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--hn-text);
+  letter-spacing: -0.02em;
+  scroll-margin-top: 140px;
+}
+
+.rules-rev-history {
+  margin: 0 0 0 auto;
+  padding: 0;
+  max-width: 280px;
+  list-style: none;
+  text-align: right;
+  font-family: var(--rules-serif);
   font-size: 14px;
+  line-height: 2;
+  color: var(--hn-text-2);
+}
+
+.rules-rev-history li {
+  margin: 0;
+  padding: 0;
 }
 
 /* ── 폼 박스 ──────────────────────────────────────────────── */
@@ -3072,7 +3050,7 @@
 }
 
 .presec-banner .pb-title {
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 800;
   color: var(--hn-text);
   letter-spacing: -0.02em;
@@ -3096,7 +3074,7 @@
 .presy-block-head {
   background: var(--hn-blue);
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
   padding: 10px 0;
   text-align: center;
@@ -3121,7 +3099,7 @@
 }
 
 .presy-table .pt-term {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--hn-text-3);
   white-space: nowrap;
   font-weight: 600;
@@ -3129,13 +3107,13 @@
 }
 
 .presy-table .pt-name {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--hn-text);
 }
 
 .presy-table .pt-sub-label {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--hn-blue);
   font-weight: 700;
   margin-top: 3px;
@@ -3303,35 +3281,69 @@
   margin-top: 2px;
 }
 
-/* ── 노회 연혁 시대 구분 헤더 ────────────────────────────── */
-.hist-era-head {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: var(--hn-blue);
-  color: #fff;
-  padding: 12px 20px;
-  margin-bottom: 24px;
-  margin-top: 44px;
+/* ── 노회 연혁 시대 아코디언 ─────────────────────────────── */
+.hist-era-acc-wrap {
+  margin-top: 32px;
 }
 
-.hist-era-head:first-child {
+.hist-era-acc-item {
+  margin-top: 12px;
+}
+
+.hist-era-acc-item:first-child {
   margin-top: 0;
 }
 
-.hist-era-head .heh-year {
-  font-size: 11px;
-  font-family: ui-monospace, Menlo, monospace;
-  opacity: .7;
-  letter-spacing: 0.06em;
-  white-space: nowrap;
-  flex-shrink: 0;
+.hist-era-acc-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--hn-blue);
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background .15s;
 }
 
-.hist-era-head .heh-title {
+.hist-era-acc-btn:hover,
+.hist-era-acc-item.open .hist-era-acc-btn {
+  background: #0d3566;
+}
+
+.hist-era-acc-title {
   font-size: 15px;
   font-weight: 800;
   letter-spacing: -0.01em;
+  flex: 1;
+}
+
+.hist-era-acc-chevron {
+  font-size: 12px;
+  opacity: .75;
+  transition: transform .25s;
+  flex-shrink: 0;
+}
+
+.hist-era-acc-item.open .hist-era-acc-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.hist-era-acc-body {
+  display: none;
+  padding: 24px 0 8px;
+}
+
+.hist-era-acc-item.open .hist-era-acc-body {
+  display: block;
+}
+
+.hist-era-acc-body .timeline {
+  margin-top: 0;
 }
 
 /* ── 역대 노회임원 아코디언 ───────────────────────────────── */
@@ -3505,6 +3517,141 @@
     display: none;
   }
 
+  .sidebar-mob:not(:has(.sidebar-mob-select)) {
+    display: none;
+  }
+
+  .sidebar-mob:has(.sidebar-mob-select) {
+    display: block;
+    padding: 12px 16px;
+    background: var(--hn-bg-alt);
+    border-bottom: 1px solid var(--hn-line-soft);
+  }
+
+  .sidebar-mob aside {
+    display: block;
+  }
+
+  .sidebar-mob .sidebar-head,
+  .sidebar-mob .sidebar-list {
+    display: none;
+  }
+
+  .sidebar-mob-select {
+    position: relative;
+    width: 100%;
+  }
+
+  .sidebar-mob-select__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+    padding: 12px 14px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    color: var(--hn-blue);
+    text-align: left;
+    background: var(--hn-bg);
+    border: 1px solid var(--hn-line);
+    cursor: pointer;
+    outline: 0;
+    letter-spacing: -0.02em;
+    transition: border-color .15s, box-shadow .15s;
+  }
+
+  .sidebar-mob-select__trigger:focus-visible {
+    border-color: var(--hn-blue);
+    box-shadow: 0 0 0 1px var(--hn-blue);
+  }
+
+  .sidebar-mob-select.is-open .sidebar-mob-select__trigger {
+    border-color: var(--hn-blue);
+    box-shadow: 0 0 0 1px var(--hn-blue);
+  }
+
+  .sidebar-mob-select__label {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sidebar-mob-select__icon {
+    flex-shrink: 0;
+    font-size: 12px;
+    color: var(--hn-text-3);
+    transition: transform .2s ease, color .15s;
+  }
+
+  .sidebar-mob-select.is-open .sidebar-mob-select__icon {
+    transform: rotate(180deg);
+    color: var(--hn-blue);
+  }
+
+  .sidebar-mob-select__menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    z-index: 60;
+    margin: 0;
+    padding: 6px 0;
+    list-style: none;
+    background: var(--hn-bg);
+    border: 1px solid var(--hn-line);
+    box-shadow: 0 10px 28px rgba(21, 24, 29, 0.12);
+    max-height: min(320px, 52vh);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sidebar-mob-select__menu[hidden] {
+    display: none;
+  }
+
+  .sidebar-mob-select__option {
+    display: block;
+    padding: 12px 16px 12px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--hn-text-2);
+    text-decoration: none;
+    position: relative;
+    transition: color .15s, background .15s, padding-left .12s;
+  }
+
+  .sidebar-mob-select__option:hover {
+    color: var(--hn-blue);
+    background: var(--hn-bg-alt);
+    padding-left: 22px;
+  }
+
+  .sidebar-mob-select__item.is-active .sidebar-mob-select__option {
+    color: var(--hn-blue);
+    font-weight: 700;
+    background: var(--hn-blue-soft);
+    padding-left: 22px;
+  }
+
+  .sidebar-mob-select__item.is-active .sidebar-mob-select__option::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--hn-blue);
+  }
+
+  .sidebar-mob-select__item + .sidebar-mob-select__item .sidebar-mob-select__option {
+    border-top: 1px solid var(--hn-line-soft);
+  }
+
   .hn-page-head .inner {
     padding: 16px 16px;
   }
@@ -3652,7 +3799,7 @@
   }
 
   .presec-banner .pb-title {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .president-card {
@@ -3734,6 +3881,17 @@
   .intro-text p:last-child,
   .greeting-message p:last-child {
     margin: 0;
+  }
+
+  /* 노회 소개: 교리 문단 — 모바일 히어로 lead와 동일하게 한 줄 */
+  .intro-text p.intro-faith {
+    font-size: 15px;
+    letter-spacing: -0.5px;
+    word-break: keep-all;
+  }
+
+  .intro-text p.intro-faith br {
+    display: none;
   }
 
   .intro-section-head {
@@ -4249,6 +4407,45 @@
     font-size: 13px;
   }
 
+  /* 노회 조직 — 총대 명부·상비부 조직 모바일 가독성 */
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table tbody td {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table tbody td.dept-name,
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table tbody td.dept-name--oneline-m {
+    font-size: 17px;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(2)::before,
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3)::before,
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4)::before,
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(5)::before,
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(2)::before,
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) tbody td:nth-child(3)::before {
+    font-size: 12px;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table:has(thead th:nth-child(5)) tbody td.dept-chief,
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(3),
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table:has(thead th:nth-child(5)) tbody td:nth-child(4) {
+    font-size: 14px;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table .dept-member-label {
+    font-size: 15px;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table tbody td small {
+    font-size: 13px;
+  }
+
+  .sub-layout > section:not(:has(.siiru-boardWrap)):has(.dept-table) .dept-table:has(thead th:nth-child(3)):not(:has(thead th:nth-child(4))) .dept-cell-body {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
   .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-page .group-tabs,
   .sub-layout > section:not(:has(.siiru-boardWrap)) .churches-tab-wrap .churches-district-tabs,
   .sub-layout > section:not(:has(.siiru-boardWrap)) .group-tabs {
@@ -4600,13 +4797,82 @@
     white-space: normal;
   }
 
-  .sub-layout > section:not(:has(.siiru-boardWrap)) .rules-doc .chapter-head {
-    padding: 14px 16px;
+  .rules-intro-logo {
+    padding: 14px 16px 12px;
   }
 
-  .sub-layout > section:not(:has(.siiru-boardWrap)) .rules-list>li {
-    padding: 14px 16px;
-    gap: 12px;
+  .rules-ref-logo {
+    height: 40px;
+  }
+
+  .rules-intro-row {
+    grid-template-columns: 1fr;
+  }
+
+  .rules-intro-text {
+    padding: 18px 18px;
+    border-right: 0;
+    border-bottom: 1px solid var(--hn-line-soft);
+  }
+
+  .rules-ref-links {
+    padding: 18px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .rules-ref-links .btn-hn {
+    width: auto;
+    flex: 1 1 calc(50% - 5px);
+    min-width: 140px;
+  }
+
+  .rules-toc-inner {
+    padding: 22px 20px 24px;
+  }
+
+  .rules-toc-list {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .rules-doc-title {
+    font-size: 20px;
+    margin-bottom: 32px;
+  }
+
+  .rules-doc .rules-chapter,
+  .rules-rev-title {
+    scroll-margin-top: 88px;
+  }
+
+  .rules-doc .rules-chapter {
+    margin-top: 40px;
+    font-size: 17px;
+  }
+
+  .rules-rev-history {
+    max-width: none;
+    text-align: left;
+  }
+
+  /* 노회 규칙 — 모바일 들여쓰기 축소 */
+  .rules-list > li {
+    column-gap: 0.2em;
+  }
+
+  .rules-sub li {
+    padding-left: 0.7em;
+    text-indent: -0.7em;
+  }
+
+  .rules-sub .rules-sub {
+    margin: 0.35em 0 0.1em 0.25em;
+  }
+
+  .rules-sub .rules-sub .rules-sub {
+    margin-left: 0.25em;
   }
 }
 
@@ -4735,7 +5001,7 @@
 }
 
 .pgp-caption {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--hn-text-3);
   text-align: center;
   margin: 8px 0 0;
@@ -4743,16 +5009,18 @@
 
 /* ── 역대 노회장 단순 표 (officers-presidents) ─────────── */
 .hn-pres-simple {
+  --hn-pres-photo-w: 52px;
+  --hn-pres-photo-h: calc(var(--hn-pres-photo-w) * 4 / 3);
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .hn-pres-simple thead th {
   background: var(--hn-blue);
   color: #fff;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px;
   padding: 12px 14px;
   text-align: center;
   border-right: 1px solid rgba(255, 255, 255, .12);
@@ -4769,8 +5037,74 @@
 .hn-pres-simple tbody td {
   padding: 12px 14px;
   vertical-align: middle;
+  height: 1px;
   border-bottom: 1px solid var(--hn-line-soft);
   border-right: 1px solid var(--hn-line-soft);
+}
+
+.hn-pres-simple tbody td.hps-term {
+  display: table-cell;
+  text-align: center;
+  white-space: normal;
+  padding: 0;
+}
+
+.hn-pres-simple .hps-term-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  line-height: 1.35;
+  min-height: var(--hn-pres-photo-h);
+  height: 100%;
+  padding: 12px 14px;
+  box-sizing: border-box;
+}
+
+.hn-pres-simple .hpt-person {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: var(--hn-pres-photo-h);
+}
+
+.hn-pres-simple tbody td.hpt-officer {
+  text-align: center;
+}
+
+.hn-pres-simple .hn-pres-th--mob,
+.hn-pres-simple .hpt-officer--mob {
+  display: none;
+}
+
+.hpt-photo {
+  width: var(--hn-pres-photo-w);
+  height: var(--hn-pres-photo-h);
+  aspect-ratio: auto;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.hpt-photo .hpt-ico {
+  font-size: 18px;
+}
+
+.hpt-info {
+  width: 128px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.hpt-info .hpt-name,
+.hpt-officer .hpt-name {
+  font-size: 16px;
+}
+
+.hpt-info .hpt-church,
+.hpt-officer .hpt-church {
+  font-size: 13px;
 }
 
 .hn-pres-simple tbody td:last-child {
@@ -4801,16 +5135,23 @@
 
 /* 역대 노회장 표 제1대~제15대: 대수(진하고 크게), 회기(연하고 작게) */
 .hn-pres-simple .hps-term--swap .hps-gen {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
-  color: var(--hn-text);
+  color: var(--hn-blue);
+  margin-top: 0;
 }
 
 .hn-pres-simple .hps-term--swap .hps-sess {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--hn-text-4);
-  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--hn-text);
+  margin-top: 0;
+}
+
+.hn-pres-simple .hps-term:not(.hps-term--swap) .hps-sess {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--hn-blue);
 }
 
 /* ── 역대 노회임원 좌우 분할 레이아웃 (officers-past) ───── */
@@ -4860,7 +5201,7 @@
 
 .osi-gen {
   display: block;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 800;
   color: var(--hn-blue);
   letter-spacing: 0.02em;
@@ -4868,21 +5209,21 @@
 
 .osi-sess {
   display: block;
-  font-size: 12px;
-  color: var(--hn-text-3);
-  font-weight: 500;
+  font-size: 15px;
+  color: var(--hn-text-2);
+  font-weight: 700;
   margin-top: 1px;
 }
 
 .osi-sess-hl {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 800;
   color: var(--hn-blue);
 }
 
 .osi-period {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--hn-text-4);
   font-family: ui-monospace, Menlo, monospace;
   margin-top: 3px;
@@ -4918,33 +5259,44 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--hn-blue);
-  letter-spacing: .06em;
+  letter-spacing: 0.02em;
   margin-bottom: 16px;
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(20, 65, 122, .2);
 }
 
 .officer-detail .btable {
-  font-size: 13px;
+  font-size: 15px;
   border-top: 0;
 }
 
 .officer-detail .btable thead th {
   background: var(--hn-blue);
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   padding: 9px 10px;
   font-family: inherit;
 }
 
 .officer-detail .btable tbody td {
-  padding: 9px 10px;
+  padding: 11px 12px;
   border-bottom: 1px solid var(--hn-line);
   background: #fff;
   font-family: inherit;
+  font-size: 15px;
+}
+
+.officer-detail .btable tbody td:nth-child(1) {
+  font-weight: 700;
+  color: var(--hn-blue);
+}
+
+.officer-detail .btable tbody td:nth-child(2) {
+  font-weight: 700;
+  color: var(--hn-text);
 }
 
 @media (max-width: 1024px) {
@@ -5048,13 +5400,12 @@
     text-align: center;
   }
 
-  .hn-pres-simple.hn-pres-honam .hpt-person,
   .hn-pres-simple.hn-pres-honam .hpt-person {
     justify-content: center;
     margin: 0 auto;
     width: fit-content;
     max-width: 100%;
-    gap: 8px;
+    gap: 15px;
     min-height: 0;
     padding: 4px 0;
   }
@@ -5074,26 +5425,109 @@
   }
 
   .hn-pres-simple.hn-pres-honam thead th,
-  .hn-pres-simple.hn-pres-honam tbody td,
-  .hn-pres-simple.hn-pres-honam thead th,
   .hn-pres-simple.hn-pres-honam tbody td {
     padding: 10px 6px;
-    font-size: 13px;
+    font-size: 14px;
   }
 
-  .hn-pres-simple.hn-pres-honam .hps-term--swap .hps-gen,
   .hn-pres-simple.hn-pres-honam .hps-term--swap .hps-gen {
-    font-size: 13px;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--hn-blue);
   }
 
-  .hn-pres-simple.hn-pres-honam .hps-term--swap .hps-sess,
   .hn-pres-simple.hn-pres-honam .hps-term--swap .hps-sess {
-    font-size: 11px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--hn-text);
   }
 
-  .hn-pres-simple.hn-pres-honam .hps-term:not(.hps-term--swap) .hps-sess,
   .hn-pres-simple.hn-pres-honam .hps-term:not(.hps-term--swap) .hps-sess {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--hn-blue);
+  }
+
+  .hn-pres-simple.hn-pres-honam .hpt-info .hpt-name,
+  .hn-pres-simple.hn-pres-honam .hpt-officer .hpt-name {
+    font-size: 16px;
+  }
+
+  .hn-pres-simple.hn-pres-honam .hpt-info .hpt-church,
+  .hn-pres-simple.hn-pres-honam .hpt-officer .hpt-church {
     font-size: 13px;
+  }
+
+  /* 역대 노회 임원 — 모바일 가독성 */
+  .officer-sess-hint {
+    font-size: 15px;
+  }
+
+  .officer-sess-hint i {
+    font-size: 16px;
+  }
+
+  .osi-term:has(.osi-gen):has(.osi-sess) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    gap: 5px;
+  }
+
+  .osi-term:has(.osi-gen):has(.osi-sess) .osi-sess {
+    margin-top: 0;
+  }
+
+  .osi-gen {
+    font-size: 14px;
+  }
+
+  .osi-sess,
+  .osi-sess-hl {
+    font-size: 14px;
+  }
+
+  .osi-sess-hl {
+    font-size: 15px;
+  }
+
+  .osi-period {
+    font-size: 12px;
+  }
+
+  .officer-detail-label {
+    font-size: 15px;
+  }
+
+  .officer-detail .btable {
+    font-size: 14px;
+  }
+
+  .officer-detail .btable thead th {
+    font-size: 13px;
+  }
+
+  .officer-detail .btable tbody td {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  /* 전신 노회 — 모바일 */
+  .presy-block-head {
+    font-size: 14px;
+  }
+
+  .presy-table .pt-term {
+    font-size: 13px;
+  }
+
+  .presy-table .pt-name {
+    font-size: 15px;
+  }
+
+  .presy-table .pt-sub-label {
+    font-size: 11px;
   }
 
 }
@@ -7708,23 +8142,40 @@
   }
 
   .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th.boardSj,
-  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th.subject {
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th.subject,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th[scope="row"].boardSj,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th[scope="row"].subject {
     grid-area: title;
+    grid-column: 1 / -1;
     width: 100%;
     min-width: 0;
+    max-width: none;
+    padding: 0;
+    margin: 0;
     font-size: 15px;
     font-weight: 600;
     line-height: 1.45;
     color: var(--hn-text);
+    text-align: left;
   }
 
   .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th.boardSj a,
-  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th.subject a {
-    display: inline;
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th.subject a,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th[scope="row"].boardSj a,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th[scope="row"].subject a {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
     font-weight: 600;
     color: var(--hn-text);
     word-break: keep-all;
     overflow-wrap: anywhere;
+  }
+
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th.subject .reBlcok,
+  .siiru-boardWrap > .siiruBoard-list:has(td.category, .ctgryNm, thead th.category) tbody th.boardSj .reBlcok {
+    padding-left: 0;
   }
 
   .siiru-boardWrap .siiruBoard-list .board-cat {
@@ -7815,20 +8266,135 @@
     flex-direction: column;
   }
 
+  /* 베이직 게시판 — 상세(뷰) */
+  .siiru-boardWrap .siiruBoard-view {
+    margin-bottom: 16px;
+  }
+
+  .siiru-boardWrap .siiruBoard-view > form > h4 {
+    padding: 14px 14px 12px;
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  .siiru-boardWrap .boardInfo-view {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 0;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .siiru-boardWrap .boardInfo-view span {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+
+  .siiru-boardWrap .boardInfo-view span:nth-child(2) {
+    border-left: 1px solid var(--hn-line-strong);
+    border-right: 0;
+    padding: 0 0 0 10px;
+    margin-left: 10px;
+  }
+
+  .siiru-boardWrap .boardInfo-view span:nth-child(3) {
+    flex: 1 1 100%;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid var(--hn-line-soft);
+    font-size: 12px;
+    color: var(--hn-text-3);
+  }
+
+  .siiru-boardWrap .boardInfo-view span:nth-child(3)::before {
+    content: '조회 ';
+    color: var(--hn-text-4);
+  }
+
+  .siiru-boardWrap .siiruBoardInfo dl {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .siiru-boardWrap .siiruBoardInfo dl dt {
+    width: auto;
+    font-size: 13px;
+  }
+
+  .siiru-boardWrap .siiruBoardInfo dl dd ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .siiru-boardWrap .siiruBoardInfo dl dd ul li a {
+    font-size: 14px;
+    font-weight: 600;
+    word-break: break-all;
+  }
+
+  .siiru-boardWrap .siiruBoardInfo dl dd small {
+    display: block;
+    margin-left: 0;
+    font-size: 11px;
+    line-height: 1.4;
+    word-break: break-all;
+  }
+
+  .siiru-boardWrap .boardContents {
+    padding: 18px 14px;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 120px;
+  }
+
+  .siiru-boardWrap .manageInfo {
+    padding: 10px 14px 14px;
+    font-size: 11px;
+  }
+
   .siiru-boardWrap .siiruBoardBtnInfo {
-    flex-direction: column-reverse;
-    align-items: stretch;
-    gap: 10px;
-    padding: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 8px;
+    padding: 12px 16px;
+    background: var(--hn-bg-alt);
   }
 
   .siiru-boardWrap .siiruBoardBtnInfo .siiru-fl,
   .siiru-boardWrap .siiruBoardBtnInfo .siiru-fr {
-    justify-content: flex-end;
+    display: contents;
+    float: none;
   }
 
-  .siiru-boardWrap .siiruBoardBtnInfo .siiru-fl {
-    justify-content: flex-start;
+  .siiru-boardWrap .siiruBoardBtnInfo .siiru-btn,
+  .siiru-boardWrap .siiruBoardBtnInfo a.siiru-btn {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 0;
+    margin-left: 0 !important;
+    padding: 7px 12px;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+  }
+
+  /* 목록 — 하단 전체 너비 */
+  .siiru-boardWrap .siiruBoardBtnInfo .siiru-fr > .siiru-btn:not(.siiru-btn-warning):not(.siiru-btn-danger),
+  .siiru-boardWrap .siiruBoardBtnInfo .siiru-fr > a.siiru-btn:not(.siiru-btn-warning):not(.siiru-btn-danger) {
+    grid-column: 1 / -1;
+    order: 10;
+    background: var(--hn-bg);
+    border-color: var(--hn-line-strong);
+    color: var(--hn-text);
   }
 
   .siiru-userWrap .userWrap dl {

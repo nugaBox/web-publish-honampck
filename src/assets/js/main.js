@@ -105,56 +105,79 @@ document.addEventListener('DOMContentLoaded', () => {
   const photoCatEl = document.querySelector('.photo-cat');
   const photoBadgeEl = document.querySelector('.photo-slide-badge');
 
-  if (photoSwiperEl && typeof Swiper !== 'undefined') {
+  const readPhotoSlideMeta = slide => ({
+    title: slide.dataset.title || slide.querySelector('.photo-thumb img')?.alt || '',
+    date: slide.dataset.date || '',
+    cat: slide.dataset.cat || '',
+    catType: slide.dataset.catType || '',
+    href: normalizeBoardHref(
+      slide.querySelector('.photo-thumb')?.getAttribute('href') || '#'
+    )
+  });
+
+  const applyPhotoMeta = (item, index, total) => {
+    if (!item) return;
+    if (photoTitleEl) {
+      photoTitleEl.textContent = item.title;
+      photoTitleEl.title = item.title;
+      if (photoTitleEl.tagName === 'A') photoTitleEl.href = item.href;
+    }
+    if (photoDateEl) photoDateEl.textContent = item.date;
+    if (photoCatEl) {
+      photoCatEl.textContent = item.cat;
+      photoCatEl.className = `photo-cat${item.catType ? ' ' + item.catType : ''}`;
+    }
+    if (photoBadgeEl && typeof index === 'number' && total > 0) {
+      photoBadgeEl.textContent = `${index + 1} / ${total}`;
+    }
+  };
+
+  if (photoSwiperEl) {
+    const photoMetaItems = [...photoSwiperEl.querySelectorAll('.swiper-wrapper > .swiper-slide')]
+      .map(readPhotoSlideMeta);
+    const photoSlideCount = photoMetaItems.length;
+
     if (photoSwiperEl.swiper) {
       photoSwiperEl.swiper.destroy(true, true);
     }
-    photoSwiperEl.classList.remove('swiper-fallback');
 
-    const totalSlides = photoSwiperEl.querySelectorAll('.swiper-wrapper > .swiper-slide').length;
+    if (photoSwiperEl && typeof Swiper !== 'undefined' && photoSlideCount > 0) {
+      photoSwiperEl.classList.remove('swiper-fallback');
 
-    const syncPhotoMeta = (swiper) => {
-      const active = swiper.slides[swiper.realIndex];
-      if (!active) return;
-      const title = active.dataset.title || '';
-      const date = active.dataset.date || '';
-      const cat = active.dataset.cat || '';
-      const catType = active.dataset.catType || '';
-      if (photoTitleEl) {
-        photoTitleEl.textContent = title;
-        photoTitleEl.title = title;
-      }
-      if (photoDateEl) photoDateEl.textContent = date;
-      if (photoCatEl) {
-        photoCatEl.textContent = cat;
-        photoCatEl.className = `photo-cat${catType ? ' ' + catType : ''}`;
-      }
-      if (photoBadgeEl) photoBadgeEl.textContent = `${swiper.realIndex + 1} / ${totalSlides}`;
-    };
+      const syncPhotoMeta = swiper => {
+        const idx = swiper.realIndex;
+        applyPhotoMeta(photoMetaItems[idx], idx, photoSlideCount);
+      };
 
-    const photoSwiper = new Swiper(photoSwiperEl, {
-      loop: true,
-      slidesPerView: 1,
-      spaceBetween: 0,
-      speed: 450,
-      observer: true,
-      observeParents: true,
-      resizeObserver: true,
-      autoplay: {
-        delay: 7000,
-        disableOnInteraction: false
-      },
-      navigation: {
-        nextEl: photoNextEl,
-        prevEl: photoPrevEl
-      }
-    });
+      const photoSwiper = new Swiper(photoSwiperEl, {
+        loop: photoSlideCount > 1,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        speed: 450,
+        observer: true,
+        observeParents: true,
+        resizeObserver: true,
+        autoplay: photoSlideCount > 1 ? {
+          delay: 7000,
+          disableOnInteraction: false
+        } : false,
+        navigation: photoSlideCount > 1 ? {
+          nextEl: photoNextEl,
+          prevEl: photoPrevEl
+        } : false,
+        on: {
+          init: syncPhotoMeta,
+          realIndexChange: syncPhotoMeta,
+          slideChangeTransitionEnd: syncPhotoMeta
+        }
+      });
 
-    photoSwiper.update();
-    syncPhotoMeta(photoSwiper);
-    photoSwiper.on('slideChange', () => syncPhotoMeta(photoSwiper));
-  } else if (photoSwiperEl) {
-    photoSwiperEl.classList.add('swiper-fallback');
+      photoSwiper.update();
+      syncPhotoMeta(photoSwiper);
+    } else {
+      photoSwiperEl.classList.add('swiper-fallback');
+      applyPhotoMeta(photoMetaItems[0], 0, photoSlideCount);
+    }
   }
 
 });

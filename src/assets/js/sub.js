@@ -138,12 +138,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── TOC 스무스 스크롤 (컨텐츠 페이지) ───────────────── */
-  document.querySelectorAll('.show-toc a[href^="#"]').forEach(a => {
+  /* ── TOC 스무스 스크롤 (컨텐츠·규칙 목차) ───────────── */
+  const getStickyHeaderOffset = (extra = 24) => {
+    const header = document.getElementById('site-header');
+    return (header ? header.getBoundingClientRect().height : 0) + extra;
+  };
+
+  document.querySelectorAll('.show-toc a[href^="#"], .rules-toc a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
       const target = document.querySelector(a.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!target) return;
+      const top = target.getBoundingClientRect().top + window.scrollY - getStickyHeaderOffset();
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    });
+  });
+
+  /* ── 노회 연혁 시대 아코디언 ─────────────────────────── */
+  document.querySelectorAll('.hist-era-acc-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.hist-era-acc-item');
+      if (!item) return;
+      const isOpen = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   });
 

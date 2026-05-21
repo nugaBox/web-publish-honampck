@@ -22,20 +22,184 @@ document.addEventListener('DOMContentLoaded', () => {
           .catch(err => console.warn(err))
       )
     ).then(() => {
+      mountMobileSidebar();
+      markActiveSidebar();
+      initMobileSidebarSelect();
       initGnb();
       markActiveNav();
-      markActiveSidebar();
       initMobileMenu();
       initFooterSites();
       initImageViewer();
     });
   } else {
+    mountMobileSidebar();
+    markActiveSidebar();
+    initMobileSidebarSelect();
     initGnb();
     markActiveNav();
-    markActiveSidebar();
     initMobileMenu();
     initFooterSites();
     initImageViewer();
+  }
+
+  /* ── 모바일 섹션 네비 (개발: include 로드 후 히어로 아래 복제) ── */
+  function mountMobileSidebar() {
+    if (document.querySelector('.sidebar-mob')) return;
+
+    const hero = document.querySelector('.hn-page-head');
+    const aside = document.querySelector('.sub-layout aside');
+    if (!hero || !aside) return;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'sidebar-mob';
+    wrap.setAttribute('aria-label', '섹션 메뉴');
+    wrap.appendChild(aside.cloneNode(true));
+    hero.insertAdjacentElement('afterend', wrap);
+  }
+
+  /* ── 사이드바 현재 페이지 활성 (.on) ───────────────────── */
+  function markActiveSidebar() {
+    const current = normalizePathname(window.location.pathname);
+
+    document.querySelectorAll('.sidebar-list a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#')) return;
+
+      let linkPath;
+      try {
+        linkPath = normalizePathname(new URL(href, window.location.origin).pathname);
+      } catch {
+        return;
+      }
+
+      if (linkPath === current) {
+        link.classList.add('on');
+      }
+    });
+  }
+
+  /* ── 모바일 사이드바 → 스타일 커스텀 셀렉트 ───────────────── */
+  function initMobileSidebarSelect() {
+    const current = normalizePathname(window.location.pathname);
+
+    document.querySelectorAll('.sidebar-mob').forEach(wrap => {
+      if (wrap.querySelector('.sidebar-mob-select')) return;
+
+      const nav = wrap.querySelector('.sidebar-list');
+      if (!nav) return;
+
+      const links = [...nav.querySelectorAll('a[href]')];
+      if (!links.length) return;
+
+      const root = document.createElement('div');
+      root.className = 'sidebar-mob-select';
+
+      const trigger = document.createElement('button');
+      trigger.type = 'button';
+      trigger.className = 'sidebar-mob-select__trigger';
+      trigger.setAttribute('aria-haspopup', 'listbox');
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.setAttribute('aria-label', '섹션 메뉴');
+
+      const labelEl = document.createElement('span');
+      labelEl.className = 'sidebar-mob-select__label';
+
+      const icon = document.createElement('i');
+      icon.className = 'fa-regular fa-chevron-down sidebar-mob-select__icon';
+      icon.setAttribute('aria-hidden', 'true');
+
+      trigger.append(labelEl, icon);
+
+      const menu = document.createElement('ul');
+      menu.className = 'sidebar-mob-select__menu';
+      menu.setAttribute('role', 'listbox');
+      menu.hidden = true;
+
+      let currentLabel = '';
+
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#')) return;
+
+        const label =
+          link.querySelector('span')?.textContent.trim() ||
+          link.textContent.replace(/\s+/g, ' ').trim();
+
+        const item = document.createElement('li');
+        item.className = 'sidebar-mob-select__item';
+        item.setAttribute('role', 'presentation');
+
+        const option = document.createElement('a');
+        option.className = 'sidebar-mob-select__option';
+        option.href = href;
+        option.setAttribute('role', 'option');
+        option.textContent = label;
+
+        try {
+          const linkPath = normalizePathname(
+            new URL(href, window.location.origin).pathname
+          );
+          if (linkPath === current) {
+            item.classList.add('is-active');
+            option.setAttribute('aria-selected', 'true');
+            option.setAttribute('aria-current', 'page');
+            currentLabel = label;
+          }
+        } catch {
+          /* ignore invalid href */
+        }
+
+        item.appendChild(option);
+        menu.appendChild(item);
+      });
+
+      if (!menu.children.length) return;
+
+      if (!currentLabel) {
+        currentLabel =
+          menu.querySelector('.sidebar-mob-select__option')?.textContent.trim() || '';
+      }
+      labelEl.textContent = currentLabel;
+
+      const closeMenu = () => {
+        root.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        menu.hidden = true;
+      };
+
+      const openMenu = () => {
+        root.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+        menu.hidden = false;
+      };
+
+      trigger.addEventListener('click', e => {
+        e.stopPropagation();
+        root.classList.contains('is-open') ? closeMenu() : openMenu();
+      });
+
+      menu.addEventListener('click', () => closeMenu());
+
+      document.addEventListener('click', e => {
+        if (!root.contains(e.target)) closeMenu();
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeMenu();
+      });
+
+      root.append(trigger, menu);
+
+      const host = wrap.querySelector('aside') || wrap;
+      host.appendChild(root);
+    });
+  }
+
+  function normalizePathname(pathname) {
+    let p = pathname.split('?')[0].split('#')[0];
+    if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+    if (p.endsWith('.html')) p = p.slice(0, -5);
+    return p || '/';
   }
 
   /* ── GNB 현재 섹션 활성화 ────────────────────────────── */
@@ -46,96 +210,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (section && item.dataset.path === section) {
         item.classList.add('on');
       }
-    });
-  }
-
-  /* ── 사이드바 현재 메뉴 활성화 ───────────────────────── */
-  function markActiveSidebar() {
-    const curUrl = new URL(window.location.href);
-
-    /** CMS boardList.do 등 동일 pathname·다른 쿼리 메뉴 구분 */
-    const getSidebarLinkSignature = url => {
-      const path = url.pathname;
-
-      if (/boardlist\.do$/i.test(path)) {
-        const boardId = url.searchParams.get('boardId') || '';
-        const pageId = url.searchParams.get('pageId') || '';
-        return `boardlist:${boardId}:${pageId}`;
-      }
-
-      if (/contentsview\.do$/i.test(path)) {
-        return `contentsview:${url.searchParams.get('pageId') || ''}`;
-      }
-
-      if (/\.do$/i.test(path)) {
-        const pageId = url.searchParams.get('pageId') || '';
-        const boardId = url.searchParams.get('boardId') || '';
-        if (pageId || boardId) {
-          return `${path.toLowerCase()}:${boardId}:${pageId}`;
-        }
-        return `${path.toLowerCase()}:${url.search}`;
-      }
-
-      return `path:${path}`;
-    };
-
-    const curSignature = getSidebarLinkSignature(curUrl);
-
-    const isSidebarLinkActive = linkUrl => {
-      if (getSidebarLinkSignature(linkUrl) === curSignature) return true;
-
-      const curPath = curUrl.pathname;
-      const linkPath = linkUrl.pathname;
-      if (curPath === linkPath && !/\.do$/i.test(curPath)) return true;
-
-      const curDir = curPath.substring(0, curPath.lastIndexOf('/'));
-      const linkDir = linkPath.substring(0, linkPath.lastIndexOf('/'));
-      return (
-        curDir === linkDir &&
-        curPath.endsWith('/list.html') &&
-        linkPath.endsWith('/list.html') &&
-        curPath === linkPath
-      );
-    };
-
-    const restoreSidebarChevron = link => {
-      if (link.querySelector('.fa-chevron-right')) return;
-      const last = link.lastElementChild;
-      if (last && last.tagName === 'SPAN' && !last.textContent.trim()) {
-        const icon = document.createElement('i');
-        icon.className = 'fa-regular fa-chevron-right';
-        icon.style.fontSize = '10px';
-        last.replaceWith(icon);
-      }
-    };
-
-    const setSidebarActive = link => {
-      link.classList.add('on');
-      const icon = link.querySelector('.fa-chevron-right');
-      if (icon) icon.replaceWith(document.createElement('span'));
-    };
-
-    document.querySelectorAll('.sidebar-list').forEach(nav => {
-      nav.querySelectorAll('a').forEach(link => {
-        link.classList.remove('on');
-        restoreSidebarChevron(link);
-      });
-
-      let matched = false;
-      nav.querySelectorAll('a').forEach(link => {
-        if (matched) return;
-
-        const href = link.getAttribute('href');
-        if (!href || href === '#') return;
-
-        try {
-          const linkUrl = new URL(href, window.location.href);
-          if (!isSidebarLinkActive(linkUrl)) return;
-
-          matched = true;
-          setSidebarActive(link);
-        } catch (_) {}
-      });
     });
   }
 
@@ -214,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 이미지 원본 뷰어 (공통) ───────────────────────────── */
   function initImageViewer() {
-    const ZOOM_EXCLUDE = '#site-header, #site-footer, .hn-drawer, .hn-logo, .siiruBoard-gallery, [data-no-zoom]';
+    const ZOOM_EXCLUDE = '#site-header, #site-footer, .hn-drawer, .hn-logo, .siiruBoard-gallery, .recent-photo, [data-no-zoom]';
     const ZOOM_SRC_SKIP = /(?:logo|favicon|banner-short|banner-long|banner-full|honam-banner)/i;
     const MIN_NATURAL = 64;
 
