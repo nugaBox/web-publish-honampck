@@ -1811,6 +1811,15 @@
   display: block;
 }
 
+/* 회원별 — 데스크탑: 성명(이름+직분) 열만 진하게 */
+@media (min-width: 769px) {
+  .churches-page .churches-view[data-churches-view="member"] .member-table tbody td:nth-child(2) .oname-n,
+  .churches-page .churches-view[data-churches-view="member"] .member-table tbody td:nth-child(2) .oname-t {
+    font-weight: 700;
+    color: var(--hn-text);
+  }
+}
+
 /* 회원별·교회별 — 전화·분류 열 */
 .churches-page .member-table tbody .col-phone,
 .churches-page .church-member-table .col-phone,
@@ -1843,6 +1852,7 @@
   background: #fff;
   display: flex;
   flex-direction: column;
+  container-type: inline-size;
 }
 
 .district-card .d-thumb {
@@ -1914,6 +1924,46 @@
   color: var(--hn-text-2);
   min-width: 58px;
   font-size: 14px;
+}
+
+/* 목사·장로 위원: 한 줄 최대 2명(이름 너비만), 좁으면 1명씩 / 같은 줄에는 쉼표 */
+.district-card .d-info .r:has(.d-members) {
+  align-items: flex-start;
+}
+
+.district-card .d-members {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  row-gap: 0.2em;
+  color: var(--hn-text-2);
+}
+
+.district-card .d-member-wrap {
+  flex: 0 1 auto;
+  max-width: calc(50% - 0.35em);
+  min-width: 0;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.district-card .d-sep {
+  display: inline;
+  /* flex 항목 끝 공백은 렌더링에서 잘리므로 쉼표 뒤 간격은 margin으로 */
+  margin-right: 0.35em;
+}
+
+@container (max-width: 280px) {
+  .district-card .d-member-wrap {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .district-card .d-sep {
+    display: none;
+  }
 }
 
 .district-card .d-count {

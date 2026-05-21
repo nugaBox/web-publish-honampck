@@ -31,7 +31,7 @@ const SECTION_CATEGORY = {
   '장로총대': '장로총대',
 };
 
-const CHURCH_HEADER = new Set(['시무교회', '출석교회', '교회', '시무기관', '선교지']);
+const CHURCH_HEADER_PRIORITY = ['시무교회', '출석교회', '교회', '시무기관'];
 
 const DISTRICT_MISC_HTML = '<span class="cat misc">기타</span>';
 const PERSONAL_CHURCH = '개인회원';
@@ -85,10 +85,15 @@ function extractNoteChurch(noteHtml) {
 
 function parsePanelMemberData(panelHtml) {
   const members = [];
-  // member-section--lead 포함 (split('<div class="member-section">')는 lead 섹션 누락)
-  const sectionRe =
-    /<div class="member-section(?:\s[^>]*)?">([\s\S]*?)(?=<div class="member-section(?:\s[^>]*)?>|<div class="churches-view|$)/g;
-  const blocks = [...panelHtml.matchAll(sectionRe)].map((m) => m[1]);
+  const sectionOpenRe = /<div class="member-section(?:\s+member-section--lead)?">/g;
+  const starts = [...panelHtml.matchAll(sectionOpenRe)].map((m) => m.index);
+  const blocks = starts.map((start, i) => {
+    const end =
+      i + 1 < starts.length
+        ? starts[i + 1]
+        : panelHtml.search(/<div class="churches-view/);
+    return panelHtml.slice(start, end >= 0 ? end : undefined);
+  });
 
   for (const block of blocks) {
     const titleM = block.match(/<h3 class="member-section-title">([^<]+)/);
@@ -103,7 +108,7 @@ function parsePanelMemberData(panelHtml) {
     if (!tableM) continue;
 
     const headers = [...tableM[1].matchAll(/<th>([^<]*)<\/th>/g)].map((x) => x[1].trim());
-    const churchHeader = headers.find((h) => CHURCH_HEADER.has(h)) || '시무교회';
+    const churchHeader = CHURCH_HEADER_PRIORITY.find((h) => headers.includes(h)) || '시무교회';
     const phoneIdx = headers.findIndex((h) => h === '연락처' || h === '전화');
     const noteIdx = headers.length - 1;
 
@@ -306,31 +311,49 @@ ${deskRows}
               </div>`;
 }
 
-const panelRe =
-  /<div class="tab-panel[^"]*" data-panel="([^"]+)">([\s\S]*?)<\/div>\s*<\/div>\s*(?=\s*<div class="tab-panel|<\/div>\s*<!-- \/\.tab-wrap)/g;
+function patchChurchViewsInTabWrap(sourceHtml) {
+  const wrapStart = sourceHtml.indexOf('<div class="tab-wrap churches-tab-wrap">');
+  const wrapEnd = sourceHtml.indexOf('</div><!-- /.tab-wrap -->');
+  if (wrapStart < 0 || wrapEnd < 0) {
+    throw new Error('tab-wrap not found in churches.html');
+  }
 
-let match;
-const replacements = [];
+  const panelOpenRe = /<div class="tab-panel[^"]*" data-panel="([^"]+)">/g;
+  const wrapSlice = sourceHtml.slice(wrapStart, wrapEnd);
+  const panels = [];
+  let m;
+  while ((m = panelOpenRe.exec(wrapSlice)) !== null) {
+    panels.push({ id: m[1], start: wrapStart + m.index });
+  }
 
-while ((match = panelRe.exec(html)) !== null) {
-  const panelBody = match[2];
-  // non-greedy(*?)는 첫 </div>에서 끊겨 시무 목사회원 표가 누락됨 → greedy 사용
-  const memberViewMatch = panelBody.match(
-    /<div class="churches-view[^"]*" data-churches-view="member">([\s\S]*)<\/div>\s*<div class="churches-view" data-churches-view="church">/
-  );
-  if (!memberViewMatch) continue;
+  let out = sourceHtml;
+  for (let i = panels.length - 1; i >= 0; i--) {
+    const start = panels[i].start;
+    const end = i + 1 < panels.length ? panels[i + 1].start : wrapEnd;
+    const panelHtml = out.slice(start, end);
 
-  const newChurchBlock = renderChurchView(memberViewMatch[1]);
-  const newPanelBody = panelBody.replace(
-    /<div class="churches-view" data-churches-view="church">[\s\S]*$/,
-    `<div class="churches-view" data-churches-view="church">\n${newChurchBlock}\n            </div>`
-  );
-  replacements.push({ panelBody, newPanelBody });
+    const memberViewMatch = panelHtml.match(
+      /<div class="churches-view[^"]*" data-churches-view="member">([\s\S]*)<\/div>\s*<div class="churches-view" data-churches-view="church">/
+    );
+    if (!memberViewMatch) continue;
+
+    const churchOpen = '<div class="churches-view" data-churches-view="church">';
+    const churchIdx = panelHtml.indexOf(churchOpen);
+    if (churchIdx < 0) continue;
+
+    const newChurchBlock = renderChurchView(memberViewMatch[1]);
+    const newPanelHtml =
+      panelHtml.slice(0, churchIdx + churchOpen.length) +
+      `\n${newChurchBlock}\n            </div>\n          </div>\n`;
+
+    out = out.slice(0, start) + newPanelHtml + out.slice(end);
+  }
+
+  return { html: out, count: panels.length };
 }
 
-for (const { panelBody, newPanelBody } of replacements) {
-  html = html.replace(panelBody, newPanelBody);
-}
+const patched = patchChurchViewsInTabWrap(html);
+html = patched.html;
 
 /* 회원별 표 헤더·인원 표기 정리 */
 html = html.replace(/<span class="member-section-cnt">[^<]*<\/span>/g, '<span class="member-section-cnt"></span>');
@@ -366,4 +389,4 @@ if (!html.includes('churches-mobile-detail-hint__term')) {
 }
 
 fs.writeFileSync(htmlPath, html);
-console.log(`✅ churches.html 교회별 정적 HTML 재생성 (${replacements.length}개 탭)`);
+console.log(`✅ churches.html 교회별 정적 HTML 재생성 (${patched.count}개 탭)`);
