@@ -85,7 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const wrap = filter.closest('.siiru-boardWrap');
     const form = wrap?.querySelector('#boardSearchForm');
     const sel = form?.querySelector('#searchCtgry');
-    if (!form || !sel) return;
+    /* CMS 글쓰기/보기: searchCtgry는 hidden input — options 없음 */
+    if (!form || !sel || sel.tagName !== 'SELECT') return;
 
     const tabs = filter.querySelectorAll('button[data-category]');
     if (!tabs.length) return;

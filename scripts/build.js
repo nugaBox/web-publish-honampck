@@ -209,10 +209,6 @@ console.log(`\n🏗️  [${label}] 빌드 시작...\n`);
 // 1. 출력 디렉터리 초기화 + 소스 복사
 if (fs.existsSync(DIST)) fs.rmSync(DIST, { recursive: true });
 copyRecursive(SRC, DIST);
-if (skipLayout) {
-  const partialsDir = path.join(DIST, 'sub', '_partials');
-  if (fs.existsSync(partialsDir)) fs.rmSync(partialsDir, { recursive: true });
-}
 console.log(`✅  src/ → ${path.relative(ROOT, DIST)}/ 복사 완료`);
 
 // 2. HTML 처리
@@ -237,6 +233,12 @@ for (const filePath of htmlFiles) {
 
   fs.writeFileSync(filePath, html, 'utf-8');
   console.log(`✅  ${label}`);
+}
+
+// include 조각(_partials)은 빌드 중에만 사용 — siiru 출력물에서 제거
+if (skipLayout) {
+  const partialsDir = path.join(DIST, 'sub', '_partials');
+  if (fs.existsSync(partialsDir)) fs.rmSync(partialsDir, { recursive: true });
 }
 
 // 3. CSS 처리 (siiru 모드에서만 경로 치환)

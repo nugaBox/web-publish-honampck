@@ -2954,7 +2954,7 @@
   border-bottom: 0;
 }
 
-.sitemap-box-list a {
+.sitemap-box-list > li > a {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -2964,7 +2964,7 @@
   transition: color .12s, background .12s;
 }
 
-.sitemap-box-list a::before {
+.sitemap-box-list > li > a::before {
   content: '';
   width: 5px;
   height: 5px;
@@ -2974,17 +2974,22 @@
   transition: background .12s;
 }
 
-.sitemap-box-list a:hover {
+.sitemap-box-list > li > a:hover {
   color: var(--hn-blue);
   background: var(--hn-bg-alt);
 }
 
-.sitemap-box-list a:hover::before {
+.sitemap-box-list > li > a:hover::before {
   background: var(--hn-blue);
 }
 
 .sitemap-box-list .sitemap-has-sub {
   border-bottom: 0;
+  list-style: none;
+}
+
+.sitemap-box-list .sitemap-has-sub::marker {
+  content: none;
 }
 
 .sitemap-l2 {
@@ -3014,7 +3019,12 @@
 }
 
 .sitemap-sub-list li {
+  list-style: none;
   border-bottom: 1px solid var(--hn-line-soft);
+}
+
+.sitemap-sub-list li::marker {
+  content: none;
 }
 
 .sitemap-sub-list li:last-child {
@@ -3022,14 +3032,31 @@
 }
 
 .sitemap-sub-list a {
-  padding-left: 36px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px 10px 36px;
   font-size: 14px;
+  color: var(--hn-text-2);
+  transition: color .12s, background .12s;
 }
 
 .sitemap-sub-list a::before {
+  content: '';
   width: 4px;
   height: 4px;
+  border-radius: 50%;
   background: var(--hn-text-4);
+  flex-shrink: 0;
+}
+
+.sitemap-sub-list a:hover {
+  color: var(--hn-blue);
+  background: var(--hn-bg-alt);
+}
+
+.sitemap-sub-list a:hover::before {
+  background: var(--hn-blue);
 }
 
 /* 신앙표준문서 — 3뎁스 탭 + 문답 본문 */

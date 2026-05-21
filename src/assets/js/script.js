@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
       )
     ).then(() => {
       mountMobileSidebar();
-      markActiveSidebar();
       initMobileSidebarSelect();
       initGnb();
       markActiveNav();
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   } else {
     mountMobileSidebar();
-    markActiveSidebar();
     initMobileSidebarSelect();
     initGnb();
     markActiveNav();
@@ -57,32 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
     hero.insertAdjacentElement('afterend', wrap);
   }
 
-  /* ── 사이드바 현재 페이지 활성 (.on) ───────────────────── */
-  function markActiveSidebar() {
-    const current = normalizePathname(window.location.pathname);
-
-    document.querySelectorAll('.sidebar-list a[href]').forEach(link => {
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('#')) return;
-
-      let linkPath;
-      try {
-        linkPath = normalizePathname(new URL(href, window.location.origin).pathname);
-      } catch {
-        return;
-      }
-
-      const activePrefix = link.dataset.activePrefix;
-      if (linkPath === current || (activePrefix && current.startsWith(normalizePathname(activePrefix)))) {
-        link.classList.add('on');
-      }
-    });
-  }
-
-  /* ── 모바일 사이드바 → 스타일 커스텀 셀렉트 ───────────────── */
+  /* ── 모바일 사이드바 → 스타일 커스텀 셀렉트 (활성 항목은 CMS/JSP에서 .on 처리) ── */
   function initMobileSidebarSelect() {
-    const current = normalizePathname(window.location.pathname);
-
     document.querySelectorAll('.sidebar-mob').forEach(wrap => {
       if (wrap.querySelector('.sidebar-mob-select')) return;
 
@@ -136,19 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
         option.setAttribute('role', 'option');
         option.textContent = label;
 
-        try {
-          const linkPath = normalizePathname(
-            new URL(href, window.location.origin).pathname
-          );
-          const activePrefix = link.dataset.activePrefix;
-          if (linkPath === current || (activePrefix && current.startsWith(normalizePathname(activePrefix)))) {
-            item.classList.add('is-active');
-            option.setAttribute('aria-selected', 'true');
-            option.setAttribute('aria-current', 'page');
-            currentLabel = label;
-          }
-        } catch {
-          /* ignore invalid href */
+        if (link.classList.contains('on')) {
+          item.classList.add('is-active');
+          option.setAttribute('aria-selected', 'true');
+          option.setAttribute('aria-current', 'page');
+          currentLabel = label;
         }
 
         item.appendChild(option);
@@ -195,13 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const host = wrap.querySelector('aside') || wrap;
       host.appendChild(root);
     });
-  }
-
-  function normalizePathname(pathname) {
-    let p = pathname.split('?')[0].split('#')[0];
-    if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
-    if (p.endsWith('.html')) p = p.slice(0, -5);
-    return p || '/';
   }
 
   /* ── GNB 현재 섹션 활성화 ────────────────────────────── */
