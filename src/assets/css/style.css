@@ -1165,8 +1165,8 @@ p {
   .hn-footer-main > div:nth-child(2) .footer-policy-links {
     order: 2;
     width: var(--footer-contact-width);
-    margin: 24px auto 0;
-    padding-top: 20px;
+    margin: 32px auto -40px;
+    padding-top: 18px;
     border-top: 1px solid #3a424c;
     text-align: center;
   }
@@ -1178,11 +1178,11 @@ p {
   .hn-footer-main > .sites {
     width: var(--footer-contact-width);
     justify-self: center;
-    margin-top: 4px;
+    margin-top: 18px;
   }
 
   .hn-footer-main > .sites .hn-footer-sites-title {
-    text-align: center;
+    display: none;
   }
 
   .footer-policy-row a {
