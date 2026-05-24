@@ -4,6 +4,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* 주요 일정 로드 (실서버 CMS — jQuery·moment·pathContext 필요) */
+  loadMainSchdulSide();
+
   /** CMS/JSP 속성의 &amp; → 실제 URL용 & */
   const normalizeBoardHref = href => {
     if (!href || href === '#') return href || '#';
@@ -178,6 +181,55 @@ document.addEventListener('DOMContentLoaded', () => {
       photoSwiperEl.classList.add('swiper-fallback');
       applyPhotoMeta(photoMetaItems[0], 0, photoSlideCount);
     }
+  }
+
+  /**
+   * 메인 히어로 주요 일정 — scheduleLatest.do (getSchdul.do 미사용)
+   */
+  function loadMainSchdulSide() {
+    if (typeof jQuery === 'undefined') {
+      return;
+    }
+    var ctx = (typeof pathContext !== 'undefined' && pathContext) ? pathContext : '/';
+    $.post(ctx + 'scheduleLatest.do').done(function(res) {
+      var $list = jQuery('.main-schdul-list');
+      var html = '';
+      if (res && res.error === 'N' && res.list && res.list.length > 0) {
+        jQuery.each(res.list, function(i, s) {
+          if (i >= 3) {
+            return false;
+          }
+          var beginDe = jQuery.trim(s.beginDe || s.BEGIN_DE || '');
+          var sj = jQuery.trim(s.sj || s.SJ || '');
+          var place = jQuery.trim(s.place || s.PLACE || '');
+          var ctgryNm = jQuery.trim(s.ctgryCodeNm || s.CTGRY_CODE_NM || '');
+          var dateText = '';
+          if (beginDe && typeof moment !== 'undefined') {
+            dateText = moment(beginDe, 'YYYY-MM-DD').format('M/D');
+          }
+          html += '<li>';
+          html += '<div class="dpill"><div class="d">' + dateText + '</div></div>';
+          html += '<div class="kv-item-text">';
+          html += '<div class="t">';
+          if (ctgryNm) {
+            html += '[' + (typeof convertHtml === 'function' ? convertHtml(ctgryNm) : ctgryNm) + '] ';
+          }
+          html += (typeof convertHtml === 'function' ? convertHtml(sj) : sj) + '</div>';
+          if (place) {
+            html += '<div class="place">' + (typeof convertHtml === 'function' ? convertHtml(place) : place) + '</div>';
+          } else {
+            html += '<div class="place"></div>';
+          }
+          html += '</div></li>';
+        });
+      }
+      if (jQuery.trim(html) === '') {
+        html = '<li class="empty">등록된 일정이 없습니다</li>';
+      }
+      $list.html(html);
+    }).fail(function() {
+      jQuery('.main-schdul-list').html('<li class="empty">등록된 일정이 없습니다</li>');
+    });
   }
 
 });
