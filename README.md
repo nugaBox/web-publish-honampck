@@ -43,13 +43,13 @@ web-publish-{site}/
 │   │   │   ├── pretendard.css            ← Pretendard (setup.js 자동 복사)
 │   │   │   ├── swiper-bundle.min.css     ← Swiper (setup.js 자동 복사)
 │   │   │   ├── fontawesome.min.css       ← Font Awesome Pro (수동 배치)
-│   │   │   ├── style.css                 ← 전역 공통 스타일
+│   │   │   ├── common.css                 ← 전역 공통 스타일
 │   │   │   ├── main.css                  ← index.html 전용 스타일
 │   │   │   └── sub.css                   ← sub.html 전용 스타일
 │   │   ├── js/
 │   │   │   ├── bootstrap.bundle.min.js   ← Bootstrap JS + Popper (setup.js 자동 복사)
 │   │   │   ├── swiper-bundle.min.js      ← Swiper (setup.js 자동 복사)
-│   │   │   ├── script.js                 ← 전역 공통 스크립트
+│   │   │   ├── common.js                 ← 전역 공통 스크립트
 │   │   │   ├── main.js                   ← index.html 전용 스크립트
 │   │   │   └── sub.js                    ← sub.html 전용 스크립트
 │   │   ├── images/
@@ -139,14 +139,14 @@ npm run dev
 
 ### CSS/JS 작성 원칙
 
-- **`style.css`**: 전역 공통 스타일. Bootstrap 유틸리티 클래스를 최대한 활용하고, 커스텀 클래스는 이 파일에 작성. CMS CSS 항목에 등록됨
-- **`script.js`**: 전역 공통 스크립트. 실서버(CMS)·개발 공통. CMS JS 항목에 등록됨
+- **`common.css`**: 전역 공통 스타일. Bootstrap 유틸리티 클래스를 최대한 활용하고, 커스텀 클래스는 이 파일에 작성. CMS CSS 항목에 등록됨
+- **`common.js`**: 전역 공통 스크립트. 실서버(CMS)·개발 공통. CMS JS 항목에 등록됨
 - **`dev.js`**: 개발 서버 전용(`npm run dev`). `footer.html`에만 로드. 사이드바 URL `.on` 등 JSP에 없는 편의 기능
 - **`main.js` / `sub.js` 등**: 페이지 단위 스크립트. 해당 페이지(`index.html`, `sub.html` 등)에서만 로드
 - CSS 변수(`:root`)를 통해 컬러/간격을 일관되게 관리
 
 ```css
-/* style.css에서 브랜드 컬러 변경 예시 */
+/* common.css에서 브랜드 컬러 변경 예시 */
 :root {
   --color-primary: #e63946;   /* 브랜드 메인 컬러 */
   --color-accent: #457b9d;    /* 포인트 컬러 */
@@ -154,12 +154,12 @@ npm run dev
 ```
 
 ```html
-<!-- index.html: 전역 script.js 로드 후 페이지 전용 main.js 추가 로드 -->
-<script src="assets/js/script.js"></script>
+<!-- index.html: 전역 common.js 로드 후 페이지 전용 main.js 추가 로드 -->
+<script src="assets/js/common.js"></script>
 <script src="assets/js/main.js"></script>
 
-<!-- sub.html: script.js + dev.js(로컬만) + sub.js -->
-<script src="assets/js/script.js"></script>
+<!-- sub.html: common.js + dev.js(로컬만) + sub.js -->
+<script src="assets/js/common.js"></script>
 <script src="assets/js/dev.js"></script>
 <script src="assets/js/sub.js"></script>
 ```
@@ -202,14 +202,14 @@ header/footer는 그대로 유지됩니다.
 - Bootstrap Icons 아이콘 사용 가능 (<i class="bi bi-{아이콘명}">)
 - Font Awesome Pro 아이콘 사용 가능 (<i class="fa-solid fa-{아이콘명}"> 등)
 - 웹폰트: Pretendard (로컬, 한국어 최적화 subset)
-- 전역 CSS: assets/css/style.css (이미 기본 변수와 유틸리티 클래스 포함)
-- 전역 JS: assets/js/script.js
+- 전역 CSS: assets/css/common.css (이미 기본 변수와 유틸리티 클래스 포함)
+- 전역 JS: assets/js/common.js
 - 페이지별 JS: assets/js/main.js (index.html), assets/js/sub.js (sub.html) 등
 - 헤더: include/header.html (id="site-header" 포함)
 - 푸터: include/footer.html (id="site-footer" 포함)
 - 메인 페이지: index.html
 
-[style.css에 정의된 주요 CSS 변수]
+[common.css에 정의된 주요 CSS 변수]
 --color-primary: #0d6efd
 --color-text: #212529
 --color-bg: #ffffff
@@ -220,7 +220,7 @@ header/footer는 그대로 유지됩니다.
 --radius-md: 8px
 --transition-base: 0.2s ease
 
-[style.css에 정의된 주요 유틸리티 클래스]
+[common.css에 정의된 주요 유틸리티 클래스]
 .section          → 상하 padding: var(--spacing-section)
 .section-sm       → 상하 padding 절반
 .section-soft     → 배경색 var(--color-bg-soft)
@@ -236,7 +236,7 @@ header/footer는 그대로 유지됩니다.
 5. 외부 JS 라이브러리가 필요하면 npm 설치 방법과 함께 알려줘
 6. CMS에 붙여넣을 수 있도록 <main> 태그 내부 HTML만 결과물로 줘
    (header, footer, <head>는 별도 파일이라 수정 불필요)
-7. 페이지 전용 JS가 필요하면 script.js가 아닌 해당 페이지명의 JS 파일(예: main.js, sub.js)에 작성해줘
+7. 페이지 전용 JS가 필요하면 common.js가 아닌 해당 페이지명의 JS 파일(예: main.js, sub.js)에 작성해줘
 ```
 
 ---
@@ -277,9 +277,9 @@ header/footer는 그대로 유지됩니다.
 ```
 [기본 컨텍스트 프롬프트 붙여넣기]
 
-아래 CSS를 style.css에 추가/수정해줘.
+아래 CSS를 common.css에 추가/수정해줘.
 
-현재 style.css 관련 내용:
+현재 common.css 관련 내용:
 {수정이 필요한 클래스 또는 변수 코드 붙여넣기}
 
 요청 사항:

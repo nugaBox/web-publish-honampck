@@ -23,16 +23,16 @@
                 <div class="stepTab">
                     <ul>
                         <li id="step-tab-S1" class="active" data-step="S1">
-                            <a href="#">STEP1&nbsp;&nbsp;<strong>가입 안내</strong></a>
+                            <a href="#"><span class="step-num">01</span><strong>가입 안내</strong></a>
                         </li>
                         <li id="step-tab-S2" data-step="S2">
-                            <a href="#">STEP2&nbsp;&nbsp;<strong>회원약관</strong></a>
+                            <a href="#"><span class="step-num">02</span><strong>회원약관</strong></a>
                         </li>
                         <li id="step-tab-S4" data-step="S4">
-                            <a href="#">STEP3&nbsp;&nbsp;<strong>회원정보</strong></a>
+                            <a href="#"><span class="step-num">03</span><strong>회원정보</strong></a>
                         </li>
                         <li id="step-tab-S5" data-step="S5">
-                            <a href="#">STEP4&nbsp;&nbsp;<strong>가입 완료</strong></a>
+                            <a href="#"><span class="step-num">04</span><strong>가입 완료</strong></a>
                         </li>
                     </ul>
                 </div>
@@ -59,16 +59,13 @@
 
                         <!-- S1: 가입 안내 (joinCustom.jsp S1) -->
                         <div id="join-step-S1">
-                            <h5 class="stepTitle">
-                                STEP1 가입 안내
-                                <small>회원가입 전 안내 사항을 확인해 주세요.</small>
-                            </h5>
                             <div class="joinWelcome">
+                                <p class="joinWelcome-lead">회원가입 전 안내 사항을 확인해 주세요.</p>
                                 <p>호남노회 홈페이지에 오신 것을 환영합니다.</p>
                                 <p>노회원만 가입이 가능하며, 가입 후 관리자(노회 서기)의 승인 후 이용하실 수 있습니다.</p>
                                 <p>감사합니다.</p>
                             </div>
-                            <div class="siiru-btnSet siiru-tc" style="margin-top: 24px">
+                            <div class="siiru-btnSet siiru-tc">
                                 <button
                                     type="button"
                                     class="siiru-btn siiru-btn-primary joinStartBtn"
@@ -80,7 +77,6 @@
 
                         <!-- S2: 약관 동의 (joinCustom.jsp S2) -->
                         <div id="join-step-S2" style="display: none">
-                            <h5 class="stepTitle">STEP2 회원약관 동의</h5>
                             <div class="agreeBoxWrap">
                                 <p class="stepSubTitle">회원가입약관 동의</p>
                                 <div class="agreeBox">
@@ -145,21 +141,15 @@
                                 >
                                     다음단계
                                 </button>
-                                <a
-                                    href="login.html"
-                                    class="siiru-btn siiru-btn-default siiru-ml10"
-                                    >취소</a
-                                >
                             </div>
                         </div>
 
                         <!-- S4: 개인정보 입력 (joinCustom.jsp S4, joinForm-write) -->
                         <div id="join-step-S4" style="display: none">
-                            <p class="well">
-                                회원가입에 필요한 필수 정보를 입력하는 폼입니다.<br />
-                                아래의 (*)는 필수입력사항 입니다.
+                            <p class="well join-form-notice">
+                                회원가입에 필요한 필수 정보를 입력해 주세요.<br />
+                                <span class="req">*</span> 표시는 필수 입력 항목입니다.
                             </p>
-                            <h5 class="stepTitle">STEP3 회원정보 입력</h5>
                             <div class="joinForm-write">
                                 <dl>
                                     <dt>
@@ -235,20 +225,6 @@
                                     </dd>
                                 </dl>
                                 <dl>
-                                    <dt><label for="brthdy">생년월일</label></dt>
-                                    <dd>
-                                        <input
-                                            type="text"
-                                            class="maskDate nothangul small"
-                                            id="brthdy"
-                                            name="brthdy"
-                                            maxlength="10"
-                                            value=""
-                                            placeholder="YYYY-MM-DD"
-                                        />
-                                    </dd>
-                                </dl>
-                                <dl>
                                     <dt>
                                         <span class="required">*</span>
                                         <label for="email">이메일</label>
@@ -256,6 +232,7 @@
                                     <dd>
                                         <input
                                             type="text"
+                                            class="small2"
                                             id="email"
                                             name="email"
                                             maxlength="50"
@@ -286,6 +263,7 @@
                                     <dd>
                                         <input
                                             type="text"
+                                            class="small2"
                                             id="church"
                                             name="church"
                                             maxlength="50"
@@ -313,7 +291,7 @@
                                     </dd>
                                 </dl>
                             </div>
-                            <div class="siiru-btnSet siiru-tc siiru-mt10">
+                            <div class="siiru-btnSet siiru-tc">
                                 <button
                                     type="button"
                                     id="joinFormPrev"
@@ -328,17 +306,11 @@
                                 >
                                     회원가입
                                 </button>
-                                <a
-                                    href="login.html"
-                                    class="siiru-btn siiru-btn-default siiru-ml10"
-                                    >취소</a
-                                >
                             </div>
                         </div>
 
                         <!-- S5: 가입 완료 (joinCustom.jsp S5) -->
                         <div id="join-step-S5" style="display: none">
-                            <h5 class="stepTitle">STEP4 회원가입완료</h5>
                             <div class="complete">
                                 <p>
                                     회원가입 신청이 완료되었습니다.<br />관리자(노회 서기) 승인이 완료되면 홈페이지 이용이 가능합니다.<br />감사합니다.
@@ -425,55 +397,6 @@
         });
 
         document.getElementById("joinFormSubmit").addEventListener("click", function () {
-            var userId = document.getElementById("userId").value.trim();
-            var passwd = document.getElementById("passwd").value;
-            var passwdConfirm = document.getElementById("passwdConfirm").value;
-            var userNm = document.getElementById("userNm").value.trim();
-            var email = document.getElementById("email").value.trim();
-            var mbtlnum = document.getElementById("mbtlnum").value.trim();
-
-            if (!userId) {
-                alert("아이디를 입력해 주세요.");
-                document.getElementById("userId").focus();
-                return;
-            }
-            if (!passwd) {
-                alert("비밀번호를 입력해 주세요.");
-                document.getElementById("passwd").focus();
-                return;
-            }
-            if (!passwdConfirm) {
-                alert("비밀번호를 한번 더 입력해 주세요.");
-                document.getElementById("passwdConfirm").focus();
-                return;
-            }
-            if (passwd !== passwdConfirm) {
-                alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-                document.getElementById("passwdConfirm").value = "";
-                document.getElementById("passwdConfirm").focus();
-                return;
-            }
-            if (passwd.length < 8 || passwd.length > 20) {
-                alert("비밀번호는 8~20자 이내로 입력해 주세요.");
-                document.getElementById("passwd").focus();
-                return;
-            }
-            if (!userNm) {
-                alert("이름을 입력해 주세요.");
-                document.getElementById("userNm").focus();
-                return;
-            }
-            if (!email) {
-                alert("이메일을 입력해 주세요.");
-                document.getElementById("email").focus();
-                return;
-            }
-            if (!mbtlnum) {
-                alert("모바일번호를 입력해 주세요.");
-                document.getElementById("mbtlnum").focus();
-                return;
-            }
-
             goStep("S5");
         });
     })();

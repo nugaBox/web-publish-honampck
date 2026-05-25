@@ -21,6 +21,13 @@
         <section>
             <div class="siiru-findUserWrap">
                 <div class="findUserWrap">
+                    <div class="alert-hn info">
+                        <i class="fa-regular fa-circle-info"></i>
+                        <div>
+                            가입 당시 입력한 정보를 입력해 주세요.<br />
+                            계정 관련 문의는 관리자(노회 서기)에게 문의해 주세요.
+                        </div>
+                    </div>
                     <div class="findUser-tab">
                         <ul>
                             <li id="fuser-tab-I" class="active">
@@ -59,24 +66,6 @@
                                                 name="userNm"
                                                 value=""
                                                 placeholder="이름 입력"
-                                            />
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>
-                                            <label for="brthdy_I"
-                                                >생년월일</label
-                                            >
-                                        </dt>
-                                        <dd>
-                                            <input
-                                                type="text"
-                                                class="maskDate nothangul small"
-                                                id="brthdy_I"
-                                                name="brthdy"
-                                                maxlength="10"
-                                                value=""
-                                                placeholder="YYYY-MM-DD"
                                             />
                                         </dd>
                                     </dl>
@@ -155,24 +144,6 @@
                                     </dl>
                                     <dl>
                                         <dt>
-                                            <label for="brthdy_P"
-                                                >생년월일</label
-                                            >
-                                        </dt>
-                                        <dd>
-                                            <input
-                                                type="text"
-                                                class="maskDate nothangul small"
-                                                id="brthdy_P"
-                                                name="brthdy"
-                                                maxlength="10"
-                                                value=""
-                                                placeholder="YYYY-MM-DD"
-                                            />
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>
                                             <label for="email_P">이메일</label>
                                         </dt>
                                         <dd>
@@ -220,40 +191,6 @@
                     document.getElementById("fuser-tab-" + s).className =
                         s === tp ? "active" : "";
                 });
-            });
-        });
-
-        /* 생년월일 자동 형식 (YYYY-MM-DD) */
-        document.querySelectorAll(".maskDate").forEach(function (el) {
-            el.addEventListener("keydown", function (e) {
-                var allowed = [
-                    "Backspace",
-                    "Delete",
-                    "Tab",
-                    "ArrowLeft",
-                    "ArrowRight",
-                    "ArrowUp",
-                    "ArrowDown",
-                    "Home",
-                    "End",
-                ];
-                if (allowed.indexOf(e.key) !== -1) return;
-                if (!/^\d$/.test(e.key)) e.preventDefault();
-            });
-            el.addEventListener("input", function () {
-                var digits = el.value.replace(/\D/g, "").substring(0, 8);
-                var result = digits;
-                if (digits.length > 6) {
-                    result =
-                        digits.substring(0, 4) +
-                        "-" +
-                        digits.substring(4, 6) +
-                        "-" +
-                        digits.substring(6);
-                } else if (digits.length > 4) {
-                    result = digits.substring(0, 4) + "-" + digits.substring(4);
-                }
-                el.value = result;
             });
         });
 

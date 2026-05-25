@@ -21,20 +21,24 @@
         ~
         <input type="text" class="maskDate" id="searchEDe" name="searchEDe" maxlength="10" placeholder="검색 종료일">
       </div>
-      <select id="searchCtgry" name="searchCtgry" title="분류 선택">
-        <option value="">전체 분류</option>
-        <option value="EVENT">행사</option>
-        <option value="WORSHIP">예배</option>
-        <option value="SERVICE">봉사</option>
-        <option value="EDUCATION">교육</option>
-      </select>
-      <select id="searchTy" name="searchTy" title="검색 조건">
-        <option value="T">제목</option>
-        <option value="TC">제목+내용</option>
-        <option value="N">작성자</option>
-      </select>
-      <input type="text" id="searchQuery" name="searchQuery" placeholder="검색어를 입력하세요" title="검색어">
-      <button type="submit">검색</button>
+      <div class="board-search-bar">
+        <select id="searchCtgry" name="searchCtgry" title="분류 선택">
+          <option value="">전체 분류</option>
+          <option value="EVENT">행사</option>
+          <option value="WORSHIP">예배</option>
+          <option value="SERVICE">봉사</option>
+          <option value="EDUCATION">교육</option>
+        </select>
+        <select id="searchTy" name="searchTy" title="검색 조건">
+          <option value="T">제목</option>
+          <option value="TC">제목+내용</option>
+          <option value="N">작성자</option>
+        </select>
+        <div class="board-search-query">
+          <input type="text" id="searchQuery" name="searchQuery" placeholder="검색어를 입력하세요" title="검색어">
+          <button type="submit" aria-label="검색"><i class="fa-regular fa-magnifying-glass" aria-hidden="true"></i></button>
+        </div>
+      </div>
     </form>
   </div>
   <script>
@@ -219,5 +223,5 @@
 
   <!-- 등록 버튼 -->
   <div class="siiru-tr siiru-mb20 board-register">
-    <a href="write.html" class="siiru-btn siiru-btn-primary">등록</a>
+    <a href="write.html" class="siiru-btn siiru-btn-primary"><i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>글쓰기</a>
   </div>

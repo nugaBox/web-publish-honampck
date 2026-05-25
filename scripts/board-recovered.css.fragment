@@ -1,0 +1,226 @@
+
+/* ── 게시판: 각진 버튼 (btn-hn · pagination-hn 통일) ─── */
+.siiru-boardWrap .siiru-btn,
+.siiru-boardWrap a.siiru-btn,
+.siiru-boardWrap button.siiru-btn,
+.siiru-boardWrap input.siiru-btn,
+.siiru-boardWrap input[type="submit"].siiru-btn,
+.siiru-boardWrap input[type="button"].siiru-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 30px;
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s;
+}
+
+.siiru-boardWrap .siiru-btn i {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.siiru-boardWrap .siiru-btn-primary {
+  background: var(--hn-blue);
+  border-color: var(--hn-blue);
+  color: #fff;
+}
+
+.siiru-boardWrap .siiru-btn-primary:hover {
+  background: #103560;
+  border-color: #103560;
+  color: #fff;
+  opacity: 1;
+}
+
+.siiru-boardWrap > .siiru-tr.board-register .siiru-btn,
+.siiru-boardWrap > .siiru-tr.board-register a.siiru-btn {
+  min-height: 36px;
+  padding: 8px 18px;
+  font-size: 14px;
+}
+
+.siiru-boardWrap .siiru-tc .siiru-btn,
+.siiru-boardWrap .siiru-tc a.siiru-btn,
+.siiru-boardWrap .siiru-tc input[type="submit"].siiru-btn {
+  min-height: 36px;
+  padding: 8px 18px;
+  font-size: 14px;
+}
+
+/* 검색: 분류·조건·검색어·버튼 한 줄 묶음 */
+.siiru-boardWrap .siiruBoard-search form {
+  gap: 0;
+}
+
+.siiru-boardWrap .siiruBoard-search .board-search-bar {
+  display: inline-flex;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  min-width: 0;
+  background: var(--hn-bg-alt);
+  border: 1px solid var(--hn-line);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.siiru-boardWrap .siiruBoard-search .board-search-bar select {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 140px;
+  padding: 7px 28px 7px 10px;
+  border: 0;
+  border-right: 1px solid var(--hn-line);
+  border-radius: 0;
+  font-size: 13px;
+  background-color: var(--hn-bg-alt);
+  color: var(--hn-text-2);
+  cursor: pointer;
+  outline: 0;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%236B7380' d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 10px 6px;
+}
+
+.siiru-boardWrap .siiruBoard-search .board-search-bar .board-search-query {
+  display: flex;
+  align-items: stretch;
+  flex: 1 1 auto;
+  min-width: 120px;
+  max-width: 100%;
+}
+
+.siiru-boardWrap .siiruBoard-search .board-search-bar .board-search-query input[type="text"] {
+  flex: 1 1 auto;
+  width: 200px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 7px 12px;
+  border: 0;
+  border-right: 1px solid var(--hn-line);
+  border-radius: 0;
+  font-size: 13px;
+  background: var(--hn-bg-alt);
+  color: var(--hn-text);
+  outline: 0;
+}
+
+.siiru-boardWrap .siiruBoard-search .board-search-bar .board-search-query input[type="text"]::placeholder {
+  color: var(--hn-text-4);
+}
+
+.siiru-boardWrap .siiruBoard-search .board-search-bar .board-search-query button[type="submit"] {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  min-width: 38px;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  background: var(--hn-bg-alt);
+  color: var(--hn-text-3);
+  border: 0;
+  border-radius: 0;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.siiru-boardWrap .siiruBoard-search .board-search-bar .board-search-query button[type="submit"]:hover {
+  color: var(--hn-text-2);
+  background: var(--hn-bg-alt2);
+}
+
+/* 페이지네이션 — pagination-hn 톤 */
+.siiru-boardWrap .pagination li a,
+.siiru-boardWrap #boardPage .pagination li a {
+  border-radius: 0;
+  min-width: 36px;
+  width: 36px;
+  height: 36px;
+}
+
+.siiru-boardWrap #boardPage .pagination li.active a,
+.siiru-boardWrap #boardPage .pagination li a.active {
+  background: var(--hn-text);
+  border-color: var(--hn-text);
+  color: #fff;
+}
+
+/* 뷰·목록 하단 액션 */
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr {
+  float: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-btn,
+.siiru-boardWrap .siiruBoardBtnInfo a.siiru-btn,
+.siiru-boardWrap .siiruBoardBtnInfo button.siiru-btn {
+  margin: 0 !important;
+  min-height: 32px;
+  padding: 6px 14px;
+  border-radius: 0;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  box-shadow: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.siiru-boardWrap .siiruBoardBtnInfo .delBtn {
+  order: 1;
+  background: var(--hn-bg);
+  border: 1px solid var(--hn-red);
+  color: var(--hn-red);
+}
+
+.siiru-boardWrap .siiruBoardBtnInfo .delBtn:hover {
+  background: var(--hn-red);
+  border-color: var(--hn-red);
+  color: #fff;
+}
+
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr > .siiru-btn-warning,
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr > a.siiru-btn-warning {
+  order: 2;
+  background: var(--hn-bg);
+  border: 1px solid var(--hn-line-strong);
+  color: var(--hn-text-2);
+}
+
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr > .siiru-btn-warning:hover,
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr > a.siiru-btn-warning:hover {
+  background: var(--hn-bg-alt);
+  border-color: var(--hn-text-3);
+  color: var(--hn-text);
+}
+
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr > .siiru-btn:not(.siiru-btn-warning):not(.siiru-btn-danger),
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr > a.siiru-btn:not(.siiru-btn-warning):not(.siiru-btn-danger) {
+  order: 3;
+  background: var(--hn-blue);
+  border: 1px solid var(--hn-blue);
+  color: #fff;
+}
+
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr > .siiru-btn:not(.siiru-btn-warning):not(.siiru-btn-danger):hover,
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr > a.siiru-btn:not(.siiru-btn-warning):not(.siiru-btn-danger):hover {
+  background: #103560;
+  border-color: #103560;
+  color: #fff;
+}

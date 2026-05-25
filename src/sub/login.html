@@ -23,7 +23,11 @@
                 <div class="loginWrap">
                     <div class="alert-hn info">
                         <i class="fa-regular fa-circle-info"></i>
-                        <div>승인된 노회원만 로그인 가능합니다.</div>
+                        <div>
+                            승인된 노회원만 로그인 가능합니다.<br />
+                            가입 당시 입력한 정보를 입력해 주세요.<br />
+                            계정 관련 문의는 관리자(노회 서기)에게 문의해 주세요.
+                        </div>
                     </div>
 
                     <form
@@ -49,13 +53,6 @@
                                         placeholder="아이디를 입력하세요"
                                         autocomplete="username"
                                     />
-                                    <input
-                                        type="checkbox"
-                                        id="idSave"
-                                        name="idSave"
-                                        value="Y"
-                                    />
-                                    <label for="idSave">아이디 저장</label>
                                 </dd>
                             </dl>
                             <dl>
@@ -69,6 +66,13 @@
                                         placeholder="비밀번호를 입력하세요"
                                         autocomplete="current-password"
                                     />
+                                    <input
+                                        type="checkbox"
+                                        id="idSave"
+                                        name="idSave"
+                                        value="Y"
+                                    />
+                                    <label for="idSave">아이디 저장</label>
                                 </dd>
                             </dl>
                             <div class="siiru-btnSet">
@@ -77,6 +81,7 @@
                                     id="loginSubmit"
                                     class="siiru-btn siiru-btn-primary"
                                 >
+                                    <i class="fa-regular fa-arrow-right-to-bracket" aria-hidden="true"></i>
                                     로그인
                                 </button>
                             </div>

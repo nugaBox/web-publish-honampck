@@ -80,52 +80,153 @@ document.addEventListener('DOMContentLoaded', () => {
 
   enhanceBoardGalleryTitles();
 
-  /* ── 노회/시찰 소식·앨범: 시찰 탭(CMS: siiru-boardWrap > siiru-clr) → searchCtgry + 폼 제출 ─ */
+  /* ── 게시판 시찰 탭 (hderCn / board-district-filter) → searchCtgry ─ */
+  const isStaticBoardSearchForm = (form) => {
+    const action = (form.getAttribute('action') || '').trim();
+    if (!action || action === '#') return true;
+    try {
+      return /\.html$/i.test(new URL(action, window.location.href).pathname);
+    } catch {
+      return /\.html/i.test(action);
+    }
+  };
+
+  /* ── 정적 게시판 목업: SiiRU 댓글 모달 미리보기 ───────── */
+  const previewModalState = new WeakMap();
+
+  const closeSiiruPreviewModal = (event) => {
+    if (event) event.preventDefault();
+    const blocker = document.querySelector('.blocker.jquery-modal.current');
+    const modal = blocker?.querySelector('.siiruModal.modal');
+    if (!blocker || !modal) return;
+
+    modal.style.display = 'none';
+    const state = previewModalState.get(modal);
+    if (state?.parent) {
+      state.parent.insertBefore(modal, state.nextSibling && state.nextSibling.parentNode === state.parent ? state.nextSibling : null);
+    }
+    blocker.remove();
+    document.body.style.overflow = '';
+  };
+
+  const openSiiruPreviewModal = (target) => {
+    const modal = typeof target === 'string' ? document.querySelector(target) : target;
+    if (!modal) return;
+
+    if (window.jQuery && typeof window.jQuery.modal === 'function' && window.jQuery.modal.close) {
+      new window.jQuery.modal(window.jQuery(modal), { showClose: false, clickClose: false });
+      return;
+    }
+
+    closeSiiruPreviewModal();
+    previewModalState.set(modal, {
+      parent: modal.parentNode,
+      nextSibling: modal.nextSibling,
+    });
+
+    modal.hidden = false;
+    modal.style.display = 'inline-block';
+
+    const blocker = document.createElement('div');
+    blocker.className = 'jquery-modal blocker current';
+    blocker.addEventListener('click', (event) => {
+      if (event.target === blocker || event.target.closest('a[rel~="modal:close"]')) closeSiiruPreviewModal(event);
+    });
+    blocker.appendChild(modal);
+    document.body.appendChild(blocker);
+    document.body.style.overflow = 'hidden';
+  };
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeSiiruPreviewModal(event);
+  });
+
+  document.addEventListener('click', (event) => {
+    const closeBtn = event.target.closest('a[rel~="modal:close"]');
+    if (closeBtn) {
+      closeSiiruPreviewModal(event);
+      return;
+    }
+
+    const modalBtn = event.target.closest('.comtBtn,[data-modal="#comtMModal"]');
+    if (!modalBtn) return;
+
+    const wrap = modalBtn.closest('.siiru-boardWrap');
+    const form = wrap?.querySelector('#boardSearchForm');
+    if (!wrap || !form || !isStaticBoardSearchForm(form)) return;
+
+    const target = modalBtn.getAttribute('data-modal');
+    if (!target) return;
+    event.preventDefault();
+
+    const modal = wrap.querySelector(target);
+    const title = modal?.querySelector('#comtMTitle');
+    const action = modal?.querySelector('#comtMAction');
+    const saveBtn = modal?.querySelector('.comtMBtn');
+    const actionValue = modalBtn.getAttribute('data-action') || 'MI';
+
+    if (title) title.textContent = actionValue === 'MU' ? '댓글 수정' : actionValue === 'MMD' ? '댓글 삭제' : '댓글 등록';
+    if (action) action.value = actionValue === 'MMD' ? 'MD' : actionValue;
+    if (saveBtn) {
+      saveBtn.textContent = actionValue === 'MMD' ? '삭제' : '저장';
+      saveBtn.classList.toggle('siiru-btn-danger', actionValue === 'MMD');
+      saveBtn.classList.toggle('siiru-btn-primary', actionValue !== 'MMD');
+    }
+
+    openSiiruPreviewModal(modal || target);
+  });
+
   document.querySelectorAll('.board-district-filter').forEach(filter => {
     const wrap = filter.closest('.siiru-boardWrap');
     const form = wrap?.querySelector('#boardSearchForm');
-    const sel = form?.querySelector('#searchCtgry');
-    /* CMS 글쓰기/보기: searchCtgry는 hidden input — options 없음 */
-    if (!form || !sel || sel.tagName !== 'SELECT') return;
+    const sel = form?.querySelector('#searchCtgry, [name="searchCtgry"]');
+    if (!form || !sel) return;
 
     const tabs = filter.querySelectorAll('button[data-category]');
     if (!tabs.length) return;
 
-    const tabVals = [...tabs].map(t => (t.dataset.category !== undefined ? t.dataset.category : ''));
-    const optVals = new Set([...sel.options].map(o => o.value));
-    const everyTabHasOption = tabVals.every(v => optVals.has(v));
-    if (!everyTabHasOption) {
-      const prevVal = sel.value;
-      sel.innerHTML = '';
-      tabs.forEach(tab => {
-        const val = tab.dataset.category !== undefined ? tab.dataset.category : '';
-        const label = tab.textContent.replace(/\s+/g, ' ').trim();
-        sel.appendChild(new Option(label, val));
-      });
-      if ([...sel.options].some(o => o.value === prevVal)) sel.value = prevVal;
-      else sel.value = '';
+    const tabValue = (tab) => (tab.dataset.category !== undefined ? tab.dataset.category : '');
+    const staticPreview = isStaticBoardSearchForm(form);
+
+    if (sel.tagName === 'SELECT') {
+      const tabVals = [...tabs].map(tabValue);
+      const optVals = new Set([...sel.options].map(o => o.value));
+      if (!tabVals.every(v => optVals.has(v))) {
+        const prevVal = sel.value;
+        sel.innerHTML = '';
+        tabs.forEach(tab => {
+          const val = tabValue(tab);
+          const label = tab.textContent.replace(/\s+/g, ' ').trim();
+          sel.appendChild(new Option(label, val));
+        });
+        if ([...sel.options].some(o => o.value === prevVal)) sel.value = prevVal;
+        else sel.value = '';
+      }
     }
 
     const syncTabOn = () => {
       const v = sel.value;
-      tabs.forEach(t => {
-        const tv = t.dataset.category !== undefined ? t.dataset.category : '';
-        t.classList.toggle('on', tv === v);
-      });
+      tabs.forEach(t => t.classList.toggle('on', tabValue(t) === v));
     };
     syncTabOn();
 
+    if (staticPreview) {
+      form.addEventListener('submit', (e) => e.preventDefault());
+    }
+
     tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const val = tab.dataset.category !== undefined ? tab.dataset.category : '';
-        if (![...sel.options].some(o => o.value === val)) return;
+      tab.addEventListener('click', (e) => {
+        e.preventDefault();
+        const val = tabValue(tab);
+        if (sel.tagName === 'SELECT' && ![...sel.options].some(o => o.value === val)) return;
         sel.value = val;
-        tabs.forEach(t => t.classList.remove('on'));
-        tab.classList.add('on');
+        syncTabOn();
         const mp = form.querySelector('#movePage');
         if (mp) mp.value = '1';
-        if (typeof form.requestSubmit === 'function') form.requestSubmit();
-        else form.submit();
+        if (!staticPreview) {
+          if (typeof form.requestSubmit === 'function') form.requestSubmit();
+          else form.submit();
+        }
       });
     });
   });

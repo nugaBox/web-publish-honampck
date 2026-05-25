@@ -1,0 +1,7 @@
+/*
+본명조 (Source Han Serif) — 눈누 noonfonts_two NotoSerifKR.woff
+https://noonnu.cc/font_page/35
+SIL Open Font License 1.1 (Adobe Source Han Serif / Noto Serif CJK)
+*/
+
+@font-face { font-family:"BonmyeongjoSourceHanSerif"; src:url(../fonts/bonmyeongjo/NotoSerifKR.woff) format("woff"); font-weight:400; font-style:normal; font-display:swap; }

@@ -426,6 +426,13 @@
 </c:if>
 </div>
 <script>
+// Bootstrap 5($.fn.modal)와 kylefox jquery-modal($.modal) 충돌 — 반드시 new $.modal()로 연다
+function siiruModalOpen(el, options) {
+	var $elm = el instanceof jQuery ? el : $(el);
+	if ($elm.length !== 1) return;
+	if (typeof $.modal !== 'function' || !$.modal.close) return;
+	new $.modal($elm, $.extend({ showClose: false, clickClose: false }, options || {}));
+}
 // 페이지 로드가 완료되면
 if (window.addEventListener) window.addEventListener("load", boardView, false);
 else if (window.attachEvent) window.attachEvent("onload", boardView);
@@ -443,10 +450,7 @@ function boardView() {
 	// 개인정보 경고
 	if ($.trim(getCookie($('#boardId').val()+'_privacy_B')) == '') {
 		setTimeout(function() {
-			$('#privacyModal').modal({
-				showClose: false,
-				clickClose: false
-			});
+			siiruModalOpen('#privacyModal');
 		}, 500);
 	}
 	$('#privacyCookie').click(function(e) {
@@ -592,10 +596,7 @@ function boardView() {
 		$('.moveBtn').click(function(e) {
 			// 유형이 같은 게시판 데이터를 가져온다.
 			boardData();
-			$($(this).data('modal')).modal({
-				showClose: false,
-				clickClose: false
-			});
+			siiruModalOpen($(this).data('modal'));
 		});
 		// 게시판 선택
 		$('#moveModal').on('click', 'td .siiru-btn', function() {
@@ -639,10 +640,7 @@ function boardView() {
 	<c:if test="${btn.regBtn eq 'Y'}">
 		// 작성일
 		$('.regBtn').click(function(e) {
-			$($(this).data('modal')).modal({
-				showClose: false,
-				clickClose: false
-			});
+			siiruModalOpen($(this).data('modal'));
 		});
 		// 작성일 수정 처리
 		$('.regSBtn').click(function(e) {
@@ -750,10 +748,7 @@ function boardView() {
 			$('.comtMBtn').addClass('siiru-btn-primary');
 			$('.comtMBtn').html('<spring:message code="button.save" />');
 			// 모달 폼
-			$($(this).data('modal')).modal({
-				showClose: false,
-				clickClose: false
-			});
+			siiruModalOpen($(this).data('modal'));
 		});
 		// 댓글 등록/수정/삭제
 		$('.comtMBtn').click(function(e) {
@@ -912,10 +907,7 @@ function boardView() {
 								$('.comtMBtn').html('<spring:message code="button.delete" />');
 							}
 							// 모달 폼
-							$(btnData.modal).modal({
-								showClose: false,
-								clickClose: false
-							});
+							siiruModalOpen(btnData.modal);
 						}
 					} else {
 						alert('['+$.trim(data.errorTitle)+'] '+$.trim(data.errorMsg));

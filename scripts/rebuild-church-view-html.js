@@ -299,7 +299,7 @@ ${mobCards}
                 </div>
                 <div class="table-scroll">
                   <table class="church-table church-member-table">
-                    <colgroup><col style="width:72px"><col style="width:140px"><col style="width:112px"><col style="width:100px"><col style="width:132px"><col></colgroup>
+                    <colgroup><col style="width:72px"><col style="width:140px"><col style="width:112px"><col style="width:128px"><col style="width:132px"><col></colgroup>
                     <thead>
                       <tr><th>시찰</th><th>교회</th><th>분류</th><th>교역자명</th><th>연락처</th><th>비고</th></tr>
                     </thead>

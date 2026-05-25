@@ -1,0 +1,1005 @@
+/* ── 작성 폼 (복구: CMS siiruBoard-write) ──────────────── */
+
+/* ── 작성 폼 (게시판 작성 / 회원가입 S4 등) ───────────────── */
+.siiru-boardWrap .siiruBoard-write,
+.joinForm-write {
+  border-top: 1px solid var(--hn-line);
+}
+
+.siiru-boardWrap .siiruBoard-write dl,
+.joinForm-write dl {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--hn-line);
+}
+
+.siiru-boardWrap .siiruBoard-write dl:has(> dd.fileChk),
+.siiru-boardWrap .siiruBoard-write dl:has(> dd.fullCont) {
+  align-items: flex-start;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dt,
+.joinForm-write dl dt {
+  width: 120px;
+  min-width: 120px;
+  padding: 10px 12px;
+  background: var(--hn-bg-alt);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--hn-text-2);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 6px;
+  flex-shrink: 0;
+  line-height: 1.35;
+  box-sizing: border-box;
+}
+
+.siiru-boardWrap .siiruBoard-write dl:has(> dd.fileChk) > dt,
+.siiru-boardWrap .siiruBoard-write dl > dt.siiru-pt10 {
+  align-self: flex-start;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dt label,
+.joinForm-write dl dt label {
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dt span:not(.btnLayer),
+.joinForm-write dl dt span:not(.btnLayer) {
+  color: var(--hn-red);
+}
+
+.siiru-boardWrap .siiruBoard-write dl dt span.label,
+.joinForm-write dl dt span.label {
+  color: var(--hn-text-2);
+  font-weight: 700;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dt span.required,
+.joinForm-write dl dt span.required {
+  color: var(--hn-red);
+}
+
+.siiru-boardWrap .siiruBoard-write dl dt span.btnLayer,
+.joinForm-write dl dt span.btnLayer {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  padding-top: 0;
+  color: inherit;
+}
+
+.siiru-boardWrap .siiruBoard-write dl:has(> dd.fileChk) > dt,
+.siiru-boardWrap .siiruBoard-write dl > dt.siiru-pt10 {
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.siiru-boardWrap .siiruBoard-write dl:has(> dd.fileChk) > dt span.btnLayer,
+.siiru-boardWrap .siiruBoard-write dl > dt.siiru-pt10 span.btnLayer {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dt.siiru-pt10,
+.joinForm-write dl dt.siiru-pt10 {
+  align-items: center;
+  align-content: center;
+}
+
+.siiru-boardWrap .siiruBoard-write dl > dt.siiru-hidden,
+.joinForm-write dl > dt.siiru-hidden {
+  width: 0;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  flex: 0 0 0;
+  overflow: hidden;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd,
+.joinForm-write dl dd {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.siiru-boardWrap .siiruBoard-write dl:has(> dd.fileChk) > dd,
+.siiru-boardWrap .siiruBoard-write dl > dd.fullCont {
+  display: block;
+  align-items: stretch;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd input[type="text"],
+.siiru-boardWrap .siiruBoard-write dl dd input[type="password"],
+.siiru-boardWrap .siiruBoard-write dl dd input.maskDate,
+.siiru-boardWrap .siiruBoard-write dl dd input.maskTime,
+.siiru-boardWrap .siiruBoard-write dl dd input.dateForm,
+.joinForm-write dl dd input[type="text"],
+.joinForm-write dl dd input[type="password"],
+.joinForm-write dl dd input.maskDate,
+.joinForm-write dl dd input.maskTime {
+  padding: 7px 10px;
+  border: 1px solid var(--hn-line);
+  border-radius: 4px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: 0;
+  width: 100%;
+  max-width: 100%;
+  min-height: 36px;
+  box-sizing: border-box;
+  line-height: 1.35;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd input.small2,
+.joinForm-write dl dd input.small2 {
+  width: 100%;
+  max-width: 240px;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd input.small,
+.joinForm-write dl dd input.small {
+  width: 100%;
+  max-width: 160px;
+}
+
+/* 행사일자 등 — 날짜 입력 + 정사각형 달력 아이콘 */
+.siiru-boardWrap .siiruBoard-write dl dd:has(input.maskDate, input.dateForm, img.ui-datepicker-trigger),
+.joinForm-write dl dd:has(input.maskDate, img.ui-datepicker-trigger) {
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd input.maskDate.small,
+.siiru-boardWrap .siiruBoard-write dl dd input.dateForm,
+.siiru-boardWrap .siiruBoard-write dl dd input.dateForm.maskDate,
+.siiru-boardWrap .siiruBoard-write dl dd input.maskDate.nothangul,
+.joinForm-write dl dd input.maskDate.small {
+  width: 118px;
+  min-width: 118px;
+  max-width: 118px;
+  flex: 0 0 118px;
+  margin: 0;
+  padding: 7px 10px;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger,
+.joinForm-write dl dd img.ui-datepicker-trigger {
+  display: block;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--hn-text);
+  box-sizing: border-box;
+  object-fit: contain;
+  object-position: center;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger:hover,
+.joinForm-write dl dd img.ui-datepicker-trigger:hover {
+  opacity: 0.88;
+}
+
+/* 작성 폼 보조 버튼 — 추가·파일 선택 공통 */
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .siiru-btn,
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .fileAdd {
+  min-height: 0;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  border: 1px solid var(--hn-line-strong);
+  border-radius: 0;
+  background: var(--hn-bg);
+  color: var(--hn-text-2);
+}
+
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .siiru-btn:hover,
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .fileAdd:hover {
+  background: var(--hn-bg-alt);
+  color: var(--hn-text);
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd select,
+.joinForm-write dl dd select {
+  width: 100%;
+  max-width: 320px;
+  padding: 7px 10px;
+  border: 1px solid var(--hn-line);
+  border-radius: 4px;
+  font-size: 15px;
+  background: var(--hn-bg);
+  color: var(--hn-text-2);
+  outline: 0;
+  min-height: 36px;
+  box-sizing: border-box;
+  line-height: 1.35;
+}
+
+.siiru-boardWrap .siiruBoard-write dl.fullCont dd,
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont,
+.joinForm-write dl.fullCont dd,
+.joinForm-write dl dd.fullCont {
+  padding: 0;
+}
+
+.siiru-boardWrap .siiruBoard-write dl > dt.siiru-hidden + dd.fullCont,
+.joinForm-write dl > dt.siiru-hidden + dd.fullCont {
+  width: 100%;
+  flex: 1 1 100%;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke,
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_reset {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd textarea,
+.joinForm-write dl dd textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--hn-line);
+  border-radius: 4px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: 0;
+  resize: vertical;
+  box-sizing: border-box;
+  line-height: 1.4;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd:has(> input[type="checkbox"]:first-child),
+.joinForm-write dl dd:has(> input[type="checkbox"]:first-child) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd input[type="checkbox"],
+.siiru-boardWrap .siiruBoard-write dl dd input[type="radio"],
+.joinForm-write dl dd input[type="radio"],
+.joinForm-write dl dd input[type="checkbox"] {
+  width: auto;
+  flex-shrink: 0;
+  margin: 0;
+  accent-color: var(--hn-green);
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd input[type="checkbox"] + label,
+.siiru-boardWrap .siiruBoard-write dl dd input[type="radio"] + label,
+.joinForm-write dl dd input[type="checkbox"] + label,
+.joinForm-write dl dd input[type="radio"] + label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--hn-text-2);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.siiru-boardWrap .siiruBoard-write .separator,
+.joinForm-write .separator {
+  margin: 0 6px;
+  color: var(--hn-text-3);
+}
+
+.siiru-boardWrap .siiruBoard-write .btnLayer,
+.joinForm-write .btnLayer {
+  margin-left: 10px;
+}
+
+.siiru-boardWrap .siiruBoard-write small,
+.joinForm-write small {
+  font-size: 12px;
+  color: var(--hn-text-3);
+  display: block;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.joinForm-write dl dd input[type="file"].file {
+  width: auto;
+  max-width: 100%;
+  font-size: 13px;
+}
+
+/* 첨부파일 (CMS .fileChk / .fileLayer) */
+.siiru-boardWrap .siiruBoard-write dl dd.fileChk {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 10px 12px;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  margin: 0;
+  border: 1px solid var(--hn-line-soft);
+  border-radius: 4px;
+  background: var(--hn-bg-alt);
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer > .fileInfo,
+.siiru-boardWrap .siiruBoard-write .fileLayer > input[type="file"].file,
+.siiru-boardWrap .siiruBoard-write .fileLayer > textarea,
+.siiru-boardWrap .siiruBoard-write .fileLayer > small {
+  flex: 1 1 100%;
+  width: 100%;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer + .fileLayer,
+.siiru-boardWrap .siiruBoard-write #fileForm .fileLayer,
+.siiru-boardWrap .siiruBoard-write .fileLayer.siiru-mt10 {
+  margin-top: 10px;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer:last-child {
+  border-bottom: 1px solid var(--hn-line-soft);
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin: 0;
+  padding: 0 0 8px;
+  border-bottom: 1px solid var(--hn-line-soft);
+  font-size: 13px;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo:empty,
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo:not(:has(.fileView a[href]:not([href=""]))) {
+  display: none;
+  padding: 0;
+  border: 0;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[type="hidden"] {
+  display: none;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo .fileView {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo .fileView a {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--hn-text-3);
+  text-decoration: none;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo .fileView a[href]:not([href=""]) {
+  color: var(--hn-blue);
+  font-weight: 600;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo .fileView a:hover {
+  text-decoration: underline;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[data-input="fileDel"],
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[name="fileDelChk[]"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--hn-red);
+  cursor: pointer;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[data-input="fileDel"] + label,
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[name="fileDelChk[]"] + label {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--hn-red);
+  white-space: nowrap;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[data-input="fileDel"]:checked + label,
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[name="fileDelChk[]"]:checked + label {
+  font-weight: 700;
+  text-decoration: line-through;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer input[type="file"].file {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--hn-text-3);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer input[type="file"].file::file-selector-button {
+  margin-right: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--hn-line-strong);
+  border-radius: 0;
+  background: var(--hn-bg);
+  color: var(--hn-text-2);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer input[type="file"].file::file-selector-button:hover {
+  background: var(--hn-bg-alt);
+  color: var(--hn-text);
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer input[type="file"].file::-webkit-file-upload-button {
+  margin-right: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--hn-line-strong);
+  border-radius: 0;
+  background: var(--hn-bg);
+  color: var(--hn-text-2);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  cursor: pointer;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .file-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer > input[type="checkbox"],
+.siiru-boardWrap .siiruBoard-write .fileLayer > input.fileCheckbox {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: var(--hn-green);
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer > input[type="checkbox"] + label,
+.siiru-boardWrap .siiruBoard-write .fileLayer > input.fileCheckbox + label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 0;
+  margin: 0 14px 0 0;
+  padding: 0 0 0 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--hn-text-2);
+  line-height: 1.4;
+  cursor: pointer;
+  white-space: nowrap;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer > input[type="checkbox"]:checked + label,
+.siiru-boardWrap .siiruBoard-write .fileLayer > input.fileCheckbox:checked + label {
+  color: var(--hn-text);
+  font-weight: 600;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer > textarea {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  height: 30px;
+  margin: 4px 0 0;
+  padding: 5px 8px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--hn-text-3);
+  resize: none;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer > small {
+  margin-top: 0;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileCheckbox,
+.fileCheckbox {
+  accent-color: var(--hn-green);
+}
+
+/* 레거시·기타 영역 공용 fileLayer (댓글 등 — 작성 폼은 위 규칙이 우선) */
+.fileLayer {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--hn-line-soft);
+}
+
+.fileLayer:last-child {
+  border-bottom: none;
+}
+
+.fileInfo {
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.fileInfo .fileView a {
+  color: var(--hn-blue);
+}
+
+.radioBlock {
+  margin-bottom: 8px;
+}
+
+.radioBlock label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* write form patches */
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo:empty,
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo:has(.fileView a[href=""]) {
+  display: none;
+  padding: 0;
+  border: 0;
+}
+
+  .siiru-boardWrap .siiruBoard-write dl,
+  .joinForm-write dl {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl dt,
+  .joinForm-write dl dt {
+    width: 100%;
+    min-width: 0;
+    padding: 9px 12px 7px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.35;
+    border-bottom: 0;
+    align-self: auto;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl:has(> dd.fileChk) > dt,
+  .siiru-boardWrap .siiruBoard-write dl > dt.siiru-pt10 {
+    padding: 9px 12px 7px;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl dt label,
+  .joinForm-write dl dt label {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl:has(> dd.fileChk) > dt,
+  .siiru-boardWrap .siiruBoard-write dl > dt.siiru-pt10 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl dt span.btnLayer,
+  .joinForm-write dl dt span.btnLayer {
+    width: auto;
+    margin-left: auto;
+    margin-top: 0;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl dt span.btnLayer .siiru-btn,
+  .siiru-boardWrap .siiruBoard-write dl dt span.btnLayer .fileAdd {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl dd,
+  .joinForm-write dl dd {
+    padding: 8px 12px 10px;
+    border-top: 0;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl > dd.fullCont {
+    padding: 0;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl dd input[type="text"],
+  .siiru-boardWrap .siiruBoard-write dl dd input[type="password"],
+  .siiru-boardWrap .siiruBoard-write dl dd select,
+  .siiru-boardWrap .siiruBoard-write dl dd textarea {
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl dd:has(input.maskDate, input.dateForm, img.ui-datepicker-trigger) {
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl dd input.maskDate.small,
+  .siiru-boardWrap .siiruBoard-write dl dd input.dateForm,
+  .siiru-boardWrap .siiruBoard-write dl dd input.dateForm.maskDate {
+    width: 112px;
+    min-width: 112px;
+    max-width: 112px;
+    flex: 0 0 112px;
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger {
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+  }
+
+/* 행사일자 등 — 날짜 입력 + 정사각형 달력 아이콘 */
+.siiru-boardWrap .siiruBoard-write dl dd:has(input.maskDate, input.dateForm, img.ui-datepicker-trigger),
+.joinForm-write dl dd:has(input.maskDate, img.ui-datepicker-trigger) {
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd input.maskDate.small,
+.siiru-boardWrap .siiruBoard-write dl dd input.dateForm,
+.siiru-boardWrap .siiruBoard-write dl dd input.dateForm.maskDate,
+.siiru-boardWrap .siiruBoard-write dl dd input.maskDate.nothangul,
+.joinForm-write dl dd input.maskDate.small {
+  width: 118px;
+  min-width: 118px;
+  max-width: 118px;
+  flex: 0 0 118px;
+  margin: 0;
+  padding: 7px 10px;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger,
+.joinForm-write dl dd img.ui-datepicker-trigger {
+  display: block;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--hn-text);
+  box-sizing: border-box;
+  object-fit: contain;
+  object-position: center;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger:hover,
+.joinForm-write dl dd img.ui-datepicker-trigger:hover {
+  opacity: 0.88;
+}
+
+/* 작성 폼 보조 버튼 — 추가·파일 선택 공통 */
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .siiru-btn,
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .fileAdd {
+  min-height: 0;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  border: 1px solid var(--hn-line-strong);
+  border-radius: 0;
+  background: var(--hn-bg);
+  color: var(--hn-text-2);
+}
+
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .siiru-btn:hover,
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .fileAdd:hover {
+  background: var(--hn-bg-alt);
+  color: var(--hn-text);
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd select,
+.joinForm-write dl dd select {
+  width: 100%;
+  max-width: 320px;
+  padding: 7px 10px;
+  border: 1px solid var(--hn-line);
+  border-radius: 4px;
+  font-size: 15px;
+  background: var(--hn-bg);
+  color: var(--hn-text-2);
+  outline: 0;
+  min-height: 36px;
+  box-sizing: border-box;
+  line-height: 1.35;
+}
+
+  .siiru-boardWrap .siiruBoard-write dl dd,
+  .joinForm-write dl dd {
+    padding: 10px 12px;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl dd input[type="text"],
+  .siiru-boardWrap .siiruBoard-write dl dd input[type="password"],
+  .siiru-boardWrap .siiruBoard-write dl dd select,
+  .siiru-boardWrap .siiruBoard-write dl dd textarea {
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl dd:has(input.maskDate, input.dateForm, img.ui-datepicker-trigger) {
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding: 10px 12px;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl dd input.maskDate.small,
+  .siiru-boardWrap .siiruBoard-write dl dd input.dateForm,
+  .siiru-boardWrap .siiruBoard-write dl dd input.dateForm.maskDate {
+    width: 112px;
+    min-width: 112px;
+    max-width: 112px;
+    flex: 0 0 112px;
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+
+  .siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger {
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+  }
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin: 0;
+  padding: 0 0 8px;
+  border-bottom: 1px solid var(--hn-line-soft);
+  font-size: 13px;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo:empty,
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo:not(:has(.fileView a[href]:not([href=""]))) {
+  display: none;
+  padding: 0;
+  border: 0;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[type="hidden"] {
+  display: none;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo .fileView {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo .fileView a {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--hn-text-3);
+  text-decoration: none;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo .fileView a[href]:not([href=""]) {
+  color: var(--hn-blue);
+  font-weight: 600;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo .fileView a:hover {
+  text-decoration: underline;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[data-input="fileDel"],
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[name="fileDelChk[]"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--hn-red);
+  cursor: pointer;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[data-input="fileDel"] + label,
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[name="fileDelChk[]"] + label {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--hn-red);
+  white-space: nowrap;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[data-input="fileDel"]:checked + label,
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[name="fileDelChk[]"]:checked + label {
+  font-weight: 700;
+  text-decoration: line-through;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger,
+.joinForm-write dl dd img.ui-datepicker-trigger {
+  display: block;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 7px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--hn-text);
+  box-sizing: border-box;
+  object-fit: contain;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger:hover,
+.joinForm-write dl dd img.ui-datepicker-trigger:hover {
+  background: var(--hn-text-2);
+}
+
+/* 작성 폼 보조 버튼 — 추가·파일 선택 공통 */
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .siiru-btn,
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .fileAdd {
+  min-height: 0;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  border: 1px solid var(--hn-line-strong);
+  border-radius: 4px;
+  background: var(--hn-bg);
+  color: var(--hn-text-2);
+}
+
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .siiru-btn:hover,
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .fileAdd:hover {
+  background: var(--hn-bg-alt);
+  color: var(--hn-text);
+}
+
+  .siiru-boardWrap .siiruBoard-write dl dt span.btnLayer .siiru-btn,
+  .siiru-boardWrap .siiruBoard-write dl dt span.btnLayer .fileAdd {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+
+.siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger,
+.joinForm-write dl dd img.ui-datepicker-trigger {
+  display: block;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: var(--hn-text);
+  box-sizing: border-box;
+  object-fit: contain;
+  object-position: center;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger:hover,
+.joinForm-write dl dd img.ui-datepicker-trigger:hover {
+  opacity: 0.88;
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd:has(input.maskDate, input.dateForm, img.ui-datepicker-trigger),
+.joinForm-write dl dd:has(input.maskDate, img.ui-datepicker-trigger) {
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+
+  .siiru-boardWrap .siiruBoard-write dl dd:has(input.maskDate, input.dateForm, img.ui-datepicker-trigger) {
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .siiru-btn,
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .fileAdd {
+  min-height: 0;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  border: 1px solid var(--hn-line-strong);
+  border-radius: 0;
+  background: var(--hn-bg);
+  color: var(--hn-text-2);
+}
+
+.siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger {
+  display: block;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--hn-text);
+
+.siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger,
+.joinForm-write dl dd img.ui-datepicker-trigger {
+  display: block;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--hn-text);

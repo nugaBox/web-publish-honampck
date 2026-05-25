@@ -129,7 +129,9 @@ function memberCells(row) {
 }
 
 function roleSuffix(catId) {
-  return catId === 'elder' ? '장로' : '목사';
+  if (catId === 'elder') return '장로';
+  if (catId === 'mission-sent' || catId === 'mission-member') return '선교사';
+  return '목사';
 }
 
 const CHURCH_COLS = new Set(['시무교회', '출석교회', '교회']);
@@ -144,7 +146,7 @@ function formatMemberCell(header, value, sec) {
   const v = (value ?? '').trim();
   if (!v) return '—';
   if (header === '성명') {
-    if (v.endsWith('목사') || v.endsWith('장로')) return v;
+    if (v.endsWith('목사') || v.endsWith('장로') || v.endsWith('선교사')) return v;
     return `${v} ${roleSuffix(sec.id)}`;
   }
   if (CHURCH_COLS.has(header)) return churchDisplay(v);
@@ -242,7 +244,7 @@ function churchTable(rows) {
   ).join('\n');
   return `<div class="church-list-section">
       <h3 class="member-section-title">소속 교회 <span class="member-section-cnt">${count}개</span></h3>
-      <div class="table-scroll"><table class="church-table church-member-table"><colgroup><col style="width:72px"><col style="width:140px"><col style="width:112px"><col style="width:100px"><col style="width:132px"><col></colgroup><thead><tr><th>시찰</th><th>교회</th><th>분류</th><th>교역자명</th><th>전화</th><th>비고</th></tr></thead><tbody>\n${trs}\n</tbody></table></div>
+      <div class="table-scroll"><table class="church-table church-member-table"><colgroup><col style="width:72px"><col style="width:140px"><col style="width:112px"><col style="width:128px"><col style="width:132px"><col></colgroup><thead><tr><th>시찰</th><th>교회</th><th>분류</th><th>교역자명</th><th>전화</th><th>비고</th></tr></thead><tbody>\n${trs}\n</tbody></table></div>
     </div>`;
 }
 

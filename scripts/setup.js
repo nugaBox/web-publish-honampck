@@ -10,6 +10,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { execSync } = require("child_process");
 
 const ROOT = path.resolve(__dirname, "..");
 
@@ -137,6 +138,26 @@ if (fs.existsSync(pretendardCssPath)) {
   );
   fs.writeFileSync(pretendardCssPath, css, "utf-8");
   console.log(`✅  pretendard.css 경로 패치 완료`);
+}
+
+// ── 본명조 (눈누 NotoSerifKR.woff) ───────────────────────────────────────────
+const bonmyeongjoDir = path.join(ROOT, "src/assets/fonts/bonmyeongjo");
+const bonmyeongjoWoff = path.join(bonmyeongjoDir, "NotoSerifKR.woff");
+const bonmyeongjoCdn =
+  "https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff";
+
+if (!fs.existsSync(bonmyeongjoWoff)) {
+  fs.mkdirSync(bonmyeongjoDir, { recursive: true });
+  try {
+    execSync(`curl -fsSL "${bonmyeongjoCdn}" -o "${bonmyeongjoWoff}"`, { stdio: "pipe" });
+    console.log(`✅  다운로드 완료: src/assets/fonts/bonmyeongjo/NotoSerifKR.woff`);
+  } catch (err) {
+    console.warn(
+      `⚠️  본명조 폰트 다운로드 실패. 수동 배치: src/assets/fonts/bonmyeongjo/NotoSerifKR.woff`
+    );
+  }
+} else {
+  console.log(`✅  본명조 폰트 확인: src/assets/fonts/bonmyeongjo/NotoSerifKR.woff`);
 }
 
 // ── Font Awesome Pro (수동 배치 안내) ────────────────────────────────────────

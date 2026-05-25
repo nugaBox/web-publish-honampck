@@ -15,7 +15,7 @@ CMS가 렌더링하는 HTML 구조(siiru-* 클래스)와 일치하지 않는다.
 1. `src/board/basic/*.html`, `src/board/multimedia/*.html` — 스킨 파일(fragment)의 HTML 구조를 JSP와 동일하게 재작성한다. JSTL/EL 변수는 정적 플레이스홀더로 대체.
 2. `src/sub/login.html`, `join.html`, `finduser.html`, `leave.html` — 페이지 래퍼(header/sidebar/footer)는 유지하고, `<section class="content">` 내부를 JSP skin 구조로 교체.
 3. `src/sub/myInfo.html`, `src/sub/passChange.html` — 신규 페이지 생성.
-4. `src/assets/css/sub.css` — siiru-* 클래스에 hn-* 디자인 토큰 기반 스타일 추가.
+4. `src/assets/css/board.css` — siiru-*·게시판(b-*) 클래스에 hn-* 디자인 토큰 기반 스타일 (`sub.css`와 분리).
 
 ---
 
@@ -35,7 +35,7 @@ CMS가 렌더링하는 HTML 구조(siiru-* 클래스)와 일치하지 않는다.
 | `src/sub/leave.html` | 전체 페이지 | `legacy/skin/leave.jsp` | section.content 내부 교체 |
 | `src/sub/myInfo.html` | **신규 생성** | `legacy/skin/myInfo.jsp` | 신규 전체 페이지 작성 |
 | `src/sub/passChange.html` | **신규 생성** | `legacy/skin/passChange.jsp` | 신규 전체 페이지 작성 |
-| `src/assets/css/sub.css` | CSS | — | siiru-* 스타일 블록 추가 |
+| `src/assets/css/board.css` | CSS | — | siiru-*·게시판 스타일 (sub.css에서 분리) |
 
 ---
 
@@ -55,13 +55,13 @@ CMS가 렌더링하는 HTML 구조(siiru-* 클래스)와 일치하지 않는다.
 - 사이드바: `sidebar_extra.html` (부가서비스 섹션).
 
 ### 3.3 CSS
-- `sub.css` 하단에 `/* === SiiRU Board & Skin Styles === */` 블록을 추가.
+- `board.css`에 SiiRU·게시판 스타일을 작성한다 (`sub.css`와 분리, `header.html`에서 `board.css` 로드).
 - 모든 색상은 `var(--hn-*)` 토큰 사용. 임의 색상값 하드코딩 금지.
 - `siiru-btn` 시리즈는 `btn-hn` 시리즈와 시각적으로 동일하게 맞춘다.
 
 ---
 
-## 4. CSS 추가 명세 (`sub.css` 하단에 추가)
+## 4. CSS 추가 명세 (`board.css`)
 
 ```css
 /* ================================================
@@ -1638,7 +1638,42 @@ npm run build
 
 ---
 
-## 9. 구현 체크리스트
+## 9. 시찰·분류 탭 (`board-district-filter`) — 서버에서 `.on` 출력
+
+탭 HTML은 `list.jsp` 본문이 아니라 **게시판 마스터 상단 HTML(`boardMaster.hderCn`)** 에서 `siiru-clr`로 include 된다.
+
+```jsp
+<div class="siiru-clr"><jsp:include page="${hderCn}" /></div>
+```
+
+클릭 시 `sub.js`가 `#searchCtgry` 값을 바꾸고 폼을 제출한다. 새로고침 후 **select는 CMS가 `selected`를 맞추지만**, 탭 버튼은 hderCn에 **전체에 `class="on"`이 고정**되어 있으면 첫 페인트에서 깜빡인다.
+
+### 적용 방법 (권장)
+
+1. `legacy/board/include/board-district-filter.jsp` 를 서버 스킨 경로에 배포 (예: `/WEB-INF/jsp/home/siiru/board/include/board-district-filter.jsp`).
+2. CMS 관리자 → 해당 게시판 → **상단 HTML(hderCn)** 을 정적 HTML 대신 아래 include 로 교체:
+
+```jsp
+<jsp:include page="/WEB-INF/jsp/home/siiru/board/include/board-district-filter.jsp" />
+```
+
+3. 탭 `data-category` 값은 검색 `<select id="searchCtgry">` 의 `option value` 와 **동일**해야 한다 (`sub.js`가 select 옵션과 동기화함).
+4. 정적 HTML에 `class="on"` 을 넣지 않는다. 선택 상태는 JSP만 출력:
+
+| 버튼 | 조건 |
+|------|------|
+| 전체 | `${empty param.searchCtgry}` |
+| 각 분류 | `${param.searchCtgry eq code.value}` (`searchCtgryList` 순회) |
+
+`searchCtgryList` / `param.searchCtgry` 는 목록 JSP와 동일 요청 스코프에서 사용 가능하다 (`list.jsp` 의 option `selected` 와 같은 기준).
+
+### 검색어 + 검색 버튼
+
+`list.jsp` 검색 폼에서 분류·조건 select + 검색어·버튼을 `.board-search-bar` 로 감싼다 (퍼블: `list-inner.html` 참고). 검색 버튼은 `<i class="fa-regular fa-magnifying-glass">` + `aria-label="검색"`. `board.css` 가 회색 배경(`--hn-bg-alt`) 한 줄 바로 붙인다.
+
+---
+
+## 10. 구현 체크리스트 (구 §9)
 
 ### board/basic
 - [ ] `list.html` — siiru-boardWrap, siiruBoard-search, siiruBoard-list 구조로 재작성
@@ -1659,7 +1694,7 @@ npm run build
 - [ ] `passChange.html` — **신규 생성**
 
 ### CSS
-- [ ] `sub.css` 하단에 Section 4 CSS 전체 추가
+- [ ] `board.css`에 Section 4 CSS 전체 추가
 
 ### 헤더/사이드바
 - [ ] `sidebar_extra.html` — myInfo, passChange 링크 추가 확인
@@ -1696,7 +1731,7 @@ npm run build
 3. `src/sub/myInfo.html` 과 `src/sub/passChange.html` 을 신규 생성하세요.
    (`legacy/skin/myInfo.jsp`, `passChange.jsp` 기반)
 
-4. `src/assets/css/sub.css` 하단에 siiru-* 클래스들의 스타일을 추가하세요.
+4. `src/assets/css/board.css`에 siiru-*·게시판 클래스 스타일을 추가하세요.
    반드시 `var(--hn-*)` 디자인 토큰을 사용합니다.
 
 ## 파일 구조 규칙 (AGENTS.md 참고)

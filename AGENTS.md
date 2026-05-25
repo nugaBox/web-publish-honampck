@@ -42,11 +42,12 @@ CMS 연동을 전제로 한 정적 HTML 퍼블리싱 구조이며, 빌드 시 `d
 src/
 ├── assets/
 │   ├── css/
-│   │   ├── style.css      # 공통 전역 스타일 (헤더·푸터·공통컴포넌트)
+│   │   ├── common.css     # 공통 전역 스타일 (헤더·푸터·공통컴포넌트)
 │   │   ├── main.css       # 메인(index.html) 전용
-│   │   └── sub.css        # 서브·게시판 페이지 전용
+│   │   ├── sub.css        # 서브 페이지 (레이아웃·컴포넌트·반응형)
+│   │   └── board.css      # 게시판·일정·SiiRU CMS (b-*, siiru-*)
 │   ├── js/
-│   │   ├── script.js      # 공통 전역 스크립트 (GNB·드로어·스크롤) — CMS·실서버 포함
+│   │   ├── common.js      # 공통 전역 스크립트 (GNB·드로어·스크롤) — CMS·실서버 포함
 │   │   ├── dev.js         # 개발 서버 전용 (사이드바 .on 등). footer에만 로드, JSP 제외
 │   │   ├── main.js        # 메인 전용 (탭·Swiper)
 │   │   └── sub.js         # 서브·게시판 전용
@@ -124,7 +125,7 @@ src/
 
 ## 디자인 시스템 (CSS 변수)
 
-`style.css` 최상단에 정의된 변수를 모든 CSS에서 사용한다. 임의 색상값 직접 작성 금지.
+`common.css` 최상단에 정의된 변수를 모든 CSS에서 사용한다. 임의 색상값 직접 작성 금지.
 
 ```css
 /* 주요 브랜드 컬러 */
@@ -239,6 +240,132 @@ sidebar include 파일 내부의 링크는 반드시 루트 절대경로(`/sub/.
 메인 페이지는 fragment 방식을 사용하지 않는다.
 자체 `<head>` + `main.css` + `main.js`를 가지며,
 `headerSub.html` / `footerSub.html`을 직접 include 한다.
+
+---
+
+## CSS / JS 에셋
+
+### 로드 순서
+
+| 페이지 | CSS | JS |
+|---|---|---|
+| 서브·게시판 (`include/header.html` / `footer.html`) | `common.css` → `sub.css` → `board.css` | `common.js` → `dev.js`(로컬만) → `sub.js` |
+| 메인 (`index.html`) | `common.css` → `main.css` | `common.js` → `main.js` |
+
+| 파일 | 범위 |
+|---|---|
+| `common.css` | CSS 변수, GNB·푸터, `.btn-hn`, `.alert-hn` 등 **전역 공통** |
+| `main.css` | 메인(index) 전용 |
+| `sub.css` | `.sub-layout`, 사이드바, `.person-grid`, `.church-table` 등 **서브 컨텐츠** (게시판 전용 규칙 금지) |
+| `board.css` | `.b-toolbar`, `.btable`, `.board-*`, `.siiru-*`, 일정 달력 등 **게시판·CMS 스킨** |
+| `common.js` | GNB·드로어·`data-include` 로더·`hn-includes-ready` — CMS·실서버 포함 |
+| `dev.js` | 사이드바 `.on` 등 **로컬 미리보기만** |
+
+재분리(원본 한 파일에서 복원 시): `npm run split:sub-board-css` (git `HEAD`의 `sub.css` 기준).  
+게시판 스타일 복구: `scripts/board-recovered.css.fragment` + `node scripts/apply-board-recovered.js`, 작성 폼: `board-write-form.css.fragment` + `apply-board-write-css.js`. **분리·복구 스크립트는 git HEAD만 쓰면 미커밋 스타일이 빠진다.**
+
+### 실서버(CMS) 게시판 모달 — Bootstrap 5 × jquery-modal
+
+호남 레이아웃 `bootstrap.bundle.min.js`가 **`$.fn.modal`을 Bootstrap Modal(jQueryInterface)** 로 덮어쓴다. SiiRU 뷰 JSP의 `$('#comtMModal').modal({ showClose, clickClose })`는 **동작하지 않는다**(에러 없음, `.blocker` 미생성).
+
+| API | 역할 |
+|---|---|
+| `jQuery.fn.modal` | Bootstrap 5 (덮어씀) |
+| `jQuery.modal` / `new jQuery.modal(el, opts)` | kylefox jquery-modal (유지) |
+
+**대응 (택1)**
+
+1. **JSP 스킨** — `legacy/board/*/view.jsp`의 `siiruModalOpen()` + `new $.modal()` 사용 (권장, Bootstrap 순서와 무관).
+2. **footer 스크립트 순서** — `jquery.modal.min.js`를 **`bootstrap.bundle.min.js` 뒤**에 로드해 `$.fn.modal`을 jquery-modal이 다시 등록하게 한다.
+
+진단: `jQuery.fn.modal.toString()`에 `jQueryInterface`가 보이면 충돌 상태. `new jQuery.modal(jQuery('#comtMModal'), { showClose: false, clickClose: false })`로 열리면 스킨/순서 수정이 필요하다.
+
+---
+
+## CSS 작성 규칙 (필수)
+
+대상: **`common.css`**, **`main.css`**, **`sub.css`**, **`board.css`** 네 파일 모두.
+
+### 1. 한 줄 규칙 (반드시)
+
+- **선택자 + 선언 블록 = 한 줄**: `.foo { color: red; margin: 0; }`
+- **파일 최상단 헤더 주석**(`/* === … */`)만 여러 줄 허용
+- **영역 구분 주석**(`/* ── … ── */`)은 한 줄
+- **`@media`**: `@media (max-width:768px) {` / `}` 각각 한 줄, **내부 규칙도 규칙당 한 줄**
+- 선언: `prop: value;`, 색상은 `var(--hn-*)` 우선
+
+### 2. 줄 간격 (영역 vs 규칙)
+
+| 구분 | 빈 줄 |
+|---|---|
+| **같은 영역 안의 규칙들** | 없음 — 규칙은 연속으로 붙인다 |
+| **영역 구분 주석(`/* ──`) 앞** | 1줄 — 섹션 경계만 시각적으로 구분 |
+| **파일 헤더(`/* ===`) 뒤** | 1줄 — 첫 `/* ──` 영역 전 |
+
+**잘못된 예** (규칙마다 빈 줄 — `format-sub-css` 구버전이 `.join('\n\n')` 했을 때):
+
+```css
+.foo { color: red; }
+
+.bar { margin: 0; }
+```
+
+**올바른 예**:
+
+```css
+/* ── 서브 레이아웃 ────────────────────────────────────────── */
+.sub-wrap { background: #fff; min-height: 100vh; }
+.hn-page-head { color: #fff; }
+
+/* ── 사이드바 ─────────────────────────────────────────────── */
+.sidebar-head { padding: 24px 20px; }
+```
+
+### 3. 영역 주석으로 파일을 나눈다 (반드시)
+
+파일 맨 아래에 무조건 추가하지 않는다. 주석이 있어도 **다른 영역에 같은 선택자를 또 쓰면 줄 수만 불어난다**(과거 `sub.css` 9,000줄 초과의 주된 원인).
+
+**주석 형식**:
+
+```css
+/* ── 게시판 목록 (basic list) ───────────────────────────── */
+```
+
+**파일별 영역 예시**
+
+| 파일 | 영역 주석 예 |
+|---|---|
+| `common.css` | CSS 변수, GNB, 푸터, 공통 버튼, 반응형 |
+| `main.css` | 히어로, 퀵링크, 4-board 그리드, 반응형 |
+| `sub.css` | 서브 레이아웃, 사이드바, person-grid, church-table, catechism, 반응형 |
+| `board.css` | b-toolbar/btable, board-search-bar, siiruBoard-list, siiruBoard-write, gallery, 회원폼, `@media` |
+
+새 스타일은 **해당 영역 주석 바로 아래**에 넣는다. git HEAD에 없는 선택자는 복원 스크립트가 **바로 위에서 쓰이던 영역**을 이어 받는다.
+
+### 4. 포맷·섹션 복원 명령
+
+| 명령 | 설명 |
+|---|---|
+| `npm run format:sub-css` | 네 CSS 파일 한 줄 포맷. **`/* ──`·`/* ===` 주석은 유지** |
+| `npm run restore:css-sections` | git HEAD 기준 `/* ──` 영역 주석 재삽입 |
+| `npm run organize:css` | `restore:css-sections` 후 `format:sub-css` 일괄 실행 |
+
+대량 정리·분리 후에는 `npm run organize:css` 를 한 번 실행해 영역 주석과 줄 간격을 맞춘다.
+
+### 5. 수정 절차 (에이전트·작업자 공통)
+
+1. **대상 파일 결정** — 서브 컴포넌트 → `sub.css`, 게시판/SiiRU → `board.css`, 헤더·푸터 → `common.css`
+2. **기존 규칙 검색** — `rg "선택자|클래스명" src/assets/css/` 로 **어느 영역에 이미 있는지** 확인 (`/* ──` 주석으로 파일 내 위치 파악)
+3. **해당 영역 주석 바로 아래**에 추가·수정 (같은 선택자가 다른 영역에 있으면 **병합 후 중복 삭제**)
+4. **파일 끝 append 금지** — “빠르게 넣기”로 맨 아래에 붙이지 않음
+5. **`npm run format:sub-css`** 로 한 줄 포맷 정리 (주석 삭제되지 않음)
+6. **중복 선택자** — cascade 의도 확인 후 수동 정리 (포맷터는 중복 제거 안 함)
+
+### 6. 반응형
+
+- 게시판·`siiru-*` `@media` → **`board.css`** 해당 영역 또는 파일 하단 **단일** `@media (max-width:768px)` 블록
+- 서브 레이아웃·컴포넌트 `@media` → **`sub.css`**
+- 동일 선택자의 모바일 규칙을 base 근처와 `@media` 맨 아래에 **두 번** 두지 않음
 
 ---
 
@@ -440,7 +567,7 @@ sidebar include 파일 내부의 링크는 반드시 루트 절대경로(`/sub/.
 
 ---
 
-## style.css 공통 컴포넌트
+## common.css 공통 컴포넌트
 
 ### 버튼 (`.btn-hn`)
 
@@ -561,18 +688,19 @@ sidebar include 파일 내부의 링크는 반드시 루트 절대경로(`/sub/.
 
 `src/assets/js/dev.js`는 **`include/footer.html`에서만** 로드한다. CMS·JSP 실서버 footer에는 넣지 않는다.
 
-| 구분 | script.js | dev.js |
+| 구분 | common.js | dev.js |
 |------|-----------|--------|
 | 대상 | 실서버·개발 공통 | `npm run dev` / 퍼블 미리보기만 |
 | 예시 | GNB, 드로어, `data-include` 로더 | `markActiveSidebar()` (URL → `.on`) |
 
-**규칙**: JSP/실서버에 없는 동작(퍼블 미리보기 편의, URL 기반 사이드바 활성화 등)은 `script.js`가 아니라 **`dev.js`에만** 작성한다.
+**규칙**: JSP/실서버에 없는 동작(퍼블 미리보기 편의, URL 기반 사이드바 활성화 등)은 `common.js`가 아니라 **`dev.js`에만** 작성한다.
 
-`script.js`는 include 로드 완료 후 `hn-includes-ready` 이벤트를 발생시키고, `dev.js`가 그때 사이드바 `.on`을 처리한다. 이후 `mountMobileSidebar()`가 `.on`이 반영된 사이드바를 복제한다.
+`common.js`는 include 로드 완료 후 `hn-includes-ready` 이벤트를 발생시키고, `dev.js`가 그때 사이드바 `.on`을 처리한다. 이후 `mountMobileSidebar()`가 `.on`이 반영된 사이드바를 복제한다.
 - [ ] 새 메뉴가 생기면 `include/headerSub.html` (드롭다운 + 모바일 드로어) + 해당 `sidebar_XXX.html` 양쪽 업데이트
 
 **CSS / 에셋**
-- [ ] CSS·JS·이미지 경로는 전부 루트 절대경로(`/assets/...`) 또는 header.html이 자동 제공 — 별도 `<link>` 불필요
+- [ ] CSS·JS·이미지 경로는 전부 루트 절대경로(`/assets/...`) 또는 header.html이 자동 제공 — 서브 셸은 `common.css`·`sub.css`·`board.css` 로드
+- [ ] CSS 수정: 올바른 파일(`common`/`main`/`sub`/`board`) + **영역 주석 아래** 반영, **파일 끝 무조건 append 금지** — 완료 후 `npm run format:sub-css`
 - [ ] 디자인 토큰(CSS 변수) 사용, 임의 색상 하드코딩 금지
 - [ ] 사진·단체사진 자리에는 `<div class="placeholder">PHOTO<br>PLACEHOLDER</div>` 삽입
 

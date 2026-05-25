@@ -1,0 +1,43 @@
+---
+description: common/main/sub/board.css 작성·포맷·영역 주석 규칙
+globs: src/assets/css/{common,main,sub,board}.css
+alwaysApply: false
+---
+
+# CSS (common · main · sub · board)
+
+상세·컴포넌트 목록은 @AGENTS.md 참고.
+
+## 파일 역할
+
+| 파일 | 범위 |
+|------|------|
+| `common.css` | 변수, GNB, 푸터, `.btn-hn`, `.alert-hn` |
+| `main.css` | `index.html` 전용 |
+| `sub.css` | 서브 레이아웃·컴포넌트 (게시판 규칙 금지) |
+| `board.css` | `b-*`, `siiru-*`, 일정 달력 |
+
+## 서브·게시판 로드 순서 (`include/header.html`)
+
+`common.css` → `sub.css` → `board.css` → `schedule.css`  
+메인(`index.html`)은 `board.css` 없음.
+
+## 한 줄 + 줄 간격
+
+- 규칙: `.sel { prop: val; }` 한 줄
+- **같은 `/* ──` 영역 안**: 규칙 사이 빈 줄 없음
+- **`/* ──` 영역 주석 앞만**: 빈 줄 1개
+- 파일 헤더 `/* ===` 만 여러 줄 허용
+
+## 수정 절차
+
+1. `rg "클래스" src/assets/css/` 로 파일·영역 확인
+2. 해당 `/* ── … */` 바로 아래에 추가 (파일 끝 append 금지)
+3. `npm run format:sub-css` (주석 유지)
+4. 대량 정리 후: `npm run organize:css`
+
+## 금지
+
+- 규칙마다 빈 줄
+- `format:sub-css`만 반복해 `/* ──` 주석이 사라진 상태로 작업
+- 게시판 스타일을 `sub.css`에 추가

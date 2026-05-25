@@ -6,8 +6,13 @@
     <input type="hidden" id="movePage" name="movePage" value="">
     <input type="hidden" id="boardId" name="boardId" value="">
     <input type="hidden" id="searchTy" name="searchTy" value="">
+    <input type="hidden" id="searchCtgry" name="searchCtgry" value="">
     <input type="hidden" id="searchQuery" name="searchQuery" value="">
   </form>
+
+  <div class="siiru-clr">
+    <div data-include="../../include/board-district-filter.html"></div>
+  </div>
 
   <form id="boardForm" name="boardForm" method="post" enctype="multipart/form-data">
     <input type="hidden" id="action" name="action" value="insert">
@@ -15,64 +20,71 @@
     <input type="hidden" id="levelSn" name="levelSn" value="0">
 
     <div class="siiruBoard-write">
-      <!-- 분류 -->
-      <dl>
-        <dt><span>*</span> <label for="ctgrySn">분류</label></dt>
-        <dd>
-          <select id="ctgrySn" name="ctgrySn">
-            <option value="">선택</option>
-            <option value="NOTICE">노회공지</option>
-            <option value="URGENT">긴급공지</option>
-            <option value="RECRUIT">채용공모</option>
-            <option value="TENDER">입찰공고</option>
-            <option value="GENERAL">교단공지</option>
-          </select>
-        </dd>
-      </dl>
-      <!-- 제목 -->
       <dl>
         <dt><span>*</span> <label for="boardSj">제목</label></dt>
-        <dd><input type="text" id="boardSj" name="boardSj" maxlength="200" value=""></dd>
+        <dd><input type="text" id="boardSj" name="boardSj" maxlength="200" value="테스트"></dd>
       </dl>
-      <!-- 작성자 -->
       <dl>
         <dt><span>*</span> <label for="userNm">작성자</label></dt>
-        <dd><input type="text" class="small2" id="userNm" name="userNm" maxlength="50" value=""></dd>
+        <dd><input type="text" class="small2" id="userNm" name="userNm" maxlength="50" value="관리자"></dd>
       </dl>
-      <!-- 공지사항 설정 -->
-      <dl>
+      <dl id="ndtFocus">
         <dt><label for="noticeAt">공지사항</label></dt>
         <dd>
           <input type="checkbox" id="noticeAt" name="noticeAt" value="Y">
-          <label for="noticeAt"> 공지로 등록 </label>
+          <label for="noticeAt"> 공지사항</label>
+          <div>
+            <input type="text" class="maskDate nothangul small" id="noticeBeginDate" name="noticeBeginDate" maxlength="10" value="" placeholder="공지사항 시작 일자" title="공지사항 시작 일자" disabled>
+            <input type="text" class="maskTime nothangul small" id="noticeBeginTime" name="noticeBeginTime" maxlength="5" value="" placeholder="공지사항 시작 시간" title="공지사항 시작 시간" disabled>
+            <span class="separator"> ~ </span>
+            <input type="text" class="maskDate nothangul small" id="noticeEndDate" name="noticeEndDate" maxlength="10" value="" placeholder="공지사항 종료 일자" title="공지사항 종료 일자" disabled>
+            <input type="text" class="maskTime nothangul small" id="noticeEndTime" name="noticeEndTime" maxlength="5" value="" placeholder="공지사항 종료 시간" title="공지사항 종료 시간" disabled>
+            <small>일자 : 2026-05-01, 시간 : 18:00</small>
+          </div>
         </dd>
       </dl>
-      <!-- 첨부파일 -->
       <dl>
-        <dt class="siiru-pt10">첨부파일 <span class="btnLayer"><button class="fileAdd siiru-btn siiru-btn-small" type="button">추가</button></span></dt>
+        <dt class="siiru-pt10">파일<span class="btnLayer"><button class="fileAdd siiru-btn siiru-btn-small" type="button">추가</button></span></dt>
         <dd class="fileChk">
           <div class="fileLayer">
-            <div class="fileInfo" style="display:none;">
+            <div class="fileInfo">
               <input type="hidden" name="fileSn[]" value="0">
               <input type="hidden" name="rlFileOldNm[]" value="">
               <input type="hidden" name="fileOldNm[]" value="">
               <input type="hidden" name="insrtAt[]" value="N">
+              <input type="hidden" name="thumbAt[]" value="">
               <input type="hidden" name="fileDelAt[]" value="N">
+              <span class="fileView"><a href="" target="_blank"></a></span>
+              <input type="checkbox" class="fileCheckbox" id="delFile0" name="fileDelChk[]" data-input="fileDel" value="Y" title="Delete Files">
+              <label for="delFile0"> Delete Files </label>
             </div>
             <input type="file" name="fileNm0" class="file" title="파일 선택">
             <input type="checkbox" id="insrtFile0" name="insrtChk[]" data-input="insrt" class="fileCheckbox" value="Y">
-            <label for="insrtFile0"> 본문에삽입</label>
-            <textarea name="fileAlt[]" rows="3" class="siiru-mt10" title="파일 설명"></textarea>
-            <small>최대 20MB · PDF, HWP, Word, Excel, 이미지 등</small>
+            <label for="insrtFile0">본문에삽입</label>
+            <textarea name="fileAlt[]" rows="3" class="siiru-mt10" title="대체텍스트 또는 동영상 자막"></textarea>
+            <small>파일이 이미지일경우 대체텍스트를 정의하고 동영상일경우 자막을 삽입합니다.</small>
           </div>
           <div id="fileForm"></div>
         </dd>
       </dl>
-      <!-- 본문 -->
       <dl>
         <dt class="siiru-hidden">내용</dt>
         <dd class="fullCont">
-          <textarea id="boardCn" name="boardCn" rows="20" style="width:100%;height:400px;" title="내용"></textarea>
+          <textarea id="boardCn" name="boardCn" rows="20" style="width: 98%; height: 400px; visibility: hidden; display: none;" title="내용">&lt;p&gt;123&lt;/p&gt;</textarea>
+          <div id="cke_boardCn" class="cke_1 cke cke_reset cke_chrome cke_editor_boardCn cke_ltr cke_browser_webkit cke_hidpi" dir="ltr" lang="ko" role="application" aria-labelledby="cke_boardCn_arialbl">
+            <span id="cke_boardCn_arialbl" class="cke_voice_label">리치 텍스트 편집기, boardCn</span>
+            <div class="cke_inner cke_reset" role="presentation">
+              <span class="cke_top cke_reset_all" role="presentation">
+                <span class="cke_toolbox" role="group">
+                  <span class="cke_toolbar" role="toolbar"><span class="cke_toolgroup" role="presentation"><a class="cke_button cke_button__undo cke_button_disabled" href="#" role="button"><span class="cke_button_icon"></span><span class="cke_button_label">실행 취소</span></a><a class="cke_button cke_button__redo cke_button_disabled" href="#" role="button"><span class="cke_button_icon"></span><span class="cke_button_label">다시 실행</span></a></span></span>
+                  <span class="cke_toolbar" role="toolbar"><span class="cke_toolgroup" role="presentation"><a class="cke_button cke_button__bold" href="#" role="button"><span class="cke_button_icon"></span><span class="cke_button_label">굵게</span></a><a class="cke_button cke_button__italic" href="#" role="button"><span class="cke_button_icon"></span><span class="cke_button_label">기울임꼴</span></a><a class="cke_button cke_button__underline" href="#" role="button"><span class="cke_button_icon"></span><span class="cke_button_label">밑줄</span></a></span></span>
+                  <span class="cke_toolbar" role="toolbar"><span class="cke_toolgroup" role="presentation"><a class="cke_button cke_button__link" href="#" role="button"><span class="cke_button_icon"></span><span class="cke_button_label">링크 삽입/변경</span></a><a class="cke_button cke_button__image" href="#" role="button"><span class="cke_button_icon"></span><span class="cke_button_label">이미지</span></a></span></span>
+                </span>
+              </span>
+              <div class="cke_contents cke_reset" role="presentation"><iframe src="" frameborder="0" class="cke_wysiwyg_frame cke_reset" title="리치 텍스트 편집기, boardCn"></iframe></div>
+              <span class="cke_bottom cke_reset_all" role="presentation"><span class="cke_resizer">◢</span></span>
+            </div>
+          </div>
         </dd>
       </dl>
     </div>

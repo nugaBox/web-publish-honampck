@@ -1,0 +1,593 @@
+/* ============================================================
+   board.css — 게시판·일정·SiiRU CMS (b-*, btable, siiru-*)
+   포맷: npm run format:sub-css
+   ============================================================
+
+/* ── 게시판 툴바 ──────────────────────────────────────────── */
+.b-toolbar { display:flex; justify-content:space-between; align-items:center; padding:22px 0; gap:20px; flex-wrap:wrap }
+.b-toolbar .left { display:flex; gap:10px; align-items:center; font-size:16px; color:var(--hn-text-3); flex-wrap:wrap }
+.b-toolbar .select { border:1px solid var(--hn-line); padding:9px 32px 9px 15px; font-size:16px; background:#fff url(data:image/svg+xml;utf8,<svg\ xmlns=\"http://www.w3.org/2000/svg\"\ width=\"10\"\ height=\"6\"\ viewBox=\"0\ 0\ 10\ 6\"><path\ d=\"M1\ 1l4\ 4\ 4-4\"\ stroke=\"%236b7380\"\ fill=\"none\"\ stroke-width=\"1.5\"/></svg>)no-repeat right 12px center; appearance:none; color:var(--hn-text-2); font-family:inherit }
+.b-toolbar .search-wrap { display:flex; border:1px solid var(--hn-line); overflow:hidden }
+.b-toolbar .search-wrap select { border:0; border-right:1px solid var(--hn-line); padding:10px 12px; font-size:16px; font-family:inherit; background:var(--hn-bg-alt); color:var(--hn-text-2); outline:0 }
+.b-toolbar .search-wrap input { border:0; padding:10px 15px; font-size:16px; outline:0; width:275px; font-family:inherit }
+.b-toolbar .search-wrap button { border:0; background:var(--hn-bg-dark); color:#fff; padding:0 22px; font-size:16px; display:flex; align-items:center; gap:6px; cursor:pointer; white-space:nowrap }
+
+/* ── 게시판 테이블 ────────────────────────────────────────── */
+.btable { width:100%; border-collapse:collapse; font-size:17px; border-top:2px solid var(--hn-text) }
+.btable thead th { background:var(--hn-bg-alt); text-align:center; font-weight:700; padding:18px 15px; font-size:16px; color:var(--hn-text-2); border-bottom:1px solid var(--hn-line); letter-spacing:-0.02em }
+.btable tbody td { padding:19px 15px; text-align:center; border-bottom:1px solid var(--hn-line-soft); color:var(--hn-text-2); font-family:ui-monospace,Menlo,monospace; font-size:16px }
+.btable tbody td.title { text-align:left; font-family:inherit; color:var(--hn-text); font-size:17px; font-weight:500 }
+.btable tbody td.title a { cursor:pointer }
+.btable tbody td.title a:hover { color:var(--hn-blue) }
+.btable tr.notice td { background:#fbfcfd }
+.btable tr.notice td.title { font-weight:700 }
+.btable .pin { display:inline-block; font-size:12px; font-weight:800; color:#fff; background:#1a1a1a; padding:2px 7px; white-space:nowrap; letter-spacing:0.04em }
+.btable .cat { display:inline-block; font-size:13px; padding:4px 10px; border:1px solid var(--hn-line-strong); color:var(--hn-text-2); font-weight:600 }
+.btable .cat.g { color:var(--hn-green); border-color:var(--hn-green) }
+.btable .cat.b { color:var(--hn-blue); border-color:var(--hn-blue) }
+.btable .file-ico { color:var(--hn-blue); font-size:16px }
+
+/* ── 게시판 하단 (페이지/버튼) ───────────────────────────── */
+.btable-foot { display:flex; justify-content:space-between; align-items:center; padding:30px 0 0 }
+.btable-foot .right-btns { display:flex; gap:10px }
+
+/* ── 게시글 상세 ──────────────────────────────────────────── */
+.bdetail { border-top:2px solid var(--hn-text); margin-top:22px }
+.bdetail-head { padding:28px 30px 25px; border-bottom:1px solid var(--hn-line) }
+.bdetail-head .cats { display:flex; gap:10px; margin-bottom:12px; align-items:center }
+.bdetail-head h3 { font-size:28px; font-weight:800; margin:0; line-height:1.45; letter-spacing:-0.03em }
+.bdetail-meta { display:flex; padding:18px 30px; background:var(--hn-bg-alt); border-bottom:1px solid var(--hn-line); font-size:16px; gap:35px; flex-wrap:wrap }
+.bdetail-meta .field { display:flex; gap:10px; align-items:center }
+.bdetail-meta .k { color:var(--hn-text-3); font-size:14px }
+.bdetail-meta .v { color:var(--hn-text-2); font-family:ui-monospace,Menlo,monospace; font-size:16px }
+.bdetail-meta .share { margin-left:auto; display:flex; gap:10px; align-items:center }
+.bdetail-meta .share a { color:var(--hn-text-3); cursor:pointer }
+.bdetail-meta .share a:hover { color:var(--hn-text) }
+.bdetail-meta .share .label { font-size:14px; color:var(--hn-text-3) }
+.bdetail-body { padding:40px 30px; font-size:19px; color:var(--hn-text-2); line-height:1.9; border-bottom:1px solid var(--hn-line) }
+.bdetail-body p { margin:0 0 22px }
+.bdetail-body ol,.bdetail-body ul { padding-left:28px; margin-bottom:22px }
+.bdetail-body li { margin-bottom:8px }
+.bdetail-body h4 { font-size:20px; font-weight:800; color:var(--hn-text); margin:30px 0 12px; padding-left:12px; border-left:3px solid var(--hn-blue); letter-spacing:-0.02em }
+
+/* ── 이전/다음글 ──────────────────────────────────────────── */
+.bnav { border-top:1px solid var(--hn-line); border-bottom:1px solid var(--hn-line); margin-top:30px }
+.bnav .row { display:grid; grid-template-columns:125px 38px 1fr auto; padding:18px 30px; align-items:center; gap:20px; font-size:16px; border-bottom:1px solid var(--hn-line-soft) }
+.bnav .row:last-child { border-bottom:0 }
+.bnav .k { color:var(--hn-text-3); font-size:14px; font-weight:600 }
+.bnav .ic { color:var(--hn-text-4) }
+.bnav .t { color:var(--hn-text-2); overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.bnav .d { color:var(--hn-text-4); font-family:ui-monospace,Menlo,monospace; font-size:14px }
+
+/* ── 앨범 게시판 ──────────────────────────────────────────── */
+.album-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:25px; margin-top:4px }
+.album-card { background:#fff; border:1px solid var(--hn-line); overflow:hidden; cursor:pointer; transition:box-shadow .15s }
+.album-card:hover { box-shadow:0 4px 16px rgba(20,28,40,.1) }
+.album-thumb { position:relative; background:var(--hn-bg-alt2); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; overflow:hidden }
+.album-thumb img { width:100%; height:100%; object-fit:cover }
+.album-thumb .photo-empty { font-size:13px; color:var(--hn-text-4); letter-spacing:0.06em; text-align:center; line-height:1.6; font-family:ui-monospace,Menlo,monospace }
+.album-thumb .cat { position:absolute; top:12px; left:12px; font-size:12px; padding:4px 10px; background:rgba(20,28,40,.6); color:#fff; border:0; backdrop-filter:blur(4px); font-weight:700 }
+.album-thumb .cat.g { background:rgba(15,107,62,.75) }
+.album-thumb .cat.b { background:rgba(20,65,122,.75) }
+.album-thumb .count { position:absolute; top:12px; right:12px; font-size:13px; color:rgba(255,255,255,.9); background:rgba(20,28,40,.55); padding:4px 10px; display:flex; align-items:center; gap:5px; font-weight:600 }
+.album-body { padding:18px 20px 20px }
+.album-body .t { font-size:17px; font-weight:700; color:var(--hn-text); line-height:1.45; margin-bottom:10px; letter-spacing:-0.02em; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden }
+.album-body .meta { display:flex; justify-content:space-between; font-size:14px; color:var(--hn-text-3); font-family:ui-monospace,Menlo,monospace }
+.album-body .meta .views { display:flex; align-items:center; gap:5px }
+
+/* ── 게시판 첨부파일 아이콘 ──────────────────────── */
+.siiru-boardWrap .siiruBoard-list td.file { font-size:15px; color:var(--hn-text-3) }
+
+/* ── 일정 달력 ─────────────────────────────────── */
+.siiru-schdulwrap { padding:8px 0 }
+.schdul-select { display:flex; align-items:center; justify-content:center; gap:20px; padding:14px 0; margin-bottom:4px }
+.schdul-year { font-size:18px; font-weight:700; color:var(--hn-text); min-width:150px; text-align:center }
+.schdul-prev,.schdul-next { width:34px; height:34px; border:1px solid var(--hn-line); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--hn-text-2); text-decoration:none; position:relative; overflow:hidden; flex-shrink:0 }
+.schdul-prev::before { content:""; display:block; width:9px; height:9px; border-left:2px solid var(--hn-text-2); border-bottom:2px solid var(--hn-text-2); transform:rotate(45deg); margin-left:4px }
+.schdul-next::before { content:""; display:block; width:9px; height:9px; border-right:2px solid var(--hn-text-2); border-top:2px solid var(--hn-text-2); transform:rotate(45deg); margin-right:4px }
+.schdul-prev:hover,.schdul-next:hover { background:var(--hn-bg-alt) }
+.schdul-calendar { margin-bottom:20px }
+#calendarTable { width:100%; border-collapse:collapse; border-top:2px solid var(--hn-text); table-layout:fixed }
+#calendarTable caption { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0) }
+#calendarTable thead th { width:calc(100%/7); padding:12px 6px; text-align:center; font-size:15px; font-weight:700; color:var(--hn-text-2); background:var(--hn-bg-alt); border-bottom:1px solid var(--hn-line) }
+#calendarTable thead th.sun { color:var(--hn-red) }
+#calendarTable thead th.sat { color:var(--hn-blue) }
+#calendarTable tbody td { vertical-align:top; padding:10px 10px 8px; min-height:100px; height:100px; border-bottom:1px solid var(--hn-line-soft); border-right:1px solid var(--hn-line-soft); font-size:14px }
+#calendarTable tbody td:last-child { border-right:none }
+#calendarTable tbody td>span { display:flex; flex-direction:column; align-items:flex-start; gap:3px; font-size:14px; font-weight:600; color:var(--hn-text-2); margin-bottom:6px; line-height:1.2 }
+#calendarTable tbody td>span .cal-day-num { display:inline-flex; align-items:center; justify-content:center; min-width:1.5em; font-size:14px; font-weight:600; line-height:1; color:var(--hn-text-2) }
+#calendarTable tbody td.sun>span .cal-day-num,#calendarTable tbody td.holiday>span .cal-day-num { color:var(--hn-red) }
+#calendarTable tbody td.sat>span .cal-day-num { color:var(--hn-blue) }
+#calendarTable tbody td>span small { display:block; position:static; padding:0; margin:0; font-size:11px; color:var(--hn-red); font-weight:500; line-height:1.35; white-space:normal; word-break:keep-all }
+#calendarTable tbody td.today>span { width:auto; height:auto; background:transparent; border-radius:0 }
+#calendarTable tbody td.today>span .cal-day-num { display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; background:var(--hn-green); color:#fff; border-radius:50%; font-size:13px }
+#calendarTable tbody td a.schedule { display:block; font-size:12px; color:#fff; background:var(--hn-blue); padding:3px 7px; border-radius:3px; text-decoration:none; margin-bottom:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; line-height:1.5 }
+#calendarTable tbody td a.schedule:hover { background:var(--hn-green) }
+#calendarTable tbody td a.m_btn { display:none }
+.schdul-resultView { margin-top:8px }
+.detailDate { font-size:16px; font-weight:700; color:var(--hn-blue); padding:12px 0 14px; border-bottom:2px solid var(--hn-text); margin-bottom:0 }
+.detail-block { padding:16px 0; border-bottom:1px solid var(--hn-line-soft) }
+.detail-block>span { display:block; font-size:15px; font-weight:700; color:var(--hn-text); margin-bottom:8px }
+.detail-block dl { display:flex; flex-wrap:wrap; font-size:13px; margin-bottom:4px }
+.detail-block dl dt { width:60px; font-weight:600; color:var(--hn-text-3); flex-shrink:0; padding:2px 0 }
+.detail-block dl dd { flex:1; color:var(--hn-text-2); padding:2px 0 }
+.detail-block ul { list-style:none; padding:0; margin:8px 0 0 }
+.detail-block ul li { font-size:13px; margin-bottom:4px }
+.detail-block ul li a { color:var(--hn-blue); text-decoration:none }
+.result-well { background:var(--hn-bg-alt); padding:10px 14px; border-radius:4px; font-size:13px; color:var(--hn-text-2); margin-top:8px; line-height:1.8 }
+
+/* ── 반응형 ──────────────────────────────────── */
+@media (max-width:768px) {
+  .b-toolbar { flex-direction:column; align-items:stretch }
+  .b-toolbar .left { flex-wrap:wrap }
+  .btable { font-size:15px }
+  .btable colgroup { display:none }
+  .album-grid { grid-template-columns:1fr 1fr; gap:14px }
+  .bnav .row { grid-template-columns:96px 28px 1fr }
+  .bnav .d { display:none }
+  #calendarTable tbody td { height:64px; min-height:64px; padding:5px 4px }
+  #calendarTable thead th { font-size:12px; padding:8px 2px }
+  #calendarTable tbody td a.schedule { font-size:11px; padding:2px 4px }
+  #calendarTable tbody td>span { font-size:12px }
+}
+
+/* ── 공통 유틸 ──────────────────────────────────── */
+.siiru-fl { float:left }
+.siiru-fr { float:right }
+.siiru-tc { text-align:center }
+.siiru-mt0 { margin-top:0 }
+.siiru-mr10 { margin-right:10px }
+.siiru-tr { text-align:right }
+.siiru-clr::after { content:""; display:block; clear:both }
+.siiru-hidden { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0) }
+.siiru-ml5 { margin-left:5px }
+.siiru-ml10 { margin-left:10px }
+.siiru-mb20 { margin-bottom:20px }
+.siiru-mt5 { margin-top:5px }
+.siiru-mt10 { margin-top:10px }
+.siiru-pt10 { padding-top:10px }
+.throughline td,.throughline th { text-decoration:line-through; color:var(--hn-text-3) }
+
+/* ── 버튼 (siiru-btn) ───────────────────────────── */
+.siiru-btn { display:inline-flex; align-items:center; gap:4px; padding:7px 16px; border-radius:4px; font-size:14px; font-weight:500; border:1px solid var(--hn-line-strong); background:var(--hn-bg); color:var(--hn-text-2); cursor:pointer; text-decoration:none; transition:background 0.15s,color 0.15s }
+.siiru-btn:hover { background:var(--hn-bg-alt) }
+.siiru-btn-primary { background:var(--hn-green); border-color:var(--hn-green); color:#fff }
+.siiru-btn-primary:hover { background:#0a5530; border-color:#0a5530; color:#fff }
+.siiru-btn-default { background:var(--hn-bg); border-color:var(--hn-line-strong); color:var(--hn-text-2) }
+.siiru-btn-default:hover { background:var(--hn-bg-alt); color:var(--hn-text) }
+.siiru-btn-warning { background:#e8a000; border-color:#e8a000; color:#fff }
+.siiru-btn-warning:hover { background:#c48800; border-color:#c48800; color:#fff }
+.siiru-btn-danger { background:var(--hn-red); border-color:var(--hn-red); color:#fff }
+.siiru-btn-danger:hover { background:#8f2228; border-color:#8f2228; color:#fff }
+.siiru-btn-success { background:#2e7d32; border-color:#2e7d32; color:#fff }
+.siiru-btn-small { padding:4px 10px; font-size:13px }
+.siiru-btnSet { display:flex; gap:8px; justify-content:center; margin-top:20px }
+.siiru-boardWrap .siiru-btn,.siiru-boardWrap a.siiru-btn,.siiru-boardWrap button.siiru-btn,.siiru-boardWrap input.siiru-btn,.siiru-boardWrap input[type="submit"].siiru-btn,.siiru-boardWrap input[type="button"].siiru-btn { display:inline-flex; align-items:center; justify-content:center; gap:5px; min-height:30px; padding:5px 12px; font-size:12px; border-radius:0; font-weight:600; letter-spacing:-0.02em; transition:background 0.15s,border-color 0.15s,color 0.15s,opacity 0.15s }
+.siiru-boardWrap .siiru-btn i { font-size:13px; line-height:1 }
+.siiru-boardWrap .siiru-btn-primary { background:var(--hn-blue); border-color:var(--hn-blue); color:#fff }
+.siiru-boardWrap .siiru-btn-primary:hover { background:#103560; border-color:#103560; color:#fff; opacity:1 }
+.siiru-boardWrap>.siiru-tr.board-register .siiru-btn,.siiru-boardWrap>.siiru-tr.board-register a.siiru-btn { min-height:36px; padding:8px 18px; font-size:14px }
+.siiru-boardWrap .siiru-tc .siiru-btn,.siiru-boardWrap .siiru-tc a.siiru-btn,.siiru-boardWrap .siiru-tc input[type="submit"].siiru-btn { min-height:36px; padding:8px 18px; font-size:14px }
+
+/* ── 검색 폼 ──────────────────────────────────── */
+.siiru-boardWrap .siiruBoard-search form { gap:0 }
+.siiru-boardWrap .siiruBoard-search .board-search-bar { display:inline-flex; align-items:stretch; flex-wrap:nowrap; max-width:100%; min-width:0; background:var(--hn-bg-alt); border:1px solid var(--hn-line); border-radius:0; overflow:hidden }
+.siiru-boardWrap .siiruBoard-search .board-search-bar select { flex:0 1 auto; min-width:0; max-width:140px; padding:7px 28px 7px 10px; border:0; border-right:1px solid var(--hn-line); border-radius:0; font-size:13px; background-color:var(--hn-bg-alt); color:var(--hn-text-2); cursor:pointer; outline:0; appearance:none; background-image:url(data:image/svg+xml,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ width=\'10\'\ height=\'6\'\ viewBox=\'0\ 0\ 10\ 6\'%3E%3Cpath\ fill=\'%236B7380\'\ d=\'M1\ 1l4\ 4\ 4-4\'/%3E%3C/svg%3E); background-repeat:no-repeat; background-position:right 10px center; background-size:10px 6px }
+.siiru-boardWrap .siiruBoard-search .board-search-bar .board-search-query { display:flex; align-items:stretch; flex:1 1 auto; min-width:120px; max-width:100% }
+.siiru-boardWrap .siiruBoard-search .board-search-bar .board-search-query input[type="text"] { flex:1 1 auto; width:200px; min-width:0; max-width:100%; padding:7px 12px; border:0; border-right:1px solid var(--hn-line); border-radius:0; font-size:13px; background:var(--hn-bg-alt); color:var(--hn-text); outline:0 }
+.siiru-boardWrap .siiruBoard-search .board-search-bar .board-search-query input[type="text"]::placeholder { color:var(--hn-text-4) }
+.siiru-boardWrap .siiruBoard-search .board-search-bar .board-search-query button[type="submit"] { flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center; width:38px; min-width:38px; min-height:0; padding:0; margin:0; background:var(--hn-bg-alt); color:var(--hn-text-3); border:0; border-radius:0; font-size:15px; line-height:1; cursor:pointer }
+.siiru-boardWrap .siiruBoard-search .board-search-bar .board-search-query button[type="submit"]:hover { color:var(--hn-text-2); background:var(--hn-bg-alt2) }
+.siiru-boardWrap .pagination li a,.siiru-boardWrap #boardPage .pagination li a { border-radius:0; min-width:36px; width:36px; height:36px }
+
+/* ── 페이지네이션 (CMS: .pagination > ul > li > a) ───── */
+.siiru-boardWrap #boardPage .pagination li.active a,.siiru-boardWrap #boardPage .pagination li a.active { background:var(--hn-text); border-color:var(--hn-text); color:#fff }
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr { float:none; display:flex; align-items:center; flex-wrap:wrap; justify-content:center; gap:6px; width:100% }
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-btn,.siiru-boardWrap .siiruBoardBtnInfo a.siiru-btn,.siiru-boardWrap .siiruBoardBtnInfo button.siiru-btn { margin:0!important; min-height:32px; padding:6px 14px; border-radius:0; font-size:13px; font-weight:600; line-height:1.3; letter-spacing:-0.02em; box-shadow:none; transition:background 0.15s,border-color 0.15s,color 0.15s }
+.siiru-boardWrap .siiruBoardBtnInfo .delBtn { order:1; background:var(--hn-bg); border:1px solid var(--hn-red); color:var(--hn-red) }
+.siiru-boardWrap .siiruBoardBtnInfo .delBtn:hover { background:var(--hn-red); border-color:var(--hn-red); color:#fff }
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr>.siiru-btn-warning,.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr>a.siiru-btn-warning { order:2; background:var(--hn-bg); border:1px solid var(--hn-line-strong); color:var(--hn-text-2) }
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr>.siiru-btn-warning:hover,.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr>a.siiru-btn-warning:hover { background:var(--hn-bg-alt); border-color:var(--hn-text-3); color:var(--hn-text) }
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr>.siiru-btn:not(.siiru-btn-warning):not(.siiru-btn-danger),.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr>a.siiru-btn:not(.siiru-btn-warning):not(.siiru-btn-danger) { order:3; background:var(--hn-blue); border:1px solid var(--hn-blue); color:#fff }
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr>.siiru-btn:not(.siiru-btn-warning):not(.siiru-btn-danger):hover,.siiru-boardWrap .siiruBoardBtnInfo .siiru-fr>a.siiru-btn:not(.siiru-btn-warning):not(.siiru-btn-danger):hover { background:#103560; border-color:#103560; color:#fff }
+.siiru-boardWrap .siiruBoardBtnInfo .moveBtn,.siiru-boardWrap .siiruBoardBtnInfo .regBtn { display:none!important }
+
+/* ── 게시판 목록: 검색(좌) + 등록(우) 한 줄 ───────── */
+.siiru-boardWrap:has(>.siiruBoard-list),.siiru-boardWrap:has(>.siiruBoard-gallery) { display:grid; grid-template-columns:1fr auto; grid-template-areas:"listinfo listinfo""list list""page page""search register"; width:100%; align-items:center; column-gap:16px }
+.siiru-boardWrap:has(>.siiru-clr .board-district-filter):has(>.siiruBoard-list),.siiru-boardWrap:has(>.siiru-clr .board-district-filter):has(>.siiruBoard-gallery) { grid-template-areas:"tabs tabs""listinfo listinfo""list list""page page""search register" }
+.siiru-boardWrap:has(>.siiru-clr .board-district-filter)>.siiru-clr { grid-area:tabs; min-width:0; margin-bottom:24px; width:100% }
+.siiru-boardWrap:has(>.siiru-clr .board-district-filter):has(>.siiruBoard-view)>.siiru-clr,.siiru-boardWrap:has(>.siiru-clr .board-district-filter):has(>.siiruBoard-write)>.siiru-clr,.siiru-boardWrap:has(>.siiru-clr .board-district-filter):has(form>.siiruBoard-write)>.siiru-clr { margin-bottom:20px }
+.siiru-boardWrap:has(>.siiru-clr .board-district-filter)>.siiru-clr .board-district-filter.group-tabs { border-bottom:none; margin-bottom:0 }
+.siiru-boardWrap:has(>.siiruBoard-list)>.siiruBoard-listInfo,.siiru-boardWrap:has(>.siiruBoard-gallery)>.siiruBoard-listInfo { grid-area:listinfo; border-bottom:1px solid var(--hn-line-soft); padding-bottom:12px; margin-bottom:12px }
+.siiru-boardWrap>.siiruBoard-list,.siiru-boardWrap>.siiruBoard-gallery { grid-area:list }
+.siiru-boardWrap>#boardPage { grid-area:page; grid-column:1/-1; width:100%; text-align:center; border-bottom:1px solid var(--hn-line-soft) }
+.siiru-boardWrap>.siiruBoard-search { grid-area:search; min-width:0; margin-top:16px }
+.siiru-boardWrap>.siiru-tr.board-register,.siiru-boardWrap>.siiru-tr.siiru-mb20 { grid-area:register; margin-top:16px }
+
+/* ── 검색 폼 ──────────────────────────────────── */
+.siiru-boardWrap .siiruBoard-search { padding:0; margin:0 }
+.siiru-boardWrap .siiruBoard-search form { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-start; gap:0 }
+.siiru-boardWrap .siiruBoard-search .dateSearch { display:none }
+.siiru-boardWrap .siiruBoard-search .board-district-filter { display:none; width:100% }
+
+/* ── 목록 정보 ────────────────────────────────── */
+.siiru-boardWrap .siiruBoard-listInfo { display:flex; justify-content:space-between; align-items:center; padding:8px 0 0; margin-bottom:0; font-size:14px; color:var(--hn-text-3) }
+
+/* ── 테이블 목록 ──────────────────────────────── */
+.siiru-boardWrap .siiruBoard-list table { width:100%; border-collapse:collapse; border-top:2px solid var(--hn-text) }
+.siiru-boardWrap .siiruBoard-list thead th { background:var(--hn-bg-alt); padding:12px 10px; font-size:14px; font-weight:700; color:var(--hn-text-2); border-bottom:1px solid var(--hn-line); text-align:center }
+.siiru-boardWrap .siiruBoard-list thead th.boardSj,.siiru-boardWrap .siiruBoard-list thead th.subject { padding-left:16px }
+.siiru-boardWrap .siiruBoard-list tbody tr { border-bottom:1px solid var(--hn-line-soft) }
+.siiru-boardWrap .siiruBoard-list tbody tr:hover { background:var(--hn-bg-alt) }
+.siiru-boardWrap .siiruBoard-list tbody td,.siiru-boardWrap .siiruBoard-list tbody th[scope="row"] { padding:12px 10px; font-size:15px; color:var(--hn-text-2); text-align:center; vertical-align:middle }
+.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].boardSj,.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].subject { text-align:left; padding-left:16px }
+.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].boardSj a,.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].subject a { display:inline; color:var(--hn-text); text-decoration:none; font-weight:500; word-break:keep-all; overflow-wrap:anywhere }
+.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].boardSj a:hover,.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].subject a:hover { color:var(--hn-green) }
+.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].boardSj a.new::after,.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].subject a.new::after { content:"N"; display:inline; margin-left:6px; padding:0; background:none; border-radius:0; color:var(--hn-red); font-size:12px; font-weight:800; vertical-align:top; white-space:nowrap }
+.board-cat { display:inline-block; padding:3px 10px; font-size:12px; font-weight:600; line-height:1.35; color:#fff; background:var(--hn-blue); border:1px solid var(--hn-blue); border-radius:4px; vertical-align:middle; white-space:nowrap; max-width:100%; overflow:hidden; text-overflow:ellipsis }
+.board-cat.cat-g { background:var(--hn-green); border-color:var(--hn-green) }
+.board-cat.cat-b { background:var(--hn-blue); border-color:var(--hn-blue) }
+.board-cat.cat-r { background:#2d5a8a; border-color:#2d5a8a }
+.board-cat.cat-o { background:#5a7fa8; border-color:#5a7fa8 }
+.siiru-boardWrap>.siiruBoard-list:has(td.category,.ctgryNm,thead th.category) tbody td.ctgryNm,.siiru-boardWrap>.siiruBoard-list:has(td.category,.ctgryNm,thead th.category) tbody td.category,.siiru-boardWrap>.siiruBoard-list:has(td.category,.ctgryNm,thead th.category) tbody tr>td:nth-child(2) { text-align:center; vertical-align:middle }
+.siiru-boardWrap .siiruBoard-list .board-cat { padding:2px 7px; font-size:11px; font-weight:700; line-height:1.3 }
+.new-mark { display:inline; color:var(--hn-red); font-size:12px; font-weight:800; margin-left:6px; vertical-align:top; white-space:nowrap }
+.siiru-boardWrap .siiruBoard-list span.notice { display:inline-block; background:var(--hn-red); color:#fff; font-size:11px; font-weight:700; padding:2px 7px; border-radius:4px }
+.siiru-boardWrap .siiruBoard-list .reBlcok { display:inline-block; width:14px }
+.siiru-boardWrap .siiruBoard-list img.reply { width:12px; vertical-align:middle; margin-right:4px }
+.siiru-boardWrap .siiruBoard-list img.file { width:14px }
+.siiru-boardWrap .siiruBoard-list td.nodata { padding:40px 0; text-align:center; color:var(--hn-text-3); font-size:14px }
+.siiru-boardWrap .siiruBoard-list tbody tr.notice { background:var(--hn-green-soft) }
+.siiru-boardWrap .siiruBoard-list small { font-size:12px; color:var(--hn-text-3) }
+
+/* ── 페이지네이션 (CMS: .pagination > ul > li > a) ───── */
+.siiru-boardWrap #boardPage .pagination { clear:both; width:100%; text-align:center; padding:20px 0 }
+.siiru-boardWrap #boardPage .pagination ul { display:inline-flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:4px; padding:0; margin:0 auto; list-style:none }
+.siiru-boardWrap #boardPage .pagination li { list-style:none; margin:0; padding:0 }
+.siiru-boardWrap #boardPage .pagination li a { display:inline-flex; align-items:center; justify-content:center; min-width:36px; width:36px; height:36px; border:1px solid var(--hn-line); border-radius:0; font-size:13px; color:var(--hn-text-2); text-decoration:none }
+.siiru-boardWrap #boardPage .pagination li a.prev,.siiru-boardWrap #boardPage .pagination li a.next { font-size:12px }
+.siiru-boardWrap .pagination li a.first:empty,.siiru-boardWrap .pagination li a.prev:empty,.siiru-boardWrap .pagination li a.next:empty,.siiru-boardWrap .pagination li a.last:empty { font-size:0 }
+.siiru-boardWrap .pagination li a.first:empty::before,.siiru-boardWrap .pagination li a.prev:empty::before,.siiru-boardWrap .pagination li a.next:empty::before,.siiru-boardWrap .pagination li a.last:empty::before { font-family:"Font Awesome 7 Pro","Font Awesome 6 Pro","Font Awesome 6 Free"; font-weight:400; font-size:13px; line-height:1; color:var(--hn-text-2); speak:never }
+.siiru-boardWrap .pagination li a.first:empty::before { content:"" }
+.siiru-boardWrap .pagination li a.prev:empty::before { content:"" }
+.siiru-boardWrap .pagination li a.next:empty::before { content:"" }
+.siiru-boardWrap .pagination li a.last:empty::before { content:"" }
+.siiru-boardWrap #boardPage .pagination li a:hover { background:var(--hn-bg-alt) }
+.siiru-boardWrap #boardPage .pagination li.active a,.siiru-boardWrap #boardPage .pagination li a.active { background:var(--hn-text); border-color:var(--hn-text); color:#fff }
+
+/* ── 뷰 페이지 ────────────────────────────────── */
+.siiru-boardWrap .siiruBoard-view { width:100%; border-top:2px solid var(--hn-text); margin-bottom:20px }
+.siiru-boardWrap .siiruBoard-view>form>h4 { margin:0; padding:12px 16px; font-size:20px; font-weight:600; color:var(--hn-text); background:var(--hn-bg-alt); border-bottom:1px solid var(--hn-line); line-height:1.45 }
+.siiru-boardWrap .siiruBoard-view>form>h4.text-danger { color:var(--hn-red) }
+.siiru-boardWrap .siiruBoard-view>form>h4 span.notice { display:inline-block; background:var(--hn-red); color:#fff; font-size:11px; font-weight:700; padding:2px 7px; border-radius:3px; margin-right:6px }
+.siiru-boardWrap .siiruBoardInfo { border-bottom:1px solid var(--hn-line) }
+.boardInfo-view { display:block; padding:12px 16px; font-size:14px; color:var(--hn-text-2); line-height:1.5 }
+.boardInfo-view span { display:inline-block; margin-right:10px; margin-bottom:4px; vertical-align:middle }
+.boardInfo-view span:nth-child(2) { border-left:1px solid var(--hn-line-strong); border-right:1px solid var(--hn-line-strong); padding:0 15px }
+.siiru-boardWrap .siiruBoardInfo dl { display:flex; border-top:1px solid var(--hn-line-soft); padding:10px 16px; font-size:14px }
+.siiru-boardWrap .siiruBoardInfo dl dt { width:90px; font-weight:600; color:var(--hn-text-2); flex-shrink:0 }
+.siiru-boardWrap .siiruBoardInfo dl dd { flex:1; color:var(--hn-text-2) }
+.siiru-boardWrap .siiruBoardInfo dl dd ul { list-style:none; padding:0; margin:0 }
+.siiru-boardWrap .siiruBoardInfo dl dd ul li { margin-bottom:6px }
+.siiru-boardWrap .siiruBoardInfo dl dd ul li a { color:var(--hn-blue); text-decoration:none }
+.siiru-boardWrap .siiruBoardInfo dl dd ul li a:hover { text-decoration:underline }
+.siiru-boardWrap .siiruBoardInfo dl dd small { font-size:12px; color:var(--hn-text-3); margin-left:8px }
+.siiru-boardWrap .siiruBoardBody { margin:0; padding:0; border-top:1px solid var(--hn-line); color:var(--hn-text-2) }
+.boardContents { padding:24px 16px; font-size:16px; line-height:1.75; color:var(--hn-text-2) }
+.boardContents img { max-width:100%; height:auto; margin-top:8px }
+.boardContents p { margin-bottom:12px }
+.boardContents h4 { margin:20px 0 10px; font-size:16px; font-weight:700; color:var(--hn-text) }
+.imageView { margin-bottom:20px }
+.imageView img { max-width:100%; display:block; margin-bottom:8px }
+.imageView small { font-size:12px; color:var(--hn-text-3); display:block; margin-bottom:12px }
+.videoView { margin-bottom:20px }
+.videoView video { max-width:100% }
+.audioView { margin-bottom:20px }
+.siiru-boardWrap .siiruBoardBtnInfo { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin:0; padding:12px 16px; background:var(--hn-bg-alt); border-top:1px solid var(--hn-line); overflow:visible }
+.siiru-boardWrap .siiruBoardBtnInfo .siiru-fl { float:none; display:flex; align-items:center; flex-wrap:wrap; gap:6px }
+.manageInfo { padding:12px 16px 16px; font-size:13px; color:var(--hn-text-3); border-top:1px solid var(--hn-line-soft) }
+.manageInfo small { display:block; margin-bottom:4px; line-height:1.5 }
+.siiru-boardWrap .siiruBoardList { margin:0; padding:0 16px; border-top:1px solid var(--hn-line-soft) }
+.siiru-boardWrap .siiruBoardList ul { list-style:none; padding:0; margin:0 }
+.siiru-boardWrap .siiruBoardList ul li { display:flex; align-items:center; gap:10px; padding:11px 0; border-top:1px solid var(--hn-line-soft); font-size:14px; color:var(--hn-text-2); line-height:1.5 }
+.siiru-boardWrap .siiruBoardList ul li:first-child { border-top:0 }
+.siiru-boardWrap .siiruBoardList ul li:last-child { border-bottom:1px solid var(--hn-line-soft) }
+.siiru-boardWrap .siiruBoardList ul li>span:first-child { flex:0 0 48px; width:48px; margin:0; padding:0; border:0; font-size:14px; font-weight:700; color:var(--hn-text-3) }
+.siiru-boardWrap .siiruBoardList ul li a { flex:1 1 auto; min-width:0; color:var(--hn-text-2); text-decoration:none; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.siiru-boardWrap .siiruBoardList ul li a:hover { color:var(--hn-green) }
+.siiru-boardWrap .siiruBoardList ul li .siiruBoardList-empty { flex:1 1 auto; min-width:0; color:var(--hn-text-3); font-size:14px }
+.siiru-boardWrap .siiruBoardList ul li small { flex:0 0 auto; float:none; margin-left:auto; font-size:12px; color:var(--hn-text-3); white-space:nowrap }
+.siiru-boardWrap .siiruBoardList ul li img.reply,.siiru-boardWrap .siiruBoardList ul li img.secret { flex:0 0 auto; vertical-align:middle }
+.siiru-boardWrap .siiruBoardViewlist { margin-top:28px; padding:0 }
+.siiru-boardWrap .siiruBoardViewlist .siiruBoard-listInfo { padding:8px 0 12px; font-size:14px; color:var(--hn-text-3) }
+.siiru-boardWrap .siiruBoardViewlist .siiruBoard-list thead th { font-size:14px; padding:12px 10px }
+.siiru-boardWrap .siiruBoardViewlist .siiruBoard-list tbody td,.siiru-boardWrap .siiruBoardViewlist .siiruBoard-list tbody th[scope="row"] { font-size:15px; padding:12px 10px }
+.siiru-boardWrap .siiruBoardViewlist #boardPage .pagination li a { font-size:14px }
+
+/* ── 댓글 영역 ────────────────────────────────── */
+.siiru-boardWrap .siiruBoardComt { border-top:2px solid var(--hn-text); margin-top:24px }
+.siiru-boardWrap .siiruBoardComt dl dt { display:flex; align-items:center; justify-content:space-between; padding:12px 0; font-weight:700; font-size:15px; color:var(--hn-text) }
+.siiru-boardWrap .siiruBoardComt dl dd { padding:0 }
+#boardComtList { display:flex; flex-direction:column; gap:8px; list-style:none; padding:0; margin:0 }
+#boardComtList li { display:grid; grid-template-columns:auto minmax(0,1fr) auto; grid-template-areas:"author meta actions""content content content"; gap:5px 12px; align-items:center; padding:12px; border:1px solid var(--hn-line-soft); border-radius:6px; background:var(--hn-bg); box-shadow:0 1px 0 rgba(21,24,29,0.02) }
+#boardComtList li .well { grid-area:content; background:var(--hn-bg-alt); padding:9px 12px; border-radius:4px; margin:0; font-size:14px; line-height:1.55; color:var(--hn-text-2) }
+#boardComtList li .well>div { margin:0; word-break:keep-all; overflow-wrap:anywhere }
+#boardComtList li span { grid-area:author; min-width:0; font-size:14px; font-weight:700; color:var(--hn-text); white-space:nowrap }
+#boardComtList small.siiru-fr { grid-area:meta; float:none!important; justify-self:start; display:inline-block; min-width:0; font-size:12px; color:var(--hn-text-3); line-height:1.4; white-space:nowrap; overflow:hidden; text-overflow:clip }
+#boardComtList li>.siiru-tr { grid-area:actions; display:flex; align-items:center; justify-content:flex-end; gap:4px; text-align:right; clear:none }
+#boardComtList li>.siiru-tr .siiru-btn { min-height:24px; padding:3px 8px; font-size:12px; border-radius:0; line-height:1.25 }
+#boardComtList li>.siiru-tr .siiru-btn-warning { background:var(--hn-bg); border:1px solid var(--hn-line-strong); color:var(--hn-text-2) }
+#boardComtList li>.siiru-tr .siiru-btn-warning:hover { background:var(--hn-bg-alt); border-color:var(--hn-text-3); color:var(--hn-text) }
+#boardComtList li>.siiru-tr .siiru-btn-danger { background:var(--hn-bg); border:1px solid var(--hn-red); color:var(--hn-red) }
+#boardComtList li>.siiru-tr .siiru-btn-danger:hover { background:var(--hn-red); border-color:var(--hn-red); color:#fff }
+.siiru-boardWrap .siiruBoardComt .nodata { text-align:center; color:var(--hn-text-3); font-size:14px }
+.comtManage { display:none }
+.siiru-boardWrap .inlineComtForm { margin-top:12px!important; padding:14px!important; border:1px solid var(--hn-line-soft)!important; border-radius:6px; background:var(--hn-bg-alt); box-sizing:border-box }
+.siiru-boardWrap .inlineComtForm form { margin:0 }
+.siiru-boardWrap .inlineComtForm .secretForm { display:flex; align-items:center; gap:5px; margin:0 0 8px!important; font-size:13px; color:var(--hn-text-2) }
+.siiru-boardWrap .inlineComtForm .secretForm input { margin:0; accent-color:var(--hn-green) }
+.siiru-boardWrap .inlineComtForm .passwdForm { display:grid; grid-template-columns:86px minmax(0,1fr); align-items:center; gap:0; margin:0 0 8px!important; border:1px solid var(--hn-line-soft); background:var(--hn-bg) }
+.siiru-boardWrap .inlineComtForm .passwdForm dt { padding:8px 10px; background:var(--hn-bg-alt); font-size:13px; font-weight:700; color:var(--hn-text-2) }
+.siiru-boardWrap .inlineComtForm .passwdForm dt span { color:var(--hn-red); margin-right:3px }
+.siiru-boardWrap .inlineComtForm .passwdForm dd { margin:0; padding:8px 10px }
+.siiru-boardWrap .inlineComtForm input[type="password"] { width:100%; max-width:220px; min-height:34px; padding:7px 10px; border:1px solid var(--hn-line); border-radius:4px; font-size:14px; font-family:inherit; box-sizing:border-box; outline:0 }
+.siiru-boardWrap .inlineComtForm textarea { display:block; width:100%!important; min-height:86px; padding:10px 12px; border:1px solid var(--hn-line); border-radius:4px; background:var(--hn-bg); color:var(--hn-text); font-size:14px; font-family:inherit; line-height:1.55; resize:vertical; box-sizing:border-box; outline:0 }
+.siiru-boardWrap .inlineComtForm textarea:focus,.siiru-boardWrap .inlineComtForm input[type="password"]:focus { border-color:var(--hn-blue); box-shadow:0 0 0 2px var(--hn-blue-soft) }
+.siiru-boardWrap .inlineComtForm textarea::placeholder { color:var(--hn-text-4) }
+.siiru-boardWrap .inlineComtForm .siiru-tr { display:flex; align-items:center; justify-content:flex-end; gap:6px; margin-top:8px; text-align:right }
+.siiru-boardWrap .inlineComtForm .siiru-btn { margin-left:0!important; min-height:30px; padding:5px 12px; font-size:12px; font-weight:600; line-height:1.3; border-radius:0 }
+.siiru-boardWrap .inlineComtForm .comtMBtn { background:var(--hn-blue); border:1px solid var(--hn-blue); color:#fff }
+.siiru-boardWrap .inlineComtForm .comtMBtn:hover { background:#103560; border-color:#103560; color:#fff }
+.siiru-boardWrap .inlineComtForm .comtCancelBtn { background:var(--hn-text); border:1px solid var(--hn-text); color:#fff; font-size:0 }
+.siiru-boardWrap .inlineComtForm .comtCancelBtn::after { content:"수정 취소"; font-size:12px }
+.siiru-boardWrap .inlineComtForm .comtCancelBtn:hover { background:#000; border-color:#000; color:#fff }
+
+/* ── 작성 폼 (게시판 작성) ───────────────── */
+.siiru-boardWrap .siiruBoard-write { border-top:1px solid var(--hn-line) }
+.siiru-boardWrap .siiruBoard-write dl { display:flex; align-items:center; margin-bottom:0; border-bottom:1px solid var(--hn-line) }
+.siiru-boardWrap .siiruBoard-write dl:has(>dd.fileChk),.siiru-boardWrap .siiruBoard-write dl:has(>dd.fullCont) { align-items:flex-start }
+.siiru-boardWrap .siiruBoard-write dl dt { width:120px; min-width:120px; padding:10px 12px; background:var(--hn-bg-alt); font-size:15px; font-weight:700; color:var(--hn-text-2); display:flex; flex-wrap:wrap; align-items:center; gap:2px 6px; flex-shrink:0; line-height:1.35; box-sizing:border-box }
+.siiru-boardWrap .siiruBoard-write dl:has(>dd.fileChk)>dt,.siiru-boardWrap .siiruBoard-write dl>dt.siiru-pt10 { align-self:flex-start }
+.siiru-boardWrap .siiruBoard-write dl dt label { line-height:1.4; cursor:pointer }
+.siiru-boardWrap .siiruBoard-write dl dt span:not(.btnLayer) { color:var(--hn-red) }
+.siiru-boardWrap .siiruBoard-write dl dt span.label { color:var(--hn-text-2); font-weight:700 }
+.siiru-boardWrap .siiruBoard-write dl dt span.required { color:var(--hn-red) }
+.siiru-boardWrap .siiruBoard-write dl dt span.btnLayer { display:inline-flex; align-items:center; margin-left:auto; padding-top:0; color:inherit }
+.siiru-boardWrap .siiruBoard-write dl:has(>dd.fileChk)>dt,.siiru-boardWrap .siiruBoard-write dl>dt.siiru-pt10 { flex-wrap:nowrap; justify-content:space-between; align-items:center }
+.siiru-boardWrap .siiruBoard-write dl:has(>dd.fileChk)>dt span.btnLayer,.siiru-boardWrap .siiruBoard-write dl>dt.siiru-pt10 span.btnLayer { margin-left:auto; flex-shrink:0 }
+.siiru-boardWrap .siiruBoard-write dl dt.siiru-pt10 { align-items:center; align-content:center }
+.siiru-boardWrap .siiruBoard-write dl>dt.siiru-hidden { width:0; min-width:0; padding:0; margin:0; border:0; flex:0 0 0; overflow:hidden }
+.siiru-boardWrap .siiruBoard-write dl dd { flex:1; min-width:0; padding:10px 12px 0; display:flex; align-items:center; box-sizing:border-box }
+.siiru-boardWrap .siiruBoard-write dl:has(>dd.fileChk)>dd,.siiru-boardWrap .siiruBoard-write dl>dd.fullCont { display:block; align-items:stretch }
+.siiru-boardWrap .siiruBoard-write dl dd input[type="text"],.siiru-boardWrap .siiruBoard-write dl dd input[type="password"],.siiru-boardWrap .siiruBoard-write dl dd input.maskDate,.siiru-boardWrap .siiruBoard-write dl dd input.maskTime,.siiru-boardWrap .siiruBoard-write dl dd input.dateForm { padding:7px 10px; border:1px solid var(--hn-line); border-radius:4px; font-size:15px; font-family:inherit; outline:0; width:100%; max-width:100%; min-height:36px; box-sizing:border-box; line-height:1.35 }
+.siiru-boardWrap .siiruBoard-write dl dd input[disabled] { background:var(--hn-bg-alt); color:var(--hn-text-4); cursor:not-allowed }
+.siiru-boardWrap .siiruBoard-write dl dd input.small2 { width:100%; max-width:240px }
+.siiru-boardWrap .siiruBoard-write dl dd input.small { width:100%; max-width:160px }
+.siiru-boardWrap .siiruBoard-write dl dd:has(input.maskDate,input.dateForm,img.ui-datepicker-trigger) { flex-wrap:nowrap; gap:6px }
+.siiru-boardWrap .siiruBoard-write dl dd input.maskDate.small,.siiru-boardWrap .siiruBoard-write dl dd input.dateForm,.siiru-boardWrap .siiruBoard-write dl dd input.dateForm.maskDate,.siiru-boardWrap .siiruBoard-write dl dd input.maskDate.nothangul { width:118px; min-width:118px; max-width:118px; flex:0 0 118px; margin:0; padding:7px 10px }
+.siiru-boardWrap .siiruBoard-write dl dd input.maskTime.small,.siiru-boardWrap .siiruBoard-write dl dd input.maskTime.nothangul { width:84px; min-width:84px; max-width:84px; flex:0 0 84px; margin:0; padding:7px 10px }
+.siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger { display:block; flex:0 0 32px; width:32px; height:32px; margin:0; padding:0; border:0; border-radius:0; background:var(--hn-text); box-sizing:border-box; object-fit:contain; object-position:center; vertical-align:top; cursor:pointer }
+.siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger:hover { opacity:0.88 }
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .siiru-btn,.siiru-boardWrap .siiruBoard-write dt span.btnLayer .fileAdd { min-height:0; padding:6px 12px; font-size:13px; font-weight:600; line-height:1.35; border:1px solid var(--hn-line-strong); border-radius:0; background:var(--hn-bg); color:var(--hn-text-2) }
+.siiru-boardWrap .siiruBoard-write dt span.btnLayer .siiru-btn:hover,.siiru-boardWrap .siiruBoard-write dt span.btnLayer .fileAdd:hover { background:var(--hn-bg-alt); color:var(--hn-text) }
+.siiru-boardWrap .siiruBoard-write dl dd select { width:100%; max-width:320px; padding:7px 10px; border:1px solid var(--hn-line); border-radius:4px; font-size:15px; background:var(--hn-bg); color:var(--hn-text-2); outline:0; min-height:36px; box-sizing:border-box; line-height:1.35 }
+.siiru-boardWrap .siiruBoard-write dl.fullCont dd,.siiru-boardWrap .siiruBoard-write dl dd.fullCont { padding:0 }
+.siiru-boardWrap .siiruBoard-write dl>dt.siiru-hidden+dd.fullCont { width:100%; flex:1 1 100% }
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke,.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_reset { max-width:100%; box-sizing:border-box }
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke { display:block; width:100%!important; border:1px solid var(--hn-line); border-radius:4px; overflow:hidden; background:var(--hn-bg); box-shadow:none }
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_top { display:block; padding:8px; border-bottom:1px solid var(--hn-line-soft); background:var(--hn-bg-alt); white-space:normal }
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_toolbox { display:flex; flex-wrap:wrap; align-items:center; gap:6px }
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_toolbar { display:inline-flex; align-items:center; margin:0; padding:0 }
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_toolgroup { display:inline-flex; align-items:center; gap:2px; padding:3px; border:1px solid var(--hn-line-soft); border-radius:4px; background:var(--hn-bg) }
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_button { display:inline-flex; align-items:center; justify-content:center; min-width:28px; height:28px; padding:0 6px; border-radius:3px; color:var(--hn-text-2); text-decoration:none; box-sizing:border-box }
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_button:hover { background:var(--hn-bg-alt2) }
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_button_label,.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_voice_label { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0) }
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_button_icon { display:block; width:16px; height:16px; background:var(--hn-text-3); border-radius:2px }
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_contents { min-height:300px; background:var(--hn-bg) }
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_wysiwyg_frame { display:block; width:100%!important; min-height:300px; border:0; background:var(--hn-bg) }
+.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_bottom { display:flex; justify-content:flex-end; padding:6px 8px; border-top:1px solid var(--hn-line-soft); background:var(--hn-bg-alt); color:var(--hn-text-4); font-size:11px }
+.siiru-boardWrap .siiruBoard-write dl dd textarea { width:100%; padding:8px 10px; border:1px solid var(--hn-line); border-radius:4px; font-size:15px; font-family:inherit; outline:0; resize:vertical; box-sizing:border-box; line-height:1.4 }
+.siiru-boardWrap .siiruBoard-write dl dd:has(>input[type="checkbox"]:first-child) { display:flex; flex-wrap:wrap; align-items:center; gap:6px 14px }
+.siiru-boardWrap .siiruBoard-write dl dd input[type="checkbox"],.siiru-boardWrap .siiruBoard-write dl dd input[type="radio"] { width:auto; flex-shrink:0; margin:0; accent-color:var(--hn-green) }
+.siiru-boardWrap .siiruBoard-write dl dd input[type="checkbox"]+label,.siiru-boardWrap .siiruBoard-write dl dd input[type="radio"]+label { font-size:14px; font-weight:500; color:var(--hn-text-2); line-height:1.4; cursor:pointer }
+.siiru-boardWrap .siiruBoard-write .separator { margin:0 6px; color:var(--hn-text-3) }
+.siiru-boardWrap .siiruBoard-write #ndtFocus>dd { align-items:flex-start; gap:8px 12px }
+.siiru-boardWrap .siiruBoard-write #ndtFocus>dd>div { display:flex; flex-wrap:wrap; align-items:center; gap:6px; width:100%; min-width:0 }
+.siiru-boardWrap .siiruBoard-write #ndtFocus>dd>div small { flex:1 1 100%; margin-top:2px; color:var(--hn-text-3) }
+.siiru-boardWrap .siiruBoard-write .btnLayer { margin-left:10px }
+.siiru-boardWrap .siiruBoard-write small { font-size:12px; color:var(--hn-text-3); display:block; margin-top:6px; line-height:1.5 }
+.siiru-boardWrap .siiruBoard-write dl dd.fileChk { display:flex; flex-direction:column; gap:0; padding:10px 12px 0 }
+.siiru-boardWrap .siiruBoard-write .fileLayer { display:flex; flex-direction:row; flex-wrap:wrap; align-items:center; gap:8px; padding:10px; margin:0; border:1px solid var(--hn-line-soft); border-radius:4px; background:var(--hn-bg-alt) }
+.siiru-boardWrap .siiruBoard-write .fileLayer>.fileInfo,.siiru-boardWrap .siiruBoard-write .fileLayer>input[type="file"].file,.siiru-boardWrap .siiruBoard-write .fileLayer>textarea,.siiru-boardWrap .siiruBoard-write .fileLayer>small { flex:1 1 100%; width:100% }
+.siiru-boardWrap .siiruBoard-write .fileLayer+.fileLayer,.siiru-boardWrap .siiruBoard-write #fileForm .fileLayer,.siiru-boardWrap .siiruBoard-write .fileLayer.siiru-mt10 { margin-top:10px }
+.siiru-boardWrap .siiruBoard-write .fileLayer:last-child { border-bottom:1px solid var(--hn-line-soft) }
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo { display:flex; flex-wrap:nowrap; align-items:center; gap:8px 10px; margin:0; padding:0 0 8px; border-bottom:1px solid var(--hn-line-soft); font-size:13px }
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo:empty,.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo:not(:has(.fileView a[href]:not([href=""]))) { display:none; padding:0; border:0 }
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[type="hidden"] { display:none }
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo .fileView { flex:1 1 auto; min-width:0; overflow:hidden }
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo .fileView a { display:block; font-size:12px; font-weight:500; line-height:1.4; color:var(--hn-text-3); text-decoration:none; word-break:break-all; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo .fileView a[href]:not([href=""]) { color:var(--hn-blue); font-weight:600 }
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo .fileView a:hover { text-decoration:underline }
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[data-input="fileDel"],.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[name="fileDelChk[]"] { width:16px; height:16px; margin:0; accent-color:var(--hn-red); cursor:pointer }
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[data-input="fileDel"]+label,.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[name="fileDelChk[]"]+label { display:inline-flex; align-items:center; flex-shrink:0; min-height:0; margin:0; padding:0; font-size:13px; font-weight:500; line-height:1.35; color:var(--hn-red); white-space:nowrap; cursor:pointer; background:transparent; border:0; border-radius:0 }
+.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[data-input="fileDel"]:checked+label,.siiru-boardWrap .siiruBoard-write .fileLayer .fileInfo input[name="fileDelChk[]"]:checked+label { font-weight:700; text-decoration:line-through }
+.siiru-boardWrap .siiruBoard-write .fileLayer input[type="file"].file { display:block; width:100%; max-width:100%; margin:0; padding:0; font-size:12px; line-height:1.4; color:var(--hn-text-3); border:0; background:transparent; cursor:pointer }
+.siiru-boardWrap .siiruBoard-write .fileLayer input[type="file"].file::file-selector-button { margin-right:8px; padding:6px 12px; border:1px solid var(--hn-line-strong); border-radius:0; background:var(--hn-bg); color:var(--hn-text-2); font-family:inherit; font-size:13px; font-weight:600; line-height:1.35; cursor:pointer; transition:background 0.15s,color 0.15s }
+.siiru-boardWrap .siiruBoard-write .fileLayer input[type="file"].file::file-selector-button:hover { background:var(--hn-bg-alt); color:var(--hn-text) }
+.siiru-boardWrap .siiruBoard-write .fileLayer input[type="file"].file::-webkit-file-upload-button { margin-right:8px; padding:6px 12px; border:1px solid var(--hn-line-strong); border-radius:0; background:var(--hn-bg); color:var(--hn-text-2); font-family:inherit; font-size:13px; font-weight:500; line-height:1.35; cursor:pointer }
+.siiru-boardWrap .siiruBoard-write .fileLayer .file-options { display:flex; flex-wrap:wrap; align-items:center; gap:8px 10px }
+.siiru-boardWrap .siiruBoard-write .fileLayer>input[type="checkbox"],.siiru-boardWrap .siiruBoard-write .fileLayer>input.fileCheckbox { width:18px; height:18px; margin:0; flex-shrink:0; accent-color:var(--hn-green) }
+.siiru-boardWrap .siiruBoard-write .fileLayer>input[type="checkbox"]+label,.siiru-boardWrap .siiruBoard-write .fileLayer>input.fileCheckbox+label { display:inline-flex; align-items:center; min-height:0; margin:0 14px 0 0; padding:0 0 0 4px; font-size:14px; font-weight:500; color:var(--hn-text-2); line-height:1.4; cursor:pointer; white-space:nowrap; background:transparent; border:0; border-radius:0 }
+.siiru-boardWrap .siiruBoard-write .fileLayer>input[type="checkbox"]:checked+label,.siiru-boardWrap .siiruBoard-write .fileLayer>input.fileCheckbox:checked+label { color:var(--hn-text); font-weight:600 }
+.siiru-boardWrap .siiruBoard-write .fileLayer>textarea { display:block; width:100%; min-height:30px; height:30px; margin:4px 0 0; padding:5px 8px; font-size:12px; line-height:1.35; color:var(--hn-text-3); resize:none; overflow:hidden; box-sizing:border-box }
+.siiru-boardWrap .siiruBoard-write .fileLayer>small { margin-top:0 }
+.siiru-boardWrap .siiruBoard-write .fileCheckbox,.fileCheckbox { accent-color:var(--hn-green) }
+.fileLayer { padding:10px 0; border-bottom:1px solid var(--hn-line-soft) }
+.fileLayer:last-child { border-bottom:none }
+.fileInfo { margin-bottom:6px; font-size:13px }
+.fileInfo .fileView a { color:var(--hn-blue) }
+.radioBlock { margin-bottom:8px }
+.radioBlock label { display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:13px }
+
+/* ── 갤러리 목록 ──────────────────────────────── */
+.siiru-boardWrap .siiruBoard-gallery { display:grid; grid-template-columns:repeat(4,1fr); gap:20px 16px; padding:16px 0 }
+@media (max-width:1024px) {
+  .siiru-boardWrap .siiruBoard-gallery { grid-template-columns:repeat(3,1fr) }
+}
+
+/* ── 반응형 ──────────────────────────────────── */
+@media (max-width:768px) {
+  .siiru-boardWrap .siiruBoard-gallery { grid-template-columns:repeat(2,1fr); gap:14px 10px }
+}
+
+/* ── 갤러리 목록 ──────────────────────────────── */
+.siiru-boardWrap .siiruBoard-galleryBox .photoBox { aspect-ratio:4/3; overflow:hidden; background:var(--hn-bg-alt2); border-radius:6px }
+.siiru-boardWrap .siiruBoard-galleryBox .photoBox img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.2s; cursor:pointer }
+.siiru-boardWrap .siiruBoard-galleryBox .photoBox a:hover img { transform:scale(1.04) }
+.siiru-boardWrap .siiruBoard-galleryBox dl { margin:8px 0 0 }
+.siiru-boardWrap .siiruBoard-galleryBox dl dt { font-size:14px; font-weight:500; color:var(--hn-text); line-height:1.45; text-align:left }
+.siiru-boardWrap .siiruBoard-galleryBox dl dt a { display:block; line-height:1.5; color:inherit; text-decoration:none }
+.siiru-boardWrap .siiruBoard-galleryBox dl dt a:hover { color:var(--hn-green) }
+.siiru-boardWrap .siiruBoard-galleryBox dl dt a:hover .board-sj { color:var(--hn-green) }
+.siiru-boardWrap .siiruBoard-galleryBox dl dt a .board-cat { display:block; width:fit-content; max-width:100%; margin:0 0 6px; padding:2px 7px; font-size:11px; font-weight:700; line-height:1.3 }
+.siiru-boardWrap .siiruBoard-galleryBox dl dt a .board-sj,.siiru-boardWrap .siiruBoard-galleryBox dl dt a .new-mark { display:inline; vertical-align:top }
+.siiru-boardWrap .siiruBoard-galleryBox .board-sj { font-weight:500; line-height:1.45; color:var(--hn-text); word-break:keep-all; overflow-wrap:anywhere }
+.siiru-boardWrap .siiruBoard-galleryBox a:not(.new) .new-mark { display:none }
+.siiru-boardWrap .siiruBoard-galleryBox dl dd { font-size:12px; color:var(--hn-text-3); margin-top:4px; text-align:right }
+.siiru-boardWrap .siiruBoard-galleryBox dl dd span { margin-left:5px }
+.siiru-boardWrap .siiruBoard-galleryBox.throughline dl dt a { text-decoration:line-through; color:var(--hn-text-3) }
+
+/* ── 모달 (siiru-modal / jquery-modal) ──────────────────────── */
+/* SiiRU: kylefox jquery-modal(.blocker z-index:1) + class="siiruModal modal". bootstrap.min.css가 .modal을 나중에 덮어씀 → 보정 */
+.siiru-boardWrap .siiruModal.modal,.siiruModal.modal { display:none; position:relative; top:auto; left:auto; width:min(640px,calc(100vw - 32px)); max-width:min(640px,calc(100vw - 32px)); height:auto; max-height:calc(100dvh - 48px); margin:0; padding:0; overflow:hidden; outline:0; box-shadow:0 18px 56px rgba(15,24,43,0.22); border:1px solid var(--hn-line); border-radius:8px; background:var(--hn-bg); vertical-align:middle; box-sizing:border-box }
+.blocker.jquery-modal { position:fixed; inset:0; z-index:2200!important; display:flex; align-items:center; justify-content:center; width:100%; height:100%; padding:20px; overflow:auto; box-sizing:border-box; background:rgba(15,24,43,0.58); text-align:left }
+.blocker.jquery-modal .siiruModal.modal { display:inline-block; position:relative; top:auto; left:auto; width:min(640px,calc(100vw - 32px)); max-width:min(640px,calc(100vw - 32px)); height:auto; max-height:calc(100dvh - 48px); margin:0; overflow:hidden; z-index:auto }
+.blocker.jquery-modal #comtMModal.siiruModal.modal { width:min(720px,calc(100vw - 32px)); max-width:min(720px,calc(100vw - 32px)) }
+.siiruModal.modal .siiruModalHeader { padding:16px 20px; border-bottom:1px solid var(--hn-line); background:var(--hn-bg-alt); font-weight:700; font-size:17px; color:var(--hn-text) }
+.siiruModal.modal .siiruModalHeader p { margin:0; line-height:1.35 }
+.siiruModal.modal .siiruModalBody { padding:20px; max-height:calc(100dvh - 168px); overflow-y:auto; font-size:14px; color:var(--hn-text-2); box-sizing:border-box }
+.siiruModal.modal .siiruModalFooter { display:flex; align-items:center; justify-content:flex-end; gap:8px; padding:14px 20px; border-top:1px solid var(--hn-line-soft); background:var(--hn-bg); text-align:right }
+.siiruModal.modal .siiruModalFooter .siiru-btn { margin-left:0!important; min-height:34px; padding:7px 14px; font-size:13px; font-weight:600 }
+.siiruModal.modal .siiruModalBody dl { display:grid; grid-template-columns:96px minmax(0,1fr); align-items:center; gap:0; margin:0; border-bottom:1px solid var(--hn-line-soft) }
+.siiruModal.modal .siiruModalBody dl:first-child { border-top:1px solid var(--hn-line-soft) }
+.siiruModal.modal .siiruModalBody dl dt { display:flex; align-items:center; min-height:42px; padding:10px 12px; background:var(--hn-bg-alt); font-size:14px; font-weight:700; color:var(--hn-text-2); box-sizing:border-box }
+.siiruModal.modal .siiruModalBody dl dt span { color:var(--hn-red); margin-right:4px }
+.siiruModal.modal .siiruModalBody dl dd { display:flex; align-items:center; gap:10px; min-width:0; min-height:42px; margin:0; padding:10px 12px; box-sizing:border-box }
+.siiruModal.modal .siiruModalBody dl dd input[type="text"],.siiruModal.modal .siiruModalBody dl dd input[type="password"] { width:100%; max-width:240px; min-height:36px; padding:7px 10px; border:1px solid var(--hn-line); border-radius:4px; font-size:14px; font-family:inherit; color:var(--hn-text); outline:0; box-sizing:border-box }
+.siiruModal.modal .siiruModalBody dl dd input[type="text"]:focus,.siiruModal.modal .siiruModalBody dl dd input[type="password"]:focus,.siiruModal.modal .siiruModalBody dl dd textarea:focus { border-color:var(--hn-blue); box-shadow:0 0 0 2px var(--hn-blue-soft) }
+.siiruModal.modal .siiruModalBody .secretForm { display:inline-flex; align-items:center; gap:5px; margin-left:0; font-size:13px; color:var(--hn-text-2) }
+.siiruModal.modal .siiruModalBody .secretForm input { margin:0; accent-color:var(--hn-green) }
+.siiruModal.modal .siiruModalBody dl.fullCont { display:block; border-bottom:0 }
+.siiruModal.modal .siiruModalBody dl.fullCont dd { display:block; padding:14px 0 0 }
+.siiruModal.modal .siiruModalBody dl.fullCont textarea { width:100%; min-height:160px; padding:12px; border:1px solid var(--hn-line); border-radius:4px; font-size:15px; font-family:inherit; line-height:1.6; color:var(--hn-text); resize:vertical; outline:0; box-sizing:border-box }
+
+/* ── 반응형 ──────────────────────────────────── */
+@media (max-width:768px) {
+  .siiru-boardWrap:has(>.siiruBoard-list),.siiru-boardWrap:has(>.siiruBoard-gallery) { grid-template-columns:1fr; grid-template-areas:"listinfo""list""page""register""search" }
+  .siiru-boardWrap:has(>.siiru-clr .board-district-filter):has(>.siiruBoard-list),.siiru-boardWrap:has(>.siiru-clr .board-district-filter):has(>.siiruBoard-gallery) { grid-template-areas:"tabs""listinfo""list""page""register""search" }
+  .siiru-boardWrap>.siiru-tr.board-register,.siiru-boardWrap>.siiru-tr.siiru-mb20 { margin-top:16px; margin-bottom:0; justify-self:end }
+  .siiru-boardWrap>.siiruBoard-search { width:100%; margin-top:48px; padding-top:24px; border-top:1px solid var(--hn-line-soft) }
+  .siiru-boardWrap .siiruBoard-search form { flex-direction:row; flex-wrap:nowrap; align-items:stretch; justify-content:flex-start; gap:0; width:100% }
+  .siiru-boardWrap .siiruBoard-search .board-search-bar { flex:1 1 auto; width:100%; min-width:0 }
+  .siiru-boardWrap .siiruBoard-search .board-search-bar select { flex:1 1 0; min-width:0; max-width:none; padding:9px 28px 9px 10px; font-size:13px }
+  .siiru-boardWrap .siiruBoard-search .board-search-bar .board-search-query { flex:1.4 1 0; min-width:0 }
+  .siiru-boardWrap .siiruBoard-search .board-search-bar .board-search-query input[type="text"] { flex:1 1 0; width:auto; min-width:0; padding:9px 12px; font-size:13px }
+  .siiru-boardWrap .siiruBoard-search .board-search-bar .board-search-query button[type="submit"] { width:38px; min-width:38px; font-size:15px }
+  .siiru-boardWrap #boardPage .pagination { padding:14px 0 }
+  .siiru-boardWrap #boardPage .pagination ul { gap:4px }
+  .siiru-boardWrap #boardPage .pagination li a { min-width:32px; height:32px; padding:0 4px; font-size:13px }
+  .siiru-boardWrap>.siiruBoard-list table { border-top-width:1px }
+  .siiru-boardWrap>.siiruBoard-list colgroup,.siiru-boardWrap>.siiruBoard-list thead { display:none }
+  .siiru-boardWrap>.siiruBoard-list tbody tr { display:grid; grid-template-columns:minmax(0,1fr) auto; grid-template-areas:"meta date""title title"; gap:8px 12px; padding:14px 16px; border-bottom:1px solid var(--hn-line-soft) }
+  .siiru-boardWrap>.siiruBoard-list:not(:has(td.category,.ctgryNm,thead th.category)) tbody tr:not(.notice) { grid-template-areas:"date date""title title" }
+  .siiru-boardWrap>.siiruBoard-list tbody tr:hover { background:var(--hn-bg-alt) }
+  .siiru-boardWrap>.siiruBoard-list tbody tr.notice { background:var(--hn-green-soft) }
+  .siiru-boardWrap>.siiruBoard-list tbody td,.siiru-boardWrap>.siiruBoard-list tbody th { display:block; padding:0; border:0; text-align:left; background:transparent }
+  .siiru-boardWrap>.siiruBoard-list tbody td.sn,.siiru-boardWrap>.siiruBoard-list tbody td.num,.siiru-boardWrap>.siiruBoard-list tbody td.userNm,.siiru-boardWrap>.siiruBoard-list tbody td.writer,.siiru-boardWrap>.siiruBoard-list tbody td.file,.siiru-boardWrap>.siiruBoard-list tbody td.rdcnt,.siiru-boardWrap>.siiruBoard-list tbody td.hit { display:none }
+  .siiru-boardWrap>.siiruBoard-list:has(td.category,.ctgryNm,thead th.category) tbody td.category:not(:has(.board-cat)),.siiru-boardWrap>.siiruBoard-list:has(td.category,.ctgryNm,thead th.category) tbody td.ctgryNm:not(:has(.board-cat)) { display:inline-block; padding:2px 6px; font-size:10px; font-weight:700; line-height:1.25; border-radius:4px; background:var(--hn-blue); border:1px solid var(--hn-blue); color:#fff; letter-spacing:-0.02em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:100% }
+  .siiru-boardWrap>.siiruBoard-list:has(td.category,.ctgryNm,thead th.category) tbody tr>td:nth-child(2),.siiru-boardWrap>.siiruBoard-list:has(td.category,.ctgryNm,thead th.category) tbody td.ctgryNm,.siiru-boardWrap>.siiruBoard-list:has(td.category,.ctgryNm,thead th.category) tbody td.category { grid-area:meta; justify-self:start; align-self:center; width:auto; max-width:100%; padding:0; background:transparent; border:0 }
+  .siiru-boardWrap>.siiruBoard-list tbody tr.notice>td.sn,.siiru-boardWrap>.siiruBoard-list tbody tr.notice>td.num { display:block; grid-area:meta; padding:0; border:0; background:transparent }
+  .siiru-boardWrap>.siiruBoard-list tbody tr.notice>td.sn .notice,.siiru-boardWrap>.siiruBoard-list tbody tr.notice>td.num .notice { display:inline-block; padding:2px 7px; font-size:10px; font-weight:800; line-height:1.3; border-radius:4px; vertical-align:middle; letter-spacing:0.04em }
+  .siiru-boardWrap>.siiruBoard-list:has(td.category,.ctgryNm,thead th.category) tbody tr.notice>td:nth-child(2) { display:none }
+  .siiru-boardWrap>.siiruBoard-list tbody th.boardSj,.siiru-boardWrap>.siiruBoard-list tbody th.subject,.siiru-boardWrap>.siiruBoard-list tbody th[scope="row"].boardSj,.siiru-boardWrap>.siiruBoard-list tbody th[scope="row"].subject { grid-area:title; grid-column:1/-1; width:100%; min-width:0; max-width:none; padding:0; margin:0; font-size:15px; font-weight:600; line-height:1.45; color:var(--hn-text); text-align:left }
+  .siiru-boardWrap>.siiruBoard-list tbody th.boardSj a,.siiru-boardWrap>.siiruBoard-list tbody th.subject a,.siiru-boardWrap>.siiruBoard-list tbody th[scope="row"].boardSj a,.siiru-boardWrap>.siiruBoard-list tbody th[scope="row"].subject a { display:block; width:100%; padding:0; margin:0; font-weight:600; color:var(--hn-text); word-break:keep-all; overflow-wrap:anywhere }
+  .siiru-boardWrap>.siiruBoard-list tbody th.subject .reBlcok,.siiru-boardWrap>.siiruBoard-list tbody th.boardSj .reBlcok { padding-left:0 }
+  .siiru-boardWrap .siiruBoard-list .board-cat { padding:2px 6px; font-size:10px; line-height:1.25; border-radius:4px }
+  .new-mark,.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].boardSj a.new::after,.siiru-boardWrap .siiruBoard-list tbody th[scope="row"].subject a.new::after { font-size:11px; margin-left:5px }
+  .siiru-boardWrap .siiruBoard-galleryBox dl dt a .board-cat { font-size:10px; padding:2px 6px }
+  .siiru-boardWrap>.siiruBoard-list tbody td.regDt,.siiru-boardWrap>.siiruBoard-list tbody td.date { grid-area:date; justify-self:end; align-self:center; font-size:13px; font-weight:500; color:var(--hn-text-3); white-space:nowrap }
+  .siiru-boardWrap>.siiruBoard-list tbody tr:has(>td.nodata[colspan]) { display:block; padding:32px 16px; text-align:center }
+  .siiru-boardWrap>.siiruBoard-list tbody td.nodata[colspan] { display:block; width:100%; font-size:14px; color:var(--hn-text-3); text-align:center }
+  .siiru-boardWrap .board-district-filter.group-tabs { flex-wrap:nowrap; gap:0; margin-bottom:20px; overflow:visible }
+  .siiru-boardWrap .board-district-filter.group-tabs button { flex:1 1 0; min-width:0; padding:7px 0; font-size:14px; font-weight:600; letter-spacing:-0.03em; white-space:nowrap; text-align:center }
+  .siiru-boardWrap .board-district-filter.group-tabs button.on { font-weight:800 }
+  .siiru-boardWrap .siiruBoard-write dl { flex-direction:column; align-items:stretch }
+  .siiru-boardWrap .siiruBoard-write dl dt { width:100%; min-width:0; padding:9px 12px 7px; font-size:15px; font-weight:700; line-height:1.35; border-bottom:0; align-self:auto }
+  .siiru-boardWrap .siiruBoard-write dl:has(>dd.fileChk)>dt,.siiru-boardWrap .siiruBoard-write dl>dt.siiru-pt10 { display:flex; flex-direction:row; flex-wrap:nowrap; align-items:center; justify-content:space-between; gap:10px; padding:9px 12px 7px }
+  .siiru-boardWrap .siiruBoard-write dl dt span.btnLayer { width:auto; margin-left:auto; margin-top:0; justify-content:flex-end; flex-shrink:0 }
+  .siiru-boardWrap .siiruBoard-write dl dt span.btnLayer .siiru-btn,.siiru-boardWrap .siiruBoard-write dl dt span.btnLayer .fileAdd { padding:7px 12px; font-size:13px }
+  .siiru-boardWrap .siiruBoard-write dl dd { padding:8px 12px 10px; border-top:0 }
+  .siiru-boardWrap .siiruBoard-write dl>dd.fullCont { padding:0 }
+  .siiru-boardWrap .siiruBoard-write dl dd input[type="text"],.siiru-boardWrap .siiruBoard-write dl dd input[type="password"],.siiru-boardWrap .siiruBoard-write dl dd select,.siiru-boardWrap .siiruBoard-write dl dd textarea { font-size:16px; padding:8px 10px }
+  .siiru-boardWrap .siiruBoard-write dl dd input.small2,.siiru-boardWrap .siiruBoard-write dl dd input.small,.siiru-boardWrap .siiruBoard-write dl dd select { width:100%; max-width:none }
+  .siiru-boardWrap .siiruBoard-write dl dd:has(input.maskDate,input.dateForm,img.ui-datepicker-trigger) { flex-wrap:nowrap; gap:6px }
+  .siiru-boardWrap .siiruBoard-write dl dd input.maskDate.small,.siiru-boardWrap .siiruBoard-write dl dd input.dateForm,.siiru-boardWrap .siiruBoard-write dl dd input.dateForm.maskDate { width:112px; min-width:112px; max-width:112px; flex:0 0 112px; font-size:16px; padding:8px 10px }
+  .siiru-boardWrap .siiruBoard-write dl dd input.maskTime.small,.siiru-boardWrap .siiruBoard-write dl dd input.maskTime.nothangul { width:76px; min-width:76px; max-width:76px; flex:0 0 76px; font-size:16px; padding:8px 10px }
+  .siiru-boardWrap .siiruBoard-write dl dd img.ui-datepicker-trigger { flex:0 0 32px; width:32px; height:32px }
+  .siiru-boardWrap .siiruBoard-write #ndtFocus>dd { display:flex; flex-wrap:wrap; gap:8px }
+  .siiru-boardWrap .siiruBoard-write #ndtFocus>dd>div { gap:6px; width:100% }
+  .siiru-boardWrap .siiruBoard-write #ndtFocus>dd>div .separator { flex:0 0 100%; margin:0; line-height:1; color:transparent }
+  .siiru-boardWrap .siiruBoard-write #ndtFocus>dd>div small { font-size:12px }
+  .siiru-boardWrap .siiruBoard-write dl dd.fileChk { padding:8px 12px 0 }
+  .siiru-boardWrap .siiruBoard-write .fileLayer { flex-direction:column; align-items:stretch; gap:10px; padding:12px }
+  .siiru-boardWrap .siiruBoard-write .fileLayer>.fileInfo,.siiru-boardWrap .siiruBoard-write .fileLayer>input[type="file"].file,.siiru-boardWrap .siiruBoard-write .fileLayer>textarea,.siiru-boardWrap .siiruBoard-write .fileLayer>small { flex:1 1 100%; width:100% }
+  .siiru-boardWrap .siiruBoard-write .fileLayer .file-options { width:100% }
+  .siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_top { padding:6px }
+  .siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_toolbox { gap:4px }
+  .siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_button { min-width:30px; height:30px }
+  .siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_contents,.siiru-boardWrap .siiruBoard-write dl dd.fullCont .cke_wysiwyg_frame { min-height:260px }
+  .siiru-boardWrap .siiru-tc { margin-top:16px }
+  .siiru-boardWrap .siiru-tc .siiru-btn,.siiru-boardWrap .siiru-tc a.siiru-btn,.siiru-boardWrap .siiru-tc input[type="submit"].siiru-btn { width:auto; min-height:36px; padding:8px 18px; font-size:14px }
+  .siiru-boardWrap #boardPage .pagination li a { min-width:32px; width:32px; height:32px }
+  .siiru-boardWrap .siiruBoardList { padding:0 14px }
+  .siiru-boardWrap .siiruBoardList ul li { flex-wrap:wrap; align-items:flex-start; gap:6px 8px; padding:10px 0; font-size:13px }
+  .siiru-boardWrap .siiruBoardList ul li>span:first-child { flex:0 0 44px; width:44px; font-size:13px }
+  .siiru-boardWrap .siiruBoardList ul li a,.siiru-boardWrap .siiruBoardList ul li .siiruBoardList-empty { flex:1 1 calc(100% - 52px); white-space:normal; overflow:visible; text-overflow:unset; line-height:1.45 }
+  .siiru-boardWrap .siiruBoardList ul li small { flex:0 0 100%; margin-left:52px; font-size:11px }
+  .siiru-boardWrap .siiruBoardComt { margin-top:20px }
+  .siiru-boardWrap .siiruBoardComt dl dt { padding:10px 0; font-size:14px }
+  #boardComtList { gap:8px }
+  #boardComtList li { grid-template-columns:minmax(0,1fr) auto; grid-template-areas:"author actions""meta actions""content content"; gap:4px 8px; padding:10px }
+  #boardComtList li span { white-space:normal; font-size:13px }
+  #boardComtList small.siiru-fr { justify-self:start; font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:clip }
+  #boardComtList li .well { padding:8px 10px; font-size:13px; line-height:1.5 }
+  #boardComtList li>.siiru-tr { gap:3px }
+  #boardComtList li>.siiru-tr .siiru-btn { min-height:24px; padding:3px 7px; font-size:11px }
+  .siiru-boardWrap .inlineComtForm { padding:12px!important }
+  .siiru-boardWrap .inlineComtForm textarea { min-height:84px; font-size:16px }
+  .siiru-boardWrap .inlineComtForm .siiru-tr { gap:5px }
+  .siiru-boardWrap .inlineComtForm .siiru-btn { min-height:30px; padding:5px 10px }
+  .siiru-boardWrap .inlineComtForm .passwdForm { grid-template-columns:1fr; background:transparent }
+  .siiru-boardWrap .inlineComtForm .passwdForm dt { padding:8px 0 4px; background:transparent }
+  .siiru-boardWrap .inlineComtForm .passwdForm dd { padding:0 0 8px }
+  .siiru-boardWrap .inlineComtForm input[type="password"] { max-width:none; font-size:16px }
+  .siiru-boardWrap .inlineComtForm .comtCancelBtn::after { font-size:12px }
+  .blocker.jquery-modal { padding:16px }
+  .blocker.jquery-modal .siiruModal.modal,.blocker.jquery-modal #comtMModal.siiruModal.modal { width:calc(100vw - 32px); max-width:calc(100vw - 32px) }
+  .siiruModal.modal .siiruModalHeader { padding:14px 16px; font-size:16px }
+  .siiruModal.modal .siiruModalBody { padding:16px; max-height:calc(100dvh - 154px) }
+  .siiruModal.modal .siiruModalBody dl { grid-template-columns:1fr }
+  .siiruModal.modal .siiruModalBody dl dt { min-height:0; padding:9px 10px 0; background:transparent; font-size:13px }
+  .siiruModal.modal .siiruModalBody dl dd { min-height:0; padding:8px 0 10px; flex-wrap:wrap }
+  .siiruModal.modal .siiruModalBody dl dd input[type="text"],.siiruModal.modal .siiruModalBody dl dd input[type="password"] { max-width:none; font-size:16px }
+  .siiruModal.modal .siiruModalBody dl.fullCont textarea { min-height:150px; font-size:16px }
+  .siiruModal.modal .siiruModalFooter { padding:12px 16px }
+  .boardInfo-view span { display:block; margin-right:0; margin-bottom:6px; vertical-align:baseline }
+  .boardInfo-view span:nth-child(2) { border-left:0; border-right:0; padding:0 }
+  .boardInfo-view span:last-child { margin-bottom:0 }
+}
+@media (max-width:425px) {
+  .siiru-boardWrap>.siiruBoard-list tbody tr { padding:14px 4px }
+  #boardComtList li { grid-template-columns:minmax(0,1fr) auto; grid-template-areas:"author actions""meta actions""content content" }
+  #boardComtList li>.siiru-tr { align-self:start; justify-content:flex-end }
+}

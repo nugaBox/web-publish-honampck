@@ -14,6 +14,10 @@
     <input type="hidden" id="searchQuery" name="searchQuery" value="">
   </form>
 
+  <div class="siiru-clr">
+    <div data-include="../../include/board-district-filter.html"></div>
+  </div>
+
   <div class="siiruBoard-view">
     <form id="boardForm" name="boardForm" method="post">
       <input type="hidden" id="seq" name="seq" value="3145847">
@@ -50,9 +54,9 @@
         <button class="regBtn siiru-btn siiru-btn-warning siiru-ml5" data-modal="#regModal" type="button">작성일</button>
       </div>
       <div class="siiru-fr">
-        <a href="write.html?seq=3145847" class="siiru-btn siiru-btn-warning siiru-ml5">수정</a>
-        <button class="delBtn siiru-btn siiru-btn-danger siiru-ml5" data-action="D" type="button">삭제</button>
-        <a href="list.html" class="siiru-btn siiru-ml5">목록</a>
+        <button class="delBtn siiru-btn siiru-btn-danger" data-action="D" type="button"><i class="fa-regular fa-trash-can" aria-hidden="true"></i>삭제</button>
+        <a href="write.html?seq=3145847" class="siiru-btn siiru-btn-warning"><i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>수정</a>
+        <a href="list.html" class="siiru-btn">목록</a>
       </div>
     </div>
 
@@ -73,111 +77,73 @@
       </div>
     </div>
 
-    <div id="moveModal" class="siiruModal modal" style="display:none;" hidden>
-      <div class="siiruModalHeader"><p>게시글 이동</p></div>
-      <div class="siiruModalBody">
-        <div>
-          <div style="display:inline-block;">
-            <input type="checkbox" id="removeAt" name="removeAt" value="Y" checked>
-            <label for="removeAt">삭제처리</label>
-          </div>
-          <input type="text" id="boardTable-filter" name="boardTable-filter" placeholder="Search for table data..." value="" style="display:inline-block;width:78%">
-        </div>
-        <div id="board" class="boardFindView">
-          <div class="scroll-container">
-            <table id="boardTable">
-              <caption>게시판 목록</caption>
-              <tbody>
-                <tr><td class="nodata">동일한 유형의 게시판이 없습니다.</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div class="siiruModalFooter siiru-tr">
-        <span id="moveBoardView" class="moveBoard"></span>
-        <input type="hidden" id="moveBoardId" name="moveBoardId" value="">
-        <button class="moveSBtn siiru-btn siiru-btn-small siiru-btn-primary" data-action="M" type="button">게시글 이동</button>
-        <a href="#close" class="siiru-btn siiru-btn-small siiru-btn-danger siiru-ml5" rel="modal:close">닫기</a>
-      </div>
-    </div>
+    <div class="siiruBoardComt">
+      <dl>
+        <dt>
+          <span>댓글 (<small id="comtMCount">2</small>)</span>
+        </dt>
+        <dd>
+          <ul id="boardComtList" class="siiru-clr">
+            <li>
+              <small class="siiru-fr">2026-05-25 12:50 &nbsp;&nbsp; 122.36.151.226&nbsp;&nbsp;</small>
+              <span>&nbsp;관리자 (manager)</span>
+              <div class="well"><div>123</div></div>
+              <div class="siiru-tr siiru-clr">
+                <button class="siiru-btn siiru-btn-small siiru-btn-warning" data-modal="#comtMModal" data-action="MU" data-passwdform="N" data-secretform="N" data-comtsn="2" type="button">수정</button>
+                <button class="siiru-btn siiru-btn-small siiru-btn-danger" data-action="MD" data-passwdform="N" data-secretform="N" data-comtsn="2" type="button">삭제</button>
+              </div>
+            </li>
+            <li>
+              <small class="siiru-fr">2026-05-25 12:49 (수정됨) &nbsp;&nbsp; 122.36.151.226&nbsp;&nbsp;</small>
+              <span>&nbsp;관리자 (manager)</span>
+              <div class="well"><div>test2222</div><small class="comtManage">Update : 2026-05-25 12:49 122.36.151.226</small></div>
+              <div class="siiru-tr siiru-clr">
+                <button class="siiru-btn siiru-btn-small siiru-btn-warning" data-modal="#comtMModal" data-action="MU" data-passwdform="N" data-secretform="N" data-comtsn="1" type="button">수정</button>
+                <button class="siiru-btn siiru-btn-small siiru-btn-danger" data-action="MD" data-passwdform="N" data-secretform="N" data-comtsn="1" type="button">삭제</button>
+              </div>
+            </li>
+          </ul>
 
-    <div id="regModal" class="siiruModal modal" style="display:none;" hidden>
-      <div class="siiruModalHeader"><p>작성일 수정</p></div>
-      <div class="siiruModalBody">
-        <form id="regForm" name="regForm" method="post">
-          <dl>
-            <dt><span>*</span> <label for="regDate">일자</label></dt>
-            <dd>
-              <input type="text" id="regDate" name="regDate" class="maskDate small" maxlength="10" value="2026-05-16">
-              <small> 2026-05-01</small>
-            </dd>
-          </dl>
-          <dl class="noborder">
-            <dt><span>*</span> <label for="regTime">시간</label></dt>
-            <dd>
-              <input type="text" id="regTime" name="regTime" class="maskFullTime small" maxlength="8" value="06:09:25">
-              <small> 09:00:00</small>
-            </dd>
-          </dl>
-        </form>
-      </div>
-      <div class="siiruModalFooter siiru-tr">
-        <button class="regSBtn siiru-btn siiru-btn-small siiru-btn-primary" data-action="DU" type="button">저장</button>
-        <a href="#close" class="siiru-btn siiru-btn-small siiru-btn-danger siiru-ml5" rel="modal:close">닫기</a>
-      </div>
+          <div id="inlineComtForm" class="inlineComtForm" style="margin-top:10px; padding:10px; border-top:1px solid #ddd;">
+            <form id="comtFormM" name="comtFormM" method="post" enctype="multipart/form-data">
+              <input type="hidden" id="comtMAction" name="comtMAction" value="MI">
+              <input type="hidden" id="comtSn_m" name="comtSn" value="">
+              <input type="hidden" id="passwdView" name="passwdView" value="N">
+              <div class="secretForm" style="margin-bottom:5px; display:none;">
+                <input type="checkbox" id="secretAt_m" name="secretAt" value="Y">
+                <label for="secretAt_m">비밀글</label>
+              </div>
+              <dl class="passwdForm" style="display:none; margin-bottom:5px;">
+                <dt><span>*</span> <label for="passwd">비밀번호</label></dt>
+                <dd><input type="password" id="passwd" name="passwd" class="small" value="" autocomplete="off"></dd>
+              </dl>
+              <div style="margin-bottom:5px;">
+                <input type="hidden" id="userNm_m" name="userNm" value="관리자">
+                <textarea id="comtCn_m" name="comtCn" rows="3" style="width:100%; box-sizing:border-box;" placeholder="댓글을 입력하세요."></textarea>
+              </div>
+              <div class="siiru-tr">
+                <button class="comtMBtn siiru-btn siiru-btn-small siiru-btn-primary siiru-btn-warning" type="button">저장</button>
+                <button class="comtCancelBtn siiru-btn siiru-btn-small siiru-btn-danger siiru-ml5" type="button">수정 취소</button>
+              </div>
+            </form>
+          </div>
+        </dd>
+      </dl>
     </div>
 
     <div class="siiruBoardList">
       <ul>
         <li>
           <span>다음글</span>
-          다음글이 존재하지 않습니다.
+          <a href="view.html">사무처 시스템 점검에 따른 일시 서비스 중단 안내</a>
+          <small>2026.05.10</small>
         </li>
         <li>
           <span>이전글</span>
-          이전글이 존재하지 않습니다.
+          <a href="view.html">2026년도 노회 행정문서 표준서식 개정안 시행</a>
+          <small>2026.05.12</small>
         </li>
       </ul>
-    </div>
-
-    <div class="siiruBoardViewlist">
-      <div class="siiruBoard-listInfo">
-        <p>전체게시글 : 1 / 전체페이지 : 1 [ today : ]</p>
-      </div>
-      <div class="siiruBoard-list">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col" class="num">번호</th>
-              <th scope="col" class="subject">제목</th>
-              <th scope="col" class="writer">작성자</th>
-              <th scope="col" class="date">작성일</th>
-              <th scope="col" class="file">파일</th>
-              <th scope="col" class="hit">조회</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="num">1</td>
-              <th scope="row" class="subject">
-                <a href="view.html" data-view="L" data-seq="3145847">호남노회 공식 홈페이지가 새롭게 문을 열었습니다</a>
-              </th>
-              <td class="writer">관리자</td>
-              <td class="date">2026-05-16</td>
-              <td class="file"></td>
-              <td class="hit">10</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div id="boardPage">
-        <div class="pagination">
-          <ul>
-            <li><a href="#" data-tp="boardPage" data-move="1" class="active" title="현재 페이지. 1페이지 입니다">1</a></li>
-          </ul>
-        </div>
-      </div>
     </div>
 
   </div>
