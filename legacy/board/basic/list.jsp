@@ -135,6 +135,20 @@ today : <fmt:formatNumber value="${todayCnt}" pattern="#,###" />]</p>
 							</c:if>
 						</td>
 					</c:when>
+					<%-- 분류일 경우. 앨범 게시판과 동일한 뱃지 스타일 적용 --%>
+					<c:when test="${boardListItem.iemId eq 'ctgryNm' or boardListItem.iemId eq 'category'}">
+						<td<c:if test="${not empty boardListItem.iemClass && boardListItem.iemClass ne ''}"> class="<c:out value="${boardListItem.iemClass}" />"</c:if>>
+							<c:set var="boardCatNm" value="${listData[boardListItem.iemId]}" />
+							<c:if test="${not empty boardCatNm}">
+								<c:set var="boardCatClass" value="cat-b" />
+								<c:if test="${fn:contains(boardCatNm, '호남')}"><c:set var="boardCatClass" value="cat-g" /></c:if>
+								<c:if test="${fn:contains(boardCatNm, '광주')}"><c:set var="boardCatClass" value="cat-b" /></c:if>
+								<c:if test="${fn:contains(boardCatNm, '나주')}"><c:set var="boardCatClass" value="cat-r" /></c:if>
+								<c:if test="${fn:contains(boardCatNm, '무등')}"><c:set var="boardCatClass" value="cat-o" /></c:if>
+								<span class="board-cat <c:out value="${boardCatClass}" />"><c:out value="${boardCatNm}" /></span>
+							</c:if>
+						</td>
+					</c:when>
 					<%-- 기타 항목일 경우 --%>
 					<c:otherwise>
 						<td<c:if test="${not empty boardListItem.iemClass && boardListItem.iemClass ne ''}"> class="<c:out value="${boardListItem.iemClass}" />"</c:if>><c:out value="${listData[boardListItem.iemId]}" escapeXml="false" /></td>

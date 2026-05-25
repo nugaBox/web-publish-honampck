@@ -2,13 +2,29 @@
  * sub.js — 서브 페이지 전용 스크립트
  */
 
-/** CMS 앨범: [분류] 제목 한 줄 출력 → board-cat + board-sj 분리 (퍼블 HTML과 동일 구조) */
+/** CMS 게시판: 카테고리 텍스트 → board-cat 뱃지 (퍼블 HTML과 동일 구조) */
 function boardCatClass(name) {
   if (name.includes('무등')) return 'cat-o';
   if (name.includes('나주')) return 'cat-r';
   if (name.includes('광주')) return 'cat-b';
   if (name.includes('호남')) return 'cat-g';
   return 'cat-b';
+}
+
+function enhanceBoardListCategories() {
+  document.querySelectorAll('.siiruBoard-list tbody td.category, .siiruBoard-list tbody td.ctgryNm').forEach((cell) => {
+    if (cell.querySelector('.board-cat')) return;
+
+    const label = cell.textContent.replace(/\s+/g, ' ').trim();
+    if (!label) return;
+
+    const cat = document.createElement('span');
+    cat.className = `board-cat ${boardCatClass(label)}`;
+    cat.textContent = label;
+
+    cell.textContent = '';
+    cell.appendChild(cat);
+  });
 }
 
 function parseBoardBracketTitle(text) {
@@ -78,6 +94,7 @@ function enhanceBoardGalleryTitles() {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  enhanceBoardListCategories();
   enhanceBoardGalleryTitles();
 
   /* ── 게시판 시찰 탭 (hderCn / board-district-filter) → searchCtgry ─ */
