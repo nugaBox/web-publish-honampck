@@ -273,16 +273,20 @@
 .siiru-boardWrap .siiruBoardInfo dl dd ul li a:hover { text-decoration:underline }
 .siiru-boardWrap .siiruBoardInfo dl dd small { font-size:12px; color:var(--hn-text-3); margin-left:8px }
 .siiru-boardWrap .siiruBoardBody { margin:0; padding:0; border-top:1px solid var(--hn-line); color:var(--hn-text-2) }
+.siiru-boardWrap .siiruBoardBody,.siiru-boardWrap .siiruBoardBody * { max-width:100%; box-sizing:border-box }
 .boardContents { padding:24px 16px; font-size:16px; line-height:1.75; color:var(--hn-text-2) }
 .boardContents img { max-width:100%; height:auto; margin-top:8px }
+.boardContents table { width:100%!important; max-width:100%; table-layout:auto }
+.boardContents iframe,.boardContents video,.boardContents embed,.boardContents object { max-width:100%; width:100%; height:auto }
 .boardContents p { margin-bottom:12px }
 .boardContents h4 { margin:20px 0 10px; font-size:16px; font-weight:700; color:var(--hn-text) }
-.imageView { margin-bottom:20px }
-.imageView img { max-width:100%; display:block; margin-bottom:8px }
-.imageView small { font-size:12px; color:var(--hn-text-3); display:block; margin-bottom:12px }
-.videoView { margin-bottom:20px }
-.videoView video { max-width:100% }
-.audioView { margin-bottom:20px }
+.imageView,.videoView,.audioView,.insrtPreView { width:100%; max-width:100%; min-width:0; margin-bottom:20px; overflow:hidden; overflow-wrap:anywhere }
+.imageView img { max-width:100%; height:auto; display:block; margin-bottom:8px }
+.imageView small,.videoView small,.audioView small { font-size:12px; color:var(--hn-text-3); display:block; margin-bottom:12px; overflow-wrap:anywhere }
+.videoView video,.audioView audio { display:block; width:100%; max-width:100%; height:auto }
+.insrtPreView iframe { display:block; width:100%; max-width:100%; min-height:320px; border:0 }
+.videoView [data-video],.boardContents [data-video] { max-width:100%; overflow:hidden }
+.videoView [data-video] iframe,.boardContents [data-video] iframe { display:block; width:100%!important; max-width:100%; aspect-ratio:16/9; height:auto!important }
 .siiru-boardWrap .siiruBoardBtnInfo { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin:0; padding:12px 16px; background:var(--hn-bg-alt); border-top:1px solid var(--hn-line); overflow:visible }
 .siiru-boardWrap .siiruBoardBtnInfo .siiru-fl { float:none; display:flex; align-items:center; flex-wrap:wrap; gap:6px }
 .manageInfo { padding:12px 16px 16px; font-size:13px; color:var(--hn-text-3); border-top:1px solid var(--hn-line-soft) }
