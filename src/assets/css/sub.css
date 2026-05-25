@@ -1138,12 +1138,63 @@
 .siiru-userWrap { padding:8px 0 }
 .siiru-userWrap .leaveForm { width:100%; max-width:none; margin:0; padding:0; border:0; border-radius:0 }
 .siiru-userWrap .leaveForm h4 { font-size:18px; font-weight:700; color:var(--hn-text); margin:0 0 16px; padding:0 0 12px; border-bottom:1px solid var(--hn-line) }
+.siiru-userWrap .leaveForm .findLayer { margin-top:0 }
+.siiru-userWrap .leaveForm .inputWrap { margin-top:4px }
+.siiru-userWrap .leaveForm .inputWrap>h5 { margin:0 0 16px; font-size:15px; font-weight:700; color:var(--hn-text) }
+.siiru-userWrap .leaveForm .leave-warn { margin-bottom:20px }
+.siiru-userWrap .leaveForm .leave-desc { margin:0; font-size:15px; color:var(--hn-text-2); line-height:1.85 }
+.siiru-userWrap .leaveForm .pwCert { margin:0 0 4px }
+.siiru-userWrap .leaveForm .pwCert input[type="password"] { width:100%; max-width:320px; padding:9px 14px; border:1px solid var(--hn-line); border-radius:6px; font-size:14px; font-family:inherit; color:var(--hn-text); outline:0; box-sizing:border-box }
+.siiru-userWrap .leaveForm .pwCert input[type="password"]:focus { border-color:var(--hn-green) }
+.siiru-userWrap .leaveForm .siiru-btnSet { margin-top:20px }
 .siiru-userWrap .leaveWrap { width:100%; max-width:none; margin:0; padding:32px 24px; border:1px solid var(--hn-line); border-radius:8px; background:var(--hn-bg-alt); text-align:center }
+.siiru-userWrap .leaveWrap p { margin:0 0 20px; font-size:17px; font-weight:700; color:var(--hn-text); letter-spacing:-0.02em }
+.siiru-userWrap .leaveWrap .siiru-btnSet { margin-top:0 }
 .siiru-passwdWrap { padding:8px 0 }
 .siiru-passwdWrap .passwdWrap { width:100%; max-width:none; margin:0; padding:0; border:0 }
 .siiru-passwdWrap .passwdWrap h4 { font-size:18px; font-weight:700; color:var(--hn-text); margin:0 0 16px; padding:0 0 12px; border-bottom:1px solid var(--hn-line) }
+.siiru-passwdWrap .passwdWrap ul { padding:14px 18px; background:var(--hn-blue-soft); border:1px solid var(--hn-line); border-radius:6px; margin:0 0 20px; list-style:none }
+.siiru-passwdWrap .passwdWrap ul li { font-size:13px; color:var(--hn-text-2); line-height:1.8 }
+.siiru-passwdWrap .passwdWrap #siiru-passwdForm>dl:first-of-type { border-top:2px solid var(--hn-text) }
+.siiru-passwdWrap .passwdWrap dl { display:flex; margin:0; padding:0; width:100%; border-bottom:1px solid var(--hn-line) }
+.siiru-passwdWrap .passwdWrap dl dt { width:130px; padding:14px 16px; background:var(--hn-bg-alt); font-size:13px; font-weight:700; color:var(--hn-text-2); flex-shrink:0 }
+.siiru-passwdWrap .passwdWrap dl dt label { cursor:pointer; line-height:1.4 }
+.siiru-passwdWrap .passwdWrap dl dd { flex:1; padding:12px 16px }
+.siiru-passwdWrap .passwdWrap dl dd input[type="password"] { width:100%; max-width:320px; padding:8px 12px; border:1px solid var(--hn-line); border-radius:4px; font-size:14px; font-family:inherit; color:var(--hn-text); outline:0; box-sizing:border-box }
+.siiru-passwdWrap .passwdWrap dl dd input[type="password"]:focus { border-color:var(--hn-green) }
+.siiru-passwdWrap .passwdWrap .siiru-btnSet { margin-top:20px }
 .siiru-userWrap .userWrap { width:100%; max-width:none; margin:0; padding:0; border:0 }
 .siiru-userWrap .userWrap h4 { font-size:18px; font-weight:700; color:var(--hn-text); margin:0 0 16px; padding:0 0 12px; border-bottom:1px solid var(--hn-line) }
+.siiru-userWrap .userWrap section { padding:0; border-top:0; font-size:inherit }
+.siiru-userWrap .userWrap section#M>.findLayer,.siiru-userWrap .userWrap .myinfo-gate .findLayer { padding:32px 24px; border:1px solid var(--hn-line); border-radius:8px; background:var(--hn-bg-alt); text-align:center }
+.siiru-userWrap .userWrap section#M>.findLayer .inputWrap,.siiru-userWrap .userWrap .myinfo-gate .inputWrap { display:flex; flex-direction:column; align-items:center; width:100% }
+.siiru-userWrap .userWrap section#M>.findLayer .inputWrap>h5,.siiru-userWrap .userWrap .myinfo-gate .inputWrap>h5 { margin:0 0 16px; font-size:15px; font-weight:700; color:var(--hn-text); text-align:center }
+.siiru-userWrap .userWrap section#M>.findLayer .inputWrap form,.siiru-userWrap .userWrap .myinfo-gate .inputWrap form { width:100%; max-width:320px }
+.siiru-userWrap .userWrap section#M>.findLayer .pwCert,.siiru-userWrap .userWrap .myinfo-gate .pwCert { margin:0 0 4px; width:100% }
+.siiru-userWrap .userWrap section#M>.findLayer .pwCert input[type="password"],.siiru-userWrap .userWrap .myinfo-gate .pwCert input[type="password"] { width:100%; max-width:none; padding:9px 14px; border:1px solid var(--hn-line); border-radius:6px; font-size:14px; font-family:inherit; color:var(--hn-text); outline:0; box-sizing:border-box; background:var(--hn-bg) }
+.siiru-userWrap .userWrap section#M>.findLayer .pwCert input[type="password"]:focus,.siiru-userWrap .userWrap .myinfo-gate .pwCert input[type="password"]:focus { border-color:var(--hn-green) }
+.siiru-userWrap .userWrap section#M>.findLayer .siiru-btnSet,.siiru-userWrap .userWrap .myinfo-gate .siiru-btnSet { margin-top:20px; justify-content:center; width:100% }
+.siiru-userWrap .userWrap #siiru-userForm:has(>dl),.siiru-userWrap .userWrap .myinfo-edit #siiru-userForm { border-top:2px solid var(--hn-text) }
+.siiru-userWrap .userWrap dl { display:flex; margin:0; padding:0; width:100%; overflow:visible; border-bottom:1px solid var(--hn-line) }
+.siiru-userWrap .userWrap dl dt { width:130px; padding:14px 16px; background:var(--hn-bg-alt); font-size:13px; font-weight:700; color:var(--hn-text-2); text-align:left; border-right:0; flex-shrink:0; vertical-align:top }
+.siiru-userWrap .userWrap dl dt span.required { color:var(--hn-red); margin-right:2px }
+.siiru-userWrap .userWrap dl dt label { cursor:pointer; line-height:1.4 }
+.siiru-userWrap .userWrap dl dd { flex:1; width:auto; padding:12px 16px; font-size:14px; color:var(--hn-text-2); vertical-align:top }
+.siiru-userWrap .userWrap dl dd input[type="text"],.siiru-userWrap .userWrap dl dd input[type="password"] { padding:8px 12px; border:1px solid var(--hn-line); border-radius:4px; font-size:14px; font-family:inherit; color:var(--hn-text); outline:0; box-sizing:border-box; margin-top:0; height:auto }
+.siiru-userWrap .userWrap dl dd input[type="text"]:focus,.siiru-userWrap .userWrap dl dd input[type="password"]:focus { border-color:var(--hn-green) }
+.siiru-userWrap .userWrap dl dd input[type="text"]:not(.small):not(.small2):not(#zip),.siiru-userWrap .userWrap dl dd input[type="password"] { width:100%; max-width:480px }
+.siiru-userWrap .userWrap dl dd input.small { width:140px; max-width:100% }
+.siiru-userWrap .userWrap dl dd input.small2 { width:240px; max-width:100% }
+.siiru-userWrap .userWrap dl dd input[type="text"][disabled],.siiru-userWrap .userWrap dl dd input[type="text"][readonly] { background:var(--hn-bg-alt); color:var(--hn-text-3); cursor:not-allowed }
+.siiru-userWrap .userWrap dl dd select { min-width:140px; padding:8px 12px; border:1px solid var(--hn-line); border-radius:4px; font-size:14px; background:var(--hn-bg); color:var(--hn-text-2); outline:0; vertical-align:middle }
+.siiru-userWrap .userWrap dl dd input[type="radio"],.siiru-userWrap .userWrap dl dd input[type="checkbox"] { width:auto; margin:0 4px 0 0; accent-color:var(--hn-green); vertical-align:middle }
+.siiru-userWrap .userWrap dl dd label { padding:0 16px 0 4px; font-size:14px; color:var(--hn-text-2); cursor:pointer; vertical-align:middle }
+.siiru-userWrap .userWrap dl dd .fileInfo { padding-top:6px; font-size:13px; color:var(--hn-text-3) }
+.siiru-userWrap .userWrap dl dd .fileInfo input[type="checkbox"] { margin-left:8px }
+.siiru-userWrap .userWrap dl dd input[type="file"].file { display:block; width:auto; max-width:100%; font-size:13px; border:0; padding:0 }
+.siiru-userWrap .userWrap dl dd small { display:block; margin-top:6px; font-size:12px; color:var(--hn-text-3) }
+.siiru-userWrap input[readonly] { background:var(--hn-bg-alt); color:var(--hn-text-3) }
+.siiru-userWrap .siiru-btnSet { margin-top:20px }
 .siiru-userWrap .userWrap #position { min-width:140px; max-width:240px }
 .myinfo-edit { display:none }
 .myinfo-edit.is-open { display:block }
@@ -1174,4 +1225,22 @@
   .findUserWrap .inputWrap dl dt { width:100%; min-width:0; padding:8px 12px; border-bottom:1px solid var(--hn-line-soft) }
   .findUserWrap .inputWrap dl dd { padding:10px 12px }
   .findUserWrap .inputWrap dl dd input[type="text"],.findUserWrap .inputWrap dl dd input.small { max-width:none; width:100%; font-size:16px }
+  .siiru-userWrap .leaveForm .leave-warn { padding:16px; margin-bottom:16px }
+  .siiru-userWrap .leaveForm .leave-desc { font-size:14px; line-height:1.7 }
+  .siiru-userWrap .leaveForm .pwCert input[type="password"] { max-width:none; font-size:16px }
+  .siiru-userWrap .leaveWrap { padding:28px 18px }
+  .siiru-passwdWrap .passwdWrap ul { padding:12px 14px; margin-bottom:16px }
+  .siiru-passwdWrap .passwdWrap ul li { font-size:12px; line-height:1.7 }
+  .siiru-passwdWrap .passwdWrap dl { flex-direction:column }
+  .siiru-passwdWrap .passwdWrap dl dt { width:100%; padding:9px 12px 6px; border-bottom:1px solid var(--hn-line-soft) }
+  .siiru-passwdWrap .passwdWrap dl dd { padding:10px 12px }
+  .siiru-passwdWrap .passwdWrap dl dd input[type="password"] { max-width:none; font-size:16px; padding:8px 10px }
+  .siiru-userWrap .userWrap section#M>.findLayer,.siiru-userWrap .userWrap .myinfo-gate .findLayer { padding:24px 16px }
+  .siiru-userWrap .userWrap section#M>.findLayer .inputWrap>h5,.siiru-userWrap .userWrap .myinfo-gate .inputWrap>h5 { font-size:14px }
+  .siiru-userWrap .userWrap section#M>.findLayer .pwCert input[type="password"],.siiru-userWrap .userWrap .myinfo-gate .pwCert input[type="password"] { font-size:16px }
+  .siiru-userWrap .userWrap dl { flex-direction:column }
+  .siiru-userWrap .userWrap dl dt { width:100%; padding:9px 12px 6px; border-bottom:1px solid var(--hn-line-soft) }
+  .siiru-userWrap .userWrap dl dd { padding:10px 12px }
+  .siiru-userWrap .userWrap dl dd input[type="text"],.siiru-userWrap .userWrap dl dd input[type="password"],.siiru-userWrap .userWrap dl dd select,.siiru-userWrap .userWrap dl dd input.small,.siiru-userWrap .userWrap dl dd input.small2 { width:100%; max-width:none; font-size:16px }
+  .siiru-userWrap .userWrap #position { max-width:none; width:100% }
 }
