@@ -224,10 +224,7 @@ function mobSummary(group) {
 
 function clergyHtml(mem, isSimuLead) {
   if (isSimuLead) return mem.nameHtml;
-  return mem.nameHtml.replace(
-    /<span class="oname-n">([^<]*)<\/span>\s*<span class="oname-t">([^<]*)<\/span>/,
-    '<span class="oname-plain">$1</span> <span class="oname-t">$2</span>'
-  );
+  return mem.nameHtml.replace(/class="oname-n(\s+oname-len2)?"/, 'class="oname-plain$1"');
 }
 
 function renderMobCard(group) {
