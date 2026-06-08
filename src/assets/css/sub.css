@@ -442,7 +442,14 @@
 .rules-toc-list a { display:block; padding:6px 0; font-size:15px; font-weight:600; color:var(--hn-text-2); text-decoration:none; border-bottom:1px solid transparent; transition:color .15s,border-color .15s }
 .rules-toc-list a:hover { color:var(--hn-blue); border-bottom-color:var(--hn-line) }
 .rules-page .rules-doc,.catechism-page .rules-doc { font-family:var(--rules-serif); font-size:15px; line-height:1.9; color:var(--hn-text); letter-spacing:-0.01em }
-.rules-page .rules-doc-title { margin:80px 0 44px; font-family:var(--rules-serif); font-size:24px; font-weight:900; font-synthesis:weight; text-align:center; color:var(--hn-text); letter-spacing:0.04em; line-height:1.4; -webkit-text-stroke:0.35px var(--hn-text); paint-order:stroke fill }
+.faith-doc-icon { display:flex; justify-content:center; align-items:center; margin:0 0 20px }
+.faith-doc-icon img { display:block; width:72px; height:auto }
+.rules-page .rules-doc > .faith-doc-icon { margin-top:40px; margin-bottom:12px }
+.rules-page .faith-doc-icon+.rules-doc-title,.catechism-page .faith-doc-icon+.catechism-page-title { margin-top:0 }
+.rules-page .rules-doc-title { margin:80px 0 12px; font-family:var(--rules-serif); font-size:24px; font-weight:900; font-synthesis:weight; text-align:center; color:var(--hn-text); letter-spacing:0.04em; line-height:1.4; -webkit-text-stroke:0.35px var(--hn-text); paint-order:stroke fill }
+.rules-page .faith-doc-icon+.rules-doc-title { margin-top:0 }
+.rules-page .rules-doc-subtitle { margin:0 0 44px; font-family:var(--rules-serif); font-size:14px; font-weight:600; text-align:center; color:var(--hn-text-3); letter-spacing:0.02em; line-height:1.5 }
+.rules-page .rules-doc-title+.rules-doc-subtitle+.rules-chapter { margin-top:40px }
 .rules-page .rules-doc .rules-chapter { margin:64px 0 22px; padding:0; font-family:var(--rules-serif); font-size:18px; font-weight:800; color:var(--hn-text); letter-spacing:-0.02em; line-height:1.4; text-align:center; scroll-margin-top:140px }
 .rules-page .rules-doc-title+.rules-chapter { margin-top:40px }
 .rules-page .rules-doc .rules-list,.catechism-page .rules-doc .rules-list,.catechism-page .catechism-list { list-style:none; margin:0; padding:0; border:0 }
@@ -549,6 +556,9 @@
 .sitemap-box-list>li>ul a:hover,.sitemap-sub-list a:hover { color:var(--hn-blue); background:var(--hn-bg) }
 .sitemap-box-list>li>ul a:hover::before,.sitemap-sub-list a:hover::before { background:var(--hn-blue) }
 .catechism-page { --rules-serif:"BonmyeongjoSourceHanSerif","Noto Serif KR",serif }
+.rules-source { margin:48px 0 0; padding-top:24px; border-top:1px solid var(--hn-line-soft); font-family:var(--rules-serif); font-size:14px; color:var(--hn-text-3); text-align:center; line-height:1.6 }
+.rules-source a { color:var(--hn-blue); font-weight:600; text-decoration:none }
+.rules-source a:hover { text-decoration:underline }
 .catechism-page-head { margin-bottom:36px; text-align:center }
 .catechism-page-title { margin:0; font-family:var(--rules-serif,var(--font-base)); font-size:24px; font-weight:900; color:var(--hn-text); letter-spacing:0.04em; line-height:1.4 }
 .catechism-page-title-en { margin:8px 0 0; font-size:14px; font-weight:500; color:var(--hn-text-3); letter-spacing:0.02em }
@@ -904,7 +914,10 @@
   .rules-ref-links .btn-hn { width:auto; flex:1 1 calc(50% - 5px); min-width:140px }
   .rules-toc-inner { padding:22px 20px 24px }
   .rules-toc-list { grid-template-columns:1fr; gap:6px }
-  .rules-page .rules-doc-title { font-size:20px; margin:56px 0 36px }
+  .rules-page .rules-doc-title { font-size:20px; margin:56px 0 10px }
+  .rules-page .rules-doc > .faith-doc-icon { margin-top:28px; margin-bottom:10px }
+  .rules-page .faith-doc-icon+.rules-doc-title { margin-top:0 }
+  .rules-page .rules-doc-subtitle { margin-bottom:32px; font-size:13px }
   .rules-page .rules-doc .rules-chapter { margin-top:48px; font-size:17px; scroll-margin-top:88px }
   .rules-page .rules-doc-title+.rules-chapter { margin-top:32px }
   .rules-page .rules-doc .rules-list>li { margin-bottom:1.1em; padding-bottom:1.1em }

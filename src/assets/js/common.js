@@ -62,7 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
           path = href;
         }
         const sectionPath = path.endsWith('/list.html') ? path.replace(/list\.html$/, '') : '';
-        return currentPath === path || (sectionPath && currentPath.startsWith(sectionPath)) || (activePrefix && currentPath.startsWith(activePrefix));
+        const activePrefixes = (activePrefix || '')
+          .split(',')
+          .map((prefix) => prefix.trim())
+          .filter(Boolean);
+        const prefixMatch = activePrefixes.some((prefix) => currentPath.startsWith(prefix));
+        return currentPath === path || (sectionPath && currentPath.startsWith(sectionPath)) || prefixMatch;
       };
 
       const activeOption =
@@ -195,6 +200,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isOpen) group.classList.add('open');
       });
     });
+
+    drawer.querySelectorAll('.hn-drawer-sub-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const group = toggle.closest('.hn-drawer-sub-group');
+        group?.classList.toggle('open');
+      });
+    });
+
+    const faithDocPaths = ['/sub/confession', '/sub/catechism-larger', '/sub/catechism-shorter'];
+    const currentPath = window.location.pathname.replace(/\.html$/, '');
+    if (faithDocPaths.some((path) => currentPath.endsWith(path))) {
+      const adminGroup = [...drawer.querySelectorAll('.hn-drawer-group')].find((group) =>
+        group.querySelector('.hn-drawer-sub-group')
+      );
+      adminGroup?.classList.add('open');
+      adminGroup?.querySelector('.hn-drawer-sub-group')?.classList.add('open');
+    }
   }
 
   /* ── 이미지 원본 뷰어 (공통) ───────────────────────────── */

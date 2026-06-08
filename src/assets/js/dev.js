@@ -27,13 +27,37 @@ function markActiveSidebar() {
       return;
     }
 
-    const activePrefix = link.dataset.activePrefix;
-    if (linkPath === current || (activePrefix && current.startsWith(normalizePathname(activePrefix)))) {
+    const activePrefixes = (link.dataset.activePrefix || '')
+      .split(',')
+      .map((prefix) => prefix.trim())
+      .filter(Boolean);
+    const prefixMatch = activePrefixes.some((prefix) => current.startsWith(normalizePathname(prefix)));
+    if (linkPath === current || prefixMatch) {
       link.classList.add('on');
     }
   });
 }
 
+/** 신앙표준문서 3뎁스 탭 현재 항목 활성화 */
+function markActiveDepth3Nav() {
+  const current = normalizePathname(window.location.pathname);
+
+  document.querySelectorAll('.depth3-nav .group-tabs a[href]').forEach((link) => {
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#')) return;
+
+    let linkPath;
+    try {
+      linkPath = normalizePathname(new URL(href, window.location.origin).pathname);
+    } catch {
+      return;
+    }
+
+    link.classList.toggle('on', linkPath === current);
+  });
+}
+
 document.addEventListener('hn-includes-ready', () => {
   markActiveSidebar();
+  markActiveDepth3Nav();
 });
