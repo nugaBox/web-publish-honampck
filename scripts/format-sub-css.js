@@ -16,11 +16,32 @@ const DEFAULT_FILES = [
   path.join(ROOT, 'src/assets/css/board.css'),
 ];
 
+function collapseCssWhitespace(str) {
+  let out = '';
+  let inStr = false;
+  let quote = '';
+  for (let i = 0; i < str.length; i++) {
+    const c = str[i];
+    if (!inStr && (c === '"' || c === "'")) {
+      inStr = true;
+      quote = c;
+      out += c;
+    } else if (inStr && c === quote && str[i - 1] !== '\\') {
+      inStr = false;
+      out += c;
+    } else if (!inStr && /\s/.test(c)) {
+      if (out[out.length - 1] !== ' ') out += ' ';
+    } else {
+      out += c;
+    }
+  }
+  return out.trim();
+}
+
 function generateCompact(node) {
-  return csstree
-    .generate(node, { sourceMap: false, decorator: null })
-    .replace(/\s+/g, ' ')
-    .trim();
+  return collapseCssWhitespace(
+    csstree.generate(node, { sourceMap: false, decorator: null })
+  );
 }
 
 function ruleToLine(rule) {

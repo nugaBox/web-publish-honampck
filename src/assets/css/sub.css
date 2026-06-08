@@ -151,7 +151,7 @@
 .officer-photo .photo-empty { font-size:22px; color:var(--hn-text-4) }
 .oname-n,.oname-t { white-space:nowrap }
 .oname-len2 { white-space:nowrap }
-.oname-len2 .oname-ch+.oname-ch::before { content:"\2003"; letter-spacing:-2px }
+.oname-len2 .oname-ch+.oname-ch::before { content:" "; letter-spacing:-2px }
 .oname-plain.oname-len2 { font-weight:400; color:var(--hn-text-2) }
 .sub-layout .oname,.sub-layout .g-name,.sub-layout .hpt-name,.sub-layout .pt-name,.sub-layout .btable tbody td:nth-child(2),.sub-layout .dept-table tbody td:not(.dept-name):not(.title),.sub-layout .church-table.member-table tbody td:nth-child(2),.sub-layout .district-card .d-info .r>span:not(.k),.sub-layout .dept-chief { word-break:keep-all }
 .officer-info .oname { font-size:18px; font-weight:800; letter-spacing:-0.02em; margin-bottom:4px; color:var(--hn-text) }
@@ -243,8 +243,7 @@
 .churches-page .church-member-table .col-clergy .oname-plain { font-weight:400; color:var(--hn-text-2) }
 .churches-page .church-member-table tbody td.church-group-lead { vertical-align:top }
 .churches-mobile-detail-hint__text { display:flex; flex-direction:column; gap:4px; min-width:0 }
-.churches-mobile-detail-hint__term,.churches-mobile-detail-hint__sort { display:none; color:var(--hn-text-4) }
-.churches-page:has(.tab-panel.on .churches-view.on) .churches-mobile-detail-hint__term { display:block }
+.churches-mobile-detail-hint__sort { display:none; color:var(--hn-text-4) }
 .churches-page:has(.tab-panel.on .churches-view[data-churches-view="member"].on) .churches-mobile-detail-hint__sort--member { display:block }
 .churches-page:has(.tab-panel.on .churches-view[data-churches-view="church"].on) .churches-mobile-detail-hint__sort--church { display:block }
 
@@ -341,6 +340,9 @@
 .dept-table .dept-member-group+.dept-member-group { margin-top:6px }
 .dept-table .dept-member-label { display:inline; font-weight:700; color:var(--hn-text); margin-right:6px }
 .dept-table .dept-member-list { display:inline }
+.dept-comma-list { display:inline }
+.dept-comma-item { display:inline-block; white-space:nowrap }
+.dept-comma-item:not(:last-child)::after { content:","; padding-right:0.35em }
 .dept-comma-list small.dept-comma-sub .dept-comma-sub-label::after { content:none }
 .sub-layout>section:has(.district-grid) .ptitle,.sub-layout>section:has(.dept-table) .ptitle { font-size:31px }
 .sub-layout>section:has(.district-grid) .ptitle .cnt,.sub-layout>section:has(.dept-table) .ptitle .cnt { font-size:17px }
