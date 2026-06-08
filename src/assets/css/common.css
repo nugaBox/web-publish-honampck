@@ -110,6 +110,7 @@ p { margin:0 0 1em }
 .hn-footer-main>div:nth-child(2) dl { order:2; display:grid; grid-template-columns:auto 1fr; gap:5px 17px; margin:0; font-size:16px; line-height:1.7 }
 .hn-footer-main dt { color:#7f8894; white-space:nowrap }
 .hn-footer-main dd { margin:0; color:#dfe3e9 }
+.hn-footer-main dd .footer-tel { white-space:nowrap }
 .hn-footer-main .sites { display:flex; flex-direction:column; gap:10px }
 .hn-footer-main .site-link-wrap { position:relative; width:100% }
 .hn-footer-main .site-link-btn { width:100%; display:flex; align-items:center; justify-content:space-between; background:transparent; border:1px solid #3a424c; padding:12px 18px; color:#dfe3e9; font-size:16px; font-family:inherit; cursor:pointer; text-align:left; transition:all 0.2s ease }
